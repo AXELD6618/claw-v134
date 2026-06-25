@@ -25,7 +25,7 @@ from typing import Dict, Optional
 # 配置
 # ═══════════════════════════════════════════════
 
-PUSHPLUS_API = "http://www.pushplus.plus/send"
+PUSHPLUS_API = "https://www.pushplus.plus/send"
 SERVERCHAN_API = "https://sctapi.ftqq.com/{key}.send"
 
 PUSHPLUS_TOKEN = os.environ.get("PUSHPLUS_TOKEN", "")
