@@ -1,5 +1,7 @@
 name: V13.4 T1 Midday Refresh 1130
 
+permissions:
+  contents: write
 on:
   schedule:
     - cron: "30 3 * * 1-5"
@@ -23,5 +25,6 @@ jobs:
         with:
           commit_message: "Auto: T1 Midday [skip ci]"
           file_pattern: "cloud_outputs/* cloud_state/* cloud_cache/*"
+          skip_dirty_check: true
           commit_user_name: "BifangLingxi Bot"
           commit_user_email: "bifang.lingxi@claw.ai"

@@ -1,5 +1,7 @@
 name: V13.4 Guardian Health Check
 
+permissions:
+  contents: write
 on:
   schedule:
     - cron: "*/15 * * * 1-5"
@@ -21,5 +23,6 @@ jobs:
         with:
           commit_message: "Auto: Guardian Health Check [skip ci]"
           file_pattern: "cloud_state/* cloud_outputs/*"
+          skip_dirty_check: true
           commit_user_name: "BifangLingxi Bot"
           commit_user_email: "bifang.lingxi@claw.ai"
