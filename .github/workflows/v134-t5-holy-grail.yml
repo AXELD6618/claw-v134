@@ -20,18 +20,11 @@ jobs:
         run: pip install -r requirements_cloud.txt
       - name: Run Holy Grail
         run: python cloud_pipeline.py --step=T5
-      - name: Notify T5 via PushPlus (curl debug)
+      - name: Notify T5 via PushPlus
         if: always()
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-        run: |
-          echo "=== PushPlus Debug ==="
-          echo "Token length: ${#PUSHPLUS_TOKEN}"
-          echo "First 8 chars: ${PUSHPLUS_TOKEN:0:8}"
-          curl -s -X POST https://www.pushplus.plus/send \
-            -H "Content-Type: application/json" \
-            -d "{\"token\":\"$PUSHPLUS_TOKEN\",\"title\":\"🦅 T5 圣杯信号\",\"content\":\"<h3>T5 执行完成</h3><p>请查看 holy_grail_signals.json</p>\",\"template\":\"html\"}" \
-            -w "\nHTTP:%{http_code}\n"
+        run: python cloud_notify.py --step=T5
       - name: Commit Holy Grail Signals
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
