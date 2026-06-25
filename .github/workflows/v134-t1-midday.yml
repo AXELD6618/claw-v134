@@ -1,8 +1,4 @@
-# V13.4 T1 Midday Refresh
-# Runs at 11:30 CST (03:30 UTC) Mon-Fri
-# Purpose: Midday market refresh → update candidate pool
-
-name: "V13.4 T1 午盘刷新 11:30"
+name: V13.4 T1 Midday Refresh 1130
 
 on:
   schedule:
@@ -12,26 +8,21 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
-
-      - name: Install dependencies
+      - name: Install deps
         run: pip install -r requirements_cloud.txt
-
-      - name: Run T1 Midday
+      - name: Run T1
         run: python cloud_pipeline.py --step=T1
-
       - name: Commit results
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Auto: T1 Midday Refresh [skip ci]"
+          commit_message: "Auto: T1 Midday [skip ci]"
           file_pattern: "cloud_outputs/* cloud_state/* cloud_cache/*"
           commit_user_name: "BifangLingxi Bot"
           commit_user_email: "bifang.lingxi@claw.ai"

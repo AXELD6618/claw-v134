@@ -1,8 +1,4 @@
-# V13.4 T0 Full Market Screener
-# Runs at 10:30 CST (02:30 UTC) Mon-Fri
-# Purpose: Full A-share market snapshot → establish candidate pool (top 150)
-
-name: "V13.4 T0 全市场初筛 10:30"
+name: V13.4 T0 Full Market Screener 1030
 
 on:
   schedule:
@@ -12,26 +8,21 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
-
-      - name: Install dependencies
+      - name: Install deps
         run: pip install -r requirements_cloud.txt
-
-      - name: Run T0 Screener
+      - name: Run T0
         run: python cloud_pipeline.py --step=T0
-
       - name: Commit results
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Auto: T0 Screener Results [skip ci]"
+          commit_message: "Auto: T0 Screener [skip ci]"
           file_pattern: "cloud_outputs/* cloud_state/* cloud_cache/*"
           commit_user_name: "BifangLingxi Bot"
           commit_user_email: "bifang.lingxi@claw.ai"

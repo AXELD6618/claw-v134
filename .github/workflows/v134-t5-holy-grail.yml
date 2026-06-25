@@ -1,9 +1,4 @@
-# V13.4 T5 ⚡ HOLY GRAIL ⚡
-# Runs at 14:30 CST (06:30 UTC) Mon-Fri
-# Purpose: Ultimate holy grail execution — 8-factor scoring, 4-level degradation
-# This is the CRITICAL step. All previous steps feed into this one.
-
-name: "V13.4 T5 ⚡终极圣杯 14:30"
+name: V13.4 T5 Holy Grail 1430
 
 on:
   schedule:
@@ -14,25 +9,20 @@ jobs:
   pipeline:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
-
       - name: Install dependencies
         run: pip install -r requirements_cloud.txt
-
-      - name: ⚡ Run Holy Grail
+      - name: Run Holy Grail
         run: python cloud_pipeline.py --step=T5
-
       - name: Commit Holy Grail Signals
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "⚡ Auto: T5 Holy Grail Signals [skip ci]"
+          commit_message: "Auto: T5 Holy Grail Signals [skip ci]"
           file_pattern: "cloud_outputs/* cloud_state/* cloud_cache/*"
           commit_user_name: "BifangLingxi Bot"
           commit_user_email: "bifang.lingxi@claw.ai"
