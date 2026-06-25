@@ -1,0 +1,9 @@
+# GitHub Actions workflows must stay LF
+.github/workflows/*.yml text eol=lf
+# Python files
+*.py text eol=lf
+# Script files
+*.sh text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
