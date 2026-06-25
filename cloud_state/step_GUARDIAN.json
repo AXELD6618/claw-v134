@@ -1,0 +1,1 @@
+{"step": "GUARDIAN", "timestamp": "2026-06-25T16:40:25.454797", "data": {"timestamp": "2026-06-25T16:40:23.703447", "status": "CRITICAL", "checks": {"T0": "pending", "T1": "pending", "T3": "pending", "T4": "pending", "T5": "completed", "NIGHT": "pending", "BATTLE": "pending"}, "disk_free_gb": 16.0, "network": "OK", "completion_pct": 14}}
