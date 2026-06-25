@@ -28,3 +28,8 @@ jobs:
           skip_dirty_check: true
           commit_user_name: "BifangLingxi Bot"
           commit_user_email: "bifang.lingxi@claw.ai"
+      - name: Notify Battle Plan via PushPlus
+        if: always()
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        run: python cloud_notify.py --step=BATTLE --data-file=cloud_state/step_BATTLE.json

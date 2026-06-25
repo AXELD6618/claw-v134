@@ -26,3 +26,8 @@ jobs:
           skip_dirty_check: true
           commit_user_name: "BifangLingxi Bot"
           commit_user_email: "bifang.lingxi@claw.ai"
+      - name: Notify Guardian Alert (if degraded)
+        if: always()
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        run: python cloud_notify.py --step=GUARDIAN --data-file=cloud_state/step_GUARDIAN.json
