@@ -15,7 +15,7 @@ GitHub Actions 运行完毕后，推送选股信号/告警到用户微信。
   run: python cloud_notify.py --step=T5 --data=cloud_outputs/holy_grail_signals.json
 """
 
-import os, sys, json, urllib.request, urllib.parse
+import os, sys, json, subprocess, urllib.parse
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional
@@ -33,19 +33,18 @@ SERVERCHAN_KEY = os.environ.get("SERVERCHAN_KEY", "")
 
 
 def push_pushplus(token: str, title: str, content: str, template: str = "html") -> bool:
-    """通过PushPlus推送到微信。"""
-    data = {
-        "token": token,
-        "title": title,
-        "content": content,
-        "template": template,
-    }
+    """通过PushPlus推送到微信（使用curl确保GH Actions兼容）。"""
+    payload = json.dumps({"token": token, "title": title, "content": content, "template": template})
     try:
-        body = json.dumps(data).encode("utf-8")
-        req = urllib.request.Request(PUSHPLUS_API, data=body, headers={"Content-Type": "application/json"})
-        resp = json.loads(urllib.request.urlopen(req, timeout=10).read())
+        result = subprocess.run(
+            ["curl", "-s", "-X", "POST", PUSHPLUS_API,
+             "-H", "Content-Type: application/json",
+             "-d", payload],
+            capture_output=True, text=True, timeout=15
+        )
+        resp = json.loads(result.stdout)
         success = resp.get("code") == 200
-        print(f"[PushPlus] {'OK' if success else 'FAIL'}: {resp.get('msg', '?')}")
+        print(f"[PushPlus] {'OK' if success else 'FAIL'}: {resp.get('msg', result.stdout[:200])}")
         return success
     except Exception as e:
         print(f"[PushPlus ERROR] {e}")
@@ -54,9 +53,10 @@ def push_pushplus(token: str, title: str, content: str, template: str = "html") 
 
 def push_serverchan(key: str, title: str, content: str) -> bool:
     """通过Server酱推送到微信（备用通道）。"""
+    url = f"{SERVERCHAN_API.format(key=key)}?title={urllib.parse.quote(title)}&desp={urllib.parse.quote(content)}"
     try:
-        url = f"{SERVERCHAN_API.format(key=key)}?title={urllib.parse.quote(title)}&desp={urllib.parse.quote(content)}"
-        resp = json.loads(urllib.request.urlopen(url, timeout=10).read())
+        result = subprocess.run(["curl", "-s", url], capture_output=True, text=True, timeout=15)
+        resp = json.loads(result.stdout)
         success = resp.get("code") == 0
         print(f"[Server酱] {'OK' if success else 'FAIL'}: {resp.get('message', '?')}")
         return success
