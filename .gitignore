@@ -1,0 +1,81 @@
+# ===== V13.4 Cloud-Native GitIgnore =====
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Data files (too large, generated)
+data/
+V13_0_data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Logs
+logs/
+*.log
+
+# Outputs (generated reports)
+outputs/
+*.html
+
+# Temp/Kline data
+_kline_*.json
+tdx_*_60d.json
+tdx_realtime_*.json
+tdx_candidates_*.json
+
+# Backtest artifacts
+v131_batch_*.txt
+v131_batch_*.json
+v131_holy_grail_*.txt
+v131_m46_*.json
+v131_real_*.json
+holygrail_crosslearn_*.json
+auction_*_results.json
+auction_*_data.json
+
+# System files
+.workbuddy/
+nul
+14
+@AutomationLog.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# wxauto (third-party lib)
+wxauto/
+test_wxauto_install/
+
+# Deploy artifacts
+deploy/
+
+# WeChat sync
+start_wechat_sync.bat
+stop_wechat_sync.bat
+
+# Images
+*.png
+*.jpg
+*.jpeg
+
+# Word docs
+*.docx
+
+# Python env
+venv/
+.venv/
+env/

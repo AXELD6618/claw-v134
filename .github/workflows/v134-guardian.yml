@@ -1,0 +1,37 @@
+# V13.4 System Guardian
+# Runs every 15 minutes during trading hours (09:30-15:00 CST = 01:30-07:00 UTC)
+# Purpose: Health check + auto-healing for the cloud pipeline
+
+name: "🛡️ V13.4 系统守护者"
+
+on:
+  schedule:
+    - cron: "*/15 1-7 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  guardian:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements_cloud.txt
+
+      - name: Run Guardian
+        run: python cloud_pipeline.py --step=GUARDIAN
+
+      - name: Commit health report
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🛡️ Auto: Guardian Health Check [skip ci]"
+          file_pattern: "cloud_outputs/guardian_health.json cloud_state/step_GUARDIAN.json"
+          commit_user_name: "BifangLingxi Bot"
+          commit_user_email: "bifang.lingxi@claw.ai"

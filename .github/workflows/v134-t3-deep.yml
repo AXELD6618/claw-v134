@@ -1,0 +1,37 @@
+# V13.4 T3 Deep Dive
+# Runs at 14:00 CST (06:00 UTC) Mon-Fri
+# Purpose: Narrow to 50-80 core candidates with tighter scoring
+
+name: "V13.4 T3 尾盘前深挖 14:00"
+
+on:
+  schedule:
+    - cron: "0 6 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements_cloud.txt
+
+      - name: Run T3 Deep Dive
+        run: python cloud_pipeline.py --step=T3
+
+      - name: Commit results
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto: T3 Deep Dive Results [skip ci]"
+          file_pattern: "cloud_outputs/* cloud_state/* cloud_cache/*"
+          commit_user_name: "BifangLingxi Bot"
+          commit_user_email: "bifang.lingxi@claw.ai"
