@@ -1,0 +1,11 @@
+{
+  "runs": [
+    {
+      "timestamp": "2026-06-25T14:44:28.632333",
+      "signals": 1,
+      "level": 4
+    }
+  ],
+  "total_signals": 1,
+  "degradation_level": 0
+}

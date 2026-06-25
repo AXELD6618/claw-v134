@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-06-25T14:44:28.632333",
+  "date": "20260625",
+  "degradation_level": 4,
+  "total_signals": 1,
+  "signals": [
+    {
+      "code": "000000",
+      "name": "SYSTEM_DOWN",
+      "hg_score": -1,
+      "hg_signals": [
+        "ALL_SOURCES_UNAVAILABLE"
+      ],
+      "message": "No data available at this time. System will retry next cycle."
+    }
+  ],
+  "checksum": "188589013c691077e7b180075d1a942c"
+}
