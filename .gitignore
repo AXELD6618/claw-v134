@@ -79,3 +79,6 @@ stop_wechat_sync.bat
 venv/
 .venv/
 env/
+.env
+logs/
+*.exe

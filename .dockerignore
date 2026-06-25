@@ -1,0 +1,21 @@
+# Docker ignore — keep image small
+.git
+.github
+*.md
+*.log
+*.txt
+V13_0_*
+V13_1_*
+V13_2_*
+__pycache__
+*.pyc
+node_modules
+wechat_files_sync
+V13_0_data
+cloud_cache/*
+cloud_outputs/*
+cloud_state/*
+!cloud_cache/.gitkeep
+!cloud_outputs/.gitkeep
+!cloud_state/.gitkeep
+.env

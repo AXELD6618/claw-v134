@@ -1,0 +1,49 @@
+# V13.4 Cloud — Docker Compose for VPS Deployment
+# Usage: docker-compose up -d
+version: "3.8"
+
+services:
+  v134-monitor:
+    build: .
+    container_name: v134-monitor
+    restart: unless-stopped
+    environment:
+      - PUSHPLUS_TOKEN=${PUSHPLUS_TOKEN:-}
+      - SERVERCHAN_KEY=${SERVERCHAN_KEY:-}
+      - PYTHONUNBUFFERED=1
+      - PYTHONIOENCODING=utf-8
+      - TZ=Asia/Shanghai
+      - CLOUD_MODE=docker
+    volumes:
+      # Persist data across container restarts
+      - ./cloud_outputs:/app/cloud_outputs
+      - ./cloud_cache:/app/cloud_cache
+      - ./cloud_state:/app/cloud_state
+      - ./logs:/app/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.5"
+
+  # Optional: web dashboard (static file server)
+  v134-dashboard:
+    image: nginx:alpine
+    container_name: v134-dashboard
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docs:/usr/share/nginx/html:ro
+    depends_on:
+      - v134-monitor
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "2"
