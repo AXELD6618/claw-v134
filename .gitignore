@@ -23,6 +23,9 @@ logs/
 # Outputs (generated reports)
 outputs/
 *.html
+# Exception: docs/ directory (GitHub Pages dashboard)
+!docs/
+!docs/**
 
 # Temp/Kline data
 _kline_*.json

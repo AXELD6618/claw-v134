@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毕方灵犀·天眼 V13.4 — 云端监控面板</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .header h1 {
+            font-size: 28px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: #888;
+            font-size: 14px;
+        }
+        .status-bar {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .status-chip {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .status-ok { background: rgba(46,204,113,0.2); color: #2ecc71; border: 1px solid #2ecc71; }
+        .status-warn { background: rgba(241,196,15,0.2); color: #f1c40f; border: 1px solid #f1c40f; }
+        .status-error { background: rgba(231,76,60,0.2); color: #e74c3c; border: 1px solid #e74c3c; }
+        .status-pending { background: rgba(149,165,166,0.2); color: #95a5a6; border: 1px solid #95a5a6; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .card h2 {
+            font-size: 16px;
+            color: #bbb;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card h2 .icon { font-size: 20px; }
+        .pipeline-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .pipeline-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            border-left: 3px solid #555;
+        }
+        .pipeline-step.completed { border-left-color: #2ecc71; }
+        .pipeline-step.pending { border-left-color: #555; }
+        .pipeline-step.failed { border-left-color: #e74c3c; }
+        .step-name { font-weight: 600; }
+        .step-time { color: #888; font-size: 12px; }
+        .step-status { font-size: 13px; }
+        .signals-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .signals-table th {
+            text-align: left;
+            padding: 10px 8px;
+            color: #888;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .signals-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .signals-table tr:hover { background: rgba(255,255,255,0.03); }
+        .stock-code { font-weight: 700; color: #3498db; }
+        .stock-name { color: #ecf0f1; }
+        .pct-up { color: #e74c3c; font-weight: 700; }
+        .pct-down { color: #2ecc71; font-weight: 700; }
+        .score-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .score-high { background: rgba(231,76,60,0.2); color: #e74c3c; }
+        .score-mid { background: rgba(241,196,15,0.2); color: #f1c40f; }
+        .score-low { background: rgba(149,165,166,0.2); color: #95a5a6; }
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        .refresh-info {
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+        .loading .spinner {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: #e74c3c;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .error-banner {
+            background: rgba(231,76,60,0.1);
+            border: 1px solid #e74c3c;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            color: #e74c3c;
+            text-align: center;
+            display: none;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 22px; }
+            .signals-table { font-size: 12px; }
+            .signals-table th, .signals-table td { padding: 6px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦅 毕方灵犀·天眼 V13.4</h1>
+            <div class="subtitle">云端监控面板 | Cloud Monitor Dashboard</div>
+            <div class="status-bar" id="statusBar">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <div class="error-banner" id="errorBanner"></div>
+
+        <div class="grid">
+            <!-- Pipeline Status -->
+            <div class="card">
+                <h2><span class="icon">⚙️</span> 流水线状态</h2>
+                <div class="pipeline-steps" id="pipelineSteps">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+
+            <!-- Guardian Health -->
+            <div class="card">
+                <h2><span class="icon">🛡️</span> 系统健康</h2>
+                <div id="guardianHealth">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+
+            <!-- Latest Data Source -->
+            <div class="card">
+                <h2><span class="icon">📡</span> 数据源</h2>
+                <div id="dataSource">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Holy Grail Signals -->
+        <div class="card" style="margin-bottom: 24px;">
+            <h2><span class="icon">⚡</span> 圣杯选股信号</h2>
+            <div id="signalsContainer">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <!-- Candidate Pool -->
+        <div class="card">
+            <h2><span class="icon">📋</span> 候选池</h2>
+            <div id="candidateContainer">
+                <div class="loading"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <div class="refresh-info" id="refreshInfo">
+            加载中...
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const REPO = 'AXELD6618/claw-v134';
+        const BRANCH = 'master';
+        const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/${BRANCH}`;
+        const API_BASE = `https://api.github.com/repos/${REPO}/contents`;
+        const REFRESH_INTERVAL = 60000; // 60 seconds
+
+        // Pipeline step info
+        const PIPELINE_STEPS = [
+            { key: 'T0', name: 'T0 全市场筛选', time: '10:30' },
+            { key: 'T1', name: 'T1 午盘刷新', time: '11:30' },
+            { key: 'T3', name: 'T3 深度分析', time: '14:00' },
+            { key: 'T4', name: 'T4 最终确认', time: '14:15' },
+            { key: 'T5', name: 'T5 圣杯选股', time: '14:30' },
+            { key: 'NIGHT', name: '夜间分析', time: '20:00' },
+            { key: 'BATTLE', name: '作战计划', time: '22:00' },
+            { key: 'GUARDIAN', name: '健康检查', time: '每30分钟' },
+        ];
+
+        async function fetchJSON(path) {
+            const url = `${RAW_BASE}/${path}?t=${Date.now()}`;
+            const resp = await fetch(url);
+            if (!resp.ok) return null;
+            return resp.json();
+        }
+
+        function formatTime(iso) {
+            if (!iso) return '--';
+            const d = new Date(iso);
+            return d.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+
+        function formatDate(iso) {
+            if (!iso) return '--';
+            const d = new Date(iso);
+            return d.toLocaleDateString('zh-CN');
+        }
+
+        function pctClass(pct) {
+            if (pct > 0) return 'pct-up';
+            if (pct < 0) return 'pct-down';
+            return '';
+        }
+
+        function scoreClass(score) {
+            if (score >= 0.6) return 'score-high';
+            if (score >= 0.4) return 'score-mid';
+            return 'score-low';
+        }
+
+        async function loadGuardian() {
+            const data = await fetchJSON('cloud_outputs/guardian_health.json');
+            const container = document.getElementById('guardianHealth');
+
+            if (!data) {
+                container.innerHTML = '<div class="empty-state">暂无健康检查数据</div>';
+                return { status: 'unknown' };
+            }
+
+            const statusClass = data.status === 'OK' ? 'status-ok' :
+                               data.status === 'DEGRADED' ? 'status-warn' : 'status-error';
+
+            let html = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                    <span class="status-chip ${statusClass}">${data.status}</span>
+                    <span class="step-time">完成率: ${data.completion_pct || 0}%</span>
+                </div>
+                <div style="font-size:12px;color:#888;margin-bottom:8px">
+                    网络: ${data.network || '?'} | 磁盘: ${data.disk_free_gb || '?'}GB
+                </div>
+            `;
+
+            container.innerHTML = html;
+            return data;
+        }
+
+        async function loadPipeline() {
+            const container = document.getElementById('pipelineSteps');
+            const steps = [];
+
+            for (const step of PIPELINE_STEPS) {
+                const state = await fetchJSON(`cloud_state/step_${step.key}.json`);
+                if (state && state.data) {
+                    steps.push({
+                        ...step,
+                        status: 'completed',
+                        timestamp: state.timestamp,
+                        hasError: state.data.error ? true : false,
+                    });
+                } else {
+                    steps.push({ ...step, status: 'pending' });
+                }
+            }
+
+            container.innerHTML = steps.map(s => {
+                const statusClass = s.status === 'completed' ? (s.hasError ? 'failed' : 'completed') : 'pending';
+                const statusIcon = s.status === 'completed' ? (s.hasError ? '❌' : '✅') : '⏳';
+                const time = s.timestamp ? formatTime(s.timestamp) : s.time;
+                return `
+                    <div class="pipeline-step ${statusClass}">
+                        <div>
+                            <div class="step-name">${s.name}</div>
+                            <div class="step-time">${time}</div>
+                        </div>
+                        <div class="step-status">${statusIcon} ${s.status === 'completed' ? '已完成' : '等待中'}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function loadSignals() {
+            const data = await fetchJSON('cloud_outputs/holy_grail_signals.json');
+            const container = document.getElementById('signalsContainer');
+
+            if (!data) {
+                container.innerHTML = '<div class="empty-state">暂无圣杯信号数据</div>';
+                return;
+            }
+
+            const signals = data.signals || [];
+
+            if (signals.length === 0 || (signals.length === 1 && signals[0].code === '000000')) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <p>⚠️ ${signals[0]?.message || '今日无圣杯信号'}</p>
+                        <p style="margin-top:8px">降级级别: ${data.degradation_level || '?'}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = `
+                <div style="margin-bottom:12px;color:#888;font-size:13px">
+                    日期: ${data.date} | 信号数: ${data.total_signals} | 降级级别: L${data.degradation_level}
+                </div>
+                <table class="signals-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>代码</th>
+                            <th>名称</th>
+                            <th>评分</th>
+                            <th>涨幅%</th>
+                            <th>信号</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            signals.slice(0, 20).forEach((s, i) => {
+                const pct = s.pct_chg || 0;
+                const score = s.hg_score || 0;
+                const sigs = (s.hg_signals || []).slice(0, 3).join(', ');
+                html += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td class="stock-code">${s.code || '?'}</td>
+                        <td class="stock-name">${s.name || '?'}</td>
+                        <td><span class="score-badge ${scoreClass(score)}">${score.toFixed(3)}</span></td>
+                        <td class="${pctClass(pct)}">${pct.toFixed(2)}%</td>
+                        <td style="font-size:11px;color:#888">${sigs}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+
+        async function loadCandidates() {
+            const data = await fetchJSON('cloud_outputs/candidate_pool_latest.json');
+            const container = document.getElementById('candidateContainer');
+
+            if (!data || !data.stocks || data.stocks.length === 0) {
+                container.innerHTML = '<div class="empty-state">暂无候选池数据</div>';
+                return;
+            }
+
+            let html = `
+                <div style="margin-bottom:12px;color:#888;font-size:13px">
+                    更新: ${formatTime(data.timestamp)} | 候选数: ${data.count} | 最低分: ${data.min_score}
+                </div>
+                <table class="signals-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>代码</th>
+                            <th>名称</th>
+                            <th>评分</th>
+                            <th>涨幅%</th>
+                            <th>换手%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            data.stocks.slice(0, 15).forEach((s, i) => {
+                const pct = s.pct_chg || 0;
+                const turnover = s.turnover || 0;
+                html += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td class="stock-code">${s.code || '?'}</td>
+                        <td class="stock-name">${s.name || '?'}</td>
+                        <td>${s.cloud_score || 0}</td>
+                        <td class="${pctClass(pct)}">${pct.toFixed(2)}%</td>
+                        <td>${turnover.toFixed(2)}%</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+
+        async function loadDataSource() {
+            const container = document.getElementById('dataSource');
+            const data = await fetchJSON('cloud_cache/pipeline_full_latest.json');
+
+            if (!data) {
+                container.innerHTML = '<div class="empty-state">暂无数据源信息</div>';
+                return;
+            }
+
+            const snapshot = data.snapshot || {};
+            const source = snapshot.source || 'unknown';
+            const stockCount = (snapshot.stocks || []).length;
+            const totalCount = snapshot.total_count || 0;
+
+            const sourceClass = source.includes('eastmoney') ? 'status-ok' :
+                               source.includes('akshare') ? 'status-ok' :
+                               source.includes('cache') ? 'status-warn' : 'status-error';
+
+            container.innerHTML = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                    <span class="status-chip ${sourceClass}">${source}</span>
+                </div>
+                <div style="font-size:13px;color:#ccc;margin-bottom:6px">
+                    获取股票: <b>${stockCount}</b> / ${totalCount}
+                </div>
+                <div style="font-size:12px;color:#888">
+                    更新: ${formatTime(data.timestamp)}
+                </div>
+            `;
+        }
+
+        async function updateStatusBar(guardian) {
+            const bar = document.getElementById('statusBar');
+            const now = new Date();
+            const cstTime = now.toLocaleTimeString('zh-CN', { timeZone: 'Asia/Shanghai' });
+            const isWeekday = now.getDay() >= 1 && now.getDay() <= 5;
+            const hour = parseInt(cstTime.split(':')[0]);
+
+            let trading = '非交易时段';
+            if (isWeekday) {
+                if (hour >= 9 && hour < 12) trading = '早盘交易中';
+                else if (hour >= 13 && hour < 15) trading = '午盘交易中';
+            } else {
+                trading = '周末休市';
+            }
+
+            const guardianStatus = guardian.status === 'OK' ? 'status-ok' :
+                                   guardian.status === 'DEGRADED' ? 'status-warn' :
+                                   guardian.status === 'CRITICAL' ? 'status-error' : 'status-pending';
+
+            bar.innerHTML = `
+                <span class="status-chip ${isWeekday && ((hour >= 9 && hour < 12) || (hour >= 13 && hour < 15)) ? 'status-ok' : 'status-pending'}">${trading}</span>
+                <span class="status-chip ${guardianStatus}">系统: ${guardian.status || '未知'}</span>
+                <span class="status-chip status-pending">CST: ${cstTime}</span>
+            `;
+        }
+
+        async function refresh() {
+            const errorBanner = document.getElementById('errorBanner');
+            errorBanner.style.display = 'none';
+
+            try {
+                const guardian = await loadGuardian();
+                await Promise.all([
+                    loadPipeline(),
+                    loadSignals(),
+                    loadCandidates(),
+                    loadDataSource(),
+                    updateStatusBar(guardian),
+                ]);
+
+                document.getElementById('refreshInfo').textContent =
+                    `最后刷新: ${new Date().toLocaleTimeString('zh-CN')} | 每60秒自动刷新`;
+            } catch (e) {
+                errorBanner.textContent = `数据加载失败: ${e.message}`;
+                errorBanner.style.display = 'block';
+                document.getElementById('refreshInfo').textContent =
+                    `加载失败，将在60秒后重试...`;
+            }
+        }
+
+        // Initial load
+        refresh();
+
+        // Auto-refresh
+        setInterval(refresh, REFRESH_INTERVAL);
+    </script>
+</body>
+</html>

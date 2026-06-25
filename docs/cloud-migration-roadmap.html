@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毕方灵犀·天眼 V13.4 — 整体系统完全云化路线图</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .subtitle { text-align: center; color: #888; margin-bottom: 40px; }
+        .section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .section h2 {
+            color: #f39c12;
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .layer {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid #555;
+        }
+        .layer.done { border-left-color: #2ecc71; }
+        .layer.active { border-left-color: #f39c12; }
+        .layer.planned { border-left-color: #3498db; }
+        .layer h3 { font-size: 16px; margin-bottom: 8px; }
+        .layer .status {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+        .status-done { background: rgba(46,204,113,0.2); color: #2ecc71; }
+        .status-active { background: rgba(241,196,15,0.2); color: #f1c40f; }
+        .status-planned { background: rgba(52,152,219,0.2); color: #3498db; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { color: #888; font-size: 13px; }
+        td { font-size: 14px; }
+        .highlight { color: #e74c3c; font-weight: 700; }
+        .green { color: #2ecc71; font-weight: 700; }
+        .yellow { color: #f1c40f; font-weight: 700; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        .code {
+            background: rgba(0,0,0,0.3);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #2ecc71;
+            margin: 12px 0;
+            overflow-x: auto;
+        }
+        .cost-table td:nth-child(2) { color: #f39c12; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦅 毕方灵犀·天眼 V13.4</h1>
+        <p class="subtitle">整体系统完全云化路线图 | Complete Cloud Migration Roadmap</p>
+        <p class="subtitle">2026-06-26 | 自动生成</p>
+
+        <div class="section">
+            <h2>📊 当前系统状态</h2>
+            <table>
+                <tr><th>组件</th><th>状态</th><th>说明</th></tr>
+                <tr><td>GitHub Actions 工作流</td><td class="green">✅ 已完成</td><td>8个定时工作流全部运行</td></tr>
+                <tr><td>东方财富数据源</td><td class="green">✅ 已修复</td><td>直连API，支持任意IP</td></tr>
+                <tr><td>PushPlus 微信推送</td><td class="green">✅ 已修复</td><td>UTF-8编码，无乱码</td></tr>
+                <tr><td>GitHub Secret</td><td class="green">✅ 已配置</td><td>PUSHPLUS_TOKEN 已加密存储</td></tr>
+                <tr><td>GitHub Pages 面板</td><td class="yellow">⚡ 已创建</td><td>需在仓库设置中启用 Pages</td></tr>
+                <tr><td>Docker 部署包</td><td class="yellow">⚡ 已创建</td><td>Dockerfile + docker-compose</td></tr>
+                <tr><td>VPS 部署脚本</td><td class="yellow">⚡ 已创建</td><td>一键安装脚本 + systemd</td></tr>
+                <tr><td>实时监控守护</td><td class="yellow">⚡ 已创建</td><td>cloud_monitor.py 守护进程</td></tr>
+                <tr><td>VPS 云服务器</td><td>⬜ 待选购</td><td>需用户购买并部署</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🏗️ 三层云端架构</h2>
+
+            <div class="layer done">
+                <h3>Layer 1: GitHub Actions 定时流水线 <span class="status status-done">已完成</span></h3>
+                <ul>
+                    <li><b>成本:</b> 免费（公共仓库无限制）</li>
+                    <li><b>功能:</b> 8个定时工作流，覆盖全交易日</li>
+                    <li><b>数据源:</b> 东方财富直连API（已修复美国IP限制问题）</li>
+                    <li><b>推送:</b> PushPlus 微信推送（UTF-8编码修复）</li>
+                    <li><b>运行时间:</b> 24/7，电脑关机也运行</li>
+                </ul>
+                <p><b>工作时间线 (CST):</b></p>
+                <table>
+                    <tr><th>时间</th><th>步骤</th><th>功能</th></tr>
+                    <tr><td>10:30</td><td>T0</td><td>全市场筛选 → 候选池</td></tr>
+                    <tr><td>11:30</td><td>T1</td><td>午盘刷新 → 更新候选</td></tr>
+                    <tr><td>14:00</td><td>T3</td><td>深度分析 → 缩减至50-80只</td></tr>
+                    <tr><td>14:15</td><td>T4</td><td>最终确认 → 15-30只</td></tr>
+                    <tr><td>14:30</td><td>T5</td><td>⚡ 圣杯选股 → 推送微信</td></tr>
+                    <tr><td>20:00</td><td>NIGHT</td><td>夜间复盘分析</td></tr>
+                    <tr><td>22:00</td><td>BATTLE</td><td>明日作战计划</td></tr>
+                    <tr><td>每小时</td><td>GUARDIAN</td><td>系统健康检查</td></tr>
+                </table>
+            </div>
+
+            <div class="layer active">
+                <h3>Layer 2: GitHub Pages 监控面板 <span class="status status-active">已创建待启用</span></h3>
+                <ul>
+                    <li><b>成本:</b> 免费</li>
+                    <li><b>功能:</b> 实时展示系统状态、圣杯信号、候选池、流水线健康</li>
+                    <li><b>访问地址:</b> https://axeld6618.github.io/claw-v134/</li>
+                    <li><b>启用方法:</b></li>
+                </ul>
+                <div class="code">
+1. 打开 https://github.com/AXELD6618/claw-v134/settings/pages
+2. Source → Deploy from a branch
+3. Branch → master / Folder → /docs
+4. 点击 Save
+5. 等待2-3分钟，访问 https://axeld6618.github.io/claw-v134/
+                </div>
+            </div>
+
+            <div class="layer planned">
+                <h3>Layer 3: VPS Docker 实时监控 <span class="status status-planned">部署包已就绪</span></h3>
+                <ul>
+                    <li><b>功能:</b> 24/7实时监控，交易时段每60秒刷新数据</li>
+                    <li><b>优势:</b> 比GitHub Actions更实时，可运行完整V13.4系统</li>
+                    <li><b>部署方式:</b> Docker一键部署</li>
+                    <li><b>自动更新:</b> 每日凌晨4点自动拉取最新代码</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💰 云服务器选型推荐</h2>
+            <table class="cost-table">
+                <tr><th>方案</th><th>月费</th><th>CPU/内存</th><th>带宽</th><th>适用场景</th></tr>
+                <tr><td>腾讯云轻量2C2G</td><td>¥50-65</td><td>2核 2GB</td><td>4Mbps</td><td>✅ 推荐 — 性价比最高</td></tr>
+                <tr><td>阿里云ECS 2C2G</td><td>¥60-80</td><td>2核 2GB</td><td>3Mbps</td><td>✅ 可选 — 生态完善</td></tr>
+                <tr><td>华为云 2C2G</td><td>¥45-60</td><td>2核 2GB</td><td>3Mbps</td><td>✅ 可选 — 新用户优惠</td></tr>
+                <tr><td>腾讯云4C4G</td><td>¥150-200</td><td>4核 4GB</td><td>6Mbps</td><td>⬆️ 升级 — 支持更多模块</td></tr>
+                <tr><td>Oracle免费</td><td>¥0</td><td>4核 24GB</td><td>—</td><td>⚠️ 海外IP，延迟高</td></tr>
+            </table>
+            <p style="margin-top:12px"><b>💡 推荐:</b> 腾讯云轻量服务器 2C2G，¥50-65/月，性价比最高，国内访问延迟低。</p>
+            <p><b>购买地址:</b> <a href="https://cloud.tencent.com/product/lighthouse" style="color:#3498db">cloud.tencent.com/product/lighthouse</a></p>
+        </div>
+
+        <div class="section">
+            <h2>🚀 VPS 一键部署步骤</h2>
+            <p>购买云服务器后，SSH登录执行以下命令即可完成部署：</p>
+            <div class="code">
+# 1. SSH 登录服务器
+ssh root@你的服务器IP
+
+# 2. 一键部署（自动安装Docker + 克隆仓库 + 启动容器）
+curl -sSL https://raw.githubusercontent.com/AXELD6618/claw-v134/master/deploy/install.sh | bash
+
+# 3. 查看运行状态
+cd /opt/v134-cloud
+docker compose ps
+docker compose logs -f
+
+# 4. 访问监控面板
+# http://你的服务器IP:8080
+            </div>
+            <p style="margin-top:12px"><b>部署后系统将自动:</b></p>
+            <ul>
+                <li>✅ 每个交易日 10:30-14:30 自动运行T0-T5选股流水线</li>
+                <li>✅ 交易时段每60秒刷新市场数据</li>
+                <li>✅ 14:30圣杯选股结果自动推送到微信</li>
+                <li>✅ 每日凌晨4点自动更新代码</li>
+                <li>✅ 7天日志自动轮转</li>
+                <li>✅ 容器异常自动重启</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 圣杯目标实现路径</h2>
+            <table>
+                <tr><th>阶段</th><th>目标</th><th>当前状态</th><th>关键指标</th></tr>
+                <tr><td>阶段1</td><td>云端持续运行</td><td class="green">✅ 已达成</td><td>电脑关机也运行</td></tr>
+                <tr><td>阶段2</td><td>数据实时获取</td><td class="green">✅ 已达成</td><td>东方财富API 5534只</td></tr>
+                <tr><td>阶段3</td><td>微信推送到达</td><td class="green">✅ 已达成</td><td>UTF-8无乱码</td></tr>
+                <tr><td>阶段4</td><td>圣杯选股信号</td><td class="yellow">⚡ 待验证</td><td>T5 14:30推送</td></tr>
+                <tr><td>阶段5</td><td>T日买入 → T+1上涨</td><td class="yellow">⚡ 待实战</td><td>下一交易日验证</td></tr>
+                <tr><td>阶段6</td><td>连续上涨趋势</td><td>⬜ 长期目标</td><td>胜率>60%</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>📋 用户需要完成的操作</h2>
+            <ul>
+                <li><b>1. 启用 GitHub Pages:</b> 仓库 Settings → Pages → Branch: master / /docs → Save</li>
+                <li><b>2. 购买云服务器:</b> 推荐腾讯云轻量 2C2G（¥50-65/月）</li>
+                <li><b>3. SSH 部署:</b> 执行一键部署脚本 <code>curl -sSL .../install.sh | bash</code></li>
+                <li><b>4. 验证微信推送:</b> 下一交易日14:30检查手机是否收到圣杯信号</li>
+            </ul>
+            <p style="margin-top:16px;color:#888;font-size:13px">
+                其余所有工作（代码开发、数据源修复、推送编码、Docker打包、部署脚本、监控面板）已全部由毕方灵犀貔貅助手自主完成。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
