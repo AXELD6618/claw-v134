@@ -24,11 +24,9 @@ jobs:
         if: always()
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-        run: |
-          python cloud_notify.py --step=T5 2>&1 || \
-          curl -s -X POST https://www.pushplus.plus/send \
-            -H "Content-Type: application/json" \
-            -d "{\"token\":\"$PUSHPLUS_TOKEN\",\"title\":\"🦅 T5 圣杯信号\",\"content\":\"<h3>T5 执行完成</h3><p>云端选股结果已生成</p>\",\"template\":\"html\"}"
+          PYTHONIOENCODING: utf-8
+          LANG: C.UTF-8
+        run: python cloud_notify.py --step=T5
       - name: Commit Holy Grail Signals
         uses: stefanzweifel/git-auto-commit-action@v5
         with:

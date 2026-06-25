@@ -12,10 +12,10 @@ GitHub Actions 运行完毕后，推送选股信号/告警到用户微信。
   env:
     PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
     SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}  # 可选备用
-  run: python cloud_notify.py --step=T5 --data=cloud_outputs/holy_grail_signals.json
+  run: python cloud_notify.py --step=T5 --data-file=cloud_outputs/holy_grail_signals.json
 """
 
-import os, sys, json, subprocess, urllib.parse
+import os, sys, json, tempfile, subprocess, urllib.request, urllib.error
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional
@@ -33,33 +33,77 @@ SERVERCHAN_KEY = os.environ.get("SERVERCHAN_KEY", "")
 
 
 def push_pushplus(token: str, title: str, content: str, template: str = "html") -> bool:
-    """通过PushPlus推送到微信（使用curl确保GH Actions兼容）。"""
-    payload = json.dumps({"token": token, "title": title, "content": content, "template": template})
+    """通过PushPlus推送到微信（urllib优先，curl @file fallback）。"""
+    payload = json.dumps({
+        "token": token,
+        "title": title,
+        "content": content,
+        "template": template
+    }, ensure_ascii=False).encode("utf-8")
+
+    # ---- 方法1: urllib (原生 UTF-8) ----
     try:
-        result = subprocess.run(
-            ["curl", "-s", "-X", "POST", PUSHPLUS_API,
-             "-H", "Content-Type: application/json",
-             "-d", payload],
-            capture_output=True, text=True, timeout=15
+        req = urllib.request.Request(
+            PUSHPLUS_API,
+            data=payload,
+            headers={
+                "Content-Type": "application/json; charset=utf-8",
+                "Accept": "application/json; charset=utf-8",
+            },
+            method="POST",
         )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            body = resp.read().decode("utf-8")
+            result = json.loads(body)
+            success = result.get("code") == 200
+            print(f"[PushPlus urllib] {'OK' if success else 'FAIL'}: {result.get('msg', body[:200])}")
+            if success:
+                return True
+    except Exception as e:
+        print(f"[PushPlus urllib ERROR] {e}")
+
+    # ---- 方法2: curl @file (避免 shell 编码问题) ----
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="wb", suffix=".json", delete=False
+        ) as f:
+            f.write(payload)
+            tmpfile = f.name
+
+        result = subprocess.run(
+            [
+                "curl", "-s", "-X", "POST", PUSHPLUS_API,
+                "-H", "Content-Type: application/json; charset=utf-8",
+                "-d", f"@{tmpfile}",
+            ],
+            capture_output=True, text=True, timeout=15,
+        )
+        os.unlink(tmpfile)
+
         resp = json.loads(result.stdout)
         success = resp.get("code") == 200
-        print(f"[PushPlus] {'OK' if success else 'FAIL'}: {resp.get('msg', result.stdout[:200])}")
+        print(f"[PushPlus curl@file] {'OK' if success else 'FAIL'}: {resp.get('msg', result.stdout[:200])}")
         return success
     except Exception as e:
-        print(f"[PushPlus ERROR] {e}")
+        print(f"[PushPlus curl@file ERROR] {e}")
         return False
 
 
 def push_serverchan(key: str, title: str, content: str) -> bool:
     """通过Server酱推送到微信（备用通道）。"""
-    url = f"{SERVERCHAN_API.format(key=key)}?title={urllib.parse.quote(title)}&desp={urllib.parse.quote(content)}"
+    data = urllib.parse.urlencode({
+        "title": title,
+        "desp": content,
+    }).encode("utf-8")
+    url = SERVERCHAN_API.format(key=key)
     try:
-        result = subprocess.run(["curl", "-s", url], capture_output=True, text=True, timeout=15)
-        resp = json.loads(result.stdout)
-        success = resp.get("code") == 0
-        print(f"[Server酱] {'OK' if success else 'FAIL'}: {resp.get('message', '?')}")
-        return success
+        req = urllib.request.Request(url, data=data, method="POST")
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            body = resp.read().decode("utf-8")
+            result = json.loads(body)
+            success = result.get("code") == 0
+            print(f"[Server酱] {'OK' if success else 'FAIL'}: {result.get('message', '?')}")
+            return success
     except Exception as e:
         print(f"[Server酱 ERROR] {e}")
         return False
@@ -213,14 +257,57 @@ def format_guardian_alert(data: Dict) -> str:
     return "\n".join(lines)
 
 
+def format_generic_notification(step: str, data: Dict) -> str:
+    """通用步骤通知（T0/T1/T3/NIGHT等）。"""
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    step_names = {
+        "T0": "T0 全市场筛选",
+        "T1": "T1 午盘刷新",
+        "T3": "T3 深度分析",
+        "NIGHT": "夜间分析",
+    }
+    name = step_names.get(step, step)
+
+    lines = [
+        f"<h2>{ICON} V13.4 {name}</h2>",
+        f"<p><b>时间：</b>{now}</p>",
+        "<hr/>",
+    ]
+
+    if data:
+        status = data.get("status", "unknown")
+        count = data.get("count", data.get("total", 0))
+        lines.append(f"<p><b>状态：</b>{'✅ 完成' if status == 'success' or status == 'ok' else status}</p>")
+
+        if count:
+            lines.append(f"<p><b>筛选数量：</b>{count}</p>")
+
+        # Show top items if available
+        items = data.get("list", data.get("results", data.get("signals", [])))
+        if isinstance(items, list) and items:
+            lines.append("<h3>📋 部分结果</h3><ul>")
+            for item in items[:5]:
+                code = item.get("code", "?")
+                sname = item.get("name", "?")
+                score = item.get("score", "?")
+                lines.append(f"<li><b>{code}</b> {sname} — 评分: {score}</li>")
+            lines.append("</ul>")
+
+    lines.append(f"<p style='color:#888;font-size:12px'>毕方灵犀·天眼 V13.4 云端自动运行</p>")
+    return "\n".join(lines)
+
+
 # ═══════════════════════════════════════════════
 # 入口
 # ═══════════════════════════════════════════════
 
 if __name__ == "__main__":
     import argparse
+    import urllib.parse  # needed for push_serverchan
+
     ap = argparse.ArgumentParser(description="V13.4 Cloud Notifier")
-    ap.add_argument("--step", required=True, choices=["T4", "T5", "GUARDIAN", "TEST", "BATTLE"],
+    ap.add_argument("--step", required=True,
+                    choices=["T0", "T1", "T3", "T4", "T5", "GUARDIAN", "TEST", "BATTLE", "NIGHT"],
                     help="Pipeline step to notify about")
     ap.add_argument("--data-file", default=None, help="JSON file with step output")
     ap.add_argument("--message", default=None, help="Direct message (for TEST)")
@@ -274,6 +361,17 @@ if __name__ == "__main__":
         if not content:
             print("[GUARDIAN] Status OK, skipping push.")
             sys.exit(0)
+
+    else:
+        # T0, T1, T3, NIGHT — generic notification
+        step_names = {
+            "T0": "T0 全市场筛选完成",
+            "T1": "T1 午盘刷新完成",
+            "T3": "T3 深度分析完成",
+            "NIGHT": "夜间分析完成",
+        }
+        title = f"{ICON} V13.4 {step_names.get(args.step, args.step)}"
+        content = format_generic_notification(args.step, data)
 
     print(f"\n{'='*50}")
     print(f"  PUSH: {args.step}")
