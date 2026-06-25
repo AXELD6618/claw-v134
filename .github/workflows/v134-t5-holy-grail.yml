@@ -20,6 +20,15 @@ jobs:
         run: pip install -r requirements_cloud.txt
       - name: Run Holy Grail
         run: python cloud_pipeline.py --step=T5
+      - name: Notify T5 Holy Grail via PushPlus
+        if: always()
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        run: |
+          echo "=== Debug ==="
+          ls -la cloud_notify.py cloud_outputs/ 2>&1
+          echo "=== Running notifier ==="
+          python cloud_notify.py --step=T5
       - name: Commit Holy Grail Signals
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -28,8 +37,3 @@ jobs:
           skip_dirty_check: true
           commit_user_name: "BifangLingxi Bot"
           commit_user_email: "bifang.lingxi@claw.ai"
-      - name: Notify T5 Holy Grail via PushPlus
-        if: always()
-        env:
-          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-        run: python cloud_notify.py --step=T5
