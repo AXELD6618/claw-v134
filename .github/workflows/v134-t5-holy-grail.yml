@@ -32,4 +32,9 @@ jobs:
         if: always()
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-        run: python cloud_notify.py --step=T5
+        run: |
+          echo "=== PushPlus Notification Test ==="
+          echo "Token length: ${#PUSHPLUS_TOKEN}"
+          curl -v -X POST https://www.pushplus.plus/send \
+            -H "Content-Type: application/json" \
+            -d "{\"token\":\"$PUSHPLUS_TOKEN\",\"title\":\"🦅 V13.4 圣杯执行完成\",\"content\":\"<h3>T5 Holy Grail 流水线已执行</h3><p>请查看 cloud_outputs/holy_grail_signals.json</p>\",\"template\":\"html\"}" 2>&1
