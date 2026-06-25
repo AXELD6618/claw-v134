@@ -24,8 +24,13 @@
       "timestamp": "2026-06-25T15:04:28.617111",
       "signals": 1,
       "level": 4
+    },
+    {
+      "timestamp": "2026-06-25T15:46:02.948163",
+      "signals": 1,
+      "level": 4
     }
   ],
-  "total_signals": 5,
+  "total_signals": 6,
   "degradation_level": 0
 }
