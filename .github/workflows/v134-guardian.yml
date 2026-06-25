@@ -17,15 +17,18 @@ jobs:
         with:
           python-version: "3.11"
       - name: Run Guardian
+        env:
+          PYTHONIOENCODING: utf-8
+          LANG: C.UTF-8
         run: python cloud_pipeline.py --step=GUARDIAN
       - name: Commit status
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Auto: Guardian Health Check [skip ci]"
-          file_pattern: "cloud_state/* cloud_outputs/*"
-          skip_dirty_check: true
-          commit_user_name: "BifangLingxi Bot"
-          commit_user_email: "bifang.lingxi@claw.ai"
+        continue-on-error: true
+        run: |
+          git config user.name "BifangLingxi Bot"
+          git config user.email "bifang.lingxi@claw.ai"
+          git add cloud_outputs/ cloud_state/ cloud_cache/ 2>/dev/null || true
+          git commit -m "Auto: Guardian Health Check [skip ci]" 2>/dev/null || echo "No changes to commit"
+          git push 2>/dev/null || echo "Push skipped"
       - name: Notify Guardian Alert (if degraded)
         if: always()
         env:

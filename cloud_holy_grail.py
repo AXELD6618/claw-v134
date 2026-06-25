@@ -251,20 +251,19 @@ class HolyGrailEngine:
         return stock
 
     def run_level_1_full(self) -> List[Dict]:
-        """Level 1: Full akshare + candidate pool scoring."""
-        print("[HG:L1] Running full akshare pipeline...")
+        """Level 1: Full data pipeline + candidate pool scoring."""
+        print("[HG:L1] Running full data pipeline...")
 
-        # Try to refresh data
+        # Always try data fetcher — it has multi-source fallback (Eastmoney > akshare > cache)
         refresh_success = False
-        if HAS_AKSHARE:
-            try:
-                import cloud_data_fetcher as cdf
-                data = cdf.fetch_full_pipeline_data()
-                candidates = cdf.export_candidate_pool(data, min_score=4, top_n=100)
-                refresh_success = True
-                print(f"[HG:L1] Fresh data: {len(candidates)} candidates")
-            except Exception as e:
-                print(f"[HG:L1] Refresh failed: {e}")
+        try:
+            import cloud_data_fetcher as cdf
+            data = cdf.fetch_full_pipeline_data()
+            candidates = cdf.export_candidate_pool(data, min_score=4, top_n=100)
+            refresh_success = True
+            print(f"[HG:L1] Fresh data: {len(candidates)} candidates (source={data.get('snapshot',{}).get('source','?')})")
+        except Exception as e:
+            print(f"[HG:L1] Refresh failed: {e}")
 
         if not refresh_success:
             candidates = self.load_candidates()
