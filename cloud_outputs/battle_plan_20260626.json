@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-06-26T16:14:06.842161",
+  "date": "20260626",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000100",
+      "name": "TCL科技",
+      "score": 0.57
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.528
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.5
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.47
+    },
+    {
+      "code": "000404",
+      "name": "长虹华意",
+      "score": 0.47
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 5,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
