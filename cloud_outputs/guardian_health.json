@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-06-26T05:08:24.377457",
-  "status": "CRITICAL",
+  "timestamp": "2026-06-26T06:52:25.744116",
+  "status": "DEGRADED",
   "checks": {
-    "T0": "pending",
+    "T0": "completed",
     "T1": "pending",
     "T3": "pending",
     "T4": "pending",
@@ -10,7 +10,7 @@
     "NIGHT": "pending",
     "BATTLE": "pending"
   },
-  "disk_free_gb": 88.2,
+  "disk_free_gb": 88.5,
   "network": "OK",
-  "completion_pct": 14
+  "completion_pct": 29
 }
