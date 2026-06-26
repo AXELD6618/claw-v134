@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-26T12:30:39.392191",
+  "timestamp": "2026-06-26T15:16:21.418407",
   "status": "OK",
   "checks": {
     "T0": "completed",
@@ -7,10 +7,10 @@
     "T3": "completed",
     "T4": "completed",
     "T5": "completed",
-    "NIGHT": "pending",
+    "NIGHT": "completed",
     "BATTLE": "pending"
   },
   "disk_free_gb": 88.5,
   "network": "OK",
-  "completion_pct": 71
+  "completion_pct": 86
 }
