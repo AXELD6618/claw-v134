@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-06-26T13:56:49.920865",
+  "steps_ran": [
+    "T0",
+    "T1",
+    "T3",
+    "T4"
+  ],
+  "t5_result": {
+    "level": 1,
+    "signals": 5,
+    "elapsed": 15.692683219909668,
+    "file": "/home/runner/work/claw-v134/claw-v134/cloud_outputs/holy_grail_signals.json"
+  }
+}
