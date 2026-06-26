@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-26T02:53:13.134994",
+  "timestamp": "2026-06-26T05:08:24.377457",
   "status": "CRITICAL",
   "checks": {
     "T0": "pending",
@@ -10,7 +10,7 @@
     "NIGHT": "pending",
     "BATTLE": "pending"
   },
-  "disk_free_gb": 88.5,
+  "disk_free_gb": 88.2,
   "network": "OK",
   "completion_pct": 14
 }
