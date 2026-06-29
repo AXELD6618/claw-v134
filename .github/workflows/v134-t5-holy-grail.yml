@@ -29,7 +29,7 @@ jobs:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           PYTHONIOENCODING: utf-8
           LANG: C.UTF-8
-        run: python cloud_notify.py --step=T5
+        run: python cloud_notify.py --step=T5 --data-file=cloud_outputs/holy_grail_signals.json
       - name: Commit Results
         continue-on-error: true
         run: |
