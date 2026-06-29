@@ -37,4 +37,4 @@ jobs:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           PYTHONIOENCODING: utf-8
           LANG: C.UTF-8
-        run: python cloud_notify.py --step=T3 --data-file=cloud_state/step_T3.json
+        run: python cloud_notify.py --step=T3 --data-file=cloud_state/step_T3.json --format=plain
