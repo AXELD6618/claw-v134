@@ -1,0 +1,28 @@
+{
+  "step_id": "22:00_battle_plan",
+  "timestamp": "2026-06-25T21:58:39",
+  "result": {
+    "step_id": "22:00_battle_plan",
+    "status": "success",
+    "started_at": "2026-06-25T21:58:39",
+    "completed_at": "2026-06-25T21:58:39",
+    "duration_ms": 1500,
+    "output_file": "E:\\WorkBuddy_dot_workbuddy\\Claw\\outputs\\battle_plan_20260626.json",
+    "data_source": "v134-battle-plan skill",
+    "summary": {
+      "t1_review": {
+        "buy_hits": 7,
+        "watch_hits": 1,
+        "avoid_hits": 18,
+        "hold_hits": 4,
+        "avg_buy": "+3.54%",
+        "avg_avoid": "-7.16%"
+      },
+      "next_day_candidates": 8,
+      "hg_watchlist": 10,
+      "holdings_count": 3,
+      "ic": -0.3174573104801154,
+      "note": "22:00作战计划已生成 — T+1复盘+持仓评估+候选池+明日预案+M70夜训"
+    }
+  }
+}

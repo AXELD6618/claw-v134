@@ -1,0 +1,719 @@
+[
+  {
+    "timestamp": "2026-06-25T13:59:16.571151",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 10:30_T0_screen', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "非交易时间"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1625.3GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "warning",
+        "message": "GitHub不可达: rc=128"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T14:05:45.074406",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 10:30_T0_screen', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "非交易时间"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1625.3GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "warning",
+        "message": "GitHub检查异常: The read operation timed out"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T14:07:16.834771",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 10:30_T0_screen', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "非交易时间"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1625.3GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "warning",
+        "message": "GitHub缓慢: 所有方案超时"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T14:08:18.138744",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 10:30_T0_screen', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "非交易时间"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1625.3GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "warning",
+        "message": "GitHub不可达(网络暂时受限)"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T14:09:17.949151",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 10:30_T0_screen', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "非交易时间"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1625.3GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T14:11:21.899895",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "非交易时间"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1625.3GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T14:17:13.366888",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose', 'P0缺失: 14:15_T4_foot']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "非交易时间"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1625.2GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T15:56:32.509916",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose', 'P0缺失: 14:15_T4_foot', 'P0缺失: 14:30_T5_holy_grail', 'P1缺失: 14:50_fallback', 'P0缺失: 15:05_archive', 'P1缺失: 15:10_evolution', 'P1缺失: 15:25_history', 'P1缺失: 15:35_M55_calibrate']"
+      },
+      "holy_grail": {
+        "status": "warning",
+        "message": "交易日圣杯信号文件不存在"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1624.9GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T15:58:48.294998",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose', 'P1缺失: 15:25_history', 'P1缺失: 15:35_M55_calibrate']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号0小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1624.9GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T16:51:39.430242",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose', 'P1缺失: 15:25_history', 'P1缺失: 15:35_M55_calibrate']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号1小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1624.7GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T16:58:04.202923",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose', 'P1缺失: 15:25_history', 'P1缺失: 15:35_M55_calibrate']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号1小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1624.7GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T18:01:24.005968",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose', 'P1缺失: 15:25_history', 'P1缺失: 15:35_M55_calibrate']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号2小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1624.4GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T17:58:00",
+    "guardian_run": true,
+    "status": "critical",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0缺失: 08:30/09:25/09:30/11:30/14:00 | P1缺失: 13:55/15:25/15:35 — 上午管道未执行，下午15:25/15:35自动化失败",
+        "remediated": "上午步骤永久错过; 15:25/15:35待补执行"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "8只HG信号(15:00更新), 但全部低于0.44分→无操作信号"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "1624.4GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "M70/M46/V13.4全部5个模块就绪"
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "root_cause": "系统内存仅剩0.8GB(95%使用率), 导致13:00后自动化大面积失败(成功率38%)",
+    "actions_taken": [
+      "已修复v134-guardian skill: --mode=health-only → --health-only",
+      "已验证TDX连接器正常(上证4120.28)",
+      "已验证全市场缓存state_20260625.json存在(29.6KB)",
+      "已验证M70/M46/V13.4模块可用",
+      "已标记缺失的上午管道步骤",
+      "⚠️ 内存不足非项目文件导致(项目总<10MB), 需要关闭其他应用"
+    ]
+  },
+  {
+    "timestamp": "2026-06-25T20:47:24.081094",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose', 'P1缺失: 15:25_history', 'P1缺失: 15:35_M55_calibrate', 'P0缺失: 20:00_night']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号5小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.9GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T20:49:13.637718",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 08:30_pre_market', 'P0缺失: 09:25_auction', 'P0缺失: 09:30_opening', 'P0缺失: 11:30_T1_midday', 'P1缺失: 13:55_sentiment', 'P0缺失: 14:00_T3_preclose', 'P1缺失: 15:25_history', 'P1缺失: 15:35_M55_calibrate', 'P0缺失: 20:00_night']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号5小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.9GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T20:49:33.438131",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 20:00_night']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号5小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.9GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T20:49:44.495415",
+    "checks": {
+      "pipeline": {
+        "status": "critical",
+        "message": "P0步骤缺失: ['P0缺失: 20:00_night']"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号5小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.9GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "critical",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T20:49:53.097473",
+    "checks": {
+      "pipeline": {
+        "status": "healthy",
+        "message": "所有步骤正常"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号5小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.9GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "healthy",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-25T21:46:29.266795",
+    "checks": {
+      "pipeline": {
+        "status": "healthy",
+        "message": "所有步骤正常"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号6小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.8GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "healthy",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-29T16:35:31.137088",
+    "checks": {
+      "pipeline": {
+        "status": "healthy",
+        "message": "所有步骤正常"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号0小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.3GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "healthy",
+    "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-29T17:31:34.995006",
+    "checks": {
+      "pipeline": {
+        "status": "healthy",
+        "message": "所有步骤正常"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号1小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.1GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "healthy",
+    "actions_taken": []
+  }
+]

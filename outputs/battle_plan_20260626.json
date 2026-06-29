@@ -1,0 +1,447 @@
+{
+  "meta": {
+    "date": "2026-06-25",
+    "time": "22:00",
+    "tomorrow": "2026-06-26",
+    "tomorrow_weekday": "Friday",
+    "is_trading_day": true,
+    "generated_by": "v134-battle-plan skill",
+    "version": "13.4.0"
+  },
+  "t1_review": {
+    "date": "2026-06-25",
+    "market_condition": "端午后第3日, 全市场普跌 (上证-0.13%, 深成+0.36%, 创业板/科创板跌1-2%)",
+    "total_signals": 30,
+    "buy_hits": 7,
+    "watch_hits": 1,
+    "avoid_hits": 18,
+    "hold_hits": 4,
+    "avg_buy_return": 3.54,
+    "avg_avoid_return": -7.16,
+    "key_winners": [
+      "600769 祥龙电业 +7.07%",
+      "600367 红星发展 +3.88%",
+      "301138 华研精机 +3.22%"
+    ],
+    "key_losers": [
+      "920083 金戈新材 -12.91%",
+      "605566 福莱蒽特 -10.00%",
+      "603318 水发燃气 -9.98%"
+    ]
+  },
+  "holdings_review": [
+    {
+      "code": "300540",
+      "name": "蜀道装备",
+      "shares": 1300,
+      "avg_cost": 27.66,
+      "close": 25.42,
+      "pnl_pct": -8.1,
+      "action": "持有观察",
+      "reason": "LNG装备+蜀道集团重组, T+1小幅企稳, 需后续催化剂确认",
+      "stop_loss": 23.5,
+      "target": 30.0
+    },
+    {
+      "code": "920961",
+      "name": "创远信科",
+      "shares": 100,
+      "avg_cost": 21.132,
+      "close": 21.89,
+      "pnl_pct": 3.59,
+      "action": "持有",
+      "reason": "科创板北交所受益股, 通信测试设备国产替代, T+1已盈利",
+      "stop_loss": 20.0,
+      "target": 26.0
+    },
+    {
+      "code": "301669",
+      "name": "高特电子",
+      "shares": 600,
+      "avg_cost": 6.94,
+      "close": 47.37,
+      "pnl_pct": 582.56,
+      "action": "止盈一半锁定利润",
+      "reason": "6.94->47.37已暴涨6.8倍, 短线减仓300股, 剩余300股博持续",
+      "stop_loss": 38.0,
+      "target": 55.0
+    }
+  ],
+  "candidate_pool": {
+    "t1_winners_priority": [
+      {
+        "code": "920367",
+        "name": "新赣江",
+        "prior_score": 0.8387483333333332,
+        "prior_return": 3.08,
+        "tag": "BUY",
+        "rationale": "T+1验证BUY命中, 收益+3.08%"
+      },
+      {
+        "code": "600367",
+        "name": "红星发展",
+        "prior_score": 0.7971416666666666,
+        "prior_return": 3.88,
+        "tag": "BUY",
+        "rationale": "T+1验证BUY命中, 收益+3.88%"
+      },
+      {
+        "code": "002535",
+        "name": "林州重机",
+        "prior_score": 0.767185,
+        "prior_return": 0.9,
+        "tag": "WATCH",
+        "rationale": "T+1验证WATCH, 收益+0.90%"
+      },
+      {
+        "code": "600769",
+        "name": "祥龙电业",
+        "prior_score": 0.7621183333333333,
+        "prior_return": 7.07,
+        "tag": "BUY",
+        "rationale": "T+1验证BUY命中, 收益+7.07%"
+      },
+      {
+        "code": "605303",
+        "name": "园林股份",
+        "prior_score": 0.756335,
+        "prior_return": 2.21,
+        "tag": "BUY",
+        "rationale": "T+1验证BUY命中, 收益+2.21%"
+      },
+      {
+        "code": "002672",
+        "name": "东江环保",
+        "prior_score": 0.7196633333333333,
+        "prior_return": 2.39,
+        "tag": "BUY",
+        "rationale": "T+1验证BUY命中, 收益+2.39%"
+      },
+      {
+        "code": "300259",
+        "name": "新天科技",
+        "prior_score": 0.7145416666666666,
+        "prior_return": 2.92,
+        "tag": "BUY",
+        "rationale": "T+1验证BUY命中, 收益+2.92%"
+      },
+      {
+        "code": "301138",
+        "name": "华研精机",
+        "prior_score": 0.7042633333333334,
+        "prior_return": 3.22,
+        "tag": "BUY",
+        "rationale": "T+1验证BUY命中, 收益+3.22%"
+      }
+    ],
+    "v134_hg_top10": [
+      {
+        "code": "600873",
+        "name": "梅花生物",
+        "v132_score": 0.380885,
+        "m46_score": 0.14,
+        "m57_score": 0.6508999999999999,
+        "m64_score": 0.6938,
+        "decline_pct": -5.03,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "301040",
+        "name": "中环海陆",
+        "v132_score": 0.38758999999999993,
+        "m46_score": 0.1547,
+        "m57_score": 0.6541999999999999,
+        "m64_score": 0.6965,
+        "decline_pct": -5.14,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "688090",
+        "name": "DR瑞松科",
+        "v132_score": 0.393875,
+        "m46_score": 0.1694,
+        "m57_score": 0.6566,
+        "m64_score": 0.6985,
+        "decline_pct": -5.22,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "002921",
+        "name": "联诚精密",
+        "v132_score": 0.4021699999999999,
+        "m46_score": 0.1841,
+        "m57_score": 0.6631999999999999,
+        "m64_score": 0.7041,
+        "decline_pct": -5.44,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "002753",
+        "name": "永东股份",
+        "v132_score": 0.412025,
+        "m46_score": 0.1988,
+        "m57_score": 0.6730999999999999,
+        "m64_score": 0.7124,
+        "decline_pct": -5.77,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "603273",
+        "name": "天元智能",
+        "v132_score": 0.41859499999999994,
+        "m46_score": 0.2135,
+        "m57_score": 0.6760999999999999,
+        "m64_score": 0.7149,
+        "decline_pct": -5.87,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "301225",
+        "name": "恒勃股份",
+        "v132_score": 0.42717499999999997,
+        "m46_score": 0.2282,
+        "m57_score": 0.6832999999999999,
+        "m64_score": 0.721,
+        "decline_pct": -6.11,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "300016",
+        "name": "北陆药业",
+        "v132_score": 0.43331,
+        "m46_score": 0.2429,
+        "m57_score": 0.6853999999999999,
+        "m64_score": 0.7227,
+        "decline_pct": -6.18,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "601118",
+        "name": "海南橡胶",
+        "v132_score": 0.44059999999999994,
+        "m46_score": 0.2576,
+        "m57_score": 0.6899,
+        "m64_score": 0.7265,
+        "decline_pct": -6.33,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      },
+      {
+        "code": "300635",
+        "name": "中达安",
+        "v132_score": 0.446565,
+        "m46_score": 0.2722,
+        "m57_score": 0.6917,
+        "m64_score": 0.728,
+        "decline_pct": -6.39,
+        "alert_level": "⚪ 无信号",
+        "tier": "A",
+        "watch_reason": "V13.4 14:30圣杯信号 — 关注T+1反弹"
+      }
+    ],
+    "v134_candidates_30": [
+      {
+        "code": "300604",
+        "name": "长川科技",
+        "v132": 0.85,
+        "tier": "A",
+        "change_pct": -0.01,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "002718",
+        "name": "友邦吊顶",
+        "v132": 0.84,
+        "tier": "A",
+        "change_pct": -0.07,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "688696",
+        "name": "极米科技",
+        "v132": 0.83,
+        "tier": "A",
+        "change_pct": -0.02,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "600111",
+        "name": "北方稀土",
+        "v132": 0.82,
+        "tier": "A",
+        "change_pct": -0.06,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "301122",
+        "name": "采纳股份",
+        "v132": 0.81,
+        "tier": "A",
+        "change_pct": -0.04,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "688108",
+        "name": "赛诺医疗",
+        "v132": 0.8,
+        "tier": "A",
+        "change_pct": -0.05,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "301015",
+        "name": "百洋医药",
+        "v132": 0.79,
+        "tier": "A",
+        "change_pct": -0.05,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "688655",
+        "name": "迅捷兴",
+        "v132": 0.78,
+        "tier": "A",
+        "change_pct": -0.06,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "600768",
+        "name": "宁波富邦",
+        "v132": 0.77,
+        "tier": "A",
+        "change_pct": -0.06,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "600519",
+        "name": "贵州茅台",
+        "v132": 0.76,
+        "tier": "A",
+        "change_pct": -0.06,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "920237",
+        "name": "力佳科技",
+        "v132": 0.75,
+        "tier": "A",
+        "change_pct": -0.06,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "300783",
+        "name": "三只松鼠",
+        "v132": 0.74,
+        "tier": "A",
+        "change_pct": -0.06,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "001386",
+        "name": "马可波罗",
+        "v132": 0.73,
+        "tier": "A",
+        "change_pct": -0.07,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "300257",
+        "name": "开山股份",
+        "v132": 0.72,
+        "tier": "A",
+        "change_pct": -0.07,
+        "source": "tdx_realtime"
+      },
+      {
+        "code": "688475",
+        "name": "萤石网络",
+        "v132": 0.71,
+        "tier": "A",
+        "change_pct": -0.07,
+        "source": "tdx_realtime"
+      }
+    ]
+  },
+  "next_day_plan": {
+    "date": "2026-06-26",
+    "weekday": "Friday",
+    "macro_context": {
+      "us_close_signals": "5月核心PCE 3.4%(2023.10以来最高) -> Fed鹰派, 9月加息预期上升",
+      "geopolitics": "伊朗IRGC警告持续 + 委内瑞拉7.2+7.5级双震 -> 双重地缘黑天鹅",
+      "asia_market": "日经+4.61%/KOSPI+5.42% risk-on, 但HSI-1.43%预警",
+      "commodity": "Brent$73.34(-0.54%)/WTI$69.94(-0.57%) 盘后微涨, 铜$6.034上破$6",
+      "fx": "USD/CNY 6.798 RMB继续走强"
+    },
+    "alpha_directions": [
+      "黄金(避险首选) - 双重地缘催化+滞胀环境+Fed鹰派",
+      "军工(中航系/兵器) - 委内瑞拉+伊朗双催化",
+      "石油(中石油/中石化) - 滞胀环境+地缘溢价",
+      "高股息防御(银行/电力) - 滞胀+Fed鹰派底仓",
+      "存储芯片(兆易/北京君正) - KOSPI+5.42%最强传导",
+      "深市成长(内需科技) - 深成+1.82%继续领涨"
+    ],
+    "risk_flags": [
+      "警惕: 出口依赖型>30%(美国滞胀+关税)",
+      "高估值成长(Fed鹰派+滞胀双重压力)",
+      "HSI-1.43%扩大 - 周一A股的领先预警",
+      "澳洲ASX-0.68%扩大 - 全球需求担忧"
+    ]
+  },
+  "execution_timeline": {
+    "08:30_pre_market": "盘前简报生成 — 关注夜盘美股+亚太期货+海外重大新闻",
+    "09:25_auction": "竞价观察 — 北交所/科创板/创业板强弱",
+    "09:30_opening": "开盘30min — 黄金+军工+石油开盘表现, 验证地缘溢价",
+    "10:30_T0_screen": "T0全市场初筛100只 — 应用M70新权重(m46:0.2/m57:0.35/m64:0.3/market_filter:0.15)",
+    "11:30_T1_midday": "T1午盘确认 — 复盘开盘方向, 强化BUY信号",
+    "13:55_sentiment": "舆情扫描 — 验证地缘/政策/板块催化",
+    "14:00_T3_preclose": "T3尾盘预备 — 资金流入监控",
+    "14:15_T4": "T4临门一脚 — 30只->15只精筛, 板块热度排序",
+    "14:30_T5": "T5尾盘狙击 — M64超跌反转+板块联动, 5-8只最终买入",
+    "15:10_nextday_t1": "T+1自动验证 — 奖惩引擎(已部署)"
+  },
+  "m70_calibration": {
+    "ic": -0.3174573104801154,
+    "rebalance": {
+      "m46": {
+        "old": 0.3,
+        "new": 0.2,
+        "reason": "IC=-0.317 负相关"
+      },
+      "m57": {
+        "old": 0.3,
+        "new": 0.35,
+        "reason": "隔夜Alpha信号独立"
+      },
+      "m64": {
+        "old": 0.25,
+        "new": 0.3,
+        "reason": "超跌反转需市场过滤器"
+      },
+      "market_filter": {
+        "old": 0.0,
+        "new": 0.15,
+        "reason": "新增市场环境因子"
+      }
+    },
+    "rationale": "IC=-0.317揭示M46与市场反向 -> 降权0.3->0.2; M57隔夜Alpha独立+0.05; M64需market_filter保护(隔日普跌环境反转易失败)->+0.15市场过滤器"
+  },
+  "github_sync_pending": true,
+  "telegram_wechat": true
+}

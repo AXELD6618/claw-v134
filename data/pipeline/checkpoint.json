@@ -1,0 +1,17 @@
+{
+  "step_id": "20:00_night",
+  "timestamp": "2026-06-25T20:49:45.069049",
+  "result": {
+    "step_id": "20:00_night",
+    "status": "success",
+    "started_at": "2026-06-25T20:49:44.976861",
+    "completed_at": "2026-06-25T20:49:45.068960",
+    "duration_ms": 88.0,
+    "output_file": "",
+    "error": "",
+    "data_source": "fallback",
+    "summary": {
+      "note": "RealtimeMonitor未就绪"
+    }
+  }
+}

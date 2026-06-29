@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-29",
+  "timestamp": "2026-06-29T16:20:07.800001",
+  "pipeline_version": "V13.4",
+  "all_files_ready": true,
+  "verification": [
+    {
+      "label": "state",
+      "path": "E:\\WorkBuddy_dot_workbuddy\\Claw\\data\\fullmarket_cache\\state_20260629.json",
+      "exists": true,
+      "size": 29893,
+      "note": "holy_grail_count=17, total=72, tiers={'A': 63, 'B': 7, 'C': 2}"
+    },
+    {
+      "label": "screener",
+      "path": "E:\\WorkBuddy_dot_workbuddy\\Claw\\data\\fullmarket_cache\\screener_t5_1430.json",
+      "exists": true,
+      "size": 16328,
+      "note": "stocks=72"
+    },
+    {
+      "label": "index",
+      "path": "E:\\WorkBuddy_dot_workbuddy\\Claw\\data\\fullmarket_cache\\index_20260629.json",
+      "exists": true,
+      "size": 442,
+      "note": "indices=2"
+    },
+    {
+      "label": "lhb",
+      "path": "E:\\WorkBuddy_dot_workbuddy\\Claw\\data\\lhb_20260629.json",
+      "exists": true,
+      "size": 1305,
+      "note": "stocks=10"
+    },
+    {
+      "label": "kline_60d",
+      "path": "E:\\WorkBuddy_dot_workbuddy\\Claw\\data\\fullmarket_cache\\kline_20260629.json",
+      "exists": true,
+      "size": 1417885,
+      "note": "success=72/72"
+    }
+  ],
+  "one_min": {
+    "exists": true,
+    "total": 50,
+    "success": 50,
+    "failed": 0
+  }
+}

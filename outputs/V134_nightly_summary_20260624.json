@@ -1,0 +1,91 @@
+{
+  "report_time": "2026-06-24T20:00:00+08:00",
+  "market": {
+    "shanghai": {
+      "close": 4110.813,
+      "change_pct": 0.11
+    },
+    "shenzhen": {
+      "close": 16051.319,
+      "change_pct": 1.24
+    }
+  },
+  "fullmarket": {
+    "total_scanned": 139,
+    "tier_a": 50,
+    "tier_b": 0,
+    "holy_grail": 0,
+    "avg_v132": 0.7222,
+    "avg_m46": 0.5,
+    "avg_m57": 0.6707,
+    "avg_m64": 2.0826,
+    "avg_decline": 8.96
+  },
+  "p1_1": {
+    "total": 30,
+    "avg_v132": 0.5483,
+    "avg_m46": 0.9598,
+    "avg_m57": 0.356,
+    "avg_m64": 0.1133,
+    "t1_pending": 30,
+    "rec_dist": {
+      "STRONG_BUY": 30
+    },
+    "top3": [
+      {
+        "code": "600977",
+        "name": "中国电影",
+        "v132": 0.7816
+      },
+      {
+        "code": "300540",
+        "name": "蜀道装备",
+        "v132": 0.7576
+      },
+      {
+        "code": "688367",
+        "name": "工大高科",
+        "v132": 0.742
+      }
+    ]
+  },
+  "portfolio": {
+    "total_value": 63407.0,
+    "total_pnl": 21172,
+    "pnl_pct": 33.4
+  },
+  "sentiment": {
+    "alerts": 3,
+    "levels": {
+      "RED": 1,
+      "ORANGE": 1,
+      "YELLOW": 1
+    },
+    "reward": 75
+  },
+  "m70": {
+    "status": "ready",
+    "samples": 30,
+    "verified_t1": 0,
+    "next": "2026-06-25 15:10",
+    "features": {
+      "m64_score": 0.2624,
+      "decline_pct": 0.2167,
+      "m46_normalized": 0.1832,
+      "m57_composite": 0.1808,
+      "sector_heat_coeff": 0.1569
+    }
+  },
+  "holygrail": {
+    "cross_learn_hit": 5,
+    "cross_learn_total": 5,
+    "hit_rate": 1.0
+  },
+  "week": {
+    "monday": "休市",
+    "tuesday": "上证-1.37% 创业板-3.84%",
+    "wednesday": "上证+0.11% 深证+1.24%",
+    "thursday": "P1-1 T+1验证",
+    "friday": "待定"
+  }
+}
