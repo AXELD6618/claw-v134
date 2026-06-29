@@ -715,5 +715,39 @@
     },
     "status": "healthy",
     "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-29T18:31:19.121048",
+    "checks": {
+      "pipeline": {
+        "status": "healthy",
+        "message": "所有步骤正常"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号0小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1623.0GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "healthy",
+        "message": "GitHub可达"
+      }
+    },
+    "status": "healthy",
+    "actions_taken": []
   }
 ]
