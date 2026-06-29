@@ -1,0 +1,29 @@
+{
+  "date": "2026-06-29",
+  "execute_time": "2026-06-29T20:00:00+08:00",
+  "automation_id": "1780320609631",
+  "kpi": {
+    "total_scanned_5slots": 613,
+    "tier_a_total": 551,
+    "holy_grail_today": 66,
+    "p1_1_verified_total": 2,
+    "p1_1_hit_rate_pct": 0.0,
+    "p1_1_pending": 28,
+    "m70_training_samples": 2,
+    "m70_ready": false,
+    "positions_mv": 67922.0,
+    "positions_pnl": 25687.0,
+    "positions_pnl_pct": 37.8,
+    "sentiment_total": 15,
+    "sentiment_critical": 7,
+    "sentiment_red": 1,
+    "sentiment_orange": 4,
+    "sentiment_yellow": 3
+  },
+  "holy_grail_alignment": {
+    "r9_score": 75.7,
+    "target": 91.6,
+    "auto_active": "42/42",
+    "m70_lgb": true
+  }
+}

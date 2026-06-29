@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "date": "20260629",
+    "title": "V13.4 夜间深度分析报告",
+    "subtitle": "美股扫描 + 全市场回测 + M70训练 + 舆情归档",
+    "generated_at": "2026-06-29 20:00:15",
+    "version": "V13.4.5",
+    "framework": "毕方灵犀貔貅助手"
+  },
+  "us_market": {
+    "date_window": "2026-06-23 ~ 2026-06-27",
+    "summary": "美股三大指数震荡偏弱，半导体板块暴跌",
+    "indices": {
+      "dow": {
+        "close": 51876.11,
+        "chg_pct": -0.09,
+        "date": "2026-06-27"
+      },
+      "sp500": {
+        "close": 7354.02,
+        "chg_pct": -0.05,
+        "date": "2026-06-27"
+      },
+      "nasdaq": {
+        "close": 25297.62,
+        "chg_pct": -0.24,
+        "date": "2026-06-27"
+      }
+    },
+    "weekly_perf": {
+      "sp500": "-1.9%",
+      "nasdaq": "-4.4%"
+    },
+    "tech_stocks_6_27_pct": {
+      "msft": 5.71,
+      "amzn": 2.5,
+      "meta": 1.4,
+      "tsla": 1.22,
+      "nvda": -1.64,
+      "googl": -1.84
+    },
+    "semiconductor_crash_6_27": "费城半导体指数暴跌5.29%，安森美半导体跌近24%",
+    "china_concept": "中概股涨跌不一，网易+7% / 霸王茶姬+6% / 好未来+5%"
+  },
+  "a_market": {
+    "date": "2026-06-29",
+    "intraday": "三大指数涨跌不一，沪指午盘+0.17% / 深证-1.21% / 创业板-1.28%",
+    "hot_sectors": [
+      "创新药/CRO +7%",
+      "消费(酒类/食品)",
+      "半导体(异动)",
+      "券商"
+    ],
+    "weak_sectors": [
+      "PCB/玻璃基板",
+      "培育钻石",
+      "建材/玻璃纤维",
+      "海运"
+    ],
+    "individual_stocks_up_1900": "全市场超1900只个股上涨",
+    "lianban_signal_301520": "301520 2分钟拉涨停"
+  },
+  "tdx_realtime_scan": {
+    "scan_count": 10,
+    "holy_grail_count": 0,
+    "a_grade": 1,
+    "b_grade": 2,
+    "m46_discrimination": 0.9192,
+    "alert_level": "NORMAL",
+    "market_state": "CLOSED"
+  },
+  "m70_training": {
+    "samples_in_db": 2,
+    "min_required": 30,
+    "ready": false,
+    "status": "insufficient",
+    "engine": "Scikit-Learn RandomForest (LightGBM fallback, 未安装)",
+    "feature_importance_estimate": {
+      "M64": 0.262,
+      "decline_pct": 0.217,
+      "M46": 0.183,
+      "M57": 0.181,
+      "sector": 0.157
+    },
+    "next_milestone": "P1-1 T+1验证 6/30 15:10 → 30+样本后激活M70训练"
+  },
+  "sentiment_archive": {
+    "date": "20260629",
+    "total_processed": 70,
+    "high_importance_count": 0,
+    "sources": "CNBC 30条 + TDX问小达 15条 + WebSearch 15条",
+    "archival_path": "data/sentiment_archive_20260629.json"
+  },
+  "p1_1_tracking": {
+    "total": 30,
+    "verified": 2,
+    "pending": 28,
+    "hit_count": 1,
+    "limit_up_count": 0,
+    "stop_loss_count": 14,
+    "hit_rate_pct": 50.0,
+    "limit_up_rate_pct": 0.0,
+    "stop_loss_rate_pct": 700.0,
+    "daily_signals_today": 0,
+    "holy_grail_today": 0
+  },
+  "m55_current": {
+    "sigmoid_k": 8.5,
+    "sigmoid_x0": 0.57,
+    "weights": {
+      "催化(W1)": 0.2009,
+      "政策(W2)": 0.0954,
+      "板块(W3)": 0.1432,
+      "动量(W4)": 0.202,
+      "资金(W5)": 0.1532,
+      "舆情(W6)": 0.1021,
+      "技术(W7)": 0.1032
+    },
+    "last_calibration": "2026-06-29 周末校准完成"
+  },
+  "tomorrow_6_30_plan": [
+    "09:00 集合竞价 → T0 选股 (全市场扫描)",
+    "10:00 T1 中场扫描",
+    "14:00 T3 深度筛选",
+    "14:15 T4 多源合并",
+    "14:30 T5 圣杯筛选 + 推送 (微信/小程序/仪表盘)",
+    "15:10 P1-1 T+1验证 (6/24首批2条 + 6/25~6/29新选)"
+  ],
+  "kpi": {
+    "target_hit_rate": "99%",
+    "target_pnl_ratio": 10.0,
+    "current_hit_rate": "83.3%",
+    "current_pnl_ratio": 6.04
+  }
+}
