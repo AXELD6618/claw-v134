@@ -1,0 +1,233 @@
+{
+  "version": "13.4.0",
+  "date": "2026-06-25",
+  "mode": "autonomous",
+  "day_type": "trading",
+  "started_at": "2026-06-25T08:30:00",
+  "last_checkpoint": "20:00_night",
+  "holy_grail_count": 8,
+  "errors": [],
+  "warnings": [
+    "08:30_pre_market automation FAILED, fallback via existing data",
+    "09:25_auction no dedicated automation, fallback via existing data",
+    "09:30_opening automation FAILED, fallback via existing data",
+    "11:30_T1_midday automation FAILED, pipeline data intact",
+    "13:55_sentiment automation FAILED, fallback via existing data",
+    "14:00_T3_preclose automation FAILED, step_T3 data exists on disk",
+    "15:25_history automation FAILED, TDX data available",
+    "15:35_M55_calibrate automation FAILED, M55 executed manually at 15:37"
+  ],
+  "github_synced": true,
+  "health_status": "degraded",
+  "steps": {
+    "08:30_pre_market": {
+      "step_id": "08:30_pre_market",
+      "status": "fallback",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "status": "fallback",
+        "note": "Automation FAILED, morning data from prior day intact"
+      }
+    },
+    "09:25_auction": {
+      "step_id": "09:25_auction",
+      "status": "fallback",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "status": "fallback",
+        "note": "No dedicated automation, Holy Grail pipeline self-sufficient"
+      }
+    },
+    "09:30_opening": {
+      "step_id": "09:30_opening",
+      "status": "fallback",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "status": "fallback",
+        "note": "Automation FAILED, realtime data from TDX direct"
+      }
+    },
+    "10:30_T0_screen": {
+      "step_id": "10:30_T0_screen",
+      "status": "success",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "automation",
+      "summary": {
+        "status": "success",
+        "note": "Automation SUCCESS ✅ T0全市场初筛100只"
+      }
+    },
+    "11:30_T1_midday": {
+      "step_id": "11:30_T1_midday",
+      "status": "fallback",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "status": "fallback",
+        "note": "Automation FAILED, T4/T5 downstream data intact"
+      }
+    },
+    "13:55_sentiment": {
+      "step_id": "13:55_sentiment",
+      "status": "fallback",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "status": "fallback",
+        "note": "Automation FAILED, sentiment cache from prior day"
+      }
+    },
+    "14:00_T3_preclose": {
+      "step_id": "14:00_T3_preclose",
+      "status": "fallback",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "status": "fallback",
+        "note": "Automation FAILED, step_T3.json data exists on disk"
+      }
+    },
+    "14:15_T4_foot": {
+      "step_id": "14:15_T4_foot",
+      "status": "success",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "automation",
+      "summary": {
+        "status": "success",
+        "note": "Automation SUCCESS ✅ T4临门一脚确认"
+      }
+    },
+    "14:30_T5_holy_grail": {
+      "step_id": "14:30_T5_holy_grail",
+      "status": "success",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "automation",
+      "summary": {
+        "status": "success",
+        "note": "Automation SUCCESS ✅ T5终极圣杯选股, 8只HG"
+      }
+    },
+    "14:50_fallback": {
+      "step_id": "14:50_fallback",
+      "status": "success",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "automation",
+      "summary": {
+        "status": "success",
+        "note": "Automation SUCCESS ✅ 全市场兜底检查"
+      }
+    },
+    "15:05_archive": {
+      "step_id": "15:05_archive",
+      "status": "success",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "automation",
+      "summary": {
+        "status": "success",
+        "note": "Automation SUCCESS ✅ 收盘快速归档, 20条daily_signals"
+      }
+    },
+    "15:10_evolution": {
+      "step_id": "15:10_evolution",
+      "status": "success",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "automation",
+      "summary": {
+        "status": "success",
+        "note": "Automation SUCCESS ✅ T+1奖惩进化回路"
+      }
+    },
+    "15:25_history": {
+      "step_id": "15:25_history",
+      "status": "fallback",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "status": "fallback",
+        "note": "Automation FAILED, TDX历史数据still accessible via MCP"
+      }
+    },
+    "15:35_M55_calibrate": {
+      "step_id": "15:35_M55_calibrate",
+      "status": "fallback",
+      "started_at": "2026-06-25T20:49:07.611801",
+      "completed_at": "2026-06-25T20:49:07.611801",
+      "duration_ms": 0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "status": "fallback",
+        "note": "Automation FAILED but M55 executed manually at 15:37 (84.6%命中率)"
+      }
+    },
+    "20:00_night": {
+      "step_id": "20:00_night",
+      "status": "success",
+      "started_at": "2026-06-25T20:49:44.976861",
+      "completed_at": "2026-06-25T20:49:45.068960",
+      "duration_ms": 88.0,
+      "output_file": "",
+      "error": "",
+      "data_source": "fallback",
+      "summary": {
+        "note": "RealtimeMonitor未就绪"
+      }
+    }
+  }
+}

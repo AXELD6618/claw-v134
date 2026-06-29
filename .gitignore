@@ -9,7 +9,10 @@ build/
 *.egg
 
 # Data files (too large, generated)
-data/
+data/*
+!data/pipeline/
+!data/pipeline/holy_grail_signals.json
+!data/pipeline/autopilot_state.json
 V13_0_data/
 *.db
 *.db-journal
