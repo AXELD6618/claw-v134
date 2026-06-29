@@ -48,8 +48,8 @@ jobs:
             SCHED_H=${SCHED%%:*}
             SCHED_M=${SCHED##*:}
 
-            # Only check steps whose schedule has already passed (+ 10 min grace)
-            if [ "$HOUR" -gt "$SCHED_H" ] || { [ "$HOUR" -eq "$SCHED_H" ] && [ "$MINUTE" -ge $((10#$SCHED_M + 10)) ]; }; then
+            # Only check steps whose schedule has already passed (+ 2 min grace)
+            if [ "$HOUR" -gt "$SCHED_H" ] || { [ "$HOUR" -eq "$SCHED_H" ] && [ "$MINUTE" -ge $((10#$SCHED_M + 2)) ]; }; then
               # Check if this step already ran today
               WF="${WF_FILE[$step]}"
               LAST_RUN=$(gh run list --workflow="$WF" --limit 1 --json createdAt,conclusion --jq '.[0].createdAt + "|" + .[0].conclusion' 2>/dev/null || echo "")
