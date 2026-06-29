@@ -26,39 +26,18 @@ jobs:
           PYTHONIOENCODING: utf-8
           LANG: C.UTF-8
         run: python cloud_pipeline.py --step=GUARDIAN
-      - name: Self-Healing Dispatch
+      - name: Self-Healing Dispatch (Reliable API Method)
         id: dispatch
         env:
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN || github.token }}
+          PYTHONIOENCODING: utf-8
+          LANG: C.UTF-8
         run: |
-          DISPATCH_FILE="cloud_state/guardian_dispatch_queue.json"
-          if [ -f "$DISPATCH_FILE" ]; then
-            echo "🔄 Self-healing dispatch triggered"
-            STEPS=$(python3 -c "import json; f=open('$DISPATCH_FILE'); d=json.load(f); print(','.join(d.get('steps_to_dispatch',[])))")
-            echo "Steps to dispatch: $STEPS"
-            # Map step names to workflow filenames
-            declare -A WF_MAP=(
-              ["T0"]="v134-t0-screener.yml"
-              ["T1"]="v134-t1-midday.yml"
-              ["T3"]="v134-t3-deep.yml"
-              ["T4"]="v134-t4-final.yml"
-              ["T5"]="v134-t5-holy-grail.yml"
-              ["NIGHT"]="v134-night-analysis.yml"
-              ["BATTLE"]="v134-battle-plan.yml"
-            )
-            IFS=',' read -ra STEP_ARRAY <<< "$STEPS"
-            for step in "${STEP_ARRAY[@]}"; do
-              WF="${WF_MAP[$step]}"
-              if [ -n "$WF" ]; then
-                echo "  → Dispatching $step ($WF)..."
-                gh workflow run "$WF" --ref master 2>&1 || echo "  ⚠️ Failed to dispatch $step"
-              fi
-            done
-            echo "dispatched=true" >> "$GITHUB_OUTPUT"
-            echo "steps=$STEPS" >> "$GITHUB_OUTPUT"
-          else
-            echo "✅ No dispatch needed — all steps OK"
-            echo "dispatched=false" >> "$GITHUB_OUTPUT"
+          echo "🔄 Self-healing dispatch triggered"
+          python self_heal_dispatch.py
+          echo "dispatched=$?" >> "$GITHUB_OUTPUT"
+          if [ -f "cloud_outputs/dispatch_result.json" ]; then
+            cat cloud_outputs/dispatch_result.json
           fi
       - name: Commit status
         continue-on-error: true
