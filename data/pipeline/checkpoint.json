@@ -1,17 +1,18 @@
 {
-  "step_id": "20:00_night",
-  "timestamp": "2026-06-25T20:49:45.069049",
+  "step_id": "22:00_battle_plan",
+  "timestamp": "2026-06-29T22:00:07.340204",
   "result": {
-    "step_id": "20:00_night",
+    "step_id": "22:00_battle_plan",
     "status": "success",
-    "started_at": "2026-06-25T20:49:44.976861",
-    "completed_at": "2026-06-25T20:49:45.068960",
-    "duration_ms": 88.0,
-    "output_file": "",
-    "error": "",
-    "data_source": "fallback",
+    "started_at": "2026-06-29T22:00:07.340218",
+    "completed_at": "2026-06-29T22:00:07.340220",
+    "output_file": "outputs/battle_plan_20260630.html",
     "summary": {
-      "note": "RealtimeMonitor未就绪"
+      "candidates": 50,
+      "holy_grail": 17,
+      "db_signals": 20,
+      "avg_v132": 1.0632,
+      "battle_plan_generated": true
     }
   }
 }

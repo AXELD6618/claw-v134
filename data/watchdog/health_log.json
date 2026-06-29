@@ -749,5 +749,107 @@
     },
     "status": "healthy",
     "actions_taken": []
+  },
+  {
+    "timestamp": "2026-06-29T22:25:30.752200",
+    "guardian_run": true,
+    "status": "warning",
+    "checks": {
+      "pipeline": {
+        "status": "warning",
+        "completion_pct": 71,
+        "ok_steps": [
+          "T0",
+          "T1",
+          "T3",
+          "T4",
+          "T5"
+        ],
+        "stale_steps": [
+          {
+            "step": "NIGHT",
+            "last_run": "2026-06-26T13:56:49.921371"
+          },
+          {
+            "step": "BATTLE",
+            "last_run": "2026-06-26T16:14:06.842887"
+          }
+        ],
+        "missing_steps": [],
+        "message": "5/7 步骤今日完成, 2 过期, 0 缺失"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "最新信号 10.9 小时前更新 (holy_grail_signals.json), 共 12 个信号, 高分信号 5 个",
+        "latest_file": "cloud_outputs\\holy_grail_signals.json",
+        "latest_ts": "2026-06-29T11:34:10.824014",
+        "total_signals": 12,
+        "high_score_signals": 5,
+        "files": [
+          {
+            "path": "cloud_outputs\\holy_grail_signals.json",
+            "timestamp": "2026-06-29T11:34:10.824014",
+            "count": 12
+          },
+          {
+            "path": "data\\pipeline\\holy_grail_signals.json",
+            "timestamp": "",
+            "count": 10
+          },
+          {
+            "path": "data\\holy_grail_latest.json",
+            "timestamp": "20260624_144025",
+            "count": 0
+          }
+        ]
+      },
+      "disk": {
+        "status": "healthy",
+        "free_gb": 1622.4,
+        "total_gb": 1863.0,
+        "used_gb": 240.6,
+        "free_pct": 87.1,
+        "message": "1622.4GB 空闲 / 1863.0GB 总计 (87.1% 空闲)"
+      },
+      "modules": {
+        "status": "healthy",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy",
+          "V13_3_M70_LightGBM",
+          "V13_2_M46_Normalized",
+          "V13_4_HolyGrailPusher",
+          "cloud_pipeline",
+          "cloud_watchdog"
+        ],
+        "unavailable": [],
+        "message": "10/10 个关键模块可用"
+      },
+      "github": {
+        "status": "warning",
+        "endpoints": [
+          {
+            "name": "GitHub API",
+            "url": "https://api.github.com",
+            "status": "ok",
+            "code": 200
+          },
+          {
+            "name": "GitHub Web",
+            "url": "https://github.com",
+            "status": "error",
+            "error": "The read operation timed out"
+          }
+        ],
+        "message": "GitHub 部分不可达"
+      }
+    },
+    "actions_taken": [
+      "已将过期步骤加入自愈分发队列: ['NIGHT', 'BATTLE']",
+      "未配置 GITHUB_TOKEN，跳过实际 GitHub Actions 分发"
+    ]
   }
 ]

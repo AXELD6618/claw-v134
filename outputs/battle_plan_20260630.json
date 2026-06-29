@@ -1,0 +1,185 @@
+{
+  "plan_id": "battle_plan_20260630",
+  "generated_at": "2026-06-29 22:00",
+  "target_date": "2026-06-30",
+  "market_review": {
+    "today": "2026-06-29",
+    "total_candidates": 50,
+    "holy_grail_signals": 17,
+    "db_signals": 20,
+    "avg_v132": 1.0632,
+    "market_sentiment": "bearish",
+    "all_candidates_declining": true,
+    "note": "全市场大跌日，超跌反弹策略窗口"
+  },
+  "current_holdings": [
+    {
+      "code": "301669",
+      "name": "高特电子",
+      "shares": 600,
+      "cost": 6.94,
+      "today_chg": -7.81,
+      "signal": "buy"
+    },
+    {
+      "code": "300540",
+      "name": "蜀道装备",
+      "shares": 1300,
+      "cost": 27.66,
+      "today_chg": null,
+      "note": "state未收录"
+    },
+    {
+      "code": "920961",
+      "name": "创远信科",
+      "shares": 100,
+      "cost": 21.13,
+      "today_chg": null,
+      "note": "state未收录"
+    }
+  ],
+  "holy_grail_pool": [
+    {
+      "rank": 1,
+      "code": "300196",
+      "name": "长海股份",
+      "v132": 1.1089,
+      "decline": -11.61,
+      "amplitude": 16.16,
+      "hsl": 19.72,
+      "prediction": "超跌反弹首选"
+    },
+    {
+      "rank": 2,
+      "code": "300410",
+      "name": "正业科技",
+      "v132": 1.1023,
+      "decline": -10.71,
+      "amplitude": 16.19,
+      "hsl": 16.04,
+      "prediction": "量大换手充分"
+    },
+    {
+      "rank": 3,
+      "code": "300057",
+      "name": "万顺新材",
+      "v132": 1.1014,
+      "decline": -13.13,
+      "amplitude": 17.91,
+      "hsl": 18.41,
+      "prediction": "超跌幅度最大之一"
+    },
+    {
+      "rank": 4,
+      "code": "301468",
+      "name": "博盈特焊",
+      "v132": 1.0988,
+      "decline": -12.88,
+      "amplitude": 15.49,
+      "hsl": 21.52,
+      "prediction": "换手极高"
+    },
+    {
+      "rank": 5,
+      "code": "920725",
+      "name": "惠丰钻石",
+      "v132": 1.0951,
+      "decline": -13.04,
+      "amplitude": 14.54,
+      "hsl": 17.58,
+      "prediction": "北交所流动性风险"
+    },
+    {
+      "rank": 6,
+      "code": "920078",
+      "name": "族兴新材",
+      "v132": 1.0906,
+      "decline": -11.0,
+      "amplitude": 14.49,
+      "hsl": 23.42,
+      "prediction": "换手率最高"
+    },
+    {
+      "rank": 7,
+      "code": "300264",
+      "name": "佳创视讯",
+      "v132": 1.0785,
+      "decline": -15.25,
+      "amplitude": 23.95,
+      "hsl": 19.65,
+      "prediction": "振幅极大"
+    },
+    {
+      "rank": 8,
+      "code": "002141",
+      "name": "贤丰控股",
+      "v132": 1.0784,
+      "decline": -10.07,
+      "amplitude": 13.37,
+      "hsl": 19.44,
+      "prediction": "主板稳定性好"
+    },
+    {
+      "rank": 9,
+      "code": "920981",
+      "name": "晶赛科技",
+      "v132": 1.0716,
+      "decline": -9.5,
+      "amplitude": 15.34,
+      "hsl": 19.69,
+      "prediction": "北交所注意流动性"
+    },
+    {
+      "rank": 10,
+      "code": "920083",
+      "name": "金戈新材",
+      "v132": 1.0572,
+      "decline": -15.96,
+      "amplitude": 13.48,
+      "hsl": 36.73,
+      "prediction": "换手率异常高"
+    }
+  ],
+  "strategy": {
+    "morning": "观望为主，不追开盘。关注圣杯候选竞价量能，量比>2.0可关注",
+    "midday": "等待V型反转信号，轻仓试买。北交所注意流动性窗口(11:00-11:30)",
+    "afternoon": "14:30 T5自动选股，14:45最终确认，v132≥1.05+跌幅>5%+换手>10%执行买入",
+    "core_principle": "超跌反弹策略 — 只买跌不买涨，尾盘确认后入场"
+  },
+  "risk_alerts": [
+    "全市场大跌，短期情绪偏空",
+    "T+1验证仅23.3%上涨率",
+    "北交所标的流动性不足",
+    "M70模型待T+1样本≥30后激活"
+  ],
+  "kpi_status": {
+    "hit_rate": {
+      "current": "23.3%",
+      "target": "99%",
+      "status": "critical"
+    },
+    "profit_loss_ratio": {
+      "current": 6.04,
+      "target": 10.0,
+      "status": "moderate"
+    },
+    "mine_rate": {
+      "current": "0%",
+      "target": "≤1%",
+      "status": "excellent"
+    },
+    "automation": {
+      "current": "42/42",
+      "target": "42/42",
+      "status": "perfect"
+    }
+  },
+  "pipeline_status": {
+    "t5_1430": "completed",
+    "fullmarket": "completed",
+    "t1_verify": "in_progress",
+    "m70_train": "skipped",
+    "m55_calibrate": "completed",
+    "cockpit": "running"
+  }
+}
