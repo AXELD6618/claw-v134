@@ -23,6 +23,13 @@
       "last_failure": null,
       "last_success": "2026-06-29T11:22:59.396743",
       "last_status": "ok"
+    },
+    "T5": {
+      "consecutive_failures": 1,
+      "last_failure": "2026-06-29T11:34:10.827203",
+      "last_success": null,
+      "last_error": "object of type 'int' has no len()",
+      "last_status": "failed"
     }
   },
   "last_alerts": {}

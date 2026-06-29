@@ -1,1 +1,1 @@
-{"step": "T5", "timestamp": "2026-06-26T09:59:46.886596", "data": {"level": 1, "signals": 5, "elapsed": 15.692683219909668, "file": "/home/runner/work/claw-v134/claw-v134/cloud_outputs/holy_grail_signals.json"}}
+{"step": "T5", "timestamp": "2026-06-29T11:34:10.827041", "data": {"error": "object of type 'int' has no len()", "retries": 2}}
