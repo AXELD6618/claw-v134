@@ -9,6 +9,9 @@ on:
     # Run every hour from 02:30 to 15:00 UTC on trading days (Mon-Fri)
     - cron: "0 2,3,4,5,6,7,8,9,10,11,12,13,14 * * 1-5"
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/v134-catch-up.yml"
 
 jobs:
   catch-up:
