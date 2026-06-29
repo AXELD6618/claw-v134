@@ -2,15 +2,20 @@ name: V13.4 Guardian Health Check
 
 permissions:
   contents: write
+  actions: write
 on:
   schedule:
     - cron: "*/15 * * * 1-5"
   workflow_dispatch:
+  push:
+    paths:
+      - "cloud_pipeline.py"
+      - ".github/workflows/v134-guardian.yml"
 
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,6 +26,40 @@ jobs:
           PYTHONIOENCODING: utf-8
           LANG: C.UTF-8
         run: python cloud_pipeline.py --step=GUARDIAN
+      - name: Self-Healing Dispatch
+        id: dispatch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DISPATCH_FILE="cloud_state/guardian_dispatch_queue.json"
+          if [ -f "$DISPATCH_FILE" ]; then
+            echo "🔄 Self-healing dispatch triggered"
+            STEPS=$(python3 -c "import json; f=open('$DISPATCH_FILE'); d=json.load(f); print(','.join(d.get('steps_to_dispatch',[])))")
+            echo "Steps to dispatch: $STEPS"
+            # Map step names to workflow filenames
+            declare -A WF_MAP=(
+              ["T0"]="v134-t0-screener.yml"
+              ["T1"]="v134-t1-midday.yml"
+              ["T3"]="v134-t3-deep.yml"
+              ["T4"]="v134-t4-final.yml"
+              ["T5"]="v134-t5-holy-grail.yml"
+              ["NIGHT"]="v134-night-analysis.yml"
+              ["BATTLE"]="v134-battle-plan.yml"
+            )
+            IFS=',' read -ra STEP_ARRAY <<< "$STEPS"
+            for step in "${STEP_ARRAY[@]}"; do
+              WF="${WF_MAP[$step]}"
+              if [ -n "$WF" ]; then
+                echo "  → Dispatching $step ($WF)..."
+                gh workflow run "$WF" --ref master 2>&1 || echo "  ⚠️ Failed to dispatch $step"
+              fi
+            done
+            echo "dispatched=true" >> "$GITHUB_OUTPUT"
+            echo "steps=$STEPS" >> "$GITHUB_OUTPUT"
+          else
+            echo "✅ No dispatch needed — all steps OK"
+            echo "dispatched=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Commit status
         continue-on-error: true
         run: |

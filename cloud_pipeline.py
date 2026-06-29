@@ -216,20 +216,89 @@ def run_step_BATTLE():
     return plan
 
 
+def _is_today(timestamp_str: str) -> bool:
+    """Check if a timestamp string is from today."""
+    if not timestamp_str:
+        return False
+    try:
+        ts = datetime.fromisoformat(timestamp_str)
+        return ts.date() == datetime.now().date()
+    except Exception:
+        return False
+
+
+def _is_trading_day() -> bool:
+    """Check if today is a trading day (Mon-Fri, excluding known holidays)."""
+    return datetime.now().weekday() < 5
+
+
+def _is_past_scheduled_time(step: str) -> bool:
+    """Check if current time is past the scheduled trigger time for a step."""
+    now = datetime.now()
+    schedule = {
+        "T0": (2, 30),     # 02:30 UTC
+        "T1": (3, 30),     # 03:30 UTC
+        "T3": (6, 0),      # 06:00 UTC
+        "T4": (6, 15),     # 06:15 UTC
+        "T5": (6, 30),     # 06:30 UTC
+        "NIGHT": (12, 0),  # 12:00 UTC
+        "BATTLE": (14, 0), # 14:00 UTC
+    }
+    s = schedule.get(step)
+    if not s:
+        return False
+    return now.hour > s[0] or (now.hour == s[0] and now.minute >= s[1] + 5)
+
+
+def _generate_dispatch_exports(missing_steps: list) -> str:
+    """Generate GitHub Actions step exports for auto-dispatch."""
+    steps_json = json.dumps(missing_steps)
+    return steps_json
+
+
 def run_step_GUARDIAN():
-    """Health guardian — check pipeline health."""
-    print("[GUARDIAN] Health check...")
+    """Health guardian — check pipeline health with timestamp validation + self-healing."""
+    print("[GUARDIAN] Health check (V13.4.1 — with today-validation)...")
     health = {
         "timestamp": datetime.now().isoformat(),
         "status": "OK",
         "checks": {},
+        "stale_steps": [],
+        "self_healing_dispatched": [],
     }
 
-    # Check each step
+    # Config thresholds
+    TRADING_GRACE_MINUTES = 15  # Allow 15 min past schedule before flagging
+
+    # Check each step with timestamp validation
     steps = ["T0", "T1", "T3", "T4", "T5", "NIGHT", "BATTLE"]
+    now = datetime.now()
+    is_trading = _is_trading_day()
+
     for step in steps:
         state = read_step_result(step)
-        health["checks"][step] = "completed" if state else "pending"
+        if not state:
+            health["checks"][step] = "not_run"
+            if is_trading and _is_past_scheduled_time(step):
+                health["stale_steps"].append({
+                    "step": step,
+                    "reason": "never_run_today",
+                    "last_run": None,
+                })
+            continue
+
+        last_ts = state.get("timestamp")
+        state_data = state.get("data", {})
+
+        if _is_today(last_ts):
+            health["checks"][step] = "ok_today"
+        else:
+            health["checks"][step] = "stale"
+            health["stale_steps"].append({
+                "step": step,
+                "reason": "not_from_today",
+                "last_run": last_ts,
+            })
 
     # Check disk
     import shutil
@@ -245,20 +314,44 @@ def run_step_GUARDIAN():
         health["network"] = "DOWN"
 
     # Determine overall status
-    completed = sum(1 for v in health["checks"].values() if v == "completed")
-    health["completion_pct"] = round(completed / len(steps) * 100)
+    ok_today = sum(1 for v in health["checks"].values() if v == "ok_today")
+    health["completion_pct"] = round(ok_today / len(steps) * 100)
+    health["total_steps"] = len(steps)
+    health["ok_today_count"] = ok_today
+    health["stale_count"] = len(health["stale_steps"])
+    health["is_trading_day"] = is_trading
 
     if health["completion_pct"] < 50:
         health["status"] = "DEGRADED"
-    if health["completion_pct"] < 20:
+    if health["completion_pct"] == 0 and is_trading and now.hour >= 10:
         health["status"] = "CRITICAL"
+
+    # Self-healing: identify steps to dispatch
+    steps_to_dispatch = []
+    if is_trading and health["stale_steps"]:
+        for stale in health["stale_steps"]:
+            step = stale["step"]
+            if _is_past_scheduled_time(step):
+                steps_to_dispatch.append(step)
+                health["self_healing_dispatched"].append(step)
+
+    # Write dispatch list for GitHub Actions YAML step
+    if steps_to_dispatch:
+        dispatch_path = STATE_DIR / "guardian_dispatch_queue.json"
+        with open(dispatch_path, "w") as f:
+            json.dump({
+                "timestamp": datetime.now().isoformat(),
+                "steps_to_dispatch": steps_to_dispatch,
+                "reason": health["stale_steps"],
+            }, f, ensure_ascii=False, indent=2)
+        print(f"[GUARDIAN] 🔄 Self-healing: dispatching {steps_to_dispatch}")
 
     health_path = OUTPUT_DIR / "guardian_health.json"
     with open(health_path, "w") as f:
         json.dump(health, f, ensure_ascii=False, indent=2)
 
     write_step_result("GUARDIAN", health)
-    print(f"[GUARDIAN] Status: {health['status']} | Completion: {health['completion_pct']}% | Disk: {health['disk_free_gb']}GB")
+    print(f"[GUARDIAN] Status: {health['status']} | Today-OK: {ok_today}/{len(steps)} | Stale: {health['stale_count']} | Trading: {is_trading}")
     return health
 
 

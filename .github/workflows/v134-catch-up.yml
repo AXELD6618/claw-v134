@@ -1,0 +1,66 @@
+name: V13.4 Catch-Up (Hourly Fallback)
+
+permissions:
+  contents: read
+  actions: write
+
+on:
+  schedule:
+    # Run every hour from 02:30 to 15:00 UTC on trading days (Mon-Fri)
+    - cron: "0 2,3,4,5,6,7,8,9,10,11,12,13,14 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  catch-up:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Which Steps Need Catch-Up
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "🔍 V13.4 Catch-Up Check — $(date -u)"
+          TODAY=$(date -u +%Y-%m-%d)
+          HOUR=$(date -u +%H)
+          MINUTE=$(date -u +%M)
+
+          # Define step schedules and their workflow files
+          declare -A STEP_SCHEDULE=(
+            ["T0"]="02:30" ["T1"]="03:30" ["T3"]="06:00"
+            ["T4"]="06:15" ["T5"]="06:30" ["NIGHT"]="12:00" ["BATTLE"]="14:00"
+          )
+          declare -A WF_FILE=(
+            ["T0"]="v134-t0-screener.yml" ["T1"]="v134-t1-midday.yml"
+            ["T3"]="v134-t3-deep.yml" ["T4"]="v134-t4-final.yml"
+            ["T5"]="v134-t5-holy-grail.yml" ["NIGHT"]="v134-night-analysis.yml"
+            ["BATTLE"]="v134-battle-plan.yml"
+          )
+
+          DISPATCH_NEEDED=""
+          for step in T0 T1 T3 T4 T5 NIGHT BATTLE; do
+            SCHED="${STEP_SCHEDULE[$step]}"
+            SCHED_H=${SCHED%%:*}
+            SCHED_M=${SCHED##*:}
+
+            # Only check steps whose schedule has already passed (+ 10 min grace)
+            if [ "$HOUR" -gt "$SCHED_H" ] || { [ "$HOUR" -eq "$SCHED_H" ] && [ "$MINUTE" -ge $((10#$SCHED_M + 10)) ]; }; then
+              # Check if this step already ran today
+              WF="${WF_FILE[$step]}"
+              LAST_RUN=$(gh run list --workflow="$WF" --limit 1 --json createdAt,conclusion --jq '.[0].createdAt + "|" + .[0].conclusion' 2>/dev/null || echo "")
+              if [ -z "$LAST_RUN" ] || [[ "$LAST_RUN" != "$TODAY"* ]]; then
+                echo "  ⚡ $step — NOT run today (schedule $SCHED UTC). Triggering..."
+                gh workflow run "$WF" --ref master 2>&1 || echo "  ⚠️ Failed to dispatch $step"
+                DISPATCH_NEEDED="$DISPATCH_NEEDED $step"
+                sleep 3  # Small delay between dispatches
+              else
+                echo "  ✅ $step — already ran at ${LAST_RUN%%|*}"
+              fi
+            fi
+          done
+
+          if [ -z "$DISPATCH_NEEDED" ]; then
+            echo "✅ All steps OK — no catch-up needed"
+          fi
