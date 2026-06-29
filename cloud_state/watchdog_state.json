@@ -30,6 +30,12 @@
       "last_success": null,
       "last_error": "object of type 'int' has no len()",
       "last_status": "failed"
+    },
+    "NIGHT": {
+      "consecutive_failures": 0,
+      "last_failure": null,
+      "last_success": "2026-06-29T15:25:12.445794",
+      "last_status": "ok"
     }
   },
   "last_alerts": {}
