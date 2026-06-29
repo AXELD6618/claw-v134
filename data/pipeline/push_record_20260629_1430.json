@@ -1,11 +1,15 @@
 {
-  "timestamp": "2026-06-29T18:30:26.498725",
+  "timestamp": "2026-06-29T18:43:32.779014",
   "date": "20260629",
   "period": "14:30",
   "signals_count": 10,
+  "qualified_count": 10,
+  "push_top_n": 5,
+  "min_grade": "SS",
   "wechat": {
     "success": false,
-    "channel": "none"
+    "channel": "none",
+    "reason": "未配置 QMSG_KEY 或 SERVERCHAN_KEY"
   },
   "miniprogram": {
     "success": false,
@@ -16,5 +20,5 @@
     "success": true,
     "synced": "详见 sync_to_cloud.py 输出"
   },
-  "message_preview": "⏰ 时段: 20260629 14:30\n📊 总信号: 10 只\n🎯 TOP3 推荐:\n  1. 🌟SSS C惠科(001399) [A] 评分1.0288\n  2. 🌟SSS 金戈新材(920083) [A] 评分1.0375\n  3. 🌟SSS 族兴新材(920078) [A] 评分1.0820\n\n💡 操作: 尾盘 14:50 前关注/买入\n⚠️ 投资有风险，信号仅供参考"
+  "message_preview": "⏰ 时段: 20260629 14:30\n📊 总扫描: 10 只 → 高成功率筛选: 10 只\n🎯 TOP5 高成功率推荐:\n  1. 🌟SSS 长海股份(300196) [A档] 评分1.0918\n     ├ 操作: 14:50前竞价买入 | 仓位≤25%\n     ├ 止损: 次日开盘跌>3%即出\n     ├ 止盈: 次日涨≥5%可减半, ≥8%可全出\n  2. 🌟SSS 晶赛科技(920981) [A档] 评分1.0821\n     ├ 操作: 14:50前竞价买入 | 仓位≤25%\n     ├ 止损: 次日开盘跌>3%即出\n     ├ 止盈: 次日涨≥5%可减半, ≥8%可全出"
 }
