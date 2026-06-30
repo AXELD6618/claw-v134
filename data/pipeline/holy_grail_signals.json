@@ -1,67 +1,198 @@
 {
+  "timestamp": "2026-06-30T22:44:28.024770",
+  "period": "T5_1430",
+  "signal_count": 7,
+  "quality_count": 7,
   "signals": [
     {
-      "code": "001399",
-      "name": "C惠科",
+      "code": "920072",
+      "name": "科莱瑞迪",
       "tier": "A",
-      "v132_score": 1.0288473333333332
+      "v132_score": 1.0385,
+      "decline_pct": -22.25,
+      "hsl": 60.74,
+      "amplitude": 11.54,
+      "price": 37.85,
+      "market": "bj",
+      "grade": "SSS",
+      "reason": "超跌反转+天量换手"
     },
     {
-      "code": "920083",
-      "name": "金戈新材",
+      "code": "603262",
+      "name": "技源集团",
       "tier": "A",
-      "v132_score": 1.0374673333333333
+      "v132_score": 1.0547,
+      "decline_pct": -10.01,
+      "hsl": 18.21,
+      "amplitude": 10.42,
+      "price": 24.62,
+      "market": "sh",
+      "grade": "SSS",
+      "reason": "放量跌停+高换手+极限超卖"
     },
     {
-      "code": "920078",
-      "name": "族兴新材",
+      "code": "002943",
+      "name": "宇晶股份",
       "tier": "A",
-      "v132_score": 1.0820339999999997
+      "v132_score": 1.0431,
+      "decline_pct": -9.05,
+      "hsl": 14.3,
+      "amplitude": 16.18,
+      "price": 44.23,
+      "market": "sz",
+      "grade": "SSS",
+      "reason": "放量深跌+超高振幅+强反弹预期"
     },
     {
-      "code": "301468",
-      "name": "博盈特焊",
+      "code": "002971",
+      "name": "和远气体",
       "tier": "A",
-      "v132_score": 1.0613289999999997
+      "v132_score": 0.9677,
+      "decline_pct": -9.98,
+      "hsl": 18.78,
+      "amplitude": 5.01,
+      "price": 62.0,
+      "market": "sz",
+      "grade": "SS",
+      "reason": "跌停放量+极致超跌+高换手"
     },
     {
-      "code": "002579",
-      "name": "中京电子",
+      "code": "300721",
+      "name": "怡达股份",
       "tier": "A",
-      "v132_score": 1.0194856666666667
+      "v132_score": 0.9383,
+      "decline_pct": -8.82,
+      "hsl": 27.41,
+      "amplitude": 9.91,
+      "price": 37.65,
+      "market": "sz",
+      "grade": "SS",
+      "reason": "连续放量下跌+超高换手+回弹预期"
     },
     {
-      "code": "301687",
-      "name": "新广益",
+      "code": "600228",
+      "name": "返利科技",
       "tier": "A",
-      "v132_score": 0.941149
+      "v132_score": 0.9613,
+      "decline_pct": -8.73,
+      "hsl": 18.98,
+      "amplitude": 12.56,
+      "price": 9.3,
+      "market": "sh",
+      "grade": "SS",
+      "reason": "放量深跌+超高振幅+潜力反转"
     },
     {
-      "code": "301630",
-      "name": "同宇新材",
+      "code": "301362",
+      "name": "民爆光电",
       "tier": "A",
-      "v132_score": 0.9633556666666665
-    },
-    {
-      "code": "300196",
-      "name": "长海股份",
-      "tier": "A",
-      "v132_score": 1.091774
-    },
-    {
-      "code": "920981",
-      "name": "晶赛科技",
-      "tier": "A",
-      "v132_score": 1.082084
-    },
-    {
-      "code": "002141",
-      "name": "贤丰控股",
-      "tier": "A",
-      "v132_score": 1.0783506666666667
+      "v132_score": 0.9117,
+      "decline_pct": -8.04,
+      "hsl": 19.62,
+      "amplitude": 10.33,
+      "price": 183.92,
+      "market": "sz",
+      "grade": "SS",
+      "reason": "高位放量回调+高换手+反弹信号"
     }
   ],
-  "date": "20260629",
-  "period": "14:30",
-  "total_holy_grails": 17
+  "quality_signals": [
+    {
+      "code": "920072",
+      "name": "科莱瑞迪",
+      "tier": "A",
+      "v132_score": 1.0385,
+      "decline_pct": -22.25,
+      "hsl": 60.74,
+      "amplitude": 11.54,
+      "price": 37.85,
+      "market": "bj",
+      "grade": "SSS",
+      "reason": "超跌反转+天量换手"
+    },
+    {
+      "code": "603262",
+      "name": "技源集团",
+      "tier": "A",
+      "v132_score": 1.0547,
+      "decline_pct": -10.01,
+      "hsl": 18.21,
+      "amplitude": 10.42,
+      "price": 24.62,
+      "market": "sh",
+      "grade": "SSS",
+      "reason": "放量跌停+高换手+极限超卖"
+    },
+    {
+      "code": "002943",
+      "name": "宇晶股份",
+      "tier": "A",
+      "v132_score": 1.0431,
+      "decline_pct": -9.05,
+      "hsl": 14.3,
+      "amplitude": 16.18,
+      "price": 44.23,
+      "market": "sz",
+      "grade": "SSS",
+      "reason": "放量深跌+超高振幅+强反弹预期"
+    },
+    {
+      "code": "002971",
+      "name": "和远气体",
+      "tier": "A",
+      "v132_score": 0.9677,
+      "decline_pct": -9.98,
+      "hsl": 18.78,
+      "amplitude": 5.01,
+      "price": 62.0,
+      "market": "sz",
+      "grade": "SS",
+      "reason": "跌停放量+极致超跌+高换手"
+    },
+    {
+      "code": "300721",
+      "name": "怡达股份",
+      "tier": "A",
+      "v132_score": 0.9383,
+      "decline_pct": -8.82,
+      "hsl": 27.41,
+      "amplitude": 9.91,
+      "price": 37.65,
+      "market": "sz",
+      "grade": "SS",
+      "reason": "连续放量下跌+超高换手+回弹预期"
+    },
+    {
+      "code": "600228",
+      "name": "返利科技",
+      "tier": "A",
+      "v132_score": 0.9613,
+      "decline_pct": -8.73,
+      "hsl": 18.98,
+      "amplitude": 12.56,
+      "price": 9.3,
+      "market": "sh",
+      "grade": "SS",
+      "reason": "放量深跌+超高振幅+潜力反转"
+    },
+    {
+      "code": "301362",
+      "name": "民爆光电",
+      "tier": "A",
+      "v132_score": 0.9117,
+      "decline_pct": -8.04,
+      "hsl": 19.62,
+      "amplitude": 10.33,
+      "price": 183.92,
+      "market": "sz",
+      "grade": "SS",
+      "reason": "高位放量回调+高换手+反弹信号"
+    }
+  ],
+  "market_index": {
+    "shanghai": 4094.4,
+    "shanghai_pct": 0.5,
+    "chinext": 4342.71,
+    "chinext_pct": 2.99
+  }
 }
