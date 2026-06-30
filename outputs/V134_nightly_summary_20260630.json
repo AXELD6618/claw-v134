@@ -1,0 +1,72 @@
+{
+  "report_date": "2026-06-30",
+  "generated_at": "2026-06-30T22:52:15",
+  "type": "V13.4_nightly_deep_analysis",
+  "market_kpi": {
+    "total_scanned": 68,
+    "tier_a": 30,
+    "tier_b": 11,
+    "tier_c": 27,
+    "holy_grail_count": 7,
+    "sh_index": {"price": 4094.4, "chg_pct": 0.5},
+    "cyb_index": {"price": 4342.71, "chg_pct": 2.99},
+    "limit_up": 170,
+    "limit_down": 20
+  },
+  "p1_1_weekly": {
+    "total_signals": 30,
+    "hits": 21,
+    "hit_rate": 70.0,
+    "limit_ups": 5,
+    "limit_up_rate": 16.7,
+    "stop_losses": 1,
+    "avg_gain": 5.14,
+    "avg_loss": -1.85,
+    "plr": 2.77,
+    "hg_rate": 77.8,
+    "super_rate": 80.0,
+    "limit_up_list": [
+      {"code": "920662", "name": "方盛股份", "v132": 1.028, "t1": 18.97},
+      {"code": "920725", "name": "惠丰钻石", "v132": 1.056, "t1": 12.28},
+      {"code": "001399", "name": "C惠科", "v132": 1.029, "t1": 10.16},
+      {"code": "603335", "name": "迪生力", "v132": 0.944, "t1": 9.96},
+      {"code": "301051", "name": "信濠光电", "v132": 0.691, "t1": 11.62}
+    ]
+  },
+  "m55_state": {
+    "sigmoid_k": 8.0,
+    "sigmoid_x0": 0.52,
+    "x0_trajectory": [0.55, 0.56, 0.53, 0.52],
+    "calibration_samples": 15,
+    "hit_rate_calibrated": 73.3,
+    "plr_calibrated": 6.06
+  },
+  "m70_state": {
+    "training_samples": 17,
+    "min_required": 30,
+    "ready": false,
+    "mode": "random_forest_fallback",
+    "top_features": ["m57_overnight_mom", "m57_intraday_rev", "m57_flow_accel", "m57_sector_alpha", "m57_streak_exp"]
+  },
+  "positions": {
+    "count": 3,
+    "total_market_value": 67922,
+    "total_floating_pnl": 25687,
+    "total_floating_pnl_pct": 37.8
+  },
+  "sentiment_archive": {
+    "critical_events": 8,
+    "main_themes": ["智算集群", "存储芯片", "玻璃桥", "商业航天", "机器人", "锂电", "创新药", "碳化硅"]
+  },
+  "evolution": {
+    "weaknesses": 2,
+    "knowledge_gaps": 1,
+    "expected_improvement": 79.7
+  },
+  "weekly_trend": {
+    "hit_rate_progression": [83.1, 73.3, 70.0],
+    "x0_progression": [0.55, 0.56, 0.53, 0.52],
+    "plr_progression": [6.08, 6.06, 2.77],
+    "direction": "tightening_effectively"
+  }
+}

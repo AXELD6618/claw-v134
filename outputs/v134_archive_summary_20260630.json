@@ -1,0 +1,30 @@
+{
+  "date": "20260630",
+  "timestamp": "2026-06-30T22:37:09",
+  "signal_total": 161,
+  "tier_A": 83,
+  "tier_B": 34,
+  "tier_C": 44,
+  "holy_grail_count": 14,
+  "kline_60d_success": 83,
+  "kline_60d_total": 83,
+  "kline_source": "Eastmoney (前复权)",
+  "index_sh": {
+    "code": "000001",
+    "close": 4094.4,
+    "change_pct": 0.5
+  },
+  "index_cy": {
+    "code": "399006",
+    "close": 4342.71,
+    "change_pct": 2.99
+  },
+  "lhb_count": 10,
+  "lhb_branch": 3,
+  "lhb_desc": "机构席位买卖详情",
+  "kline_1min_success": 50,
+  "kline_1min_total": 50,
+  "kline_1min_source": "Sina/Eastmoney API",
+  "status": "ready",
+  "next": "明日15:10 T+1奖惩验证"
+}

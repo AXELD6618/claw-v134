@@ -1,0 +1,172 @@
+{
+  "generated": "2026-06-30T23:01:00",
+  "date": "2026-06-30",
+  "tomorrow": "2026-07-01",
+  "day_of_week": "周三",
+  "market": {
+    "shanghai": 4094.4,
+    "shanghai_pct": 0.5,
+    "chinext": 4342.71,
+    "chinext_pct": 2.99
+  },
+  "holdings_review": {
+    "301669": {
+      "name": "高特电子",
+      "shares": 600,
+      "cost": 6.94,
+      "close": 41.13,
+      "day_change": 0.64,
+      "profit_pct": 492.6,
+      "hsl": 29.14,
+      "action": "竞价观望，跌>2%止损，保护492%浮盈"
+    },
+    "300540": {
+      "name": "蜀道装备",
+      "shares": 1300,
+      "cost": 27.66,
+      "close": 37.9,
+      "day_change": 20.01,
+      "profit_pct": 37.0,
+      "hsl": 17.46,
+      "action": "涨停日，明早竞价减半锁定利润"
+    },
+    "920961": {
+      "name": "创远信科",
+      "shares": 100,
+      "cost": 21.132,
+      "close": 24.59,
+      "day_change": 4.82,
+      "profit_pct": 16.4,
+      "hsl": 5.49,
+      "action": "持有，北交所趋势向上"
+    }
+  },
+  "holy_grail_count": 7,
+  "holy_grail": [
+    {
+      "rank": 1,
+      "code": "920072",
+      "name": "科莱瑞迪",
+      "market": "bj",
+      "grade": "SSS",
+      "v132": 1.0385,
+      "decline": -22.25,
+      "hsl": 60.74,
+      "amp": 11.54,
+      "price": 37.85
+    },
+    {
+      "rank": 2,
+      "code": "603262",
+      "name": "技源集团",
+      "market": "sh",
+      "grade": "SSS",
+      "v132": 1.0547,
+      "decline": -10.01,
+      "hsl": 18.21,
+      "amp": 10.42,
+      "price": 24.62
+    },
+    {
+      "rank": 3,
+      "code": "002943",
+      "name": "宇晶股份",
+      "market": "sz",
+      "grade": "SSS",
+      "v132": 1.0431,
+      "decline": -9.05,
+      "hsl": 14.3,
+      "amp": 16.18,
+      "price": 44.23
+    },
+    {
+      "rank": 4,
+      "code": "002971",
+      "name": "和远气体",
+      "market": "sz",
+      "grade": "SS",
+      "v132": 0.9677,
+      "decline": -9.98,
+      "hsl": 18.78,
+      "amp": 5.01,
+      "price": 62.0
+    },
+    {
+      "rank": 5,
+      "code": "300721",
+      "name": "怡达股份",
+      "market": "sz",
+      "grade": "SS",
+      "v132": 0.9383,
+      "decline": -8.82,
+      "hsl": 27.41,
+      "amp": 9.91,
+      "price": 37.65
+    },
+    {
+      "rank": 6,
+      "code": "600228",
+      "name": "返利科技",
+      "market": "sh",
+      "grade": "SS",
+      "v132": 0.9613,
+      "decline": -8.73,
+      "hsl": 18.98,
+      "amp": 12.56,
+      "price": 9.3
+    },
+    {
+      "rank": 7,
+      "code": "301362",
+      "name": "民爆光电",
+      "market": "sz",
+      "grade": "SS",
+      "v132": 0.9117,
+      "decline": -8.04,
+      "hsl": 19.62,
+      "amp": 10.33,
+      "price": 183.92
+    }
+  ],
+  "t4_snapshot": {
+    "time": "14:15",
+    "total_scanned": 148,
+    "tier_a": 133,
+    "holy_grail_count": 56
+  },
+  "strategy": "超跌反弹窗口——只买深跌(-8%以上)+放量(换手>14%)+V132>=0.95，尾盘确认入场",
+  "risk_warnings": [
+    "创业板+2.99%大涨次日谨防获利回吐",
+    "超跌股若大盘回调可能继续新低",
+    "T+1验证涨停率16.7%偏低，仓位严格管控",
+    "微信推送未配置Key，需手动查看",
+    "KPI未达成：命中率70%/盈亏比2.77/涨停率16.7%"
+  ],
+  "tomorrow_actions": [
+    "09:25 蜀道装备涨停价减半(锁定37%利润)",
+    "09:25 高特电子竞价观望(内盘抛压大)",
+    "09:30 高特电子跌>2%止损(保护492%浮盈)",
+    "全天 创远信科继续持有(北交所趋势)",
+    "14:30 尾盘选股买入(超跌反弹窗口)"
+  ],
+  "kpi": {
+    "hit_rate": {
+      "current": 70,
+      "target": 99
+    },
+    "plr": {
+      "current": 2.77,
+      "target": 10.0
+    },
+    "bomb_rate": {
+      "current": 3.3,
+      "target": 1.0
+    },
+    "zt_rate": {
+      "current": 16.7,
+      "target": 40
+    }
+  },
+  "output_html": "outputs/battle_plan_20260701.html",
+  "output_json": "outputs/battle_plan_20260701.json"
+}

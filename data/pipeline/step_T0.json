@@ -1,0 +1,25 @@
+{
+  "step": "T0",
+  "timestamp": "2026-06-30T22:05:00",
+  "status": "completed",
+  "summary": {
+    "total_candidates": 93,
+    "tier_a": 34,
+    "tier_b": 24,
+    "tier_c": 35
+  },
+  "market_index": {
+    "shanghai": {
+      "code": "000001",
+      "name": "上证指数",
+      "price": 4094.4,
+      "chg_pct": 0.5
+    },
+    "chinext": {
+      "code": "399006",
+      "name": "创业板指",
+      "price": 4342.71,
+      "chg_pct": 2.99
+    }
+  }
+}

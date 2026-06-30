@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-06-30T21:45:03.380147",
+  "check_type": "V13.4_degradation_fault_tolerance",
+  "severity": "MEDIUM",
+  "issues_found": [
+    {
+      "id": "PIPE_MISSING_T0",
+      "step": "T0",
+      "description": "step_T0.json missing from pipeline directory",
+      "resolution": "restored from fullmarket_cache/screener_t0_1030.json backup",
+      "status": "resolved"
+    },
+    {
+      "id": "PIPE_MISSING_T5",
+      "step": "T5",
+      "description": "step_T5.json missing from pipeline directory",
+      "resolution": "restored from fullmarket_cache/screener_t5_1430.json + holy_grail_signals.json backup",
+      "status": "resolved"
+    },
+    {
+      "id": "AUTOPILOT_DEGRADED",
+      "step": "autopilot_state",
+      "description": "health_status=degraded, 8 fallback steps (from 2026-06-25 data)",
+      "fallback_steps": [
+        "08:30_pre_market",
+        "09:25_auction",
+        "09:30_opening",
+        "11:30_T1_midday",
+        "13:55_sentiment",
+        "14:00_T3_preclose",
+        "15:25_history",
+        "15:35_M55_calibrate"
+      ],
+      "resolution": "autopilot_state dated 06-25, T3/T4 data from 06-29 exists; stale state record",
+      "status": "informational"
+    },
+    {
+      "id": "PUSH_NO_KEY",
+      "step": "push_wechat",
+      "description": "Qmsg/Server酱 Key not configured, WeChat push disabled",
+      "resolution": "awaiting key from Arthur",
+      "status": "needs_manual"
+    }
+  ],
+  "resolved_count": 2,
+  "informational_count": 1,
+  "needs_manual_count": 1,
+  "total_issues": 4,
+  "data_integrity": {
+    "checkpoint.json": "OK",
+    "autopilot_state.json": "OK",
+    "step_T0.json": "RESTORED",
+    "step_T3.json": "OK (40303 bytes)",
+    "step_T4.json": "OK (10412 bytes)",
+    "step_T5.json": "RESTORED",
+    "step_battle_plan.json": "OK",
+    "holy_grail_signals.json": "OK",
+    "holy_grail.db": "OK (217088 bytes)",
+    "M55_CurrentWeights.json": "OK",
+    "state_20260629.json": "OK (29893 bytes)",
+    "screener_t0_1030.json": "OK (backup source)",
+    "screener_t5_1430.json": "OK (backup source)"
+  }
+}

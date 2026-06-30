@@ -1,0 +1,236 @@
+{
+  "date": "20260630",
+  "generated_at": "2026-06-30 21:45:24",
+  "session": "post_market_review",
+  "market": {
+    "index": "上证指数",
+    "code": "000001",
+    "close": 4094.4,
+    "change_pct": 0.5,
+    "volume_wan_hand": 59841,
+    "turnover_rate": 1.24,
+    "status": "正常交易"
+  },
+  "overnight_news": {
+    "source": "TDX问达",
+    "highlights": [
+      {
+        "title": "百济神州：百悦泽联合利妥昔单抗一线治疗套细胞淋巴瘤3期临床达主要终点",
+        "time": "2026-06-30 21:42",
+        "source": "财联社"
+      },
+      {
+        "title": "美股碳化硅龙头Wolfspeed盘初走高，涨幅扩大至5%",
+        "time": "2026-06-30 21:41",
+        "source": "财联社"
+      },
+      {
+        "title": "闪迪股价上涨6%，总市值报3214亿美元",
+        "time": "2026-06-30 21:41",
+        "source": "财联社"
+      },
+      {
+        "title": "中国波顿(03318)附属收购上海龙殷生物100%股权 代价2.4亿元",
+        "time": "2026-06-30 21:40",
+        "source": "格隆汇"
+      },
+      {
+        "title": "圣贝拉集团(02508)宣布股份回购计划，拟回购不超1亿港元",
+        "time": "2026-06-30 21:39",
+        "source": "格隆汇"
+      }
+    ]
+  },
+  "yesterday_holy_grail": {
+    "date": "20260629",
+    "total_signals": 72,
+    "holy_grail_count": 17,
+    "top_candidates": [
+      {
+        "code": "300196",
+        "name": "长海股份",
+        "decline": -11.61,
+        "v132_score": 1.0918,
+        "tier": "A"
+      },
+      {
+        "code": "920078",
+        "name": "族兴新材",
+        "decline": -11.0,
+        "v132_score": 1.082,
+        "tier": "A"
+      },
+      {
+        "code": "920981",
+        "name": "晶赛科技",
+        "decline": -9.5,
+        "v132_score": 1.0821,
+        "tier": "A"
+      },
+      {
+        "code": "002141",
+        "name": "贤丰控股",
+        "decline": -10.07,
+        "v132_score": 1.0784,
+        "tier": "A"
+      },
+      {
+        "code": "301468",
+        "name": "博盈特焊",
+        "decline": -12.88,
+        "v132_score": 1.0613,
+        "tier": "A"
+      },
+      {
+        "code": "920083",
+        "name": "金戈新材",
+        "decline": -15.96,
+        "v132_score": 1.0375,
+        "tier": "A"
+      },
+      {
+        "code": "001399",
+        "name": "C惠科",
+        "decline": -17.48,
+        "v132_score": 1.0288,
+        "tier": "A"
+      },
+      {
+        "code": "002579",
+        "name": "中京电子",
+        "decline": -10.01,
+        "v132_score": 1.0195,
+        "tier": "A"
+      },
+      {
+        "code": "301630",
+        "name": "同宇新材",
+        "decline": -8.9,
+        "v132_score": 0.9634,
+        "tier": "A"
+      },
+      {
+        "code": "301687",
+        "name": "新广益",
+        "decline": -8.61,
+        "v132_score": 0.9411,
+        "tier": "A"
+      }
+    ]
+  },
+  "t1_verification": {
+    "method": "TDX日线K线验证",
+    "date": "20260630",
+    "candidates_checked": 5,
+    "results": [
+      {
+        "code": "300196",
+        "name": "长海股份",
+        "t_day_close": 29.16,
+        "t1_close": 29.57,
+        "t1_change_pct": 1.41,
+        "t1_open": 28.6,
+        "t1_high": 29.94,
+        "t1_low": 26.25,
+        "hit": true,
+        "intraday_recovery": 14.0,
+        "grade": "B"
+      },
+      {
+        "code": "300410",
+        "name": "正业科技",
+        "t_day_close": 10.59,
+        "t1_close": 11.07,
+        "t1_change_pct": 4.53,
+        "t1_open": 10.62,
+        "t1_high": 11.13,
+        "t1_low": 10.52,
+        "hit": true,
+        "intraday_recovery": 5.8,
+        "grade": "A"
+      },
+      {
+        "code": "300057",
+        "name": "万顺新材",
+        "t_day_close": 8.73,
+        "t1_close": 8.68,
+        "t1_change_pct": -0.57,
+        "t1_open": 8.61,
+        "t1_high": 8.94,
+        "t1_low": 8.45,
+        "hit": false,
+        "grade": "D"
+      },
+      {
+        "code": "301468",
+        "name": "博盈特焊",
+        "t_day_close": 42.08,
+        "t1_close": 41.71,
+        "t1_change_pct": -0.88,
+        "t1_open": 42.16,
+        "t1_high": 42.48,
+        "t1_low": 40.68,
+        "hit": false,
+        "grade": "D"
+      },
+      {
+        "code": "920078",
+        "name": "族兴新材",
+        "t_day_close": 29.86,
+        "t1_close": 29.3,
+        "t1_change_pct": -1.88,
+        "t1_open": 28.99,
+        "t1_high": 29.88,
+        "t1_low": 28.2,
+        "hit": false,
+        "grade": "F"
+      }
+    ],
+    "summary": {
+      "hit_rate": "2/5 (40.0%)",
+      "avg_t1_return": 0.52,
+      "best": "正业科技 +4.53%",
+      "worst": "族兴新材 -1.88%"
+    }
+  },
+  "monitoring_pool": {
+    "source": "fullmarket_cache state_20260629 + TDX实时验证",
+    "pool_size": 72,
+    "holy_grail_count": 17,
+    "pre_market_alerts": [
+      {
+        "code": "300196",
+        "name": "长海股份",
+        "alert": "T+1反弹 +1.41%，日内低点拉回14%，关注反弹延续"
+      },
+      {
+        "code": "300410",
+        "name": "正业科技",
+        "alert": "T+1反弹 +4.53%，最强回弹，明日关注"
+      },
+      {
+        "code": "300057",
+        "name": "万顺新材",
+        "alert": "T+1继续小幅下跌，观察是否筑底"
+      },
+      {
+        "code": "920981",
+        "name": "晶赛科技",
+        "alert": "待验证，北交所高波动"
+      },
+      {
+        "code": "002141",
+        "name": "贤丰控股",
+        "alert": "待验证，深市超跌"
+      }
+    ]
+  },
+  "market_sectors": {
+    "overnight_focus": [
+      "碳化硅半导体(Wolfspeed +5%)",
+      "存储芯片(闪迪 +6%)",
+      "生物医药(百济神州利好)"
+    ],
+    "attention": "隔夜美股半导体/存储板块走强，关注A股半导体板块联动"
+  }
+}

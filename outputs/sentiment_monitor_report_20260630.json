@@ -1,0 +1,910 @@
+{
+  "run_time": "2026-06-30T22:46:15.342778",
+  "mode": "非交易时段(16:00-08:30)",
+  "stats": {
+    "tdx_news": 11,
+    "tdx_report": 2,
+    "tdx_notice": 4,
+    "websearch": 8,
+    "total_unique": 25,
+    "important_count": 9,
+    "alert_count": 8,
+    "signal_count": 9
+  },
+  "emergency_keywords": {
+    "冲突": 1,
+    "涨停": 1,
+    "跌停": 1,
+    "并购": 4,
+    "重组": 1
+  },
+  "important_news": [
+    {
+      "title": "无人机需求强劲推动业绩爆发 AeroVironment盘中大涨逾20%",
+      "summary": "AeroVironment业绩超预期，季度营收同比翻倍，自主系统营收4.92亿美元；地缘冲突推升无人机需求。",
+      "source": "财联社",
+      "publish_time": "2026-06-30 22:29:56",
+      "url": "https://www.cls.cn/detail/2413475",
+      "data_source": "tdx_news_A股热点板块",
+      "sentiment_score": 0.5,
+      "sentiment_label": "positive",
+      "impact_score": 25.0,
+      "impact_direction": "bullish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "earnings",
+      "related_sectors": [
+        "军工"
+      ],
+      "importance_score": 100,
+      "target_stocks": [
+        {
+          "code": "002389",
+          "name": "航天彩虹",
+          "weight": 0.8
+        },
+        {
+          "code": "688297",
+          "name": "中无人机",
+          "weight": 0.8
+        },
+        {
+          "code": "688070",
+          "name": "纵横股份",
+          "weight": 0.7
+        },
+        {
+          "code": "600893",
+          "name": "航发动力",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": [
+        "冲突"
+      ]
+    },
+    {
+      "title": "【今日晨报】2026年06月30日 一、核心观点隔夜美股深V反转",
+      "summary": "隔夜美股芯片深V反弹+国常会AI定调提振科技情绪；伊朗否认谈判计划，地缘反复；PMI公布在即。",
+      "source": "雪球",
+      "publish_time": "2026-06-30",
+      "url": "https://xueqiu.com/8812926528/397489916",
+      "data_source": "websearch_美股隔夜",
+      "sentiment_score": 1.0,
+      "sentiment_label": "positive",
+      "impact_score": 30.0,
+      "impact_direction": "bullish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "geopolitical",
+      "related_sectors": [
+        "AI算力"
+      ],
+      "importance_score": 100,
+      "target_stocks": [
+        {
+          "code": "688256",
+          "name": "寒武纪",
+          "weight": 0.8
+        },
+        {
+          "code": "603019",
+          "name": "中科曙光",
+          "weight": 0.8
+        },
+        {
+          "code": "000938",
+          "name": "紫光股份",
+          "weight": 0.7
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "weight": 0.8
+        },
+        {
+          "code": "002463",
+          "name": "沪电股份",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": []
+    },
+    {
+      "title": "美国政府拟招募工程师填补国防部技术岗位 推动引入硅谷思维",
+      "summary": "特朗普政府计划招募工程师担任国防部高影响力技术岗位，聚焦AI/ML/自动化。",
+      "source": "格隆汇",
+      "publish_time": "2026-06-30 22:29:30",
+      "url": "https://www.gelonghui.com/live/2530075",
+      "data_source": "tdx_news_最新财经",
+      "sentiment_score": 0.0,
+      "sentiment_label": "neutral",
+      "impact_score": 0.0,
+      "impact_direction": "neutral",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "geopolitical",
+      "related_sectors": [
+        "AI算力",
+        "军工"
+      ],
+      "importance_score": 99.0,
+      "target_stocks": [
+        {
+          "code": "688256",
+          "name": "寒武纪",
+          "weight": 0.8
+        },
+        {
+          "code": "603019",
+          "name": "中科曙光",
+          "weight": 0.8
+        },
+        {
+          "code": "000938",
+          "name": "紫光股份",
+          "weight": 0.7
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "weight": 0.8
+        },
+        {
+          "code": "002463",
+          "name": "沪电股份",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": []
+    },
+    {
+      "title": "中国政府网_中央人民政府门户网站",
+      "summary": "国务院政策动态。",
+      "source": "中国政府网",
+      "publish_time": "2026-06-30",
+      "url": "https://www.gov.cn/",
+      "data_source": "websearch_中国宏观政策",
+      "sentiment_score": 0.0,
+      "sentiment_label": "neutral",
+      "impact_score": 0.0,
+      "impact_direction": "neutral",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "geopolitical",
+      "related_sectors": [],
+      "importance_score": 97.0,
+      "target_stocks": [],
+      "emergency_hits": []
+    },
+    {
+      "title": "迪米生活控股(01667)发布年度业绩，净亏损2652.3万港元，同比收窄63.5%",
+      "summary": "收益下降，净亏损收窄。",
+      "source": "智通财经",
+      "publish_time": "2026-06-30 22:32:57",
+      "url": "http://www.zhitongcaijing.com/content/detail/1461610.html",
+      "data_source": "tdx_news_最新财经",
+      "sentiment_score": -1.0,
+      "sentiment_label": "negative",
+      "impact_score": 30.0,
+      "impact_direction": "bearish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "earnings",
+      "related_sectors": [],
+      "importance_score": 88.0,
+      "target_stocks": [],
+      "emergency_hits": []
+    },
+    {
+      "title": "地缘博弈与政策共振下A股热点加速轮动:油气板块大幅震荡——军工",
+      "summary": "外部风险变量、国内政策预期与经济数据验证，资金回归业绩与估值均衡。",
+      "source": "加联盟",
+      "publish_time": "2026-06-28",
+      "url": "http://m.jialianmeng.top/tqznews/829_article814848.shtml",
+      "data_source": "websearch_A股政策热点",
+      "sentiment_score": -1.0,
+      "sentiment_label": "negative",
+      "impact_score": 30.0,
+      "impact_direction": "bearish",
+      "impact_scope": "sector",
+      "duration_days": 3,
+      "event_type": "earnings",
+      "related_sectors": [
+        "石油",
+        "军工"
+      ],
+      "importance_score": 82.0,
+      "target_stocks": [
+        {
+          "code": "002389",
+          "name": "航天彩虹",
+          "weight": 0.8
+        },
+        {
+          "code": "688297",
+          "name": "中无人机",
+          "weight": 0.8
+        },
+        {
+          "code": "688070",
+          "name": "纵横股份",
+          "weight": 0.7
+        },
+        {
+          "code": "600893",
+          "name": "航发动力",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": []
+    },
+    {
+      "title": "价值重估开启！圣贝拉集团(2508)掷1亿港元回购股份，信心彰显",
+      "summary": "圣贝拉集团启动回购，彰显管理层信心，获国泰海通增持/华泰买入评级。",
+      "source": "格隆汇",
+      "publish_time": "2026-06-30 22:30:36",
+      "url": "https://www.gelonghui.com/news/5260880",
+      "data_source": "tdx_news_A股热点板块",
+      "sentiment_score": 1.0,
+      "sentiment_label": "positive",
+      "impact_score": 30.0,
+      "impact_direction": "bullish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "company",
+      "related_sectors": [],
+      "importance_score": 81.0,
+      "target_stocks": [],
+      "emergency_hits": []
+    },
+    {
+      "title": "珞石机器人(03752.HK)今日起招股",
+      "summary": "珞石机器人全球发售2303.19万股，募资用于研发、海外销售、产能提升。",
+      "source": "证券时报",
+      "publish_time": "2026-06-30 09:08:09",
+      "url": "https://www.stcn.com/article/detail/3987844.html",
+      "data_source": "tdx_news_商业航天机器人",
+      "sentiment_score": 0.0,
+      "sentiment_label": "neutral",
+      "impact_score": 0.0,
+      "impact_direction": "neutral",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "industry",
+      "related_sectors": [
+        "机器人"
+      ],
+      "importance_score": 81.0,
+      "target_stocks": [
+        {
+          "code": "300024",
+          "name": "机器人",
+          "weight": 0.9
+        },
+        {
+          "code": "603728",
+          "name": "鸣志电器",
+          "weight": 0.8
+        },
+        {
+          "code": "601100",
+          "name": "恒立液压",
+          "weight": 0.7
+        },
+        {
+          "code": "688017",
+          "name": "绿的谐波",
+          "weight": 0.7
+        },
+        {
+          "code": "002896",
+          "name": "中大力德",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": []
+    },
+    {
+      "title": "6月30日A股猛料:突发利好!隔夜美股暴涨!A股将迎关键一天",
+      "summary": "国家医保局公示2026年目录初审药品名单，557个药品通过，利好创新药。",
+      "source": "东方财富",
+      "publish_time": "2026-06-30",
+      "url": "https://caifuhao.eastmoney.com/news/20260630072702982054670",
+      "data_source": "websearch_美股隔夜",
+      "sentiment_score": 1.0,
+      "sentiment_label": "positive",
+      "impact_score": 30.0,
+      "impact_direction": "bullish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "unknown",
+      "related_sectors": [
+        "医药"
+      ],
+      "importance_score": 71.0,
+      "target_stocks": [
+        {
+          "code": "603590",
+          "name": "康辰药业",
+          "weight": 0.7
+        },
+        {
+          "code": "688235",
+          "name": "百济神州",
+          "weight": 0.8
+        },
+        {
+          "code": "600276",
+          "name": "恒瑞医药",
+          "weight": 0.8
+        },
+        {
+          "code": "300171",
+          "name": "东富龙",
+          "weight": 0.6
+        }
+      ],
+      "emergency_hits": []
+    }
+  ],
+  "alerts": [
+    {
+      "title": "迪米生活控股(01667)发布年度业绩，净亏损2652.3万港元，同比收窄63.5%",
+      "summary": "收益下降，净亏损收窄。",
+      "source": "智通财经",
+      "publish_time": "2026-06-30 22:32:57",
+      "url": "http://www.zhitongcaijing.com/content/detail/1461610.html",
+      "data_source": "tdx_news_最新财经",
+      "sentiment_score": -1.0,
+      "sentiment_label": "negative",
+      "impact_score": 30.0,
+      "impact_direction": "bearish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "earnings",
+      "related_sectors": [],
+      "importance_score": 88.0,
+      "target_stocks": [],
+      "emergency_hits": []
+    },
+    {
+      "title": "美国政府拟招募工程师填补国防部技术岗位 推动引入硅谷思维",
+      "summary": "特朗普政府计划招募工程师担任国防部高影响力技术岗位，聚焦AI/ML/自动化。",
+      "source": "格隆汇",
+      "publish_time": "2026-06-30 22:29:30",
+      "url": "https://www.gelonghui.com/live/2530075",
+      "data_source": "tdx_news_最新财经",
+      "sentiment_score": 0.0,
+      "sentiment_label": "neutral",
+      "impact_score": 0.0,
+      "impact_direction": "neutral",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "geopolitical",
+      "related_sectors": [
+        "AI算力",
+        "军工"
+      ],
+      "importance_score": 99.0,
+      "target_stocks": [
+        {
+          "code": "688256",
+          "name": "寒武纪",
+          "weight": 0.8
+        },
+        {
+          "code": "603019",
+          "name": "中科曙光",
+          "weight": 0.8
+        },
+        {
+          "code": "000938",
+          "name": "紫光股份",
+          "weight": 0.7
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "weight": 0.8
+        },
+        {
+          "code": "002463",
+          "name": "沪电股份",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": []
+    },
+    {
+      "title": "价值重估开启！圣贝拉集团(2508)掷1亿港元回购股份，信心彰显",
+      "summary": "圣贝拉集团启动回购，彰显管理层信心，获国泰海通增持/华泰买入评级。",
+      "source": "格隆汇",
+      "publish_time": "2026-06-30 22:30:36",
+      "url": "https://www.gelonghui.com/news/5260880",
+      "data_source": "tdx_news_A股热点板块",
+      "sentiment_score": 1.0,
+      "sentiment_label": "positive",
+      "impact_score": 30.0,
+      "impact_direction": "bullish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "company",
+      "related_sectors": [],
+      "importance_score": 81.0,
+      "target_stocks": [],
+      "emergency_hits": []
+    },
+    {
+      "title": "无人机需求强劲推动业绩爆发 AeroVironment盘中大涨逾20%",
+      "summary": "AeroVironment业绩超预期，季度营收同比翻倍，自主系统营收4.92亿美元；地缘冲突推升无人机需求。",
+      "source": "财联社",
+      "publish_time": "2026-06-30 22:29:56",
+      "url": "https://www.cls.cn/detail/2413475",
+      "data_source": "tdx_news_A股热点板块",
+      "sentiment_score": 0.5,
+      "sentiment_label": "positive",
+      "impact_score": 25.0,
+      "impact_direction": "bullish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "earnings",
+      "related_sectors": [
+        "军工"
+      ],
+      "importance_score": 100,
+      "target_stocks": [
+        {
+          "code": "002389",
+          "name": "航天彩虹",
+          "weight": 0.8
+        },
+        {
+          "code": "688297",
+          "name": "中无人机",
+          "weight": 0.8
+        },
+        {
+          "code": "688070",
+          "name": "纵横股份",
+          "weight": 0.7
+        },
+        {
+          "code": "600893",
+          "name": "航发动力",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": [
+        "冲突"
+      ]
+    },
+    {
+      "title": "珞石机器人(03752.HK)今日起招股",
+      "summary": "珞石机器人全球发售2303.19万股，募资用于研发、海外销售、产能提升。",
+      "source": "证券时报",
+      "publish_time": "2026-06-30 09:08:09",
+      "url": "https://www.stcn.com/article/detail/3987844.html",
+      "data_source": "tdx_news_商业航天机器人",
+      "sentiment_score": 0.0,
+      "sentiment_label": "neutral",
+      "impact_score": 0.0,
+      "impact_direction": "neutral",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "industry",
+      "related_sectors": [
+        "机器人"
+      ],
+      "importance_score": 81.0,
+      "target_stocks": [
+        {
+          "code": "300024",
+          "name": "机器人",
+          "weight": 0.9
+        },
+        {
+          "code": "603728",
+          "name": "鸣志电器",
+          "weight": 0.8
+        },
+        {
+          "code": "601100",
+          "name": "恒立液压",
+          "weight": 0.7
+        },
+        {
+          "code": "688017",
+          "name": "绿的谐波",
+          "weight": 0.7
+        },
+        {
+          "code": "002896",
+          "name": "中大力德",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": []
+    },
+    {
+      "title": "地缘博弈与政策共振下A股热点加速轮动:油气板块大幅震荡——军工",
+      "summary": "外部风险变量、国内政策预期与经济数据验证，资金回归业绩与估值均衡。",
+      "source": "加联盟",
+      "publish_time": "2026-06-28",
+      "url": "http://m.jialianmeng.top/tqznews/829_article814848.shtml",
+      "data_source": "websearch_A股政策热点",
+      "sentiment_score": -1.0,
+      "sentiment_label": "negative",
+      "impact_score": 30.0,
+      "impact_direction": "bearish",
+      "impact_scope": "sector",
+      "duration_days": 3,
+      "event_type": "earnings",
+      "related_sectors": [
+        "石油",
+        "军工"
+      ],
+      "importance_score": 82.0,
+      "target_stocks": [
+        {
+          "code": "002389",
+          "name": "航天彩虹",
+          "weight": 0.8
+        },
+        {
+          "code": "688297",
+          "name": "中无人机",
+          "weight": 0.8
+        },
+        {
+          "code": "688070",
+          "name": "纵横股份",
+          "weight": 0.7
+        },
+        {
+          "code": "600893",
+          "name": "航发动力",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": []
+    },
+    {
+      "title": "【今日晨报】2026年06月30日 一、核心观点隔夜美股深V反转",
+      "summary": "隔夜美股芯片深V反弹+国常会AI定调提振科技情绪；伊朗否认谈判计划，地缘反复；PMI公布在即。",
+      "source": "雪球",
+      "publish_time": "2026-06-30",
+      "url": "https://xueqiu.com/8812926528/397489916",
+      "data_source": "websearch_美股隔夜",
+      "sentiment_score": 1.0,
+      "sentiment_label": "positive",
+      "impact_score": 30.0,
+      "impact_direction": "bullish",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "geopolitical",
+      "related_sectors": [
+        "AI算力"
+      ],
+      "importance_score": 100,
+      "target_stocks": [
+        {
+          "code": "688256",
+          "name": "寒武纪",
+          "weight": 0.8
+        },
+        {
+          "code": "603019",
+          "name": "中科曙光",
+          "weight": 0.8
+        },
+        {
+          "code": "000938",
+          "name": "紫光股份",
+          "weight": 0.7
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "weight": 0.8
+        },
+        {
+          "code": "002463",
+          "name": "沪电股份",
+          "weight": 0.7
+        }
+      ],
+      "emergency_hits": []
+    },
+    {
+      "title": "中国政府网_中央人民政府门户网站",
+      "summary": "国务院政策动态。",
+      "source": "中国政府网",
+      "publish_time": "2026-06-30",
+      "url": "https://www.gov.cn/",
+      "data_source": "websearch_中国宏观政策",
+      "sentiment_score": 0.0,
+      "sentiment_label": "neutral",
+      "impact_score": 0.0,
+      "impact_direction": "neutral",
+      "impact_scope": "market",
+      "duration_days": 3,
+      "event_type": "geopolitical",
+      "related_sectors": [],
+      "importance_score": 97.0,
+      "target_stocks": [],
+      "emergency_hits": []
+    }
+  ],
+  "trading_signals": [
+    {
+      "title": "迪米生活控股(01667)发布年度业绩，净亏损2652.3万港元，同比收窄63.5%",
+      "signal": "SELL",
+      "strength": 0.65,
+      "sentiment_score": -1.0,
+      "impact_score": 30.0,
+      "importance_score": 88.0,
+      "target_stocks": [],
+      "reason": "earnings | bearish | 板块:"
+    },
+    {
+      "title": "美国政府拟招募工程师填补国防部技术岗位 推动引入硅谷思维",
+      "signal": "WATCH",
+      "strength": 0.35,
+      "sentiment_score": 0.0,
+      "impact_score": 0.0,
+      "importance_score": 99.0,
+      "target_stocks": [
+        {
+          "code": "688256",
+          "name": "寒武纪",
+          "weight": 0.8
+        },
+        {
+          "code": "603019",
+          "name": "中科曙光",
+          "weight": 0.8
+        },
+        {
+          "code": "000938",
+          "name": "紫光股份",
+          "weight": 0.7
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "weight": 0.8
+        },
+        {
+          "code": "002463",
+          "name": "沪电股份",
+          "weight": 0.7
+        }
+      ],
+      "reason": "geopolitical | neutral | 板块:AI算力,军工"
+    },
+    {
+      "title": "价值重估开启！圣贝拉集团(2508)掷1亿港元回购股份，信心彰显",
+      "signal": "BUY",
+      "strength": 0.65,
+      "sentiment_score": 1.0,
+      "impact_score": 30.0,
+      "importance_score": 81.0,
+      "target_stocks": [],
+      "reason": "company | bullish | 板块:"
+    },
+    {
+      "title": "无人机需求强劲推动业绩爆发 AeroVironment盘中大涨逾20%",
+      "signal": "BUY",
+      "strength": 0.38,
+      "sentiment_score": 0.5,
+      "impact_score": 25.0,
+      "importance_score": 100,
+      "target_stocks": [
+        {
+          "code": "002389",
+          "name": "航天彩虹",
+          "weight": 0.8
+        },
+        {
+          "code": "688297",
+          "name": "中无人机",
+          "weight": 0.8
+        },
+        {
+          "code": "688070",
+          "name": "纵横股份",
+          "weight": 0.7
+        },
+        {
+          "code": "600893",
+          "name": "航发动力",
+          "weight": 0.7
+        }
+      ],
+      "reason": "earnings | bullish | 板块:军工"
+    },
+    {
+      "title": "珞石机器人(03752.HK)今日起招股",
+      "signal": "WATCH",
+      "strength": 0.35,
+      "sentiment_score": 0.0,
+      "impact_score": 0.0,
+      "importance_score": 81.0,
+      "target_stocks": [
+        {
+          "code": "300024",
+          "name": "机器人",
+          "weight": 0.9
+        },
+        {
+          "code": "603728",
+          "name": "鸣志电器",
+          "weight": 0.8
+        },
+        {
+          "code": "601100",
+          "name": "恒立液压",
+          "weight": 0.7
+        },
+        {
+          "code": "688017",
+          "name": "绿的谐波",
+          "weight": 0.7
+        },
+        {
+          "code": "002896",
+          "name": "中大力德",
+          "weight": 0.7
+        }
+      ],
+      "reason": "industry | neutral | 板块:机器人"
+    },
+    {
+      "title": "地缘博弈与政策共振下A股热点加速轮动:油气板块大幅震荡——军工",
+      "signal": "SELL",
+      "strength": 0.65,
+      "sentiment_score": -1.0,
+      "impact_score": 30.0,
+      "importance_score": 82.0,
+      "target_stocks": [
+        {
+          "code": "002389",
+          "name": "航天彩虹",
+          "weight": 0.8
+        },
+        {
+          "code": "688297",
+          "name": "中无人机",
+          "weight": 0.8
+        },
+        {
+          "code": "688070",
+          "name": "纵横股份",
+          "weight": 0.7
+        },
+        {
+          "code": "600893",
+          "name": "航发动力",
+          "weight": 0.7
+        }
+      ],
+      "reason": "earnings | bearish | 板块:石油,军工"
+    },
+    {
+      "title": "【今日晨报】2026年06月30日 一、核心观点隔夜美股深V反转",
+      "signal": "BUY",
+      "strength": 0.65,
+      "sentiment_score": 1.0,
+      "impact_score": 30.0,
+      "importance_score": 100,
+      "target_stocks": [
+        {
+          "code": "688256",
+          "name": "寒武纪",
+          "weight": 0.8
+        },
+        {
+          "code": "603019",
+          "name": "中科曙光",
+          "weight": 0.8
+        },
+        {
+          "code": "000938",
+          "name": "紫光股份",
+          "weight": 0.7
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "weight": 0.8
+        },
+        {
+          "code": "002463",
+          "name": "沪电股份",
+          "weight": 0.7
+        }
+      ],
+      "reason": "geopolitical | bullish | 板块:AI算力"
+    },
+    {
+      "title": "6月30日A股猛料:突发利好!隔夜美股暴涨!A股将迎关键一天",
+      "signal": "BUY",
+      "strength": 0.65,
+      "sentiment_score": 1.0,
+      "impact_score": 30.0,
+      "importance_score": 71.0,
+      "target_stocks": [
+        {
+          "code": "603590",
+          "name": "康辰药业",
+          "weight": 0.7
+        },
+        {
+          "code": "688235",
+          "name": "百济神州",
+          "weight": 0.8
+        },
+        {
+          "code": "600276",
+          "name": "恒瑞医药",
+          "weight": 0.8
+        },
+        {
+          "code": "300171",
+          "name": "东富龙",
+          "weight": 0.6
+        }
+      ],
+      "reason": "unknown | bullish | 板块:医药"
+    },
+    {
+      "title": "中国政府网_中央人民政府门户网站",
+      "signal": "WATCH",
+      "strength": 0.35,
+      "sentiment_score": 0.0,
+      "impact_score": 0.0,
+      "importance_score": 97.0,
+      "target_stocks": [],
+      "reason": "geopolitical | neutral | 板块:"
+    }
+  ],
+  "rewards": [
+    {
+      "title": "无人机需求强劲推动业绩爆发 AeroVironment盘中大涨逾20%",
+      "score": 10.5
+    },
+    {
+      "title": "【今日晨报】2026年06月30日 一、核心观点隔夜美股深V反转",
+      "score": 50
+    },
+    {
+      "title": "美国政府拟招募工程师填补国防部技术岗位 推动引入硅谷思维",
+      "score": 10.6
+    },
+    {
+      "title": "中国政府网_中央人民政府门户网站",
+      "score": 50
+    },
+    {
+      "title": "迪米生活控股(01667)发布年度业绩，净亏损2652.3万港元，同比收窄63.5%",
+      "score": 10.4
+    },
+    {
+      "title": "地缘博弈与政策共振下A股热点加速轮动:油气板块大幅震荡——军工",
+      "score": 50
+    },
+    {
+      "title": "价值重估开启！圣贝拉集团(2508)掷1亿港元回购股份，信心彰显",
+      "score": 10.5
+    },
+    {
+      "title": "珞石机器人(03752.HK)今日起招股",
+      "score": 37.3
+    },
+    {
+      "title": "6月30日A股猛料:突发利好!隔夜美股暴涨!A股将迎关键一天",
+      "score": 50
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-06-30T22:45:11.905942",
+  "date": "20260630",
+  "period": "14:30",
+  "signals_count": 7,
+  "qualified_count": 7,
+  "push_top_n": 5,
+  "min_grade": "SS",
+  "wechat": {
+    "success": false,
+    "channel": "none",
+    "reason": "未配置 QMSG_KEY 或 SERVERCHAN_KEY"
+  },
+  "miniprogram": {
+    "success": false,
+    "channel": "miniprogram",
+    "reason": "未启用"
+  },
+  "dashboard": {
+    "success": true,
+    "synced": "详见 sync_to_cloud.py 输出"
+  },
+  "message_preview": "⏰ 时段: 20260630 14:30\n📊 总扫描: 7 只 → 高成功率筛选: 7 只\n🎯 TOP5 高成功率推荐:\n  1. 🌟SSS 技源集团(603262) [A档] 评分1.0547 | ¥24.62\n     ├ 操作: 14:50前竞价买入 | 仓位≤25%\n     ├ 止损: 次日开盘跌>3%即出\n     ├ 止盈: 次日涨≥5%可减半, ≥8%可全出\n  2. 🌟SSS 宇晶股份(002943) [A档] 评分1.0431 | ¥44.23\n     ├ 操作: 14:50前竞价买入 | 仓位≤25%\n     ├ 止损: 次日开盘跌>3%即出\n     ├ 止盈: 次"
+}
