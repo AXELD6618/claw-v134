@@ -851,5 +851,39 @@
       "已将过期步骤加入自愈分发队列: ['NIGHT', 'BATTLE']",
       "未配置 GITHUB_TOKEN，跳过实际 GitHub Actions 分发"
     ]
+  },
+  {
+    "timestamp": "2026-06-29T22:27:07.669851",
+    "checks": {
+      "pipeline": {
+        "status": "healthy",
+        "message": "所有步骤正常 (自动化验证: 1步)"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "圣杯信号4小时前更新"
+      },
+      "disk": {
+        "status": "healthy",
+        "message": "磁盘: 1622.4GB空闲/1863GB"
+      },
+      "modules": {
+        "status": "healthy",
+        "message": "全部5个关键模块就绪",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy"
+        ]
+      },
+      "github": {
+        "status": "warning",
+        "message": "GitHub不可达(网络暂时受限)"
+      }
+    },
+    "status": "warning",
+    "actions_taken": []
   }
 ]
