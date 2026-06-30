@@ -1,18 +1,43 @@
 {
-  "timestamp": "2026-06-30T13:21:32.542190",
+  "timestamp": "2026-07-01T01:01:29.254735",
   "steps_to_dispatch": [
-    "NIGHT"
+    "T0",
+    "T1",
+    "T3",
+    "T4",
+    "T5",
+    "NIGHT",
+    "BATTLE"
   ],
   "reason": [
     {
+      "step": "T0",
+      "last_run": "2026-06-30T06:39:58.327970"
+    },
+    {
+      "step": "T1",
+      "last_run": "2026-06-30T07:07:03.038090"
+    },
+    {
+      "step": "T3",
+      "last_run": "2026-06-30T09:47:33.529405"
+    },
+    {
+      "step": "T4",
+      "last_run": "2026-06-30T09:59:27.568552"
+    },
+    {
+      "step": "T5",
+      "last_run": "2026-06-30T10:10:26.734358"
+    },
+    {
       "step": "NIGHT",
-      "reason": "not_from_today",
-      "last_run": "2026-06-29T15:25:12.445687"
+      "last_run": "2026-06-30T21:50:08.676470"
     },
     {
       "step": "BATTLE",
-      "reason": "not_from_today",
-      "last_run": "2026-06-29T16:55:19.252879"
+      "last_run": "2026-06-30T15:08:03.588869"
     }
-  ]
+  ],
+  "source": "v134_guardian_health.py"
 }
