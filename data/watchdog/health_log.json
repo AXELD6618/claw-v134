@@ -1468,5 +1468,97 @@
       }
     },
     "actions_taken": []
+  },
+  {
+    "timestamp": "2026-07-01T07:38:18.614233",
+    "guardian_run": true,
+    "status": "healthy",
+    "checks": {
+      "pipeline": {
+        "status": "healthy",
+        "completion_pct": 100,
+        "ok_steps": [
+          "T0",
+          "T1",
+          "T3",
+          "T4",
+          "T5",
+          "NIGHT",
+          "BATTLE"
+        ],
+        "stale_steps": [],
+        "missing_steps": [],
+        "message": "7/7 步骤今日完成, 0 过期, 0 缺失"
+      },
+      "holy_grail": {
+        "status": "healthy",
+        "message": "最新信号 8.9 小时前更新 (holy_grail_signals.json), 共 7 个信号, 高分信号 7 个",
+        "latest_file": "data\\pipeline\\holy_grail_signals.json",
+        "latest_ts": "2026-06-30T22:44:28.024770",
+        "total_signals": 7,
+        "high_score_signals": 7,
+        "files": [
+          {
+            "path": "cloud_outputs\\holy_grail_signals.json",
+            "timestamp": "2026-06-30T10:10:26.730513",
+            "count": 15
+          },
+          {
+            "path": "data\\pipeline\\holy_grail_signals.json",
+            "timestamp": "2026-06-30T22:44:28.024770",
+            "count": 7
+          },
+          {
+            "path": "data\\holy_grail_latest.json",
+            "timestamp": "20260624_144025",
+            "count": 0
+          }
+        ]
+      },
+      "disk": {
+        "status": "healthy",
+        "free_gb": 1620.8,
+        "total_gb": 1863.0,
+        "used_gb": 242.2,
+        "free_pct": 87.0,
+        "message": "1620.8GB 空闲 / 1863.0GB 总计 (87.0% 空闲)"
+      },
+      "modules": {
+        "status": "healthy",
+        "available": [
+          "V13_0_Orchestrator",
+          "V13_4_FullMarketMonitor",
+          "V13_0_Persistence",
+          "V13_0_Watchdog",
+          "V13_2_1430_Deploy",
+          "V13_3_M70_LightGBM",
+          "V13_2_M46_Normalized",
+          "V13_4_HolyGrailPusher",
+          "cloud_pipeline",
+          "cloud_watchdog"
+        ],
+        "unavailable": [],
+        "message": "10/10 个关键模块可用"
+      },
+      "github": {
+        "status": "healthy",
+        "endpoints": [
+          {
+            "name": "GitHub API",
+            "url": "https://api.github.com",
+            "status": "ok",
+            "code": 200
+          },
+          {
+            "name": "GitHub Web",
+            "url": "https://github.com",
+            "status": "ok",
+            "code": 200
+          }
+        ],
+        "message": "GitHub 可达"
+      }
+    },
+    "actions_taken": []
   }
 ]
