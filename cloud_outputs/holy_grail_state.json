@@ -69,8 +69,23 @@
       "timestamp": "2026-06-29T11:34:10.824014",
       "signals": 12,
       "level": 1
+    },
+    {
+      "timestamp": "2026-06-30T10:09:51.889820",
+      "signals": 15,
+      "level": 1
+    },
+    {
+      "timestamp": "2026-06-30T10:10:06.757735",
+      "signals": 15,
+      "level": 1
+    },
+    {
+      "timestamp": "2026-06-30T10:10:26.730513",
+      "signals": 15,
+      "level": 1
     }
   ],
-  "total_signals": 61,
+  "total_signals": 106,
   "degradation_level": 0
 }
