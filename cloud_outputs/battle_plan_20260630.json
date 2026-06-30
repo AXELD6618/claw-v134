@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-06-30T15:08:03.587870",
+  "date": "20260630",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.746
+    },
+    {
+      "code": "000045",
+      "name": "深纺织Ａ",
+      "score": 0.73
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.622
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.61
+    },
+    {
+      "code": "000422",
+      "name": "湖北宜化",
+      "score": 0.59
+    },
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.586
+    },
+    {
+      "code": "000062",
+      "name": "深圳华强",
+      "score": 0.584
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.57
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.546
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.534
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 15,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
