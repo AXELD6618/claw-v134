@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-01T16:24:54.020487",
+  "date": "20260701",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000404",
+      "name": "长虹华意",
+      "score": 0.802
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.756
+    },
+    {
+      "code": "000422",
+      "name": "湖北宜化",
+      "score": 0.756
+    },
+    {
+      "code": "000100",
+      "name": "TCL科技",
+      "score": 0.714
+    },
+    {
+      "code": "000012",
+      "name": "南  玻Ａ",
+      "score": 0.626
+    },
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.554
+    },
+    {
+      "code": "000419",
+      "name": "通程控股",
+      "score": 0.554
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.55
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.534
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.53
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 20,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
