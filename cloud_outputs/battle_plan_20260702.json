@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-07-02T16:04:24.623711",
+  "date": "20260702",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000410",
+      "name": "沈阳机床",
+      "score": 0.63
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.586
+    },
+    {
+      "code": "000028",
+      "name": "国药一致",
+      "score": 0.52
+    },
+    {
+      "code": "000159",
+      "name": "国际实业",
+      "score": 0.51
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.472
+    },
+    {
+      "code": "000050",
+      "name": "深天马Ａ",
+      "score": 0.462
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 6,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
