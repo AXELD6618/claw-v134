@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-03T15:51:54.183505",
+  "date": "20260703",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000407",
+      "name": "胜利股份",
+      "score": 0.822
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "score": 0.674
+    },
+    {
+      "code": "000049",
+      "name": "德赛电池",
+      "score": 0.666
+    },
+    {
+      "code": "000408",
+      "name": "藏格矿业",
+      "score": 0.618
+    },
+    {
+      "code": "000029",
+      "name": "深深房Ａ",
+      "score": 0.594
+    },
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.59
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.55
+    },
+    {
+      "code": "000028",
+      "name": "国药一致",
+      "score": 0.524
+    },
+    {
+      "code": "000030",
+      "name": "富奥股份",
+      "score": 0.524
+    },
+    {
+      "code": "000421",
+      "name": "南京公用",
+      "score": 0.524
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 13,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
