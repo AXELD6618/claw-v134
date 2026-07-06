@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-06T16:50:49.248498",
+  "date": "20260706",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.858
+    },
+    {
+      "code": "000028",
+      "name": "国药一致",
+      "score": 0.636
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.626
+    },
+    {
+      "code": "000060",
+      "name": "中金岭南",
+      "score": 0.622
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.61
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.61
+    },
+    {
+      "code": "000062",
+      "name": "深圳华强",
+      "score": 0.602
+    },
+    {
+      "code": "000415",
+      "name": "渤海租赁",
+      "score": 0.576
+    },
+    {
+      "code": "000403",
+      "name": "派林生物",
+      "score": 0.574
+    },
+    {
+      "code": "000404",
+      "name": "长虹华意",
+      "score": 0.554
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 14,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
