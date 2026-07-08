@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-07-08T16:01:22.750317",
+  "date": "20260708",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.746
+    },
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "score": 0.682
+    },
+    {
+      "code": "000062",
+      "name": "深圳华强",
+      "score": 0.678
+    },
+    {
+      "code": "000404",
+      "name": "长虹华意",
+      "score": 0.534
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.53
+    },
+    {
+      "code": "000063",
+      "name": "中兴通讯",
+      "score": 0.504
+    },
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.5
+    },
+    {
+      "code": "000042",
+      "name": "中洲控股",
+      "score": 0.498
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 8,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
