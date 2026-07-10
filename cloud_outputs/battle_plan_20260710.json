@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-10T15:04:00.603126",
+  "date": "20260710",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.722
+    },
+    {
+      "code": "000090",
+      "name": "天健集团",
+      "score": 0.716
+    },
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.678
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.662
+    },
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.646
+    },
+    {
+      "code": "000069",
+      "name": "华侨城Ａ",
+      "score": 0.63
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.622
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.61
+    },
+    {
+      "code": "000031",
+      "name": "大悦城",
+      "score": 0.61
+    },
+    {
+      "code": "000402",
+      "name": "金 融 街",
+      "score": 0.61
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 20,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
