@@ -1,0 +1,292 @@
+{
+  "sigmoid_k": 13.7,
+  "sigmoid_x0": 0.648,
+  "w1_catalyst": 0.2546,
+  "w2_policy": 0.1203,
+  "w3_sector": 0.1501,
+  "w4_momentum": 0.1175,
+  "w5_capital": 0.1646,
+  "w6_sentiment": 0.0994,
+  "w7_technical": 0.0935,
+  "last_calibrated": "2026-07-09T15:38:30.717448",
+  "calibration_method": "v13530_P9_daily_20260709",
+  "weights": {
+    "催化": 0.2546,
+    "政策": 0.1203,
+    "板块": 0.1501,
+    "动量": 0.1175,
+    "资金": 0.1646,
+    "舆情": 0.0994,
+    "技术": 0.0935
+  },
+  "updated_at": "2026-07-09 15:35",
+  "calibration_reason": "日频校准(7/8→7/9): 3/4命中(75%) avg=+3.87% IC=-0.528; 板块/资金↑(强牛市AI/半导体贡献) 动量/技术↓(大恒-1.93%回落+突破回踩边际下降); P9基线建立待7/10验证",
+  "t1_metrics": {
+    "samples": 4,
+    "recent_hit_rate": 0.75,
+    "avg_change": 3.865,
+    "ic": -0.5277665533435004,
+    "ic_pvalue": 0.45,
+    "trend": "STABLE"
+  },
+  "capital_flow_calibration": {
+    "D53_outflow_convergence": {
+      "old": {
+        "convergence_rate_threshold": 0.06,
+        "tolerance": 0.005,
+        "score_max": 6
+      },
+      "new": {
+        "convergence_rate_threshold": 0.08,
+        "tolerance": 0.003,
+        "score_max": 6
+      },
+      "action": "TIGHTEN",
+      "reason": "7/7 D53候选池T+1失效; 提高收敛阈值+缩窄容差, 过滤假收敛"
+    },
+    "D54_inflow_confirmation": {
+      "old": {
+        "consecutive_days_threshold": 3,
+        "acceleration_required": true,
+        "score_max": 5
+      },
+      "new": {
+        "consecutive_days_threshold": 4,
+        "acceleration_required": true,
+        "score_min_for_accel": 1.2,
+        "score_max": 5
+      },
+      "action": "TIGHTEN",
+      "reason": "603538美诺华连续5日净流入→7/8跌停; 需≥4日+加速≥1.2x"
+    },
+    "D55_smart_money": {
+      "old": {
+        "main_force_inflow_min": 5000000,
+        "limit_up_or_high_turnover": "REJECT",
+        "score_max": 4
+      },
+      "new": {
+        "main_force_inflow_min": 8000000,
+        "limit_up_or_high_turnover": "REJECT",
+        "score_max": 4,
+        "require_sector_up": true
+      },
+      "action": "TIGHTEN",
+      "reason": "300163跌停+主力流入=出货; 提高净流入门槛+要求板块涨"
+    },
+    "D56v2_realtime_divergence": {
+      "old": {
+        "s_ratio": 0.7,
+        "a_ratio": 0.55,
+        "b_ratio": 0.4,
+        "score_max": 7
+      },
+      "new": {
+        "s_ratio": 0.65,
+        "a_ratio": 0.5,
+        "b_ratio": 0.35,
+        "score_max": 7,
+        "override_orange": true
+      },
+      "action": "RELAX_S_AND_RAISE_WEIGHT",
+      "reason": "实时InOutHB是T+1关键预测器; 降低S/A/B阈值以更早捕捉分歧, 同时前置到T0-T3"
+    },
+    "S4_hsl_x_lb": {
+      "old": {
+        "fatal_divergence_low": 5,
+        "fatal_divergence_high": 0,
+        "position_v2": "abs25%/10% + ratio0.45/0.85"
+      },
+      "new": {
+        "fatal_divergence_low": 5,
+        "fatal_divergence_high": 0,
+        "position_v2": "abs25%/10% + ratio0.40/0.80",
+        "add_volume_shrink_bypass": true
+      },
+      "action": "REFINE",
+      "reason": "反接飞刀V2: 缩量旁路(量<60%5日均)+近底→PASS不降权"
+    },
+    "CF_Override": {
+      "old": {
+        "trigger": "D53>=10 AND D56v2>=6",
+        "override": "ORANGE x0.3 -> x0.5"
+      },
+      "new": {
+        "trigger": "D53>=8 AND D56v2>=5 AND sector_change>=0",
+        "override": "ORANGE x0.3 -> x0.5; RED禁止不变"
+      },
+      "action": "RELAX",
+      "reason": "7/8 ORANGE日4只信号全命中, 适度放宽Override让资金流信号在ORANGE下有0.5仓位"
+    },
+    "SmartMoney_Scanner": {
+      "old": {
+        "inout_hb_threshold": 1.5,
+        "divergence_ratio_threshold": 2.0
+      },
+      "new": {
+        "inout_hb_threshold": 1.2,
+        "divergence_ratio_threshold": 1.5,
+        "sector_catalyst_bonus": true
+      },
+      "action": "RELAX_AND_INTEGRATE",
+      "reason": "降低实时资金扫描阈值, 与CatalystScanner联动捕捉板块涨停潮"
+    }
+  },
+  "v13525_calibration": {
+    "D51_trend_continuation": {
+      "old": {
+        "pullback_range": "3-10%",
+        "score_max": 6
+      },
+      "new": {
+        "pullback_range": "3-15%",
+        "score_max": 6,
+        "weak_pullback_penalty": "-2 if <3%"
+      },
+      "action": "EXPAND",
+      "reason": "强势股回踩幅度可能更深(10-15%), 扩大区间避免漏选"
+    },
+    "D49v2_dual_mode": {
+      "old": {
+        "mode_a_shadow_ratio": 2.0,
+        "mode_b_body_ratio": 0.5
+      },
+      "new": {
+        "mode_a_shadow_ratio": 1.8,
+        "mode_b_body_ratio": 0.45,
+        "catalyst_min": 6
+      },
+      "action": "RELAX",
+      "reason": "涨停日K线多为大实体阳线+小下影线; Mode-B实体占比降至0.45+催化≥6"
+    },
+    "D52_price_cycle": {
+      "old": {
+        "round_threshold": 2,
+        "cumulative_rise_threshold": 15,
+        "benefit_chain_levels": 2
+      },
+      "new": {
+        "round_threshold": 1,
+        "cumulative_rise_threshold": 10,
+        "benefit_chain_levels": 3,
+        "spot_price_update_bonus": true
+      },
+      "action": "RELAX",
+      "reason": "硅片涨价案例: 第一轮涨价即触发, 受益链 deeper(硅片→电池→组件)"
+    },
+    "MEG_F6_override": {
+      "old": {
+        "trigger": "D52>=8 AND sector_change>0% AND MA5_rising"
+      },
+      "new": {
+        "trigger": "D52>=6 AND sector_change>=-0.5% AND MA5_rising AND catalyst>=6"
+      },
+      "action": "RELAX",
+      "reason": "涨价周期在弱势市场也能产生板块性机会, 适度放宽F6 Override"
+    }
+  },
+  "five_confirm_status": {
+    "D29": {
+      "threshold": 6,
+      "action": "KEEP",
+      "note": "WASHOUT门槛"
+    },
+    "D31": {
+      "threshold": 6,
+      "action": "KEEP",
+      "note": "主力意图门槛"
+    },
+    "D32": {
+      "threshold": 5,
+      "action": "KEEP",
+      "note": "DDX门槛"
+    },
+    "D33": {
+      "threshold": 2,
+      "action": "KEEP",
+      "note": "外盘内盘门槛"
+    },
+    "D34": {
+      "threshold": 3,
+      "action": "KEEP",
+      "note": "拆单识别门槛"
+    },
+    "bonus": {
+      "三确认": "+2",
+      "四确认": "+4",
+      "五确认": "+8",
+      "action": "KEEP"
+    }
+  },
+  "bypass_rules": [
+    {
+      "id": 1,
+      "condition": "D49≥8 + D29≥6",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 2,
+      "condition": "D50≥7 + D29≥6",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 3,
+      "condition": "D51≥5 + D29≥6",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 4,
+      "condition": "D52≥8 + sector_up",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 5,
+      "condition": "D53≥10 + D56v2≥6",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 6,
+      "condition": "D56v2≥7 + D29≥6",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 7,
+      "condition": "D57≥7 + D29≥6",
+      "status": "NEW",
+      "note": "大恒科技验证"
+    }
+  ],
+  "tdx_4tools_ic": {
+    "tdx_ai_listening": {
+      "ic": 0.15,
+      "action": "HOLD"
+    },
+    "wenda_notice_query": {
+      "ic": 0.25,
+      "action": "UP",
+      "note": "公告/预增驱动7/8 AI算力涨停潮, IC上调"
+    },
+    "tdx_indicator_select": {
+      "ic": 0.1,
+      "action": "HOLD"
+    },
+    "wenda_macro_query": {
+      "ic": 0.18,
+      "action": "HOLD"
+    }
+  },
+  "v13530_P9_calibration": {
+    "P9_threshold": "D59≥16(≥2/4: ≥5连跌+M46≥0.85+缩量+近底)",
+    "P9_active_samples_0709": 0,
+    "P9_total_samples_0709": 3,
+    "P9_ic_estimate": 0.0,
+    "P9_first_record_date": "2026-07-09",
+    "P9_next_verify": "2026-07-10",
+    "P8_threshold": "E1-E5≥3(中报窗+Q1高增+赛道+回撤+缩量)",
+    "P8_active_samples_0709": 1,
+    "P8_total_samples_0709": 3,
+    "P8_ic_estimate": 0.0,
+    "P8_first_record_date": "2026-07-09",
+    "rationale": "7/8 V13.5.26无P8/P9字段, 7/9 V13.5.30_P9首次记录; 因极端强牛市无连跌股, P9激活=0; P8=1只激活(南兴股份P8=30)"
+  }
+}

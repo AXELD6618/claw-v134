@@ -1,0 +1,127 @@
+[
+  {
+    "timestamp": "2026-07-11T22:52:37.688893",
+    "date": "2026-07-11",
+    "version": "V13.5.52",
+    "total_samples": 16,
+    "hit_rate": 0.6875,
+    "limit_up_rate": 0.0625,
+    "ic_by_dim": {
+      "D1": 0.1904,
+      "D2": 0.4967,
+      "D3": 0.0597,
+      "D4": 0.4967,
+      "D5": 0.1605,
+      "D6": 0.2358,
+      "D7": 0.2482,
+      "D8": 0.1904
+    },
+    "sample_counts": {
+      "D1": 16,
+      "D2": 16,
+      "D3": 16,
+      "D4": 16,
+      "D5": 16,
+      "D6": 16,
+      "D7": 16,
+      "D8": 16
+    },
+    "weights_before": {
+      "D1": 0.18,
+      "D2": 0.1,
+      "D3": 0.18,
+      "D4": 0.15,
+      "D5": 0.12,
+      "D6": 0.12,
+      "D7": 0.1,
+      "D8": 0.05
+    },
+    "weights_after": {
+      "D1": 0.1772,
+      "D2": 0.1052,
+      "D3": 0.1759,
+      "D4": 0.1538,
+      "D5": 0.1184,
+      "D6": 0.1192,
+      "D7": 0.0998,
+      "D8": 0.0506
+    },
+    "adjustments": [
+      {
+        "dim": "D1",
+        "dim_name": "获利筹码比",
+        "ic": 0.1904,
+        "old_weight": 0.18,
+        "new_weight": 0.1819,
+        "delta": 0.0019,
+        "sample_count": 16
+      },
+      {
+        "dim": "D2",
+        "dim_name": "换手率低位",
+        "ic": 0.4967,
+        "old_weight": 0.1,
+        "new_weight": 0.108,
+        "delta": 0.008,
+        "sample_count": 16
+      },
+      {
+        "dim": "D3",
+        "dim_name": "主力资金流向",
+        "ic": 0.0597,
+        "old_weight": 0.18,
+        "new_weight": 0.1806,
+        "delta": 0.0006,
+        "sample_count": 16
+      },
+      {
+        "dim": "D4",
+        "dim_name": "量价关系",
+        "ic": 0.4967,
+        "old_weight": 0.15,
+        "new_weight": 0.158,
+        "delta": 0.008,
+        "sample_count": 16
+      },
+      {
+        "dim": "D5",
+        "dim_name": "技术形态",
+        "ic": 0.1605,
+        "old_weight": 0.12,
+        "new_weight": 0.1216,
+        "delta": 0.0016,
+        "sample_count": 16
+      },
+      {
+        "dim": "D6",
+        "dim_name": "催化剂+涨停概率",
+        "ic": 0.2358,
+        "old_weight": 0.12,
+        "new_weight": 0.1224,
+        "delta": 0.0024,
+        "sample_count": 16
+      },
+      {
+        "dim": "D7",
+        "dim_name": "舆情热度",
+        "ic": 0.2482,
+        "old_weight": 0.1,
+        "new_weight": 0.1025,
+        "delta": 0.0025,
+        "sample_count": 16
+      },
+      {
+        "dim": "D8",
+        "dim_name": "筹码集中度",
+        "ic": 0.1904,
+        "old_weight": 0.05,
+        "new_weight": 0.0519,
+        "delta": 0.0019,
+        "sample_count": 16
+      }
+    ],
+    "alerts": [],
+    "significance": "marginal",
+    "delta_scale": 0.5
+  }
+]

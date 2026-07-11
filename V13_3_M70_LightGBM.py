@@ -111,14 +111,25 @@ class M70LightGBMEngine:
         self._load_model()
     
     def _load_model(self):
-        """加载已有模型"""
+        """加载已有模型（兼容 dict / tuple / Booster 老格式）"""
         if os.path.exists(self.config.model_path):
             try:
                 with open(self.config.model_path, 'rb') as f:
                     saved = pickle.load(f)
-                self.model = saved.get('model')
-                self.training_samples = saved.get('samples', [])
-                self.feature_importance = saved.get('importance', {})
+                if isinstance(saved, dict):
+                    self.model = saved.get('model')
+                    self.training_samples = saved.get('samples', [])
+                    self.feature_importance = saved.get('importance', {})
+                elif isinstance(saved, (list, tuple)) and len(saved) >= 1:
+                    # 旧格式: (model,) 或 (model, samples, importance)
+                    self.model = saved[0]
+                    self.training_samples = saved[1] if len(saved) > 1 else []
+                    self.feature_importance = saved[2] if len(saved) > 2 else {}
+                else:
+                    # 旧格式: 直接保存的 Booster 对象
+                    self.model = saved
+                    self.training_samples = []
+                    self.feature_importance = {}
                 print(f"  📦 M70模型已加载: {len(self.training_samples)} 训练样本")
             except Exception as e:
                 print(f"  ⚠️ M70模型加载失败: {e}")
@@ -216,6 +227,14 @@ class M70LightGBMEngine:
         # 准备训练数据
         X = [s['features'] for s in self.training_samples]
         y = [s['label'] for s in self.training_samples]
+        
+        # 转换为2D numpy数组，兼容LightGBM/RandomForest
+        try:
+            import numpy as np
+            X = np.array(X, dtype=np.float32)
+            y = np.array(y, dtype=np.float32)
+        except Exception:
+            pass
         
         # 训练/验证集分割
         n_val = max(1, int(n * self.config.validation_ratio))

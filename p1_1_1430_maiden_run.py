@@ -407,6 +407,7 @@ def generate_p1_1_report(results: List[Dict], sector_heat: Dict, stats: Dict) ->
     """生成P1-1 HTML可视化报告"""
 
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    bypass_stats = stats.get('bypass_hub', {'enabled': False, 'promotions': 0})
 
     # Top 10推荐行
     top_rows = ''
@@ -619,6 +620,11 @@ tr:hover { background:rgba(59,130,246,0.06); }
         <div class="kpi-value" style="color:''' + ("#22c55e" if MARKET_INDEX["000001"]["chg"]>=0 else "#ef4444") + '''">''' + f"{MARKET_INDEX['000001']['chg']:+.2f}%" + '''</div>
         <div class="kpi-sub">创业板''' + f"{MARKET_INDEX['399006']['chg']:+.2f}%" + '''</div>
     </div>
+    <div class="kpi-card">
+        <div class="kpi-label">🔀 BypassHub</div>
+        <div class="kpi-value" style="color:''' + ("#22c55e" if bypass_stats.get('promotions',0)>0 else "#f59e0b") + '''">''' + str(bypass_stats.get('promotions', 0)) + '''</div>
+        <div class="kpi-sub">旁路提升 V13.5.29</div>
+    </div>
 </div>
 
 <div class="chart-row">
@@ -731,24 +737,226 @@ def persist_to_db(results: List[Dict]):
 # SECTION 7: 主流程
 # ═══════════════════════════════════════════════════════════
 
+def apply_bypass_hub_postprocess(results: List[Dict]) -> Tuple[List[Dict], Dict]:
+    """
+    ★ V13.5.29 BypassHub 后处理 — 对非STRONG_BUY候选强制执行7旁路检查
+    
+    T4自动化强制执行, 不依赖Agent手动调用。
+    对每个WATCH/HOLD/REJECT候选, 检查7条旁路, 若激活则提升推荐等级。
+    
+    Returns:
+        (updated_results, bypass_stats)
+    """
+    try:
+        from V13_5_29_BypassHub import BypassHub, quick_bypass_check
+    except ImportError:
+        print("  ⚠️ BypassHub不可用, 跳过后处理")
+        return results, {"enabled": False, "reason": "ImportError"}
+    
+    hub = BypassHub()
+    status = hub.get_status_summary()
+    print(f"  🔧 BypassHub V13.5.29 已加载 | {status['available_paths']}")
+    
+    promotions = 0
+    bypass_results = {}
+    
+    for r in results:
+        code = r["code"]
+        rec = r["recommendation"]
+        
+        # 仅对非强推候选检查旁路 (STRONG_BUY/BUY 已通过正常流程)
+        if rec in ("STRONG_BUY", "BUY"):
+            continue
+        
+        # 尝试加载K线数据
+        klines = _load_klines_for_stock(code)
+        if not klines or len(klines) < 10:
+            continue  # 无K线数据则跳过
+        
+        # 从QUOTES_DATA获取实时数据
+        quote = QUOTES_DATA.get(code, {})
+        stock_pct = quote.get("chg", r.get("decline_pct", 0))
+        sector_pct = quote.get("sector_chg", 0)
+        hsl = r.get("hsl", 0)
+        lb = quote.get("lb", 1.0)
+        
+        # 计算量比近似 (volume vs 5日均量)
+        today_vol = quote.get("volume", 0)
+        avg_vol_5d = sum(float(k.get("vol", 0)) for k in klines[-6:-1]) / 5 if len(klines) >= 6 else today_vol
+        vol_ratio = today_vol / avg_vol_5d if avg_vol_5d > 0 else 1.0
+        
+        # 计算距20日低点距离
+        lows_20d = [float(k["low"]) for k in klines[-20:]]
+        low_20d = min(lows_20d) if lows_20d else 0
+        close_now = quote.get("price", 0)
+        dist_from_low = (close_now - low_20d) / low_20d * 100 if low_20d > 0 else 100
+        
+        # 估算D29/D28 (从现有数据推断)
+        d29_est = _estimate_d29_from_klines(klines)
+        d28_est = _estimate_d28_from_klines(klines, sector_pct)
+        
+        # 调用BypassHub
+        verdict = hub.check_all(
+            code=code,
+            klines_daily=klines,
+            d29_score=d29_est,
+            d28_score=d28_est,
+            five_confirm_passed=1,  # 默认仅D29通过
+            stock_decline_pct=stock_pct,
+            sector_change_pct=sector_pct,
+            volume_vs_5d=vol_ratio,
+            is_limit_down=(abs(stock_pct) >= 9.9),
+            position_from_20d_low=dist_from_low,
+            current_defcon="YELLOW",
+            stock_20d_pct=_calc_20d_pct(klines),
+            sector_20d_pct=0,
+        )
+        
+        bypass_results[code] = verdict
+        
+        if verdict["bypass"]:
+            old_rec = rec
+            new_rec = BypassHub.apply_to_recommendation(old_rec, verdict)
+            if new_rec != old_rec:
+                r["recommendation"] = new_rec
+                r["bypass_info"] = {
+                    "active_paths": verdict["active_paths"],
+                    "reason": verdict["reason"],
+                }
+                promotions += 1
+                print(f"    ★ [{code}] {old_rec} → {new_rec} ({verdict['reason'][:60]}...)")
+    
+    bypass_stats = {
+        "enabled": True,
+        "version": "V13.5.29",
+        "total_checked": len(bypass_results),
+        "promotions": promotions,
+        "active_paths_used": list(set(
+            p for v in bypass_results.values() for p in v.get("active_paths", [])
+        )),
+        "bypass_results": bypass_results,
+    }
+    
+    if promotions > 0:
+        print(f"  ★ BypassHub: {promotions}只候选提升推荐等级")
+    else:
+        print(f"  ℹ BypassHub: 无旁路激活")
+    
+    return results, bypass_stats
+
+
+def _load_klines_for_stock(code: str) -> List[Dict]:
+    """尝试从缓存加载K线数据"""
+    import glob as _glob
+    # 从fullmarket_cache查找
+    cache_pattern = f"data/fullmarket_cache/*{code}*.json"
+    cache_files = _glob.glob(cache_pattern)
+    if cache_files:
+        try:
+            with open(cache_files[0], "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if "klines" in data:
+                return data["klines"]
+        except Exception:
+            pass
+    
+    # 从个股缓存查找
+    stock_cache = f"data/fullmarket_cache/stock_{code}.json"
+    if os.path.exists(stock_cache):
+        try:
+            with open(stock_cache, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, list):
+                return data
+            if "klines" in data:
+                return data["klines"]
+        except Exception:
+            pass
+    
+    return []
+
+
+def _estimate_d29_from_klines(klines: List[Dict]) -> int:
+    """从K线数据估算D29双洗盘得分"""
+    if len(klines) < 10:
+        return 3
+    closes = [float(k["close"]) for k in klines]
+    vols = [float(k.get("vol", 0)) for k in klines]
+    
+    # 检查连续下跌天数
+    consecutive_down = 0
+    for i in range(len(closes) - 1, 0, -1):
+        if closes[i] < closes[i - 1]:
+            consecutive_down += 1
+        else:
+            break
+    
+    # 检查缩量
+    recent_vol = sum(vols[-5:]) / 5 if len(vols) >= 5 else 0
+    prior_vol = sum(vols[-10:-5]) / 5 if len(vols) >= 10 else recent_vol
+    shrink = 1 - (recent_vol / prior_vol) if prior_vol > 0 else 0
+    
+    score = 0
+    if consecutive_down >= 4: score += 4
+    elif consecutive_down >= 3: score += 3
+    elif consecutive_down >= 2: score += 2
+    if shrink > 0.5: score += 5
+    elif shrink > 0.3: score += 4
+    elif shrink > 0.2: score += 3
+    elif shrink > 0.1: score += 2
+    
+    return min(score, 12)
+
+
+def _estimate_d28_from_klines(klines: List[Dict], sector_pct: float) -> int:
+    """从K线+板块估算D28催化得分"""
+    score = 0
+    if sector_pct > 2: score += 4
+    elif sector_pct > 1: score += 3
+    elif sector_pct > 0: score += 2
+    
+    # 近期有放量上涨 → 可能有催化
+    if len(klines) >= 5:
+        recent_vols = [float(k.get("vol", 0)) for k in klines[-5:]]
+        avg_vol = sum(recent_vols) / 5
+        if avg_vol > 0:
+            last_vol = recent_vols[-1]
+            if last_vol > avg_vol * 1.5: score += 2
+            elif last_vol > avg_vol * 1.2: score += 1
+    
+    return min(score, 10)
+
+
+def _calc_20d_pct(klines: List[Dict]) -> float:
+    """计算20日涨跌幅"""
+    if len(klines) < 20:
+        return 0
+    return (float(klines[-1]["close"]) - float(klines[0]["close"])) / float(klines[0]["close"]) * 100
+
+
 def main():
     t0 = time.time()
     print("=" * 70)
     print("  P1-1 14:30 首次实盘全链路验证 2026-06-24")
-    print("  V13.2 TDX实时数据集成版")
+    print("  V13.5.29 TDX实时数据集成版 + BypassHub")
     print("=" * 70)
 
     # 1. 运行V13.2分析
-    print(f"\n[1/5] V13.2全链路分析: {len(SCREENER_RAW)}只候选股...")
+    print(f"\n[1/6] V13.2全链路分析: {len(SCREENER_RAW)}只候选股...")
     results = run_v132_analysis(SCREENER_RAW)
+    
+    # 1.5. ★ V13.5.29 BypassHub 后处理 — 强制7旁路检查
+    print(f"\n[2/6] BypassHub V13.5.29 7旁路后处理...")
+    results, bypass_stats = apply_bypass_hub_postprocess(results)
 
-    # 2. 统计
+    # 3. 统计 (含BypassHub结果)
     strong_buy = sum(1 for r in results if r['recommendation'] == 'STRONG_BUY')
     buy = sum(1 for r in results if r['recommendation'] == 'BUY')
     watch = sum(1 for r in results if r['recommendation'] == 'WATCH')
     hold = sum(1 for r in results if r['recommendation'] == 'HOLD')
     tier1 = sum(1 for r in results if r['tier'] == 'Tier1')
     avg_v132 = sum(r['v132_adjusted'] for r in results) / len(results) if results else 0
+    bypass_promoted = bypass_stats.get("promotions", 0) if bypass_stats else 0
 
     stats = {
         'total': len(results),
@@ -758,29 +966,32 @@ def main():
         'watch': watch,
         'hold': hold,
         'avg_v132': avg_v132,
+        'bypass_hub': bypass_stats,
+        'bypass_promoted': bypass_promoted,
     }
 
-    # 3. 板块热度
+    # 4. 板块热度
     sector_heat = compute_sector_heat_adjust(SCREENER_RAW)
 
-    # 4. 生成HTML报告
-    print(f"\n[2/5] 生成P1-1 HTML报告...")
+    # 5. 生成HTML报告
+    print(f"\n[3/6] 生成P1-1 HTML报告...")
     html = generate_p1_1_report(results, sector_heat, stats)
     html_path = os.path.join('data', 'p1_1_maiden_report_20260624.html')
     with open(html_path, 'w', encoding='utf-8') as f:
         f.write(html)
     print(f"  ✅ HTML: {html_path}")
 
-    # 5. 保存JSON结果
-    print(f"\n[3/5] 保存JSON结果...")
+    # 6. 保存JSON结果
+    print(f"\n[4/6] 保存JSON结果...")
     timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S')
     json_path = os.path.join('data', f'holy_grail_v132_{timestamp_str}.json')
 
     output_data = {
         'timestamp': timestamp_str,
         'datetime': datetime.now().isoformat(),
-        'version': 'V13.2 P1-1 TDX',
+        'version': 'V13.5.29 P1-1 TDX + BypassHub',
         'p1_marker': 'P1-1 首次实盘验证',
+        'bypass_hub': bypass_stats,
         'm46_calibration': {
             'method': 'cross_sectional_zscore',  # P0-1修复: 交叉截面归一化
             'target_mean': 0.50, 'target_std': 0.15,
@@ -805,14 +1016,14 @@ def main():
     print(f"  ✅ JSON: {json_path}")
     print(f"  ✅ Latest: {latest_path}")
 
-    # 6. DB持久化
-    print(f"\n[4/5] DB持久化...")
+    # 7. DB持久化
+    print(f"\n[5/6] DB持久化...")
     persist_to_db(results)
     print(f"  ✅ daily_signals + p1_1_tracking 已写入")
 
-    # 7. 输出汇总
+    # 8. 输出汇总
     elapsed = time.time() - t0
-    print(f"\n[5/5] 执行耗时: {elapsed:.1f}s")
+    print(f"\n[6/6] 执行耗时: {elapsed:.1f}s")
 
     print(f"\n{'=' * 70}")
     print(f"  ╔══════════════════════════════════════════════════════════╗")

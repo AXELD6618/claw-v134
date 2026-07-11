@@ -1,18 +1,33 @@
 {
-  "step_id": "22:00_battle_plan",
-  "timestamp": "2026-06-29T22:00:07.340204",
-  "result": {
-    "step_id": "22:00_battle_plan",
-    "status": "success",
-    "started_at": "2026-06-29T22:00:07.340218",
-    "completed_at": "2026-06-29T22:00:07.340220",
-    "output_file": "outputs/battle_plan_20260630.html",
-    "summary": {
-      "candidates": 50,
-      "holy_grail": 17,
-      "db_signals": 20,
-      "avg_v132": 1.0632,
-      "battle_plan_generated": true
-    }
-  }
+  "check_type": "V13.5.20_degradation_fault_tolerance",
+  "check_timestamp": "2026-07-06T16:29:11.427105",
+  "market_status": "TRADING",
+  "overall_health": "DEGRADED",
+  "needs_manual_count": 0,
+  "issues_count": 2,
+  "healing_actions": 6,
+  "checks_summary": {
+    "checkpoint": "OK",
+    "failed_steps_recovery": "RECOVERED",
+    "step_files": "RECOVERED",
+    "46_dimensions": "OK",
+    "five_confirmation": "OK",
+    "fundamental_cache": "OK",
+    "ai_listening_cache": "OK",
+    "wenda_notice_cache": "OK",
+    "shudao_screener": "RECOVERED",
+    "d37_d46_data": "DEGRADED"
+  },
+  "healed_items": [
+    "RECOVERED state_20260706.json from closing archive",
+    "RECOVERED step_T0.json from closing archive",
+    "RECOVERED step_T3.json from closing archive",
+    "RECOVERED step_T4.json from closing archive",
+    "RECOVERED shudao_screener_20260706.json from T4 top10 data",
+    "ADDED d34_split_score/grade/detail columns to four_confirm_snapshots"
+  ],
+  "remaining_issues": [
+    "D37-D46 all zero in T4 output; weekly kline data insufficient for classic dimensions",
+    "TDX EnhancedFeeder only 1 stocks; insufficient for full market scan"
+  ]
 }

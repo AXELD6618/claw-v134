@@ -1,25 +1,73 @@
 {
   "step": "T0",
-  "timestamp": "2026-06-30T22:05:00",
-  "status": "completed",
+  "timestamp": "2026-07-06T16:29:11.427105",
+  "date": "20260706",
+  "status": "recovered_from_closing_v13520",
+  "total_candidates": 10,
   "summary": {
-    "total_candidates": 93,
-    "tier_a": 34,
-    "tier_b": 24,
-    "tier_c": 35
+    "total_candidates": 10,
+    "lane1_count": 0,
+    "lane2_count": 0,
+    "lane3_count": 0,
+    "st_count": 0,
+    "bj_count": 0
   },
-  "market_index": {
-    "shanghai": {
-      "code": "000001",
-      "name": "上证指数",
-      "price": 4094.4,
-      "chg_pct": 0.5
+  "top5": [
+    {
+      "code": "300024",
+      "name": "机器人",
+      "score": 98.3,
+      "action": "STRONG_BUY",
+      "grade": "S",
+      "d_rt": 19,
+      "d_cl": 0,
+      "five_confirm": 3,
+      "boost": 2
     },
-    "chinext": {
-      "code": "399006",
-      "name": "创业板指",
-      "price": 4342.71,
-      "chg_pct": 2.99
+    {
+      "code": "832162",
+      "name": "利尔达",
+      "score": 85.5,
+      "action": "ACCUMULATE",
+      "grade": "B",
+      "d_rt": 1,
+      "d_cl": 0,
+      "five_confirm": 0,
+      "boost": 0
+    },
+    {
+      "code": "301669",
+      "name": "高特电子",
+      "score": 85.1,
+      "action": "ACCUMULATE",
+      "grade": "B",
+      "d_rt": -1,
+      "d_cl": 0,
+      "five_confirm": 0,
+      "boost": 0
+    },
+    {
+      "code": "300120",
+      "name": "经纬辉开",
+      "score": 84.5,
+      "action": "ACCUMULATE",
+      "grade": "B",
+      "d_rt": -1,
+      "d_cl": 0,
+      "five_confirm": 0,
+      "boost": 0
+    },
+    {
+      "code": "601689",
+      "name": "拓普集团",
+      "score": 83.5,
+      "action": "ACCUMULATE",
+      "grade": "B",
+      "d_rt": 1,
+      "d_cl": 0,
+      "five_confirm": 0,
+      "boost": 0
     }
-  }
+  ],
+  "source": "degradation_recovery"
 }

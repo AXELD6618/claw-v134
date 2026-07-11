@@ -1,0 +1,238 @@
+{
+  "version": "V13.5.49",
+  "date": "2026-07-11",
+  "critical_corrections": [
+    "V48反馈数据华特气体T+1=-14.83%错误(实际是T+2), 真实T+1=+6.60%",
+    "V48反馈数据蜀道装备T+1=-2.5%完全错误, 真实T+1=+6.82%",
+    "V48反馈数据九丰能源T+1=+3.01%正确",
+    "V49: 全部11条100%TDX K线验证, 零猜测零虚构"
+  ],
+  "metrics": {
+    "total": 11,
+    "hits": 7,
+    "misses": 4,
+    "limit_ups": 1,
+    "hit_rate": 63.6,
+    "lu_rate": 9.1,
+    "avg_t1": 3.21,
+    "median_t1": 3.01,
+    "board_stats": {
+      "GEM": {
+        "total": 3,
+        "hits": 2,
+        "lu": 0,
+        "t1": [
+          4.57,
+          -0.66,
+          6.82
+        ],
+        "t2": [
+          -1.11,
+          20.01,
+          -5.05
+        ]
+      },
+      "MAIN": {
+        "total": 7,
+        "hits": 4,
+        "lu": 1,
+        "t1": [
+          10.01,
+          5.02,
+          -0.95,
+          1.22,
+          0.89,
+          -1.23,
+          3.01
+        ],
+        "t2": [
+          4.11,
+          10.0,
+          5.74,
+          0.6,
+          10.01,
+          6.83,
+          9.99
+        ]
+      },
+      "STAR": {
+        "total": 1,
+        "hits": 1,
+        "lu": 0,
+        "t1": [
+          6.6
+        ],
+        "t2": [
+          -14.83
+        ]
+      }
+    },
+    "hotspot_stats": {
+      "WATCH": {
+        "total": 3,
+        "hits": 2,
+        "lu": 0,
+        "t1": [
+          4.57,
+          1.22,
+          0.89
+        ]
+      },
+      "SURGE": {
+        "total": 4,
+        "hits": 2,
+        "lu": 1,
+        "t1": [
+          -0.66,
+          10.01,
+          5.02,
+          -0.95
+        ]
+      },
+      "NORMAL": {
+        "total": 4,
+        "hits": 3,
+        "lu": 0,
+        "t1": [
+          -1.23,
+          3.01,
+          6.6,
+          6.82
+        ]
+      }
+    },
+    "score_8plus": {
+      "total": 6,
+      "hits": 3,
+      "lu": 1
+    },
+    "score_below8": {
+      "total": 5,
+      "hits": 4,
+      "lu": 0
+    },
+    "v46_vs_v48_vs_v49": {
+      "samples": {
+        "v46": 41,
+        "v48": 11,
+        "v49": 11
+      },
+      "hit_rate": {
+        "v46": 90.2,
+        "v48": 45.5,
+        "v49": 63.6
+      },
+      "lu_rate": {
+        "v46": 32.0,
+        "v48": 9.1,
+        "v49": 9.1
+      }
+    }
+  },
+  "exit_analysis": {
+    "t1_better": 5,
+    "t2_better": 6,
+    "avg_t1": 3.21,
+    "avg_t2": 4.21,
+    "median_t1": 3.01,
+    "median_t2": 5.74,
+    "t1_compound_20d": 88.1,
+    "t2_compound_20d": 51.0,
+    "t1_worst": -1.23,
+    "t2_worst": -14.83,
+    "conclusion": "T+1滚动复利优势维持"
+  },
+  "factor_model": {
+    "factors": {
+      "signal_score": {
+        "v46_weight": 0.3,
+        "ic": -0.3453254550351515
+      },
+      "d28_score": {
+        "v46_weight": 0.15,
+        "ic": -0.19224071949187313
+      },
+      "sentiment": {
+        "v46_weight": 0.13,
+        "ic": -0.21142227811049566
+      },
+      "volume": {
+        "v46_weight": 0.03,
+        "ic": 0.36377747307732383
+      },
+      "reversal": {
+        "v46_weight": 0.0,
+        "ic": 0.47120497542887785
+      },
+      "hotspot_level": {
+        "v46_weight": 0.22,
+        "ic": -0.05371425779940906
+      },
+      "board": {
+        "v46_weight": 0.1,
+        "ic": 0.30951799425274323
+      }
+    },
+    "v49_weights": {
+      "signal_score": 0.25,
+      "d28_score": 0.15,
+      "sentiment": 0.15,
+      "hotspot_level": 0.2,
+      "board": 0.1,
+      "catalyst_type": 0.07,
+      "volume": 0.05,
+      "reversal": 0.03
+    },
+    "sample_size": 11,
+    "ic_significance": "不显著(需n>=30)",
+    "ic_confidence_interval": 0.653
+  },
+  "collector_design": {
+    "dataset_file": "E:\\WorkBuddy_dot_workbuddy\\Claw\\data\\evolution_v13549\\t1_verified_dataset.json",
+    "current_samples": 11,
+    "target_samples": 50,
+    "automation_schedule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=15;BYMINUTE=10"
+  },
+  "convergence": {
+    "total_score": 59.4,
+    "dimensions": {
+      "data_authenticity": {
+        "score": 100,
+        "weight": 0.25
+      },
+      "t1_hit_rate": {
+        "score": 63,
+        "weight": 0.2
+      },
+      "limit_up_rate": {
+        "score": 45,
+        "weight": 0.2
+      },
+      "sample_size": {
+        "score": 22,
+        "weight": 0.15
+      },
+      "exit_strategy": {
+        "score": 60,
+        "weight": 0.1
+      },
+      "factor_model": {
+        "score": 35,
+        "weight": 0.1
+      }
+    },
+    "v48_comparison": 48.9,
+    "v47_comparison": 75.57,
+    "v45_comparison": 92.93,
+    "improvement": 10.5
+  },
+  "next_steps": [
+    "建立每日15:10 TDX自动拉取T+1验证数据自动化任务",
+    "持续积累真实T+1样本至30+条(预计2周)",
+    "30+样本后重新计算IC, 验证因子显著性",
+    "基于真实IC重新校准7因子权重",
+    "验证8.0分水岭在真实数据下是否成立",
+    "验证板块E[R]模型在真实数据下的准确性",
+    "建立选股前评分(非事后评分)机制"
+  ]
+}

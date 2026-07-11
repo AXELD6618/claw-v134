@@ -20,6 +20,7 @@ Phase 1 紧急修复：踩雷率从8%降至≤5%
 - 业绩预告向下修正幅度 > 50%
 """
 
+import math
 import json
 import os
 from datetime import datetime, timedelta
@@ -52,8 +53,8 @@ class FinancialMetrics:
     revenue_growth: float = 0.0              # 营收增速
 
     # 商誉风险
-    goodwill: float                          # 商誉
-    net_assets: float                        # 净资产
+    goodwill: float = 0.0                          # 商誉
+    net_assets: float = 1.0                        # 净资产
     goodwill_to_equity_ratio: float = 0.0    # 商誉/净资产
 
     # 质押风险
@@ -369,8 +370,6 @@ class FinancialMineDetector:
             recommendation = '✅ 安全，可正常交易'
 
         # ── 额外：踩雷概率估算 ──
-        # 用Sigmoid映射风险评分到踩雷概率
-        import math
         mine_probability = 1.0 / (1.0 + math.exp(-8 * (total_score - 0.4)))
 
         return RiskReport(
@@ -385,6 +384,273 @@ class FinancialMineDetector:
             warnings=all_warnings,
             recommendation=f"{recommendation} | 踩雷概率: {mine_probability:.1%}",
         )
+
+
+# ═══════════════════════════════════════════════════════════════
+# V13.4.5 P0: MineDetector 2.0 — 三大新检测模块
+# ═══════════════════════════════════════════════════════════════
+
+@dataclass
+class LimitDownInfo:
+    """连续跌停检测数据"""
+    code: str
+    consecutive_limit_downs: int = 0     # 连续跌停天数
+    recent_max_decline: float = 0.0      # 近5日最大跌幅
+    limit_down_risk_score: float = 0.0   # 连续跌停风险评分
+    is_limit_down_pattern: bool = False  # 是否匹配返利科技模式
+
+
+@dataclass
+class LiquidityInfo:
+    """流动性检测数据"""
+    code: str
+    hsl: float = 0.0                     # 换手率
+    turnover_amount: float = 0.0         # 成交额(亿元)
+    avg_hsl_20d: float = 0.0             # 20日均换手率
+    liquidity_score: float = 0.0         # 流动性风险评分 (高=风险)
+    is_illiquid: bool = False            # 是否流动性不足
+
+
+class LimitDownDetector:
+    """V13.4.5: 连续跌停检测器 — 返利科技模式识别"""
+    
+    LIMIT_DOWN_THRESHOLDS = {
+        'consecutive_days_danger': 2,     # ≥2天连续跌停 → 危险
+        'consecutive_days_warning': 1,    # 1天跌停 → 警告
+        'max_decline_5d_danger': 15.0,   # 5日跌幅>15% → 危险
+        'max_decline_5d_warning': 10.0,  # 5日跌幅>10% → 警告
+        'volume_spike_ratio': 2.0,       # 跌停日量比>2.0 → 恐慌式跌停
+    }
+    
+    def __init__(self):
+        self._kline_cache = {}
+    
+    def detect(self, code: str, decline_pct: float, kline_data: Optional[List[Dict]] = None) -> LimitDownInfo:
+        """
+        检测连续跌停模式
+        
+        返利科技模式特征:
+        - 连续2天以上跌停
+        - 跌停日伴随放量(恐慌抛售)
+        - 短期跌幅累积>15%
+        
+        kline_data: [{date, close, volume_ratio}, ...] 近20日K线
+        """
+        info = LimitDownInfo(code=code)
+        
+        if not kline_data:
+            # 简化版: 仅基于当日跌幅判断
+            if abs(decline_pct) >= 9.5:
+                info.consecutive_limit_downs = 1
+                info.is_limit_down_pattern = True
+                info.limit_down_risk_score = 0.50
+            elif abs(decline_pct) >= 7.0:
+                info.limit_down_risk_score = 0.25
+            return info
+        
+        # 完整版: 从K线检测
+        consecutive = 0
+        total_decline_5d = 0.0
+        volume_spike_count = 0
+        
+        for i, bar in enumerate(kline_data):
+            bar_decline = abs(bar.get('chg_pct', 0))
+            
+            # 检测连续跌停
+            if bar_decline >= 9.5:
+                consecutive += 1
+                if bar.get('volume_ratio', 1.0) > self.LIMIT_DOWN_THRESHOLDS['volume_spike_ratio']:
+                    volume_spike_count += 1
+            else:
+                if consecutive < 2:
+                    consecutive = 0  # 不够2天不算模式
+            
+            # 累计5日跌幅
+            if i < 5:
+                total_decline_5d += bar_decline
+        
+        info.consecutive_limit_downs = consecutive
+        info.recent_max_decline = total_decline_5d
+        
+        # 返利科技模式判定
+        if consecutive >= 2:
+            info.is_limit_down_pattern = True
+            info.limit_down_risk_score = min(0.95, 0.40 + consecutive * 0.15 + volume_spike_count * 0.10)
+        elif consecutive >= 1 and total_decline_5d > self.LIMIT_DOWN_THRESHOLDS['max_decline_5d_danger']:
+            info.is_limit_down_pattern = True
+            info.limit_down_risk_score = 0.55
+        elif consecutive >= 1:
+            info.limit_down_risk_score = 0.30
+        elif total_decline_5d > self.LIMIT_DOWN_THRESHOLDS['max_decline_5d_warning']:
+            info.limit_down_risk_score = 0.15
+        
+        return info
+
+
+class LiquidityDetector:
+    """V13.4.5: 流动性检测器"""
+    
+    LIQUIDITY_THRESHOLDS = {
+        'hsl_min_safe': 3.0,            # 换手率≥3% → 安全
+        'hsl_warning': 1.0,             # 换手率<1% → 警告(僵尸股)
+        'hsl_danger': 0.3,              # 换手率<0.3% → 危险
+        'turnover_min_safe': 0.5,       # 成交额≥5000万 → 安全
+        'turnover_warning': 0.1,        # 成交额<1000万 → 警告
+        'avg_hsl_min': 5.0,             # 20日均换手率≥5% → 低风险
+    }
+    
+    def detect(self, code: str, hsl: float, turnover_amount: float = 0,
+               avg_hsl_20d: float = 0) -> LiquidityInfo:
+        """检测流动性风险
+        
+        V13.4.5智能降级: 当所有流动性数据缺失(hsl==0 && turnover==0)时，
+        返回中性评分而非误报为流动性不足。缺数据≠僵尸股。
+        """
+        info = LiquidityInfo(code=code, hsl=hsl, turnover_amount=turnover_amount, avg_hsl_20d=avg_hsl_20d)
+        
+        # ── 数据完整性检查 ──
+        has_any_data = hsl > 0 or turnover_amount > 0 or avg_hsl_20d > 0
+        if not has_any_data:
+            # 流动性数据完全缺失 → 中性评估，不误报
+            info.liquidity_score = 0.0
+            info.is_illiquid = False
+            info._data_missing = True
+            return info
+        
+        score = 0.0
+        
+        # 换手率检测 (仅在有数据时)
+        if hsl > 0:
+            if hsl < self.LIQUIDITY_THRESHOLDS['hsl_danger']:
+                score += 0.40
+                info.is_illiquid = True
+            elif hsl < self.LIQUIDITY_THRESHOLDS['hsl_warning']:
+                score += 0.20
+            elif hsl >= self.LIQUIDITY_THRESHOLDS['hsl_min_safe']:
+                score -= 0.10  # 扣分(降低风险)
+        
+        # 成交额检测
+        if turnover_amount > 0:
+            if turnover_amount < self.LIQUIDITY_THRESHOLDS['turnover_warning']:
+                score += 0.30
+                info.is_illiquid = True
+            elif turnover_amount < self.LIQUIDITY_THRESHOLDS['turnover_min_safe']:
+                score += 0.10
+            elif turnover_amount >= self.LIQUIDITY_THRESHOLDS['turnover_min_safe'] * 2:
+                score -= 0.05
+        
+        # 20日均换手率
+        if avg_hsl_20d > 0 and avg_hsl_20d < self.LIQUIDITY_THRESHOLDS['avg_hsl_min']:
+            score += 0.10
+        
+        info.liquidity_score = max(0.0, min(1.0, score))
+        return info
+
+
+# ═══════════════════════════════════════════════════════════════
+# V13.4.5 P0: 增强版综合评估 (集成三大新检测器)
+# ═══════════════════════════════════════════════════════════════
+
+class MineDetectorV2:
+    """V13.4.5 踩雷防御2.0 — 一站式排雷"""
+    
+    def __init__(self, blacklist_file: str = None):
+        self.bl_manager = BlacklistManager(blacklist_file)
+        self.financial = FinancialMineDetector()
+        self.limit_down = LimitDownDetector()
+        self.liquidity = LiquidityDetector()
+        self._tdx_kline_cache = {}
+    
+    def quick_scan(self, code: str, name: str, stock_data: dict) -> dict:
+        """
+        快速排雷扫描 (供FullMarketMonitor调用)
+        
+        stock_data = {
+            code, name, decline_pct, hsl, volume_ratio, amplitude,
+            market, sector, v132_score, ...
+        }
+        
+        返回: {safe: bool, risk_score: float, risk_level: str, warnings: [...]}
+        """
+        warnings = []
+        risk_score = 0.0
+        
+        decline = abs(stock_data.get('decline_pct', 0))
+        hsl = stock_data.get('hsl', 0)
+        volume_ratio = stock_data.get('volume_ratio', 1.0)
+        amplitude = stock_data.get('amplitude', 0)
+        code_str = code
+        
+        # ── 检测1: 黑名单 ──
+        if self.bl_manager.is_blacklisted(code_str):
+            bl = self.bl_manager.get_blacklist_info(code_str)
+            risk_score += 0.90
+            warnings.append(f"🚫 黑名单: {bl.get('reason', '禁止交易')}")
+            return self._format_result(code, name, risk_score, 'BLACKLIST', warnings)
+        
+        # ── 检测2: ST风险 ──
+        if 'ST' in name.upper() or '*ST' in name:
+            risk_score += 0.80
+            warnings.append(f"🔴 ST股: {name}")
+        
+        # ── 检测3: 连续跌停检测 ──
+        if decline >= 9.5 and volume_ratio > 1.5:
+            # 恐慌式跌停
+            risk_score += 0.55
+            warnings.append(f"🔴 跌停+放量({volume_ratio:.1f}x): 返利科技模式疑似")
+        elif decline >= 9.5:
+            risk_score += 0.40
+            warnings.append(f"⚠️ 当日跌停: -{decline:.1f}%")
+        elif decline >= 7.0 and volume_ratio > 2.0:
+            risk_score += 0.30
+            warnings.append(f"⚠️ 大跌+放量: -{decline:.1f}%, 量比{volume_ratio:.1f}x")
+        
+        # ── 检测4: 流动性检查 ──
+        liq = self.liquidity.detect(code_str, hsl)
+        if liq.is_illiquid:
+            risk_score += 0.30
+            warnings.append(f"⚠️ 流动性不足: 换手率{hsl:.2f}%")
+        elif liq.liquidity_score > 0.10:
+            risk_score += 0.10
+            warnings.append(f"💡 流动性偏低: 换手率{hsl:.2f}%")
+        
+        # ── 检测5: 基本面快速检查 ──
+        # 高换手+低振幅 = 主力对倒出货 → 踩雷
+        if hsl > 15 and amplitude < 3:
+            risk_score += 0.20
+            warnings.append(f"⚠️ 高换手({hsl:.1f}%)+低振幅({amplitude:.1f}%): 对倒嫌疑")
+        
+        # 出现新股爆炒后的估值回归
+        market = stock_data.get('market', '')
+        if decline > 12:
+            risk_score += 0.15
+            warnings.append(f"⚠️ 跌幅过大: -{decline:.1f}%, 趋势可能恶化")
+        
+        risk_score = min(1.0, risk_score)
+        
+        # 风险等级 (V13.4.5校准: DANGER严格化，仅确认模式触发)
+        if risk_score >= 0.75:
+            level = 'DANGER'
+        elif risk_score >= 0.45:
+            level = 'WARNING'
+        elif risk_score >= 0.20:
+            level = 'WATCH'
+        else:
+            level = 'SAFE'
+        
+        return self._format_result(code, name, risk_score, level, warnings)
+    
+    def _format_result(self, code, name, score, level, warnings):
+        safe = level in ['SAFE', 'WATCH']
+        return {
+            'code': code, 'name': name,
+            'safe': safe,
+            'risk_score': round(score, 4),
+            'risk_level': level,
+            'warnings': warnings,
+            'warning_count': len(warnings),
+            'mine_probability': round(1.0 / (1.0 + math.exp(-8 * (score - 0.4))), 4),
+        }
 
 
 # ═══════════════════════════════════════════════

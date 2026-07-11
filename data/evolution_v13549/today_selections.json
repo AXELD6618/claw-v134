@@ -1,0 +1,23 @@
+{
+  "version": "V13.5.49",
+  "description": "每日T4选股结果 - 供V49每日T+1验证使用",
+  "last_updated": "2026-07-11",
+  "instructions": "14:30 T4选股完成后, 将选股结果写入此文件。格式如下selections数组。",
+  "selections": [
+    {
+      "code": "000000",
+      "name": "示例股票",
+      "board": "MAIN",
+      "setcode": "0",
+      "signal_score": 8.0,
+      "catalyst_type": "EARNINGS",
+      "d28_score": 12,
+      "sentiment_score": 0.5,
+      "hotspot_level": "SURGE",
+      "volume_ratio": 1.5,
+      "t_date": "2026-07-10",
+      "t_close": 0.00
+    }
+  ],
+  "note": "实际使用时替换selections数组为当日真实选股结果"
+}

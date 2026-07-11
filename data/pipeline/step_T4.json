@@ -1,68 +1,66 @@
 {
   "step": "T4",
-  "time": "14:15",
-  "date": "20260630",
-  "screener_date": "20260630",
-  "screener_file": "data/fullmarket_cache\\screener_t4_1415.json",
-  "flat_screener_file": "data/fullmarket_cache\\screener_t4_1415_flat.json",
-  "t3_pool_size": 75,
-  "total_scanned": 92,
-  "holy_grail_count": 0,
-  "tier_a": 83,
-  "tier_b": 5,
-  "tier_c": 4,
-  "candidates": [
+  "timestamp": "2026-07-06T16:29:11.427105",
+  "date": "20260706",
+  "status": "recovered_from_closing_v13520",
+  "total_scanned": 10,
+  "holy_grail_count": 1,
+  "top5": [
     {
-      "code": "920072",
-      "name": "科莱瑞迪",
-      "v132": 0.78390775,
-      "tier": "A",
-      "cum_weight": 0.1959769375,
-      "is_holy_grail": false,
-      "decline_pct": -22.25
+      "code": "300024",
+      "name": "机器人",
+      "score": 98.3,
+      "action": "STRONG_BUY",
+      "grade": "S",
+      "d_rt": 19,
+      "d_cl": 0,
+      "five_confirm": 3,
+      "boost": 2
     },
     {
-      "code": "300997",
-      "name": "欢乐家",
-      "v132": 0.7558827499999999,
-      "tier": "A",
-      "cum_weight": 0.18897068749999998,
-      "is_holy_grail": false,
-      "decline_pct": -10.38
+      "code": "832162",
+      "name": "利尔达",
+      "score": 85.5,
+      "action": "ACCUMULATE",
+      "grade": "B",
+      "d_rt": 1,
+      "d_cl": 0,
+      "five_confirm": 0,
+      "boost": 0
     },
     {
-      "code": "000766",
-      "name": "通化金马",
-      "v132": 0.75085275,
-      "tier": "A",
-      "cum_weight": 0.1877131875,
-      "is_holy_grail": false,
-      "decline_pct": -10.02
+      "code": "301669",
+      "name": "高特电子",
+      "score": 85.1,
+      "action": "ACCUMULATE",
+      "grade": "B",
+      "d_rt": -1,
+      "d_cl": 0,
+      "five_confirm": 0,
+      "boost": 0
+    },
+    {
+      "code": "300120",
+      "name": "经纬辉开",
+      "score": 84.5,
+      "action": "ACCUMULATE",
+      "grade": "B",
+      "d_rt": -1,
+      "d_cl": 0,
+      "five_confirm": 0,
+      "boost": 0
+    },
+    {
+      "code": "601689",
+      "name": "拓普集团",
+      "score": 83.5,
+      "action": "ACCUMULATE",
+      "grade": "B",
+      "d_rt": 1,
+      "d_cl": 0,
+      "five_confirm": 0,
+      "boost": 0
     }
   ],
-  "holy_grails": [],
-  "top3": [
-    {
-      "code": "920072",
-      "name": "科莱瑞迪",
-      "v132": 0.78390775,
-      "tier": "A",
-      "cum_weight": 0.1959769375
-    },
-    {
-      "code": "300997",
-      "name": "欢乐家",
-      "v132": 0.7558827499999999,
-      "tier": "A",
-      "cum_weight": 0.18897068749999998
-    },
-    {
-      "code": "000766",
-      "name": "通化金马",
-      "v132": 0.75085275,
-      "tier": "A",
-      "cum_weight": 0.1877131875
-    }
-  ],
-  "dashboard": "outputs\\fullmarket_dashboard.html"
+  "source": "degradation_recovery"
 }

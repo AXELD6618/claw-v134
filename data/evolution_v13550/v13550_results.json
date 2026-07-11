@@ -1,0 +1,1088 @@
+{
+  "version": "V13.5.50",
+  "timestamp": "2026-07-11T21:26:05.909465",
+  "engine": "TDX蒸馏选股统一引擎",
+  "dimensions": [
+    {
+      "dim_id": "D1",
+      "name": "获利筹码比",
+      "weight": 0.18,
+      "tdx_tool": "tdx_screener",
+      "existing_module": "V13_5_32_WINNER_Engine.py",
+      "description": "WINNER获利盘比例≤0.03%=极致买点, 三时点趋同=钻石信号"
+    },
+    {
+      "dim_id": "D2",
+      "name": "换手率低位",
+      "weight": 0.1,
+      "tdx_tool": "tdx_quotes",
+      "existing_module": "V13_5_28_FusionEngine.py (hsl_lb_path)",
+      "description": "低位+高换手+低量比=致命背离(洗盘尾声), HSL≥7+LB<1.5+低位"
+    },
+    {
+      "dim_id": "D3",
+      "name": "主力资金流向",
+      "weight": 0.18,
+      "tdx_tool": "tdx_api_data",
+      "existing_module": "V13_5_26_CapitalFlowCore.py (D53/D54/D55/D56)",
+      "description": "D53流出收敛(洗盘尾声)+D54多日净流入+D55资金价格背离+D56委比外盘"
+    },
+    {
+      "dim_id": "D4",
+      "name": "量价关系",
+      "weight": 0.15,
+      "tdx_tool": "tdx_kline",
+      "existing_module": "V13_5_M71_ReversalPredictor.py (D1/D2/D25)",
+      "description": "D1缩量见底(量比<0.8)+D2放量蓄势+D25三路放量启动"
+    },
+    {
+      "dim_id": "D5",
+      "name": "技术形态",
+      "weight": 0.12,
+      "tdx_tool": "tdx_kline",
+      "existing_module": "V13_5_M71_D37_D46.py (D37-D46经典交易理论)",
+      "description": "周线多头排列+老鸭头+筹码擒龙+三倍量+试盘线+三均线+主升浪"
+    },
+    {
+      "dim_id": "D6",
+      "name": "催化剂强度",
+      "weight": 0.12,
+      "tdx_tool": "wenda_notice_query",
+      "existing_module": "V13_5_38_CatalystScanner_V2_3.py (D28)",
+      "description": "公告催化(重组/回购/定增/业绩预告)+LightGBM分类+直接受益度"
+    },
+    {
+      "dim_id": "D7",
+      "name": "舆情热度",
+      "weight": 0.1,
+      "tdx_tool": "tdx_ai_listening",
+      "existing_module": "V13_5_39_FinBERT_DeepLearning.py (D18/D19)",
+      "description": "AI智能听多空权重+FinBERT微调97.2%+关键词热度突增检测"
+    },
+    {
+      "dim_id": "D8",
+      "name": "筹码集中度",
+      "weight": 0.05,
+      "tdx_tool": "tdx_indicator_select",
+      "existing_module": "V13_5_28_FusionEngine.py (三维融合)",
+      "description": "SCR<5=高度集中+SUPAMO主力控盘+三维融合WINNER×SCR×SUPAMO"
+    }
+  ],
+  "winner_scan": {
+    "scan_date": "2026-07-10",
+    "extreme_pool": {
+      "total": 14,
+      "filtered": 11,
+      "stocks": [
+        {
+          "code": "001212",
+          "name": "中旗新材",
+          "winner": 0.02,
+          "price": 39.07,
+          "chg": -1.56,
+          "avg_cost": 48.88,
+          "deviation": -20.1,
+          "hsl": 2.47,
+          "lb": 0.83,
+          "main_inflow": -9299104,
+          "main_force_signal": "OUTFLOW",
+          "scr": 8.58,
+          "scr_signal": "LOOSE",
+          "main_pct": 0.0627,
+          "score": 105,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "001248",
+          "name": "华润新能",
+          "winner": 0.01,
+          "price": 14.5,
+          "chg": -1.89,
+          "avg_cost": 16.45,
+          "deviation": -11.9,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 105,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "002466",
+          "name": "天齐锂业",
+          "winner": 0.02,
+          "price": 47.8,
+          "chg": -4.0,
+          "avg_cost": 61.55,
+          "deviation": -22.3,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "603036",
+          "name": "如通股份",
+          "winner": 0.02,
+          "price": 12.84,
+          "chg": -2.28,
+          "avg_cost": 14.8,
+          "deviation": -13.2,
+          "hsl": 2.55,
+          "lb": 1.29,
+          "main_inflow": -5907280,
+          "main_force_signal": "OUTFLOW",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "920220",
+          "name": "朗信电气",
+          "winner": 0.01,
+          "price": 47.9,
+          "chg": -2.04,
+          "avg_cost": 56.16,
+          "deviation": -14.7,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "920083",
+          "name": "金戈新材",
+          "winner": 0.01,
+          "price": 37.53,
+          "chg": -7.68,
+          "avg_cost": 44.97,
+          "deviation": -16.5,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "920193",
+          "name": "吉和昌",
+          "winner": 0.01,
+          "price": 39.49,
+          "chg": -2.88,
+          "avg_cost": 42.93,
+          "deviation": -8.0,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "920161",
+          "name": "龙辰科技",
+          "winner": 0.01,
+          "price": 29.55,
+          "chg": -6.46,
+          "avg_cost": 34.6,
+          "deviation": -14.6,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "920509",
+          "name": "同惠电子",
+          "winner": 0.01,
+          "price": 23.83,
+          "chg": -2.54,
+          "avg_cost": 32.06,
+          "deviation": -25.7,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "002318",
+          "name": "久立特材",
+          "winner": 0.01,
+          "price": 18.81,
+          "chg": -3.54,
+          "avg_cost": 25.03,
+          "deviation": -24.9,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        },
+        {
+          "code": "920206",
+          "name": "彩客科技",
+          "winner": 0.0,
+          "price": 39.78,
+          "chg": -5.71,
+          "avg_cost": 49.57,
+          "deviation": -19.7,
+          "hsl": null,
+          "lb": null,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "main_pct": null,
+          "score": 100,
+          "zone": "EXTREME"
+        }
+      ]
+    },
+    "low_pool": {
+      "total_market": 268,
+      "top5_analyzed": 5,
+      "stocks": [
+        {
+          "code": "600894",
+          "name": "广日股份",
+          "winner": 1.91,
+          "price": 7.54,
+          "chg": 1.07,
+          "hsl": 0.5,
+          "lb": 0.65,
+          "main_inflow": -1155810,
+          "main_force_signal": "NEUTRAL",
+          "scr": 8.1,
+          "scr_signal": "LOOSE",
+          "score": 83,
+          "zone": "LOW"
+        },
+        {
+          "code": "600903",
+          "name": "贵州燃气",
+          "winner": 1.97,
+          "price": 6.19,
+          "chg": 0.16,
+          "hsl": 1.94,
+          "lb": 0.93,
+          "main_inflow": 1751968,
+          "main_force_signal": "INFLOW",
+          "scr": 11.68,
+          "scr_signal": "LOOSE",
+          "score": 81,
+          "zone": "LOW"
+        },
+        {
+          "code": "002088",
+          "name": "鲁阳节能",
+          "winner": 1.9,
+          "price": 7.66,
+          "chg": 1.86,
+          "hsl": 0.67,
+          "lb": 1.41,
+          "main_inflow": -310371,
+          "main_force_signal": "NEUTRAL",
+          "scr": 12.33,
+          "scr_signal": "DISPERSED",
+          "score": 78,
+          "zone": "LOW"
+        },
+        {
+          "code": "301325",
+          "name": "曼恩斯特",
+          "winner": 1.9,
+          "price": 32.21,
+          "chg": 0.28,
+          "hsl": 0,
+          "lb": 1.0,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "score": 73,
+          "zone": "LOW"
+        },
+        {
+          "code": "600475",
+          "name": "华光环能",
+          "winner": 1.9,
+          "price": 13.34,
+          "chg": 0.45,
+          "hsl": 0,
+          "lb": 1.0,
+          "main_inflow": 0,
+          "main_force_signal": "NEUTRAL",
+          "scr": null,
+          "scr_signal": "UNKNOWN",
+          "score": 73,
+          "zone": "LOW"
+        }
+      ]
+    },
+    "summary": {
+      "extreme_count": 11,
+      "extreme_with_main_inflow": 0,
+      "low_count": 5,
+      "low_with_main_inflow": 1,
+      "best_candidates": [
+        "001212 中旗新材",
+        "001248 华润新能",
+        "002466 天齐锂业",
+        "603036 如通股份",
+        "920220 朗信电气"
+      ]
+    }
+  },
+  "main_force_chips": {
+    "001212": {
+      "signal": "NEUTRAL",
+      "signal_label": "⚪中性观望",
+      "bull_count": 2,
+      "bear_count": 2,
+      "signals": [
+        "主力净流出-930万",
+        "主力占比+6.27%",
+        "委比+57.6%",
+        "SCR=8.6松散",
+        "连跌5日"
+      ],
+      "scr_level": "LOOSE",
+      "scr": 8.58,
+      "inout_hb": -9299104,
+      "main_pct": 0.0627,
+      "main_buy": 0,
+      "wtb": 57.59,
+      "year_zt": 4,
+      "con_zaf": -5
+    },
+    "603036": {
+      "signal": "NEUTRAL",
+      "signal_label": "⚪中性观望",
+      "bull_count": 1,
+      "bear_count": 2,
+      "signals": [
+        "主力净流出-591万",
+        "委比+66.1%",
+        "连跌7日"
+      ],
+      "scr_level": "UNKNOWN",
+      "scr": null,
+      "inout_hb": -5907280,
+      "main_pct": null,
+      "main_buy": 0,
+      "wtb": 66.11,
+      "year_zt": 4,
+      "con_zaf": -7
+    },
+    "600903": {
+      "signal": "ACCUMULATION",
+      "signal_label": "🟢主力吸筹",
+      "bull_count": 4,
+      "bear_count": 0,
+      "signals": [
+        "主力净流入+175万",
+        "委比+53.9%",
+        "SCR=11.7松散",
+        "年内涨停7次",
+        "连涨1日"
+      ],
+      "scr_level": "LOOSE",
+      "scr": 11.68,
+      "inout_hb": 1751968,
+      "main_pct": -0.0381,
+      "main_buy": 0,
+      "wtb": 53.87,
+      "year_zt": 7,
+      "con_zaf": 1
+    },
+    "600894": {
+      "signal": "NEUTRAL",
+      "signal_label": "⚪中性观望",
+      "bull_count": 2,
+      "bear_count": 1,
+      "signals": [
+        "主力逐笔买入+490万",
+        "委比-72.1%",
+        "SCR=8.1松散",
+        "连涨2日"
+      ],
+      "scr_level": "LOOSE",
+      "scr": 8.1,
+      "inout_hb": -1155810,
+      "main_pct": null,
+      "main_buy": 4897308,
+      "wtb": -72.14,
+      "year_zt": 1,
+      "con_zaf": 2
+    },
+    "002088": {
+      "signal": "NEUTRAL",
+      "signal_label": "⚪中性观望",
+      "bull_count": 1,
+      "bear_count": 1,
+      "signals": [
+        "SCR=12.3分散",
+        "连涨1日"
+      ],
+      "scr_level": "DISPERSED",
+      "scr": 12.33,
+      "inout_hb": -310371,
+      "main_pct": null,
+      "main_buy": 0,
+      "wtb": 18.87,
+      "year_zt": 3,
+      "con_zaf": 1
+    }
+  },
+  "streamlined_automations": [
+    {
+      "time": "07:30",
+      "name": "盘前TDX蒸馏预扫描",
+      "merges": [
+        "06:00跨市场",
+        "08:30盘前",
+        "09:00新闻"
+      ],
+      "actions": [
+        "tdx_screener CMFZ.获利比例<5 → 全市场WINNER候选池",
+        "tdx_ai_listening → 舆情热度Top20",
+        "wenda_news_query → 当日新闻催化扫描",
+        "CatalystScanner V2.3 → 催化分类"
+      ],
+      "output": "data/fullmarket_cache/pre_market_distill.json"
+    },
+    {
+      "time": "10:30",
+      "name": "T0实时蒸馏更新",
+      "merges": [
+        "10:30 T0",
+        "11:30 T1"
+      ],
+      "actions": [
+        "更新WINNER候选池(盘中实时)",
+        "tdx_quotes → 换手率/量比/委比实时更新",
+        "8维蒸馏评分 → 候选池排序"
+      ],
+      "output": "data/fullmarket_cache/t0_distill.json"
+    },
+    {
+      "time": "12:00",
+      "name": "午间驾驶舱",
+      "merges": [
+        "12:00驾驶舱"
+      ],
+      "actions": [
+        "8维蒸馏评分汇总",
+        "T+1置信度排名",
+        "活跃维度分析"
+      ],
+      "output": "outputs/cockpit_midday.html"
+    },
+    {
+      "time": "14:15",
+      "name": "WINNER精确扫描",
+      "merges": [
+        "14:15 WINNER"
+      ],
+      "actions": [
+        "WINNEREngine精确计算Top30候选",
+        "三时点趋同检测(今日+昨日+周均)",
+        "D1获利筹码比最终评分"
+      ],
+      "output": "data/fullmarket_cache/winner_scan.json"
+    },
+    {
+      "time": "14:30",
+      "name": "T4核心蒸馏选股",
+      "merges": [
+        "14:30 T4"
+      ],
+      "actions": [
+        "8维蒸馏统一评分(最终)",
+        "T4硬过滤 F1-F4",
+        "BypassHub P1-P11旁路检查",
+        "输出BUY/WATCH/PASS + T+1置信度"
+      ],
+      "output": "data/fullmarket_cache/t4_distill_final.json"
+    },
+    {
+      "time": "15:05",
+      "name": "收盘归档+选股保存",
+      "merges": [
+        "15:05归档"
+      ],
+      "actions": [
+        "选股结果保存到 today_selections.json",
+        "8维蒸馏评分归档",
+        "T+1退出纪律记录"
+      ],
+      "output": "data/evolution_v13549/today_selections.json"
+    },
+    {
+      "time": "15:10",
+      "name": "TDX真实数据验证",
+      "merges": [
+        "15:10 V49验证"
+      ],
+      "actions": [
+        "TDX MCP拉取T+1真实K线",
+        "验证选股T+1真实涨跌幅",
+        "追加到t1_verified_dataset.json"
+      ],
+      "output": "data/evolution_v13549/t1_verified_dataset.json"
+    },
+    {
+      "time": "22:00",
+      "name": "夜间作战计划",
+      "merges": [
+        "20:00夜间",
+        "22:00作战",
+        "15:35 M55"
+      ],
+      "actions": [
+        "次日TDX蒸馏选股预判",
+        "M55 Sigmoid权重校准",
+        "V49收敛度追踪",
+        "作战计划HTML生成"
+      ],
+      "output": "outputs/battle_plan.html"
+    }
+  ],
+  "mock_results": [
+    {
+      "code": "000977",
+      "name": "浪潮信息",
+      "distill_score": 86.9,
+      "dimensions": {
+        "D1": {
+          "name": "获利筹码比",
+          "score": 120,
+          "weight": 0.18,
+          "weighted": 21.6,
+          "detail": "WINNER=0.0200% 极致买点(0-0.03%) | 💎钻石信号: 三时点全≤0.03% 差值<0.0200%",
+          "tdx_tool": "tdx_screener"
+        },
+        "D2": {
+          "name": "换手率低位",
+          "score": 90,
+          "weight": 0.1,
+          "weighted": 9.0,
+          "detail": "致命背离: 低位+HSL=8.5+LB=0.90 洗盘尾声",
+          "tdx_tool": "tdx_quotes"
+        },
+        "D3": {
+          "name": "主力资金流向",
+          "score": 78.0,
+          "weight": 0.18,
+          "weighted": 14.04,
+          "detail": "D53=12/D54=9/D55=7/D56=6 主力实时净流入+52000万 ★流出收敛(洗盘尾声) ★多日净流入确认",
+          "tdx_tool": "tdx_api_data"
+        },
+        "D4": {
+          "name": "量价关系",
+          "score": 65.0,
+          "weight": 0.15,
+          "weighted": 9.75,
+          "detail": "D1缩量=11/D2蓄势=8/D25放量=7 LB=0.90 ★缩量见底 ★放量启动",
+          "tdx_tool": "tdx_kline"
+        },
+        "D5": {
+          "name": "技术形态",
+          "score": 60.4,
+          "weight": 0.12,
+          "weighted": 7.25,
+          "detail": "经典形态(29/48): 周线多头+MACD金叉",
+          "tdx_tool": "tdx_kline"
+        },
+        "D6": {
+          "name": "催化剂强度",
+          "score": 90,
+          "weight": 0.12,
+          "weighted": 10.8,
+          "detail": "D28=10 类型=POLICY 直接受益=是",
+          "tdx_tool": "wenda_notice_query"
+        },
+        "D7": {
+          "name": "舆情热度",
+          "score": 95,
+          "weight": 0.1,
+          "weighted": 9.5,
+          "detail": "D18=7/D19=improving/FinBERT=0.65/多=70%",
+          "tdx_tool": "tdx_ai_listening"
+        },
+        "D8": {
+          "name": "筹码集中度",
+          "score": 100,
+          "weight": 0.05,
+          "weighted": 5.0,
+          "detail": "SCR=4.2 高度集中 SUPAMO主力控盘",
+          "tdx_tool": "tdx_indicator_select"
+        }
+      },
+      "active_paths": [
+        "获利筹码比(120)",
+        "换手率低位(90)",
+        "主力资金流向(78)",
+        "量价关系(65)",
+        "技术形态(60)",
+        "催化剂强度(90)",
+        "舆情热度(95)",
+        "筹码集中度(100)"
+      ],
+      "active_count": 8,
+      "signal": "BUY",
+      "t1_confidence": 95,
+      "timestamp": "2026-07-11T21:26:05.907168"
+    },
+    {
+      "code": "300065",
+      "name": "海兰信",
+      "distill_score": 77.8,
+      "dimensions": {
+        "D1": {
+          "name": "获利筹码比",
+          "score": 100.0,
+          "weight": 0.18,
+          "weighted": 18.0,
+          "detail": "WINNER=0.050% 可选买点(0.03-0.1%) | 🥇黄金信号: 三时点全≤2% 差值<0.050%",
+          "tdx_tool": "tdx_screener"
+        },
+        "D2": {
+          "name": "换手率低位",
+          "score": 35,
+          "weight": 0.1,
+          "weighted": 3.5,
+          "detail": "HSL=9.2+LB=2.50 | 放量上涨",
+          "tdx_tool": "tdx_quotes"
+        },
+        "D3": {
+          "name": "主力资金流向",
+          "score": 64.0,
+          "weight": 0.18,
+          "weighted": 11.52,
+          "detail": "D53=8/D54=7/D55=5/D56=7 主力实时净流入+18000万",
+          "tdx_tool": "tdx_api_data"
+        },
+        "D4": {
+          "name": "量价关系",
+          "score": 65.0,
+          "weight": 0.15,
+          "weighted": 9.75,
+          "detail": "D1缩量=7/D2蓄势=10/D25放量=9 LB=2.50 ★放量启动",
+          "tdx_tool": "tdx_kline"
+        },
+        "D5": {
+          "name": "技术形态",
+          "score": 66.7,
+          "weight": 0.12,
+          "weighted": 8.0,
+          "detail": "经典形态(32/48): 周线多头+老鸭头+主升浪+MACD金叉",
+          "tdx_tool": "tdx_kline"
+        },
+        "D6": {
+          "name": "催化剂强度",
+          "score": 100,
+          "weight": 0.12,
+          "weighted": 12.0,
+          "detail": "D28=16 类型=EMERGING 直接受益=是",
+          "tdx_tool": "wenda_notice_query"
+        },
+        "D7": {
+          "name": "舆情热度",
+          "score": 100,
+          "weight": 0.1,
+          "weighted": 10.0,
+          "detail": "D18=9/D19=improving/FinBERT=0.90/多=80%",
+          "tdx_tool": "tdx_ai_listening"
+        },
+        "D8": {
+          "name": "筹码集中度",
+          "score": 100,
+          "weight": 0.05,
+          "weighted": 5.0,
+          "detail": "SCR=3.8 高度集中 SUPAMO主力控盘",
+          "tdx_tool": "tdx_indicator_select"
+        }
+      },
+      "active_paths": [
+        "获利筹码比(100)",
+        "主力资金流向(64)",
+        "量价关系(65)",
+        "技术形态(67)",
+        "催化剂强度(100)",
+        "舆情热度(100)",
+        "筹码集中度(100)"
+      ],
+      "active_count": 7,
+      "signal": "BUY",
+      "t1_confidence": 95,
+      "timestamp": "2026-07-11T21:26:05.908987"
+    },
+    {
+      "code": "300017",
+      "name": "网宿科技",
+      "distill_score": 66.4,
+      "dimensions": {
+        "D1": {
+          "name": "获利筹码比",
+          "score": 80.0,
+          "weight": 0.18,
+          "weighted": 14.4,
+          "detail": "WINNER=0.15% 低位(0.1-2%) | 🥇黄金信号: 三时点全≤2% 差值<0.120%",
+          "tdx_tool": "tdx_screener"
+        },
+        "D2": {
+          "name": "换手率低位",
+          "score": 25,
+          "weight": 0.1,
+          "weighted": 2.5,
+          "detail": "HSL=12.3+LB=1.20",
+          "tdx_tool": "tdx_quotes"
+        },
+        "D3": {
+          "name": "主力资金流向",
+          "score": 56.0,
+          "weight": 0.18,
+          "weighted": 10.08,
+          "detail": "D53=6/D54=5/D55=4/D56=8 主力实时净流入+31000万",
+          "tdx_tool": "tdx_api_data"
+        },
+        "D4": {
+          "name": "量价关系",
+          "score": 62.5,
+          "weight": 0.15,
+          "weighted": 9.38,
+          "detail": "D1缩量=5/D2蓄势=12/D25放量=8 LB=1.20 ★放量启动",
+          "tdx_tool": "tdx_kline"
+        },
+        "D5": {
+          "name": "技术形态",
+          "score": 45.8,
+          "weight": 0.12,
+          "weighted": 5.5,
+          "detail": "经典形态(22/48): 无强信号",
+          "tdx_tool": "tdx_kline"
+        },
+        "D6": {
+          "name": "催化剂强度",
+          "score": 90,
+          "weight": 0.12,
+          "weighted": 10.8,
+          "detail": "D28=8 类型=TREND 直接受益=是",
+          "tdx_tool": "wenda_notice_query"
+        },
+        "D7": {
+          "name": "舆情热度",
+          "score": 100,
+          "weight": 0.1,
+          "weighted": 10.0,
+          "detail": "D18=8/D19=improving/FinBERT=0.80/多=75%",
+          "tdx_tool": "tdx_ai_listening"
+        },
+        "D8": {
+          "name": "筹码集中度",
+          "score": 75,
+          "weight": 0.05,
+          "weighted": 3.75,
+          "detail": "SCR=6.5 较集中",
+          "tdx_tool": "tdx_indicator_select"
+        }
+      },
+      "active_paths": [
+        "获利筹码比(80)",
+        "量价关系(62)",
+        "催化剂强度(90)",
+        "舆情热度(100)",
+        "筹码集中度(75)"
+      ],
+      "active_count": 5,
+      "signal": "WATCH",
+      "t1_confidence": 75.0,
+      "timestamp": "2026-07-11T21:26:05.908797"
+    },
+    {
+      "code": "600903",
+      "name": "贵州燃气",
+      "distill_score": 55.0,
+      "dimensions": {
+        "D1": {
+          "name": "获利筹码比",
+          "score": 88.0,
+          "weight": 0.18,
+          "weighted": 15.84,
+          "detail": "WINNER=1.97% 低位(0.1-2%) | 🥇黄金信号: 三时点全≤2% 差值<0.120% | 🟢主力吸筹",
+          "tdx_tool": "tdx_screener"
+        },
+        "D2": {
+          "name": "换手率低位",
+          "score": 25,
+          "weight": 0.1,
+          "weighted": 2.5,
+          "detail": "HSL=1.9+LB=0.93",
+          "tdx_tool": "tdx_quotes"
+        },
+        "D3": {
+          "name": "主力资金流向",
+          "score": 54.0,
+          "weight": 0.18,
+          "weighted": 9.72,
+          "detail": "D53=7/D54=5/D55=4/D56=6 主力实时净流入+175万",
+          "tdx_tool": "tdx_api_data"
+        },
+        "D4": {
+          "name": "量价关系",
+          "score": 45.0,
+          "weight": 0.15,
+          "weighted": 6.75,
+          "detail": "D1缩量=10/D2蓄势=5/D25放量=3 LB=0.93 ★缩量见底",
+          "tdx_tool": "tdx_kline"
+        },
+        "D5": {
+          "name": "技术形态",
+          "score": 37.5,
+          "weight": 0.12,
+          "weighted": 4.5,
+          "detail": "经典形态(18/48): 无强信号",
+          "tdx_tool": "tdx_kline"
+        },
+        "D6": {
+          "name": "催化剂强度",
+          "score": 70,
+          "weight": 0.12,
+          "weighted": 8.4,
+          "detail": "D28=6 类型=POLICY 直接受益=是",
+          "tdx_tool": "wenda_notice_query"
+        },
+        "D7": {
+          "name": "舆情热度",
+          "score": 60,
+          "weight": 0.1,
+          "weighted": 6.0,
+          "detail": "D18=5/D19=stable/FinBERT=0.10/多=54%",
+          "tdx_tool": "tdx_ai_listening"
+        },
+        "D8": {
+          "name": "筹码集中度",
+          "score": 25,
+          "weight": 0.05,
+          "weighted": 1.25,
+          "detail": "SCR=11.7 分散",
+          "tdx_tool": "tdx_indicator_select"
+        }
+      },
+      "active_paths": [
+        "获利筹码比(88)",
+        "催化剂强度(70)",
+        "舆情热度(60)"
+      ],
+      "active_count": 3,
+      "signal": "WATCH",
+      "t1_confidence": 73.0,
+      "timestamp": "2026-07-11T21:26:05.909241"
+    },
+    {
+      "code": "001212",
+      "name": "中旗新材",
+      "distill_score": 52.2,
+      "dimensions": {
+        "D1": {
+          "name": "获利筹码比",
+          "score": 120,
+          "weight": 0.18,
+          "weighted": 21.6,
+          "detail": "WINNER=0.0200% 极致买点(0-0.03%) | 💎钻石信号: 三时点全≤0.03% 差值<0.0100%",
+          "tdx_tool": "tdx_screener"
+        },
+        "D2": {
+          "name": "换手率低位",
+          "score": 25,
+          "weight": 0.1,
+          "weighted": 2.5,
+          "detail": "HSL=2.5+LB=0.83",
+          "tdx_tool": "tdx_quotes"
+        },
+        "D3": {
+          "name": "主力资金流向",
+          "score": 40.0,
+          "weight": 0.18,
+          "weighted": 7.2,
+          "detail": "D53=8/D54=4/D55=3/D56=5",
+          "tdx_tool": "tdx_api_data"
+        },
+        "D4": {
+          "name": "量价关系",
+          "score": 42.5,
+          "weight": 0.15,
+          "weighted": 6.38,
+          "detail": "D1缩量=12/D2蓄势=3/D25放量=2 LB=0.83 ★缩量见底",
+          "tdx_tool": "tdx_kline"
+        },
+        "D5": {
+          "name": "技术形态",
+          "score": 37.5,
+          "weight": 0.12,
+          "weighted": 4.5,
+          "detail": "经典形态(18/48): 无强信号",
+          "tdx_tool": "tdx_kline"
+        },
+        "D6": {
+          "name": "催化剂强度",
+          "score": 40,
+          "weight": 0.12,
+          "weighted": 4.8,
+          "detail": "D28=4 类型=NONE 直接受益=否",
+          "tdx_tool": "wenda_notice_query"
+        },
+        "D7": {
+          "name": "舆情热度",
+          "score": 25,
+          "weight": 0.1,
+          "weighted": 2.5,
+          "detail": "D18=3/D19=stable/FinBERT=0.00/多=50%",
+          "tdx_tool": "tdx_ai_listening"
+        },
+        "D8": {
+          "name": "筹码集中度",
+          "score": 55,
+          "weight": 0.05,
+          "weighted": 2.75,
+          "detail": "SCR=8.6 中等",
+          "tdx_tool": "tdx_indicator_select"
+        }
+      },
+      "active_paths": [
+        "获利筹码比(120)"
+      ],
+      "active_count": 1,
+      "signal": "PASS",
+      "t1_confidence": 63.0,
+      "timestamp": "2026-07-11T21:26:05.909157"
+    },
+    {
+      "code": "600894",
+      "name": "广日股份",
+      "distill_score": 49.6,
+      "dimensions": {
+        "D1": {
+          "name": "获利筹码比",
+          "score": 80.0,
+          "weight": 0.18,
+          "weighted": 14.4,
+          "detail": "WINNER=1.91% 低位(0.1-2%) | 🥇黄金信号: 三时点全≤2% 差值<0.110%",
+          "tdx_tool": "tdx_screener"
+        },
+        "D2": {
+          "name": "换手率低位",
+          "score": 45,
+          "weight": 0.1,
+          "weighted": 4.5,
+          "detail": "地量: HSL=0.50%",
+          "tdx_tool": "tdx_quotes"
+        },
+        "D3": {
+          "name": "主力资金流向",
+          "score": 50.0,
+          "weight": 0.18,
+          "weighted": 9.0,
+          "detail": "D53=10/D54=6/D55=5/D56=4 ★流出收敛(洗盘尾声)",
+          "tdx_tool": "tdx_api_data"
+        },
+        "D4": {
+          "name": "量价关系",
+          "score": 42.5,
+          "weight": 0.15,
+          "weighted": 6.38,
+          "detail": "D1缩量=14/D2蓄势=2/D25放量=1 LB=0.65 ★缩量见底",
+          "tdx_tool": "tdx_kline"
+        },
+        "D5": {
+          "name": "技术形态",
+          "score": 43.8,
+          "weight": 0.12,
+          "weighted": 5.25,
+          "detail": "经典形态(21/48): 无强信号",
+          "tdx_tool": "tdx_kline"
+        },
+        "D6": {
+          "name": "催化剂强度",
+          "score": 40,
+          "weight": 0.12,
+          "weighted": 4.8,
+          "detail": "D28=4 类型=NONE 直接受益=否",
+          "tdx_tool": "wenda_notice_query"
+        },
+        "D7": {
+          "name": "舆情热度",
+          "score": 25,
+          "weight": 0.1,
+          "weighted": 2.5,
+          "detail": "D18=3/D19=stable/FinBERT=0.00/多=50%",
+          "tdx_tool": "tdx_ai_listening"
+        },
+        "D8": {
+          "name": "筹码集中度",
+          "score": 55,
+          "weight": 0.05,
+          "weighted": 2.75,
+          "detail": "SCR=8.1 中等",
+          "tdx_tool": "tdx_indicator_select"
+        }
+      },
+      "active_paths": [
+        "获利筹码比(80)"
+      ],
+      "active_count": 1,
+      "signal": "PASS",
+      "t1_confidence": 55.0,
+      "timestamp": "2026-07-11T21:26:05.909351"
+    }
+  ],
+  "key_principles": [
+    "TDX MCP是唯一数据源 — 14工具全覆盖",
+    "8维蒸馏 > 46维稀释 — 维度越多越不准",
+    "整合现有模块 — 不重复造轮子",
+    "每日TDX真实数据验证 — 持续积累",
+    "自动化精简 17→8 — 去除冗余",
+    "获利筹码比+主力资金+量价 = 蒸馏核心三角",
+    "★WINNER 0-0.03%极致买点 — 几乎所有持仓者亏损的底部信号",
+    "★日线+周线WINNER双低趋同 — 两者均≤2%且差值<0.5%=钻石信号",
+    "★主力筹码识别融合 — 主力吸筹(净流入+委比正+SCR集中)加成D1",
+    "★TDX screener全市场扫描 — 0.03%池14只/2%池268只实时蒸馏"
+  ]
+}
