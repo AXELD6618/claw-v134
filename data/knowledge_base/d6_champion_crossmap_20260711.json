@@ -1,0 +1,184 @@
+{
+  "T2_COMMERCIAL_SPACE": {
+    "name": "商业航天(国家天字号工程)",
+    "level": "STRONG",
+    "hotness": 98,
+    "champion_overlap": [],
+    "portfolio_overlap": [
+      "600118中国卫星"
+    ],
+    "synergy": "持仓600118直接受益，冠军池无直接重叠但高端装备赛道(新强联/国茂股份)间接受益于航天制造"
+  },
+  "T10_IRAN_US_CONFLICT": {
+    "name": "伊朗-美国军事冲突(地缘黑天鹅)",
+    "level": "STRONG",
+    "hotness": 99,
+    "champion_overlap": [],
+    "portfolio_overlap": [
+      "600118中国卫星",
+      "000958电投产融",
+      "600255鑫科材料"
+    ],
+    "synergy": "三持仓同时受益! 军工/石油/黄金/航运四大板块同步催化。冠军池无直接标的但化工(新和成/浙江龙盛)受益于油价上行"
+  },
+  "T1_CXMT_IPO": {
+    "name": "长鑫存储IPO",
+    "level": "STRONG",
+    "hotness": 95,
+    "champion_overlap": [
+      "宏发股份(600885)",
+      "万业企业(600641)"
+    ],
+    "portfolio_overlap": [
+      "920249利尔达"
+    ],
+    "synergy": "冠军池半导体标的(宏发/万业)受益但T15 HIGH风险→D6加权0.5。7/16申购日前为最强催化窗口"
+  },
+  "T11_HELIUM_EXPORT_BAN": {
+    "name": "中国禁止氦气出口",
+    "level": "STRONG",
+    "hotness": 92,
+    "champion_overlap": [
+      "华特气体(688268)PASS",
+      "宏发股份(600885)WATCH"
+    ],
+    "portfolio_overlap": [
+      "920249利尔达"
+    ],
+    "synergy": "华特气体在冠军池中但-14.83%暴跌被PASS。氦气禁令→海外晶圆厂减产→存储涨价加速→间接利好"
+  },
+  "T14_EARNINGS_PRE_ANNOUNCE": {
+    "name": "业绩预增公告群",
+    "level": "STRONG",
+    "hotness": 96,
+    "champion_overlap": [
+      "新和成(002001)BUY-83.6",
+      "惠泰医疗(688617)BUY-82.0"
+    ],
+    "portfolio_overlap": [
+      "300017网宿科技"
+    ],
+    "synergy": "★关键映射! 新和成PE12.1+Safe95=低估值高安全，业绩预增+化工涨价双驱动。惠泰医疗PE31.6+Safe95=医疗器械高成长"
+  },
+  "T15_EARNINGS_BUBBLE_RISK": {
+    "name": "盈利泡沫风险评估",
+    "level": "RISK",
+    "hotness": 85,
+    "champion_overlap": [
+      "半导体HIGH(宏发/万业)",
+      "光通信MODERATE(腾景/锐科)",
+      "新能源MODERATE(德业/海优)"
+    ],
+    "portfolio_overlap": [
+      "920249利尔达"
+    ],
+    "synergy": "★V53盈泡引擎已正确过滤! 半导体HIGH→D6惩罚0.5+全局-5。冠军池BUY标的全为LOW风险，策略有效"
+  },
+  "T3_NUCLEAR_FUSION": {
+    "name": "核聚变(第四次工业革命)",
+    "level": "MEDIUM",
+    "hotness": 75,
+    "champion_overlap": [
+      "新强联(300850)BUY-70.6"
+    ],
+    "portfolio_overlap": [],
+    "synergy": "新强联(风电主轴→核聚变超导磁体配套)间接受益，中长期催化"
+  },
+  "T4_PHOSPHATE_EXPORT_BAN": {
+    "name": "日本化肥危机-磷肥出口限制",
+    "level": "MEDIUM",
+    "hotness": 70,
+    "champion_overlap": [
+      "新和成(002001)BUY-83.6",
+      "浙江龙盛(600352)WATCH-68.9",
+      "晨光生物(300138)WATCH-69.7"
+    ],
+    "portfolio_overlap": [],
+    "synergy": "新和成(精细化工+新材料)间接受益于化工涨价周期，磷矿战略资源重估支撑化工板块估值"
+  },
+  "T5_JULANG2_TEST": {
+    "name": "巨浪-2全射程试射",
+    "level": "STRONG",
+    "hotness": 72,
+    "champion_overlap": [],
+    "portfolio_overlap": [
+      "600118中国卫星"
+    ],
+    "synergy": "军工板块催化，持仓600118直接受益"
+  },
+  "T6_VW_RESTRUCTURING": {
+    "name": "大众汽车关厂裁员",
+    "level": "LONG-TERM",
+    "hotness": 55,
+    "champion_overlap": [
+      "新强联(300850)BUY",
+      "金雷股份(300443)WATCH"
+    ],
+    "synergy": "中国汽车产业链份额提升，风电/汽车零部件标的间接受益"
+  },
+  "T7_GERMAN_MILITARY_SAT": {
+    "name": "德国进攻型军事卫星",
+    "level": "LONG-TERM",
+    "hotness": 50,
+    "champion_overlap": [],
+    "portfolio_overlap": [
+      "600118中国卫星"
+    ],
+    "synergy": "太空军事化趋势长期催化，持仓600118太空安全概念加持"
+  },
+  "T8_US_DEFENSE_PURGE": {
+    "name": "美国军工清洗",
+    "level": "LONG-TERM",
+    "hotness": 55,
+    "champion_overlap": [],
+    "portfolio_overlap": [
+      "600255鑫科材料"
+    ],
+    "synergy": "稀土战略价值提升+国产军工替代加速，鑫科材料间接受益"
+  },
+  "T9_CHINA_INDUSTRIAL_CAPACITY": {
+    "name": "中国工业产能全球占比",
+    "level": "LONG-TERM",
+    "hotness": 60,
+    "champion_overlap": [
+      "中密控股(300470)BUY",
+      "科德数控(688305)BUY",
+      "银都股份(603277)BUY",
+      "华测检测(300012)BUY",
+      "新强联(300850)BUY",
+      "国茂股份(603915)BUY",
+      "绿的谐波(688017)WATCH",
+      "埃斯顿(002747)WATCH"
+    ],
+    "portfolio_overlap": [
+      "300287飞利信"
+    ],
+    "synergy": "★核心映射! 高端装备赛道8只冠军标的全部受益于中国制造出海+工业产能扩张长期趋势"
+  },
+  "T12_PBOC_Q2_EASING": {
+    "name": "央行Q2例会: 货币宽松+支持科技",
+    "level": "MEDIUM",
+    "hotness": 75,
+    "champion_overlap": [
+      "ALL 60 stocks"
+    ],
+    "portfolio_overlap": [
+      "ALL holdings"
+    ],
+    "synergy": "★全局映射! 央行宽松+科技创新五大文章→A股估值支撑+科技/AI/半导体/高端制造融资环境改善→全部冠军标的受益"
+  },
+  "T13_FED_SEMIANNUAL_REPORT": {
+    "name": "美联储半年度报告",
+    "level": "MEDIUM",
+    "hotness": 70,
+    "champion_overlap": [
+      "半导体赛道ALL",
+      "光通信赛道ALL"
+    ],
+    "portfolio_overlap": [
+      "920249利尔达",
+      "300017网宿科技"
+    ],
+    "synergy": "美联储确认AI驱动内存涨价→存储涨价周期央行级背书。但9月加息51.1%为外部风险因子需监控"
+  }
+}

@@ -1,0 +1,559 @@
+{
+  "strategy": {
+    "date": "2026-07-13",
+    "version": "V13.5.52+53",
+    "holdings_assessment": [
+      {
+        "code": "600118",
+        "name": "中国卫星",
+        "shares": 2000,
+        "cost": 83.469,
+        "sector": "商业航天",
+        "d6_level": "STRONG×3",
+        "d6_boost": 45,
+        "strategy": "HOLD/加仓",
+        "logic": "T2商业航天(STRONG)+T10伊朗冲突(STRONG)+T7德国军事卫星(LONG-TERM)三重催化，国防安全超级主线",
+        "market_value": 166938.0
+      },
+      {
+        "code": "920249",
+        "name": "利尔达",
+        "shares": 145,
+        "cost": 10.807,
+        "sector": "半导体",
+        "d6_level": "STRONG×2",
+        "d6_boost": 30,
+        "strategy": "HOLD观望",
+        "logic": "T1长鑫IPO+T11氦气禁令双催化，但T15盈利泡沫HIGH风险→D6加权0.5，小仓位持有",
+        "market_value": 1567.02
+      },
+      {
+        "code": "300287",
+        "name": "飞利信",
+        "shares": 1700,
+        "cost": 3.793,
+        "sector": "信息技术",
+        "d6_level": "MEDIUM×2",
+        "d6_boost": 16,
+        "strategy": "HOLD",
+        "logic": "T12央行支持科技+T9工业产能双MEDIUM，AI/信创长期受益",
+        "market_value": 6448.1
+      },
+      {
+        "code": "300017",
+        "name": "网宿科技",
+        "shares": 500,
+        "cost": 12.523,
+        "sector": "AI算力",
+        "d6_level": "STRONG+MEDIUM×2",
+        "d6_boost": 31,
+        "strategy": "HOLD/加仓",
+        "logic": "T14东阳光算力合同+T12央行支持科技+T13美联储AI基建推高通胀→AI算力链三重共振",
+        "market_value": 6261.5
+      },
+      {
+        "code": "600255",
+        "name": "鑫科材料",
+        "shares": 3300,
+        "cost": 3.055,
+        "sector": "有色金属",
+        "d6_level": "STRONG+LONG-TERM",
+        "d6_boost": 18,
+        "strategy": "HOLD",
+        "logic": "T10地缘冲突推升战略资源+T8军工清洗稀土价值，有色金属间接受益",
+        "market_value": 10081.5
+      },
+      {
+        "code": "000958",
+        "name": "电投产融",
+        "shares": 4200,
+        "cost": 5.37,
+        "sector": "能源金融",
+        "d6_level": "STRONG",
+        "d6_boost": 15,
+        "strategy": "HOLD/加仓",
+        "logic": "T10霍尔木兹海峡中断→全球石油供应链危机→能源价格上行→电力能源板块受益，D6从LONG-TERM升级STRONG",
+        "market_value": 22554.0
+      }
+    ],
+    "new_buy_priority": [
+      {
+        "name": "新和成",
+        "code": "002001",
+        "sector": "化工",
+        "price": 28.7,
+        "score": 83.6,
+        "confidence": 95,
+        "active_dims": 8,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 23,
+        "d6_themes": [
+          "T4_PHOSPHATE(MEDIUM)",
+          "T14_EARNINGS(STRONG)",
+          "T10_IRAN(MEDIUM)"
+        ],
+        "catalyst": "化工涨价周期+新材料",
+        "fusion_score": 90.5,
+        "priority_rank": 1
+      },
+      {
+        "name": "惠泰医疗",
+        "code": "688617",
+        "sector": "医疗",
+        "price": 204.88,
+        "score": 82.0,
+        "confidence": 95,
+        "active_dims": 7,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 15,
+        "d6_themes": [
+          "T14_EARNINGS(STRONG)",
+          "T12_PBOC(MEDIUM)"
+        ],
+        "catalyst": "医疗器械国产替代+创新药",
+        "fusion_score": 86.5,
+        "priority_rank": 2
+      },
+      {
+        "name": "中密控股",
+        "code": "300470",
+        "sector": "高端装备",
+        "price": 28.8,
+        "score": 76.4,
+        "confidence": 95,
+        "active_dims": 6,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 18,
+        "d6_themes": [
+          "T9_CAPACITY(LONG-TERM)",
+          "T12_PBOC(MEDIUM)",
+          "T6_VW(LONG-TERM)"
+        ],
+        "catalyst": "工业自动化+机器人+数控机床",
+        "fusion_score": 81.8,
+        "priority_rank": 3
+      },
+      {
+        "name": "科德数控",
+        "code": "688305",
+        "sector": "高端装备",
+        "price": 67.23,
+        "score": 75.1,
+        "confidence": 95,
+        "active_dims": 6,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 18,
+        "d6_themes": [
+          "T9_CAPACITY(LONG-TERM)",
+          "T12_PBOC(MEDIUM)",
+          "T6_VW(LONG-TERM)"
+        ],
+        "catalyst": "工业自动化+机器人+数控机床",
+        "fusion_score": 80.5,
+        "priority_rank": 4
+      },
+      {
+        "name": "爱博医疗",
+        "code": "688050",
+        "sector": "医疗",
+        "price": 41.56,
+        "score": 74.3,
+        "confidence": 95,
+        "active_dims": 7,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 15,
+        "d6_themes": [
+          "T14_EARNINGS(STRONG)",
+          "T12_PBOC(MEDIUM)"
+        ],
+        "catalyst": "医疗器械国产替代+创新药",
+        "fusion_score": 78.8,
+        "priority_rank": 5
+      },
+      {
+        "name": "银都股份",
+        "code": "603277",
+        "sector": "高端装备",
+        "price": 10.39,
+        "score": 73.3,
+        "confidence": 95,
+        "active_dims": 6,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 18,
+        "d6_themes": [
+          "T9_CAPACITY(LONG-TERM)",
+          "T12_PBOC(MEDIUM)",
+          "T6_VW(LONG-TERM)"
+        ],
+        "catalyst": "工业自动化+机器人+数控机床",
+        "fusion_score": 78.7,
+        "priority_rank": 6
+      },
+      {
+        "name": "健帆生物",
+        "code": "300529",
+        "sector": "医疗",
+        "price": 16.05,
+        "score": 73.8,
+        "confidence": 95,
+        "active_dims": 6,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 15,
+        "d6_themes": [
+          "T14_EARNINGS(STRONG)",
+          "T12_PBOC(MEDIUM)"
+        ],
+        "catalyst": "医疗器械国产替代+创新药",
+        "fusion_score": 78.3,
+        "priority_rank": 7
+      },
+      {
+        "name": "百普赛斯",
+        "code": "301080",
+        "sector": "医疗",
+        "price": 50.6,
+        "score": 73.0,
+        "confidence": 90,
+        "active_dims": 5,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 15,
+        "d6_themes": [
+          "T14_EARNINGS(STRONG)",
+          "T12_PBOC(MEDIUM)"
+        ],
+        "catalyst": "医疗器械国产替代+创新药",
+        "fusion_score": 77.5,
+        "priority_rank": 8
+      },
+      {
+        "name": "华测检测",
+        "code": "300012",
+        "sector": "高端装备",
+        "price": 13.53,
+        "score": 71.7,
+        "confidence": 95,
+        "active_dims": 6,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 18,
+        "d6_themes": [
+          "T9_CAPACITY(LONG-TERM)",
+          "T12_PBOC(MEDIUM)",
+          "T6_VW(LONG-TERM)"
+        ],
+        "catalyst": "工业自动化+机器人+数控机床",
+        "fusion_score": 77.1,
+        "priority_rank": 9
+      },
+      {
+        "name": "新强联",
+        "code": "300850",
+        "sector": "高端装备",
+        "price": 24.74,
+        "score": 70.6,
+        "confidence": 95,
+        "active_dims": 6,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 18,
+        "d6_themes": [
+          "T9_CAPACITY(LONG-TERM)",
+          "T12_PBOC(MEDIUM)",
+          "T6_VW(LONG-TERM)"
+        ],
+        "catalyst": "工业自动化+机器人+数控机床",
+        "fusion_score": 76.0,
+        "priority_rank": 10
+      },
+      {
+        "name": "国茂股份",
+        "code": "603915",
+        "sector": "高端装备",
+        "price": 14.17,
+        "score": 70.3,
+        "confidence": 95,
+        "active_dims": 6,
+        "bubble_risk": "LOW",
+        "bubble_order": 0,
+        "d6_synergy": 18,
+        "d6_themes": [
+          "T9_CAPACITY(LONG-TERM)",
+          "T12_PBOC(MEDIUM)",
+          "T6_VW(LONG-TERM)"
+        ],
+        "catalyst": "工业自动化+机器人+数控机床",
+        "fusion_score": 75.7,
+        "priority_rank": 11
+      },
+      {
+        "name": "德业股份",
+        "code": "605117",
+        "sector": "新能源",
+        "price": 84.0,
+        "score": 70.7,
+        "confidence": 90,
+        "active_dims": 5,
+        "bubble_risk": "MODERATE",
+        "bubble_order": 1,
+        "d6_synergy": 10,
+        "d6_themes": [
+          "T12_PBOC(MEDIUM)"
+        ],
+        "catalyst": "锂电+光伏+储能长期成长",
+        "fusion_score": 73.7,
+        "priority_rank": 12
+      }
+    ],
+    "position_allocation": {
+      "total_holdings_value": 213850.11,
+      "available_capital_ratio": "30-40%(释放获利仓位)",
+      "allocation_rules": [
+        "第一优先(LOW风险+高融合分): 新和成/惠泰医疗/中密控股 — 各分配可用资金25-30%",
+        "第二优先(LOW风险+中融合分): 科德数控/爱博医疗/健帆生物/银都股份 — 各分配15-20%",
+        "第三优先(LOW风险+较低分): 百普赛斯/华测检测/新强联/国茂股份 — 各分配10-15%",
+        "MODERATE风险(德业股份): 仅T+1短线，仓位减半，分配5-10%",
+        "HIGH风险(半导体赛道): 不新买入，仅持有现有仓位"
+      ],
+      "kelly_fraction": "Kelly公式: f=(bp-q)/b, 实际取Kelly值的1/2-1/3",
+      "max_single_position": "单只不超过总仓位15%",
+      "max_sector_position": "单赛道不超过总仓位35%"
+    },
+    "t1_exit_strategy": {
+      "core_rule": "T日尾盘买入→T+1日获利5-10%卖出50%→涨停则持有至打开涨停",
+      "exit_levels": [
+        {
+          "level": "STOP_LOSS",
+          "condition": "T+1跌幅>3%",
+          "action": "立即止损卖出全部"
+        },
+        {
+          "level": "PROFIT_TAKE_1",
+          "condition": "T+1涨幅5-8%",
+          "action": "卖出50%锁定利润"
+        },
+        {
+          "level": "PROFIT_TAKE_2",
+          "condition": "T+1涨幅8-12%",
+          "action": "卖出30%，留20%搏连板"
+        },
+        {
+          "level": "LIMIT_UP_HOLD",
+          "condition": "T+1涨停",
+          "action": "持有至打开涨停日卖出"
+        },
+        {
+          "level": "LIMIT_UP_2",
+          "condition": "连续2涨停",
+          "action": "卖出50%，留50%搏3板"
+        },
+        {
+          "level": "LIMIT_UP_3",
+          "condition": "连续3涨停",
+          "action": "卖出全部，不贪第4板"
+        }
+      ],
+      "compound_rule": "T+1复利滚动: 每次卖出资金立即投入下一只BUY候选，实现复利增长",
+      "time_window": "T+1 14:30-15:00为最佳卖出窗口(尾盘流动性最好)"
+    },
+    "risk_control": {
+      "v53_bubble_filter": "V13.5.53盈泡引擎: HIGH风险→D6加权0.5+全局-5+仓位减半 | MODERATE→D6加权0.8",
+      "max_loss_per_day": "单日最大亏损: 总仓位3%(约15000元)",
+      "max_trades_per_day": "单日最多交易5只(避免过度分散)",
+      "circuit_breaker": "连续2日亏损→暂停1日，重新评估市场",
+      "d6_monitoring": "持续监控D6知识库15大主题热度变化，T10伊朗冲突/T1长鑫IPO/T14业绩预增为核心驱动",
+      "fed_risk": "T13美联储9月加息概率51.1%→若实际加息，全球科技股承压→减仓半导体/光通信"
+    }
+  },
+  "d6_crossmap": {
+    "T2_COMMERCIAL_SPACE": {
+      "name": "商业航天(国家天字号工程)",
+      "level": "STRONG",
+      "hotness": 98,
+      "champion_overlap": [],
+      "portfolio_overlap": [
+        "600118中国卫星"
+      ],
+      "synergy": "持仓600118直接受益，冠军池无直接重叠但高端装备赛道(新强联/国茂股份)间接受益于航天制造"
+    },
+    "T10_IRAN_US_CONFLICT": {
+      "name": "伊朗-美国军事冲突(地缘黑天鹅)",
+      "level": "STRONG",
+      "hotness": 99,
+      "champion_overlap": [],
+      "portfolio_overlap": [
+        "600118中国卫星",
+        "000958电投产融",
+        "600255鑫科材料"
+      ],
+      "synergy": "三持仓同时受益! 军工/石油/黄金/航运四大板块同步催化。冠军池无直接标的但化工(新和成/浙江龙盛)受益于油价上行"
+    },
+    "T1_CXMT_IPO": {
+      "name": "长鑫存储IPO",
+      "level": "STRONG",
+      "hotness": 95,
+      "champion_overlap": [
+        "宏发股份(600885)",
+        "万业企业(600641)"
+      ],
+      "portfolio_overlap": [
+        "920249利尔达"
+      ],
+      "synergy": "冠军池半导体标的(宏发/万业)受益但T15 HIGH风险→D6加权0.5。7/16申购日前为最强催化窗口"
+    },
+    "T11_HELIUM_EXPORT_BAN": {
+      "name": "中国禁止氦气出口",
+      "level": "STRONG",
+      "hotness": 92,
+      "champion_overlap": [
+        "华特气体(688268)PASS",
+        "宏发股份(600885)WATCH"
+      ],
+      "portfolio_overlap": [
+        "920249利尔达"
+      ],
+      "synergy": "华特气体在冠军池中但-14.83%暴跌被PASS。氦气禁令→海外晶圆厂减产→存储涨价加速→间接利好"
+    },
+    "T14_EARNINGS_PRE_ANNOUNCE": {
+      "name": "业绩预增公告群",
+      "level": "STRONG",
+      "hotness": 96,
+      "champion_overlap": [
+        "新和成(002001)BUY-83.6",
+        "惠泰医疗(688617)BUY-82.0"
+      ],
+      "portfolio_overlap": [
+        "300017网宿科技"
+      ],
+      "synergy": "★关键映射! 新和成PE12.1+Safe95=低估值高安全，业绩预增+化工涨价双驱动。惠泰医疗PE31.6+Safe95=医疗器械高成长"
+    },
+    "T15_EARNINGS_BUBBLE_RISK": {
+      "name": "盈利泡沫风险评估",
+      "level": "RISK",
+      "hotness": 85,
+      "champion_overlap": [
+        "半导体HIGH(宏发/万业)",
+        "光通信MODERATE(腾景/锐科)",
+        "新能源MODERATE(德业/海优)"
+      ],
+      "portfolio_overlap": [
+        "920249利尔达"
+      ],
+      "synergy": "★V53盈泡引擎已正确过滤! 半导体HIGH→D6惩罚0.5+全局-5。冠军池BUY标的全为LOW风险，策略有效"
+    },
+    "T3_NUCLEAR_FUSION": {
+      "name": "核聚变(第四次工业革命)",
+      "level": "MEDIUM",
+      "hotness": 75,
+      "champion_overlap": [
+        "新强联(300850)BUY-70.6"
+      ],
+      "portfolio_overlap": [],
+      "synergy": "新强联(风电主轴→核聚变超导磁体配套)间接受益，中长期催化"
+    },
+    "T4_PHOSPHATE_EXPORT_BAN": {
+      "name": "日本化肥危机-磷肥出口限制",
+      "level": "MEDIUM",
+      "hotness": 70,
+      "champion_overlap": [
+        "新和成(002001)BUY-83.6",
+        "浙江龙盛(600352)WATCH-68.9",
+        "晨光生物(300138)WATCH-69.7"
+      ],
+      "portfolio_overlap": [],
+      "synergy": "新和成(精细化工+新材料)间接受益于化工涨价周期，磷矿战略资源重估支撑化工板块估值"
+    },
+    "T5_JULANG2_TEST": {
+      "name": "巨浪-2全射程试射",
+      "level": "STRONG",
+      "hotness": 72,
+      "champion_overlap": [],
+      "portfolio_overlap": [
+        "600118中国卫星"
+      ],
+      "synergy": "军工板块催化，持仓600118直接受益"
+    },
+    "T6_VW_RESTRUCTURING": {
+      "name": "大众汽车关厂裁员",
+      "level": "LONG-TERM",
+      "hotness": 55,
+      "champion_overlap": [
+        "新强联(300850)BUY",
+        "金雷股份(300443)WATCH"
+      ],
+      "synergy": "中国汽车产业链份额提升，风电/汽车零部件标的间接受益"
+    },
+    "T7_GERMAN_MILITARY_SAT": {
+      "name": "德国进攻型军事卫星",
+      "level": "LONG-TERM",
+      "hotness": 50,
+      "champion_overlap": [],
+      "portfolio_overlap": [
+        "600118中国卫星"
+      ],
+      "synergy": "太空军事化趋势长期催化，持仓600118太空安全概念加持"
+    },
+    "T8_US_DEFENSE_PURGE": {
+      "name": "美国军工清洗",
+      "level": "LONG-TERM",
+      "hotness": 55,
+      "champion_overlap": [],
+      "portfolio_overlap": [
+        "600255鑫科材料"
+      ],
+      "synergy": "稀土战略价值提升+国产军工替代加速，鑫科材料间接受益"
+    },
+    "T9_CHINA_INDUSTRIAL_CAPACITY": {
+      "name": "中国工业产能全球占比",
+      "level": "LONG-TERM",
+      "hotness": 60,
+      "champion_overlap": [
+        "中密控股(300470)BUY",
+        "科德数控(688305)BUY",
+        "银都股份(603277)BUY",
+        "华测检测(300012)BUY",
+        "新强联(300850)BUY",
+        "国茂股份(603915)BUY",
+        "绿的谐波(688017)WATCH",
+        "埃斯顿(002747)WATCH"
+      ],
+      "portfolio_overlap": [
+        "300287飞利信"
+      ],
+      "synergy": "★核心映射! 高端装备赛道8只冠军标的全部受益于中国制造出海+工业产能扩张长期趋势"
+    },
+    "T12_PBOC_Q2_EASING": {
+      "name": "央行Q2例会: 货币宽松+支持科技",
+      "level": "MEDIUM",
+      "hotness": 75,
+      "champion_overlap": [
+        "ALL 60 stocks"
+      ],
+      "portfolio_overlap": [
+        "ALL holdings"
+      ],
+      "synergy": "★全局映射! 央行宽松+科技创新五大文章→A股估值支撑+科技/AI/半导体/高端制造融资环境改善→全部冠军标的受益"
+    },
+    "T13_FED_SEMIANNUAL_REPORT": {
+      "name": "美联储半年度报告",
+      "level": "MEDIUM",
+      "hotness": 70,
+      "champion_overlap": [
+        "半导体赛道ALL",
+        "光通信赛道ALL"
+      ],
+      "portfolio_overlap": [
+        "920249利尔达",
+        "300017网宿科技"
+      ],
+      "synergy": "美联储确认AI驱动内存涨价→存储涨价周期央行级背书。但9月加息51.1%为外部风险因子需监控"
+    }
+  }
+}
