@@ -18,6 +18,7 @@ data/*
 !data/evolution_v13550/
 !data/evolution_v13551/
 !data/evolution_v13552/
+!data/evolution_v13553/
 !data/M55_CurrentWeights.json
 V13_0_data/
 *.db

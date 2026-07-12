@@ -1,0 +1,175 @@
+{
+  "assessment_date": "2026-07-12T08:14:16.495792",
+  "version": "V13.5.53",
+  "storage_chip_sector": {
+    "risk_score": 55.6,
+    "risk_level": "HIGH",
+    "factor_scores": {
+      "F1_expectation_overdraw": 10.0,
+      "F2_profit_driver": 48.0,
+      "F3_capacity_release": 100.0,
+      "F4_crowding": 65.0,
+      "F5_convergence_signal": 70.0
+    },
+    "diagnosis": "产能过剩风险 + 交易拥挤 + 周期拐点前兆",
+    "d6_penalty": 0.5,
+    "global_penalty": -5.0,
+    "position_adjustment": "仓位减半，仅短线T+1",
+    "warnings": [
+      "⚠️ 行业大规模扩产中，产能集中释放年份: ['2027', '2028', '2028', '2028']",
+      "⚠️ 交易拥挤: 融资占比6.0%/TMT占比45.0%",
+      "⚠️ 涨幅收窄信号: 66.0% → 15.0%"
+    ],
+    "timestamp": "2026-07-12T08:14:16.495538",
+    "sector": "storage_chip",
+    "assessment_context": {
+      "samsung_case": "利润+1810%但股价跌10%，18个月涨158%后利好出尽",
+      "capacity_timeline": "2027下半年-2028: 三星P5/SK海力士龙仁/美光广岛/长鑫HBM 集中量产",
+      "price_convergence": "Q3 DRAM涨13-18% vs Q2涨58-75%，消费端承受力达极限",
+      "counter_factors": "PE仅22倍28%分位/机构持仓8%/板块占全A市值3% → 不至于崩盘"
+    }
+  },
+  "individual_stocks": [
+    {
+      "risk_score": 53.6,
+      "risk_level": "HIGH",
+      "factor_scores": {
+        "F1_expectation_overdraw": 10.0,
+        "F2_profit_driver": 48.0,
+        "F3_capacity_release": 100.0,
+        "F4_crowding": 55.0,
+        "F5_convergence_signal": 70.0
+      },
+      "diagnosis": "产能过剩风险 + 周期拐点前兆",
+      "d6_penalty": 0.5,
+      "global_penalty": -5.0,
+      "position_adjustment": "仓位减半，仅短线T+1",
+      "warnings": [
+        "⚠️ 行业大规模扩产中，产能集中释放年份: ['2027', '2028']",
+        "⚠️ 涨幅收窄信号: 66.0% → 15.0%"
+      ],
+      "timestamp": "2026-07-12T08:14:16.495816",
+      "stock_code": "300475",
+      "stock_name": "香农芯创",
+      "industry": "storage_chip"
+    },
+    {
+      "risk_score": 54.2,
+      "risk_level": "HIGH",
+      "factor_scores": {
+        "F1_expectation_overdraw": 10.0,
+        "F2_profit_driver": 51.0,
+        "F3_capacity_release": 100.0,
+        "F4_crowding": 55.0,
+        "F5_convergence_signal": 70.0
+      },
+      "diagnosis": "产能过剩风险 + 周期拐点前兆",
+      "d6_penalty": 0.5,
+      "global_penalty": -5.0,
+      "position_adjustment": "仓位减半，仅短线T+1",
+      "warnings": [
+        "⚠️ 行业大规模扩产中，产能集中释放年份: ['2027', '2028']",
+        "⚠️ 涨幅收窄信号: 66.0% → 15.0%"
+      ],
+      "timestamp": "2026-07-12T08:14:16.495832",
+      "stock_code": "002842",
+      "stock_name": "翔鹭钨业",
+      "industry": "chemical"
+    },
+    {
+      "risk_score": 54.2,
+      "risk_level": "HIGH",
+      "factor_scores": {
+        "F1_expectation_overdraw": 10.0,
+        "F2_profit_driver": 51.0,
+        "F3_capacity_release": 100.0,
+        "F4_crowding": 55.0,
+        "F5_convergence_signal": 70.0
+      },
+      "diagnosis": "产能过剩风险 + 周期拐点前兆",
+      "d6_penalty": 0.5,
+      "global_penalty": -5.0,
+      "position_adjustment": "仓位减半，仅短线T+1",
+      "warnings": [
+        "⚠️ 行业大规模扩产中，产能集中释放年份: ['2027', '2028']",
+        "⚠️ 涨幅收窄信号: 66.0% → 15.0%"
+      ],
+      "timestamp": "2026-07-12T08:14:16.495847",
+      "stock_code": "002738",
+      "stock_name": "中矿资源",
+      "industry": "chemical"
+    },
+    {
+      "risk_score": 50.0,
+      "risk_level": "HIGH",
+      "factor_scores": {
+        "F1_expectation_overdraw": 10.0,
+        "F2_profit_driver": 30.0,
+        "F3_capacity_release": 100.0,
+        "F4_crowding": 55.0,
+        "F5_convergence_signal": 70.0
+      },
+      "diagnosis": "产能过剩风险 + 周期拐点前兆",
+      "d6_penalty": 0.5,
+      "global_penalty": -5.0,
+      "position_adjustment": "仓位减半，仅短线T+1",
+      "warnings": [
+        "⚠️ 行业大规模扩产中，产能集中释放年份: ['2027', '2028']",
+        "⚠️ 涨幅收窄信号: 66.0% → 15.0%"
+      ],
+      "timestamp": "2026-07-12T08:14:16.495862",
+      "stock_code": "001314",
+      "stock_name": "亿道信息",
+      "industry": "ai_infra"
+    },
+    {
+      "risk_score": 50.0,
+      "risk_level": "HIGH",
+      "factor_scores": {
+        "F1_expectation_overdraw": 10.0,
+        "F2_profit_driver": 30.0,
+        "F3_capacity_release": 100.0,
+        "F4_crowding": 55.0,
+        "F5_convergence_signal": 70.0
+      },
+      "diagnosis": "产能过剩风险 + 周期拐点前兆",
+      "d6_penalty": 0.5,
+      "global_penalty": -5.0,
+      "position_adjustment": "仓位减半，仅短线T+1",
+      "warnings": [
+        "⚠️ 行业大规模扩产中，产能集中释放年份: ['2027', '2028']",
+        "⚠️ 涨幅收窄信号: 66.0% → 15.0%"
+      ],
+      "timestamp": "2026-07-12T08:14:16.495876",
+      "stock_code": "600673",
+      "stock_name": "东阳光",
+      "industry": "ai_infra"
+    }
+  ],
+  "historical_cases": {
+    "samsung_2026q2": {
+      "profit_growth": 1810,
+      "stock_reaction": -10,
+      "diagnosis": "买预期卖事实，18个月涨158%后利好出尽",
+      "risk_level": "EXTREME"
+    },
+    "hangdian_2026": {
+      "profit_growth": 852,
+      "stock_reaction": -20,
+      "diagnosis": "公告前3月涨382%，预期完全透支，连续跌停",
+      "risk_level": "EXTREME"
+    },
+    "pv_leader_2020": {
+      "profit_growth": 106,
+      "stock_reaction": -80,
+      "diagnosis": "光伏周期顶，2年后全行业亏损，市值缩水80%",
+      "risk_level": "EXTREME"
+    },
+    "medical_2020": {
+      "profit_growth": 3800,
+      "stock_reaction": -90,
+      "diagnosis": "疫情受益股，1年赚40年利润，2年后利润回归6.29亿",
+      "risk_level": "EXTREME"
+    }
+  }
+}
