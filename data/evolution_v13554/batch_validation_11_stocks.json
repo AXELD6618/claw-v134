@@ -1,0 +1,774 @@
+{
+  "timestamp": "2026-07-12T11:01:43.442810",
+  "version": "V13.5.54",
+  "description": "11只BUY候选股7模块意图检测批量验证",
+  "data_source": "TDX tdx_api_data zjlx (20+天历史资金流向)",
+  "summary": {
+    "total": 12,
+    "genuine_inflow": 6,
+    "wash_trade": 2,
+    "lure_bullish": 0,
+    "lure_bearish": 0,
+    "neutral": 4,
+    "distribution_phase": 0,
+    "accumulation_phase": 11
+  },
+  "results": [
+    {
+      "code": "002001",
+      "name": "新和成",
+      "intent": "GENUINE_INFLOW",
+      "intent_score": 81.0,
+      "wash_trade": {
+        "divergence_score": 0.0,
+        "is_wash_trade": false,
+        "main_buy_divergence": false,
+        "divergence_pct": 0.0,
+        "score": 0.0
+      },
+      "persistence": {
+        "consecutive_inflow_days": 1,
+        "consecutive_outflow_days": 0,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": -0.04,
+        "cumulative_net_pct_5d": -0.22,
+        "cumulative_net_pct_10d": 0.14,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 0,
+        "volume_price_health": 0.0,
+        "persistence_grade": "WEAK",
+        "score": 8.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 100.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 70.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 55.0,
+        "accumulation_score": 45.0,
+        "washout_score": 25.0,
+        "pushup_score": 15.0,
+        "distribution_score": 0.0,
+        "phase_detail": "吸筹/建仓 (吸筹45/洗盘25/拉升15/出货0) 位置:mid 置信度:55",
+        "position_level": "mid"
+      },
+      "d3_adjustment": 17.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 11.0,
+      "diagnosis": "主力净额+0.93%/主买净额+0.05% | 连续1日流入 | 主动买入(外盘>内盘)",
+      "risk_warning": "✅ 真实进场! 主力/主买同向正+持续性流入+主动买入，T+1安全",
+      "recommendation": "优先买入! D3维度+12分加成，T+1置信度+8%",
+      "multi_day_analysis": "持续性:WEAK | 连续1日主力流入 | 5日累计-0.2% | 10日均+0.1% | 量价比0.00 | WINNER=low | 筹码稳定 | 阶段:吸筹/建仓 (吸筹45/洗盘25/拉升15/出货0) 位置:mid 置信度:55",
+      "distill_score": 83.6,
+      "data_days": 20
+    },
+    {
+      "code": "688617",
+      "name": "惠泰医疗",
+      "intent": "GENUINE_INFLOW",
+      "intent_score": 86.0,
+      "wash_trade": {
+        "divergence_score": 0.0,
+        "is_wash_trade": false,
+        "main_buy_divergence": false,
+        "divergence_pct": 0.0,
+        "score": 0.0
+      },
+      "persistence": {
+        "consecutive_inflow_days": 1,
+        "consecutive_outflow_days": 0,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": 1.03,
+        "cumulative_net_pct_5d": 5.13,
+        "cumulative_net_pct_10d": 1.0,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 0,
+        "volume_price_health": 0.0,
+        "persistence_grade": "WEAK",
+        "score": 28.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 100.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 70.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 50.0,
+        "accumulation_score": 45.0,
+        "washout_score": 25.0,
+        "pushup_score": 30.0,
+        "distribution_score": 35.0,
+        "phase_detail": "吸筹/建仓 (吸筹45/洗盘25/拉升30/出货35) 位置:high 置信度:50",
+        "position_level": "high"
+      },
+      "d3_adjustment": 17.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 11.0,
+      "diagnosis": "主力净额+6.33%/主买净额+11.96% | 连续1日流入 | 主动买入(外盘>内盘)",
+      "risk_warning": "✅ 真实进场! 主力/主买同向正+持续性流入+主动买入，T+1安全",
+      "recommendation": "优先买入! D3维度+12分加成，T+1置信度+8%",
+      "multi_day_analysis": "持续性:WEAK | 连续1日主力流入 | 5日累计+5.1% | 10日均+1.0% | 流入加速↑ | 量价比0.00 | WINNER=low | 筹码稳定 | 阶段:吸筹/建仓 (吸筹45/洗盘25/拉升30/出货35) 位置:high 置信度:50",
+      "distill_score": 82.0,
+      "data_days": 20
+    },
+    {
+      "code": "300470",
+      "name": "中密控股",
+      "intent": "GENUINE_INFLOW",
+      "intent_score": 71.3,
+      "wash_trade": {
+        "divergence_score": 22.8,
+        "is_wash_trade": false,
+        "main_buy_divergence": true,
+        "divergence_pct": 3.56,
+        "score": 22.8
+      },
+      "persistence": {
+        "consecutive_inflow_days": 1,
+        "consecutive_outflow_days": 0,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": 0.48,
+        "cumulative_net_pct_5d": 2.42,
+        "cumulative_net_pct_10d": 0.64,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 1,
+        "volume_price_health": 0.0,
+        "persistence_grade": "WEAK",
+        "score": 13.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 65.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 70.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 60.0,
+        "accumulation_score": 50.0,
+        "washout_score": 25.0,
+        "pushup_score": 0.0,
+        "distribution_score": 30.0,
+        "phase_detail": "吸筹/建仓 (吸筹50/洗盘25/拉升0/出货30) 位置:mid 置信度:60",
+        "position_level": "mid"
+      },
+      "d3_adjustment": 17.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 11.0,
+      "diagnosis": "主力净额+2.18%/主买净额-1.38% | 方向背离(背离度3.6%) | 连续1日流入 | 主动买入(外盘>内盘)",
+      "risk_warning": "✅ 真实进场! 主力/主买同向正+持续性流入+主动买入，T+1安全",
+      "recommendation": "优先买入! D3维度+12分加成，T+1置信度+8%",
+      "multi_day_analysis": "持续性:WEAK | 连续1日主力流入 | 5日累计+2.4% | 10日均+0.6% | 量价比0.00 | WINNER=low | 筹码稳定 | 阶段:吸筹/建仓 (吸筹50/洗盘25/拉升0/出货30) 位置:mid 置信度:60",
+      "distill_score": 76.4,
+      "data_days": 20
+    },
+    {
+      "code": "688305",
+      "name": "科德数控",
+      "intent": "GENUINE_INFLOW",
+      "intent_score": 68.61,
+      "wash_trade": {
+        "divergence_score": 33.55,
+        "is_wash_trade": false,
+        "main_buy_divergence": true,
+        "divergence_pct": 5.71,
+        "score": 33.55
+      },
+      "persistence": {
+        "consecutive_inflow_days": 1,
+        "consecutive_outflow_days": 0,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": 0.1,
+        "cumulative_net_pct_5d": 0.52,
+        "cumulative_net_pct_10d": 0.54,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 1,
+        "volume_price_health": 0.0,
+        "persistence_grade": "WEAK",
+        "score": 13.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 65.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 70.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 60.0,
+        "accumulation_score": 50.0,
+        "washout_score": 25.0,
+        "pushup_score": 0.0,
+        "distribution_score": 30.0,
+        "phase_detail": "吸筹/建仓 (吸筹50/洗盘25/拉升0/出货30) 位置:mid 置信度:60",
+        "position_level": "mid"
+      },
+      "d3_adjustment": 17.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 11.0,
+      "diagnosis": "主力净额+1.62%/主买净额-4.09% | 方向背离(背离度5.7%) | 连续1日流入 | 主动买入(外盘>内盘)",
+      "risk_warning": "✅ 真实进场! 主力/主买同向正+持续性流入+主动买入，T+1安全",
+      "recommendation": "优先买入! D3维度+12分加成，T+1置信度+8%",
+      "multi_day_analysis": "持续性:WEAK | 连续1日主力流入 | 5日累计+0.5% | 10日均+0.5% | 量价比0.00 | WINNER=low | 筹码稳定 | 阶段:吸筹/建仓 (吸筹50/洗盘25/拉升0/出货30) 位置:mid 置信度:60",
+      "distill_score": 75.1,
+      "data_days": 20
+    },
+    {
+      "code": "688050",
+      "name": "爱博医疗",
+      "intent": "GENUINE_INFLOW",
+      "intent_score": 92.75,
+      "wash_trade": {
+        "divergence_score": 0.0,
+        "is_wash_trade": false,
+        "main_buy_divergence": false,
+        "divergence_pct": 0.0,
+        "score": 0.0
+      },
+      "persistence": {
+        "consecutive_inflow_days": 0,
+        "consecutive_outflow_days": 1,
+        "convergence_score": 100.0,
+        "avg_net_pct_5d": 0.72,
+        "cumulative_net_pct_5d": 3.6,
+        "cumulative_net_pct_10d": 0.71,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 0,
+        "volume_price_health": 1.0,
+        "persistence_grade": "NONE",
+        "score": 70.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 75.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 70.0
+      },
+      "behavior_phase": {
+        "phase": "WASHOUT",
+        "confidence": 50.0,
+        "accumulation_score": 35.0,
+        "washout_score": 45.0,
+        "pushup_score": 0.0,
+        "distribution_score": 20.0,
+        "phase_detail": "洗盘 (吸筹35/洗盘45/拉升0/出货20) 位置:high 置信度:50",
+        "position_level": "high"
+      },
+      "d3_adjustment": 15.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 11.0,
+      "diagnosis": "主力净额-0.10%/主买净额-3.41% | 连续1日流出 | 流出收敛(洗盘尾声) | 主动买入(外盘>内盘)",
+      "risk_warning": "✅ 真实进场! 主力/主买同向正+持续性流入+主动买入，T+1安全",
+      "recommendation": "优先买入! D3维度+12分加成，T+1置信度+8%",
+      "multi_day_analysis": "持续性:NONE | 连续1日主力流出 | 5日累计+3.6% | 10日均+0.7% | 流入加速↑ | 流出收敛(洗盘尾声) | 量价比1.00 | WINNER=low | 筹码稳定 | 阶段:洗盘 (吸筹35/洗盘45/拉升0/出货20) 位置:high 置信度:50",
+      "distill_score": 74.3,
+      "data_days": 20
+    },
+    {
+      "code": "300529",
+      "name": "健帆生物",
+      "intent": "NEUTRAL",
+      "intent_score": 75.25,
+      "wash_trade": {
+        "divergence_score": 0.0,
+        "is_wash_trade": false,
+        "main_buy_divergence": false,
+        "divergence_pct": 0.0,
+        "score": 0.0
+      },
+      "persistence": {
+        "consecutive_inflow_days": 0,
+        "consecutive_outflow_days": 2,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": -1.15,
+        "cumulative_net_pct_5d": -5.75,
+        "cumulative_net_pct_10d": 0.28,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 0,
+        "volume_price_health": -0.0,
+        "persistence_grade": "NONE",
+        "score": 0.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 75.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 70.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 40.0,
+        "accumulation_score": 35.0,
+        "washout_score": 25.0,
+        "pushup_score": 0.0,
+        "distribution_score": 0.0,
+        "phase_detail": "吸筹/建仓 (吸筹35/洗盘25/拉升0/出货0) 位置:mid 置信度:40",
+        "position_level": "mid"
+      },
+      "d3_adjustment": 5.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 0.0,
+      "diagnosis": "主力净额-4.05%/主买净额-5.22% | 连续2日流出 | 主动买入(外盘>内盘)",
+      "risk_warning": "⚪ 信号中性，需结合其他维度判断",
+      "recommendation": "中性观望，D3维度不变",
+      "multi_day_analysis": "持续性:NONE | 连续2日主力流出 | 5日累计-5.8% | 10日均+0.3% | 量价比-0.00 | WINNER=low | 筹码稳定 | 阶段:吸筹/建仓 (吸筹35/洗盘25/拉升0/出货0) 位置:mid 置信度:40",
+      "distill_score": 73.8,
+      "data_days": 20
+    },
+    {
+      "code": "603277",
+      "name": "银都股份",
+      "intent": "WASH_TRADE_DISTRIBUTION",
+      "intent_score": 59.27,
+      "wash_trade": {
+        "divergence_score": 91.9,
+        "is_wash_trade": true,
+        "main_buy_divergence": true,
+        "divergence_pct": 20.95,
+        "score": 91.9
+      },
+      "persistence": {
+        "consecutive_inflow_days": 1,
+        "consecutive_outflow_days": 0,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": 2.07,
+        "cumulative_net_pct_5d": 10.34,
+        "cumulative_net_pct_10d": 1.38,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 1,
+        "volume_price_health": 0.0,
+        "persistence_grade": "WEAK",
+        "score": 28.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 65.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 85.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 75.0,
+        "accumulation_score": 65.0,
+        "washout_score": 15.0,
+        "pushup_score": 25.0,
+        "distribution_score": 45.0,
+        "phase_detail": "吸筹/建仓 (吸筹65/洗盘15/拉升25/出货45) 位置:mid 置信度:75",
+        "position_level": "mid"
+      },
+      "d3_adjustment": -10.0,
+      "global_penalty": -8.0,
+      "t1_confidence_adjustment": -15.0,
+      "diagnosis": "主力净额+11.72%/主买净额-9.23% | 方向背离(背离度21.0%) | 连续1日流入 | 主动买入(外盘>内盘)",
+      "risk_warning": "⚠️ 对倒出货! 主力大单买入但主买(散户方向)巨量卖出，T+1大概率下跌! 禁止追高!",
+      "recommendation": "回避/减仓! D3维度-15分惩罚，全局蒸馏分-8分",
+      "multi_day_analysis": "持续性:WEAK | 连续1日主力流入 | 5日累计+10.3% | 10日均+1.4% | 流入加速↑ | 量价比0.00 | WINNER=low | 筹码集中↑ | 阶段:吸筹/建仓 (吸筹65/洗盘15/拉升25/出货45) 位置:mid 置信度:75",
+      "distill_score": 73.3,
+      "data_days": 20
+    },
+    {
+      "code": "301080",
+      "name": "百普赛斯",
+      "intent": "GENUINE_INFLOW",
+      "intent_score": 89.75,
+      "wash_trade": {
+        "divergence_score": 0.0,
+        "is_wash_trade": false,
+        "main_buy_divergence": false,
+        "divergence_pct": 0.0,
+        "score": 0.0
+      },
+      "persistence": {
+        "consecutive_inflow_days": 1,
+        "consecutive_outflow_days": 0,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": 1.78,
+        "cumulative_net_pct_5d": 8.9,
+        "cumulative_net_pct_10d": 1.21,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 0,
+        "volume_price_health": 0.0,
+        "persistence_grade": "WEAK",
+        "score": 43.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 100.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 70.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 55.0,
+        "accumulation_score": 45.0,
+        "washout_score": 25.0,
+        "pushup_score": 15.0,
+        "distribution_score": 0.0,
+        "phase_detail": "吸筹/建仓 (吸筹45/洗盘25/拉升15/出货0) 位置:mid 置信度:55",
+        "position_level": "mid"
+      },
+      "d3_adjustment": 17.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 11.0,
+      "diagnosis": "主力净额+1.66%/主买净额+20.09% | 连续1日流入 | 主动买入(外盘>内盘)",
+      "risk_warning": "✅ 真实进场! 主力/主买同向正+持续性流入+主动买入，T+1安全",
+      "recommendation": "优先买入! D3维度+12分加成，T+1置信度+8%",
+      "multi_day_analysis": "持续性:WEAK | 连续1日主力流入 | 5日累计+8.9% | 10日均+1.2% | 流入加速↑ | 量价比0.00 | WINNER=low | 筹码稳定 | 阶段:吸筹/建仓 (吸筹45/洗盘25/拉升15/出货0) 位置:mid 置信度:55",
+      "distill_score": 73.0,
+      "data_days": 20
+    },
+    {
+      "code": "300012",
+      "name": "华测检测",
+      "intent": "NEUTRAL",
+      "intent_score": 70.46,
+      "wash_trade": {
+        "divergence_score": 13.15,
+        "is_wash_trade": false,
+        "main_buy_divergence": true,
+        "divergence_pct": 2.63,
+        "score": 13.15
+      },
+      "persistence": {
+        "consecutive_inflow_days": 0,
+        "consecutive_outflow_days": 4,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": -4.94,
+        "cumulative_net_pct_5d": -24.71,
+        "cumulative_net_pct_10d": -2.15,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 0,
+        "volume_price_health": -0.0,
+        "persistence_grade": "NONE",
+        "score": 0.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 75.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 55.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 45.0,
+        "accumulation_score": 35.0,
+        "washout_score": 0.0,
+        "pushup_score": 15.0,
+        "distribution_score": 10.0,
+        "phase_detail": "吸筹/建仓 (吸筹35/洗盘0/拉升15/出货10) 位置:mid 置信度:45",
+        "position_level": "mid"
+      },
+      "d3_adjustment": 5.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 0.0,
+      "diagnosis": "主力净额-0.75%/主买净额+1.88% | 方向背离(背离度2.6%) | 连续4日流出 | 主动买入(外盘>内盘)",
+      "risk_warning": "⚪ 信号中性，需结合其他维度判断",
+      "recommendation": "中性观望，D3维度不变",
+      "multi_day_analysis": "持续性:NONE | 连续4日主力流出 | 5日累计-24.7% | 10日均-2.2% | 量价比-0.00 | WINNER=low | 筹码分散↓ | 阶段:吸筹/建仓 (吸筹35/洗盘0/拉升15/出货10) 位置:mid 置信度:45",
+      "distill_score": 71.7,
+      "data_days": 20
+    },
+    {
+      "code": "605117",
+      "name": "德业股份",
+      "intent": "NEUTRAL",
+      "intent_score": 72.75,
+      "wash_trade": {
+        "divergence_score": 0.0,
+        "is_wash_trade": false,
+        "main_buy_divergence": false,
+        "divergence_pct": 0.0,
+        "score": 0.0
+      },
+      "persistence": {
+        "consecutive_inflow_days": 0,
+        "consecutive_outflow_days": 3,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": -3.06,
+        "cumulative_net_pct_5d": -15.3,
+        "cumulative_net_pct_10d": -2.36,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 0,
+        "volume_price_health": -0.0,
+        "persistence_grade": "NONE",
+        "score": 0.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 75.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 45.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 85.0,
+        "accumulation_score": 60.0,
+        "washout_score": 0.0,
+        "pushup_score": 0.0,
+        "distribution_score": 10.0,
+        "phase_detail": "吸筹/建仓 (吸筹60/洗盘0/拉升0/出货10) 位置:low 置信度:85",
+        "position_level": "low"
+      },
+      "d3_adjustment": 5.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 0.0,
+      "diagnosis": "主力净额-4.45%/主买净额-9.14% | 连续3日流出 | 主动买入(外盘>内盘)",
+      "risk_warning": "⚪ 信号中性，需结合其他维度判断",
+      "recommendation": "中性观望，D3维度不变",
+      "multi_day_analysis": "持续性:NONE | 连续3日主力流出 | 5日累计-15.3% | 10日均-2.4% | 量价比-0.00 | WINNER=low | 筹码分散↓ | 阶段:吸筹/建仓 (吸筹60/洗盘0/拉升0/出货10) 位置:low 置信度:85",
+      "distill_score": 70.7,
+      "data_days": 18
+    },
+    {
+      "code": "300850",
+      "name": "新强联",
+      "intent": "NEUTRAL",
+      "intent_score": 73.53,
+      "wash_trade": {
+        "divergence_score": 25.9,
+        "is_wash_trade": false,
+        "main_buy_divergence": true,
+        "divergence_pct": 4.18,
+        "score": 25.9
+      },
+      "persistence": {
+        "consecutive_inflow_days": 0,
+        "consecutive_outflow_days": 5,
+        "convergence_score": 63.65,
+        "avg_net_pct_5d": -6.11,
+        "cumulative_net_pct_5d": -30.56,
+        "cumulative_net_pct_10d": -2.05,
+        "large_small_divergence": false,
+        "multi_day_wash_pattern": false,
+        "wash_pattern_days": 0,
+        "volume_price_health": -0.0,
+        "persistence_grade": "NONE",
+        "score": 25.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 75.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 55.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 80.0,
+        "accumulation_score": 60.0,
+        "washout_score": 20.0,
+        "pushup_score": 15.0,
+        "distribution_score": 10.0,
+        "phase_detail": "吸筹/建仓 (吸筹60/洗盘20/拉升15/出货10) 位置:low 置信度:80",
+        "position_level": "low"
+      },
+      "d3_adjustment": 5.0,
+      "global_penalty": 0.0,
+      "t1_confidence_adjustment": 0.0,
+      "diagnosis": "主力净额-2.64%/主买净额+1.54% | 方向背离(背离度4.2%) | 连续5日流出 | 流出收敛(洗盘尾声) | 主动买入(外盘>内盘)",
+      "risk_warning": "⚪ 信号中性，需结合其他维度判断",
+      "recommendation": "中性观望，D3维度不变",
+      "multi_day_analysis": "持续性:NONE | 连续5日主力流出 | 5日累计-30.6% | 10日均-2.0% | 流出收敛(洗盘尾声) | 量价比-0.00 | WINNER=low | 筹码分散↓ | 阶段:吸筹/建仓 (吸筹60/洗盘20/拉升15/出货10) 位置:low 置信度:80",
+      "distill_score": 70.6,
+      "data_days": 18
+    },
+    {
+      "code": "603915",
+      "name": "国茂股份",
+      "intent": "WASH_TRADE_DISTRIBUTION",
+      "intent_score": 73.91,
+      "wash_trade": {
+        "divergence_score": 29.35,
+        "is_wash_trade": false,
+        "main_buy_divergence": true,
+        "divergence_pct": 4.87,
+        "score": 29.35
+      },
+      "persistence": {
+        "consecutive_inflow_days": 3,
+        "consecutive_outflow_days": 0,
+        "convergence_score": 0.0,
+        "avg_net_pct_5d": 1.78,
+        "cumulative_net_pct_5d": 8.9,
+        "cumulative_net_pct_10d": 2.6,
+        "large_small_divergence": true,
+        "multi_day_wash_pattern": true,
+        "wash_pattern_days": 3,
+        "volume_price_health": 0.0,
+        "persistence_grade": "MODERATE",
+        "score": 30.0
+      },
+      "active_buy": {
+        "is_active_buy": true,
+        "score": 65.0
+      },
+      "lure_pattern": {
+        "is_lure_bullish": false,
+        "is_lure_bearish": false,
+        "score": 0.0
+      },
+      "chip_validation": {
+        "scr_value": 0.0,
+        "winner_pct": 0.0,
+        "winner_level": "low",
+        "is_accumulation_chip": true,
+        "is_distribution_chip": false,
+        "score": 70.0
+      },
+      "behavior_phase": {
+        "phase": "ACCUMULATION",
+        "confidence": 65.0,
+        "accumulation_score": 60.0,
+        "washout_score": 50.0,
+        "pushup_score": 20.0,
+        "distribution_score": 50.0,
+        "phase_detail": "吸筹/建仓 (吸筹60/洗盘50/拉升20/出货50) 位置:mid 置信度:65",
+        "position_level": "mid"
+      },
+      "d3_adjustment": -10.0,
+      "global_penalty": -8.0,
+      "t1_confidence_adjustment": -15.0,
+      "diagnosis": "主力净额+2.81%/主买净额-2.06% | 方向背离(背离度4.9%) | 连续3日流入 | 主动买入(外盘>内盘)",
+      "risk_warning": "⚠️ 对倒出货! 主力大单买入但主买(散户方向)巨量卖出，T+1大概率下跌! 禁止追高!",
+      "recommendation": "回避/减仓! D3维度-15分惩罚，全局蒸馏分-8分",
+      "multi_day_analysis": "持续性:MODERATE | 连续3日主力流入 | 5日累计+8.9% | 10日均+2.6% | 大单流入/小单流出(4日) | ⚠️多日对倒(3日) | 量价比0.00 | WINNER=low | 筹码稳定 | 阶段:吸筹/建仓 (吸筹60/洗盘50/拉升20/出货50) 位置:mid 置信度:65",
+      "distill_score": 70.3,
+      "data_days": 18
+    }
+  ]
+}

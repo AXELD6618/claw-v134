@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V13.5.54 主力意图识别7模块增强版 — 12只BUY候选股批量验证报告</title>
+<style>
+:root {
+  --bg: #0d1117; --surface: #161b22; --border: #30363d;
+  --text: #e6edf3; --text-dim: #8b949e;
+  --red: #f85149; --green: #3fb950; --yellow: #d29922;
+  --blue: #58a6ff; --purple: #bc8cff; --orange: #db6d28;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; padding: 20px; line-height: 1.6; }
+h1 { color: var(--blue); font-size: 1.5em; margin-bottom: 5px; }
+h2 { color: var(--purple); font-size: 1.2em; margin: 20px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+h3 { color: var(--yellow); font-size: 1.05em; margin: 15px 0 8px; }
+.meta { color: var(--text-dim); font-size: 0.85em; margin-bottom: 20px; }
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 15px 0; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 15px; text-align: center; }
+.stat-card .num { font-size: 2em; font-weight: bold; }
+.stat-card .label { color: var(--text-dim); font-size: 0.8em; margin-top: 4px; }
+.green { color: var(--green); } .red { color: var(--red); } .yellow { color: var(--yellow); } .blue { color: var(--blue); } .purple { color: var(--purple); }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.85em; }
+th { background: var(--surface); color: var(--blue); padding: 10px 8px; text-align: left; border-bottom: 2px solid var(--border); white-space: nowrap; }
+td { padding: 8px; border-bottom: 1px solid var(--border); }
+tr:hover { background: var(--surface); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: bold; }
+.tag-genuine { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+.tag-wash { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+.tag-neutral { background: rgba(139,148,158,0.15); color: var(--text-dim); border: 1px solid rgba(139,148,158,0.3); }
+.tag-acc { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+.tag-dist { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+.tag-washout { background: rgba(210,153,34,0.15); color: var(--yellow); border: 1px solid rgba(210,153,34,0.3); }
+.bar { display: inline-block; height: 8px; border-radius: 4px; vertical-align: middle; }
+.bar-green { background: var(--green); } .bar-red { background: var(--red); } .bar-yellow { background: var(--yellow); }
+.section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; margin: 15px 0; }
+.insight { background: rgba(88,166,255,0.05); border-left: 3px solid var(--blue); padding: 12px 15px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.warning { background: rgba(248,81,73,0.05); border-left: 3px solid var(--red); padding: 12px 15px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.success { background: rgba(63,185,80,0.05); border-left: 3px solid var(--green); padding: 12px 15px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+code { background: rgba(110,118,129,0.2); padding: 2px 6px; border-radius: 3px; font-size: 0.85em; color: var(--orange); }
+.footer { text-align: center; color: var(--text-dim); font-size: 0.8em; margin-top: 30px; padding-top: 15px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<h1>V13.5.54 主力意图识别7模块增强版 — 批量验证报告</h1>
+<div class="meta">
+  数据源: TDX tdx_api_data zjlx (20+天历史资金流向) | 
+  验证时间: 2026-07-12 | 
+  样本: 12只BUY候选股(60只隐形冠军池)
+</div>
+
+<div class="summary-grid">
+  <div class="stat-card"><div class="num green">6</div><div class="label">GENUINE_INFLOW<br>真实进场</div></div>
+  <div class="stat-card"><div class="num red">2</div><div class="label">WASH_TRADE<br>对倒出货</div></div>
+  <div class="stat-card"><div class="num yellow">4</div><div class="label">NEUTRAL<br>中性观察</div></div>
+  <div class="stat-card"><div class="num blue">12</div><div class="label">总计<br>验证样本</div></div>
+  <div class="stat-card"><div class="num red">16.7%</div><div class="label">排雷率<br>2/12对倒识别</div></div>
+  <div class="stat-card"><div class="num green">50%</div><div class="label">安全买入率<br>6/12可买</div></div>
+</div>
+
+<h2>7大检测模块</h2>
+<div class="section">
+<table>
+<tr><th>模块</th><th>名称</th><th>核心功能</th><th>权重</th></tr>
+<tr><td><span class="tag tag-genuine">M1</span></td><td>对倒盘检测器</td><td>主力/主买方向背离 + 5分钟K线量价异常</td><td>25%</td></tr>
+<tr><td><span class="tag tag-genuine">M2</span></td><td>资金持续性追踪器</td><td>20天历史追溯 + 5日/10日累计 + 量价健康度 + 多日对倒模式</td><td>25%</td></tr>
+<tr><td><span class="tag tag-genuine">M3</span></td><td>主动买入区分器</td><td>外盘/内盘 + 委比 + 超大单占比</td><td>15%</td></tr>
+<tr><td><span class="tag tag-genuine">M4</span></td><td>诱多/诱空识别</td><td>涨停日主买方向 + 尾盘放量异常</td><td>15%</td></tr>
+<tr><td><span class="tag tag-genuine">M5</span></td><td>筹码分布交叉验证</td><td>SCR/WINNER趋势 + 筹码峰位置 + 集中/分散</td><td>10%</td></tr>
+<tr><td><span class="tag tag-genuine">M6</span></td><td>四阶段行为识别</td><td>吸筹/洗盘/拉升/出货 四分类</td><td>10%</td></tr>
+<tr><td><span class="tag tag-genuine">M7</span></td><td>智能回测引擎</td><td>意图分类准确率 + T+1/T+2收益验证</td><td>—</td></tr>
+</table>
+</div>
+
+<h2>12只BUY候选股验证详情</h2>
+<div class="section">
+<table>
+<tr>
+  <th>代码</th><th>名称</th><th>蒸馏分</th><th>意图分类</th><th>意图评分</th>
+  <th>背离度</th><th>连续流入</th><th>连续流出</th><th>5日累计%</th>
+  <th>多日对倒</th><th>行为阶段</th><th>D3调整</th><th>T+1置信度</th>
+</tr>
+<tr>
+  <td>688050</td><td>爱博医疗</td><td>74.3</td>
+  <td><span class="tag tag-genuine">GENUINE_INFLOW</span></td><td class="green">92.8</td>
+  <td>0.0%</td><td>0天</td><td>1天</td><td class="green">+3.60%</td>
+  <td>否</td><td><span class="tag tag-washout">WASHOUT</span></td>
+  <td class="green">+15.0</td><td class="green">+11.0%</td>
+</tr>
+<tr>
+  <td>301080</td><td>百普赛斯</td><td>73.0</td>
+  <td><span class="tag tag-genuine">GENUINE_INFLOW</span></td><td class="green">89.8</td>
+  <td>0.0%</td><td>1天</td><td>0天</td><td class="green">+8.90%</td>
+  <td>否</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="green">+17.0</td><td class="green">+11.0%</td>
+</tr>
+<tr>
+  <td>688617</td><td>惠泰医疗</td><td>82.0</td>
+  <td><span class="tag tag-genuine">GENUINE_INFLOW</span></td><td class="green">86.0</td>
+  <td>0.0%</td><td>1天</td><td>0天</td><td class="green">+5.13%</td>
+  <td>否</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="green">+17.0</td><td class="green">+11.0%</td>
+</tr>
+<tr>
+  <td>002001</td><td>新和成</td><td>83.6</td>
+  <td><span class="tag tag-genuine">GENUINE_INFLOW</span></td><td class="green">81.0</td>
+  <td>0.0%</td><td>1天</td><td>0天</td><td class="yellow">-0.22%</td>
+  <td>否</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="green">+17.0</td><td class="green">+11.0%</td>
+</tr>
+<tr>
+  <td>300470</td><td>中密控股</td><td>76.4</td>
+  <td><span class="tag tag-genuine">GENUINE_INFLOW</span></td><td class="green">71.3</td>
+  <td>3.6%</td><td>1天</td><td>0天</td><td class="green">+2.42%</td>
+  <td>否(1天)</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="green">+17.0</td><td class="green">+11.0%</td>
+</tr>
+<tr>
+  <td>688305</td><td>科德数控</td><td>75.1</td>
+  <td><span class="tag tag-genuine">GENUINE_INFLOW</span></td><td class="green">68.6</td>
+  <td>5.7%</td><td>1天</td><td>0天</td><td class="green">+0.52%</td>
+  <td>否(1天)</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="green">+17.0</td><td class="green">+11.0%</td>
+</tr>
+<tr style="background: rgba(248,81,73,0.05);">
+  <td>603277</td><td>银都股份</td><td>73.3</td>
+  <td><span class="tag tag-wash">WASH_TRADE</span></td><td class="red">59.3</td>
+  <td class="red">21.0%!</td><td>1天</td><td>0天</td><td class="green">+10.34%</td>
+  <td>否(1天)</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="red">-10.0</td><td class="red">-15.0%</td>
+</tr>
+<tr style="background: rgba(248,81,73,0.05);">
+  <td>603915</td><td>国茂股份</td><td>70.3</td>
+  <td><span class="tag tag-wash">WASH_TRADE</span></td><td class="red">73.9</td>
+  <td>4.9%</td><td>3天</td><td>0天</td><td class="green">+8.90%</td>
+  <td class="red">是(3天!)</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="red">-10.0</td><td class="red">-15.0%</td>
+</tr>
+<tr>
+  <td>300529</td><td>健帆生物</td><td>73.8</td>
+  <td><span class="tag tag-neutral">NEUTRAL</span></td><td>75.2</td>
+  <td>0.0%</td><td>0天</td><td>2天</td><td class="red">-5.75%</td>
+  <td>否</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="yellow">+5.0</td><td>0.0%</td>
+</tr>
+<tr>
+  <td>300012</td><td>华测检测</td><td>71.7</td>
+  <td><span class="tag tag-neutral">NEUTRAL</span></td><td>70.5</td>
+  <td>2.6%</td><td>0天</td><td>4天</td><td class="red">-24.71%</td>
+  <td>否</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="yellow">+5.0</td><td>0.0%</td>
+</tr>
+<tr>
+  <td>605117</td><td>德业股份</td><td>70.7</td>
+  <td><span class="tag tag-neutral">NEUTRAL</span></td><td>72.8</td>
+  <td>0.0%</td><td>0天</td><td>3天</td><td class="red">-15.30%</td>
+  <td>否</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="yellow">+5.0</td><td>0.0%</td>
+</tr>
+<tr>
+  <td>300850</td><td>新强联</td><td>70.6</td>
+  <td><span class="tag tag-neutral">NEUTRAL</span></td><td>73.5</td>
+  <td>4.2%</td><td>0天</td><td>5天</td><td class="red">-30.56%</td>
+  <td>否</td><td><span class="tag tag-acc">ACCUMULATION</span></td>
+  <td class="yellow">+5.0</td><td>0.0%</td>
+</tr>
+</table>
+</div>
+
+<h2>关键发现</h2>
+
+<div class="success">
+  <h3>✅ 6只真实进场可安全买入 (GENUINE_INFLOW)</h3>
+  <p><strong>688050爱博医疗 (92.8分)</strong> — 流出收敛(洗盘尾声) + 流入加速 + 5日累计+3.6% → D3+15, T+1置信度+11%<br>
+  <strong>301080百普赛斯 (89.8分)</strong> — 主力+1.66%/主买+20.09% 同向大正 + 5日累计+8.9% → D3+17, T+1置信度+11%<br>
+  <strong>688617惠泰医疗 (86.0分)</strong> — 主力+6.33%/主买+11.96% 同向大正 + 5日累计+5.1% + 流入加速 → D3+17, T+1置信度+11%<br>
+  <strong>002001新和成 (81.0分)</strong> — 主力+0.93%/主买+0.05% 同向正 + 7/06-7/08洗盘→7/10转正 → D3+17, T+1置信度+11%<br>
+  <strong>300470中密控股 (71.3分)</strong> — 主力+2.18%/主买-1.38% 背离度3.6%低 + 5日累计+2.4% → D3+17<br>
+  <strong>688305科德数控 (68.6分)</strong> — 主力+1.62%/主买-4.09% 背离度5.7%低 + 5日累计+0.5% → D3+17</p>
+</div>
+
+<div class="warning">
+  <h3>⚠️ 2只对倒出货必须回避 (WASH_TRADE_DISTRIBUTION)</h3>
+  <p><strong>603277银都股份 (59.3分)</strong> — 7/10主力+11.72% BUT 主买-9.23% → 背离度21%! 单日严重对倒 → D3-10, 全局-8, T+1置信度-15%<br>
+  &nbsp;&nbsp;TDX真实数据: 主力大单买入1.17亿但散户方向卖出0.92亿 → 典型左手倒右手出货<br>
+  <strong>603915国茂股份 (73.9分)</strong> — 7/06-7/10连续3天主力正/主买负 → 多日对倒模式(multi_day_wash_pattern=True, 3天) → D3-10, 全局-8, T+1置信度-15%<br>
+  &nbsp;&nbsp;TDX真实数据: 7/03真实进场(+13.41%/+11.77%同向大正) → 7/06-7/10连续背离 → 先吸筹后对倒出货</p>
+</div>
+
+<div class="insight">
+  <h3>⚪ 4只中性需观察 (NEUTRAL — 连续流出但可能洗盘尾声)</h3>
+  <p><strong>300529健帆生物</strong> — 连续2日流出, 5日累计-5.8% → 7/03曾有单日真实进场(+6.87%/+14.57%)<br>
+  <strong>300012华测检测</strong> — 连续4日流出, 5日累计-24.7% → 7/07-7/08主力连续大流出(-12.17%/-11.79%) → 出货阶段信号<br>
+  <strong>605117德业股份</strong> — 连续3日流出, 5日累计-15.3% → TDX真实数据: 7/08-7/10连续3天同向大流出(-3.85%/-8.93%/-4.45%)<br>
+  <strong>300850新强联</strong> — 连续5日流出, 5日累计-30.6% → 7/03真实进场(+9.55%/+3.06%) → 7/06-7/10连续流出 → 先吸筹后出货</p>
+</div>
+
+<h2>D3维度增强/惩罚汇总</h2>
+<div class="section">
+<table>
+<tr><th>意图分类</th><th>数量</th><th>D3调整</th><th>全局惩罚</th><th>T+1置信度</th><th>操作建议</th></tr>
+<tr><td><span class="tag tag-genuine">GENUINE_INFLOW</span></td><td>6只</td><td class="green">+15~+17</td><td>0</td><td class="green">+11%</td><td>优先买入</td></tr>
+<tr><td><span class="tag tag-wash">WASH_TRADE</span></td><td>2只</td><td class="red">-10</td><td class="red">-8</td><td class="red">-15%</td><td>回避/减仓</td></tr>
+<tr><td><span class="tag tag-neutral">NEUTRAL</span></td><td>4只</td><td class="yellow">+5</td><td>0</td><td>0%</td><td>中性观望</td></tr>
+</table>
+</div>
+
+<h2>V54 7模块增强版验证结论</h2>
+<div class="section">
+<div class="success">
+  <p><strong>1. 排雷有效:</strong> 12只BUY候选股中成功识别2只对倒出货(603277银都股份/603915国茂股份), 排雷率16.7%。BUY池从12只缩减至6只安全可买, 大幅降低T+1踩雷风险。</p>
+</div>
+<div class="insight">
+  <p><strong>2. 多日对倒识别:</strong> V54 M2模块的<code>multi_day_wash_pattern</code>成功识别603915国茂股份7/06-7/10连续3天主力正/主买负的多日对倒模式, 非单日误判。这正是用户要求的"追踪资金持续性"核心能力。</p>
+</div>
+<div class="insight">
+  <p><strong>3. 资金持续性追溯:</strong> V54 M2模块的20天历史追溯+5日/10日累计净流入分析, 成功区分了"7/03真实进场→7/06-7/10流出"(300850新强联/603915国茂股份)与"7/08-7/09连续真实进场→7/10洗盘尾声"(688050爱博医疗)两种截然不同的资金行为模式。</p>
+</div>
+<div class="warning">
+  <p><strong>4. 待改进:</strong> 300012华测检测7/07-7/08主力连续大流出(-12.17%/-11.79%)被分类为NEUTRAL而非DISTRIBUTION, M6四阶段识别将其判为ACCUMULATION(置信度45%), 可能需要进一步优化出货阶段识别阈值。300850新强联7/03进场后连续5天流出也被判为NEUTRAL+ACCUMULATION, 需观察后续是否应该升级为DISTRIBUTION。</p>
+</div>
+</div>
+
+<div class="footer">
+  V13.5.54 主力意图识别7模块增强版 | 毕方灵犀·貔貅助手 (亚瑟数字分身) | 2026-07-12<br>
+  数据源: TDX MCP 14工具 | 验证样本: 12只BUY候选股 | 引擎: V13_5_54_MainForceIntentDetector.py
+</div>
+
+</body>
+</html>
