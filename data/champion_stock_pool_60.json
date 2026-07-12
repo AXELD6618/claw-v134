@@ -1,0 +1,362 @@
+[
+  {
+    "name": "绿的谐波",
+    "sector": "高端装备",
+    "code": "688017",
+    "setcode": "1"
+  },
+  {
+    "name": "埃斯顿",
+    "sector": "高端装备",
+    "code": "002747",
+    "setcode": "0"
+  },
+  {
+    "name": "中控技术",
+    "sector": "高端装备",
+    "code": "688777",
+    "setcode": "1"
+  },
+  {
+    "name": "科德数控",
+    "sector": "高端装备",
+    "code": "688305",
+    "setcode": "1"
+  },
+  {
+    "name": "新强联",
+    "sector": "高端装备",
+    "code": "300850",
+    "setcode": "0"
+  },
+  {
+    "name": "江苏北人",
+    "sector": "高端装备",
+    "code": "688218",
+    "setcode": "1"
+  },
+  {
+    "name": "国茂股份",
+    "sector": "高端装备",
+    "code": "603915",
+    "setcode": "1"
+  },
+  {
+    "name": "景津装备",
+    "sector": "高端装备",
+    "code": "603279",
+    "setcode": "1"
+  },
+  {
+    "name": "华测检测",
+    "sector": "高端装备",
+    "code": "300012",
+    "setcode": "0"
+  },
+  {
+    "name": "中密控股",
+    "sector": "高端装备",
+    "code": "300470",
+    "setcode": "0"
+  },
+  {
+    "name": "苏试试验",
+    "sector": "高端装备",
+    "code": "300416",
+    "setcode": "0"
+  },
+  {
+    "name": "银都股份",
+    "sector": "高端装备",
+    "code": "603277",
+    "setcode": "1"
+  },
+  {
+    "name": "安集科技",
+    "sector": "半导体",
+    "code": "688019",
+    "setcode": "1"
+  },
+  {
+    "name": "江丰电子",
+    "sector": "半导体",
+    "code": "300666",
+    "setcode": "0"
+  },
+  {
+    "name": "雅克科技",
+    "sector": "半导体",
+    "code": "002409",
+    "setcode": "0"
+  },
+  {
+    "name": "华特气体",
+    "sector": "半导体",
+    "code": "688268",
+    "setcode": "1"
+  },
+  {
+    "name": "鼎龙股份",
+    "sector": "半导体",
+    "code": "300054",
+    "setcode": "0"
+  },
+  {
+    "name": "芯源微",
+    "sector": "半导体",
+    "code": "688037",
+    "setcode": "1"
+  },
+  {
+    "name": "万业企业",
+    "sector": "半导体",
+    "code": "600641",
+    "setcode": "1"
+  },
+  {
+    "name": "菲利华",
+    "sector": "半导体",
+    "code": "300395",
+    "setcode": "0"
+  },
+  {
+    "name": "沪电股份",
+    "sector": "半导体",
+    "code": "002463",
+    "setcode": "0"
+  },
+  {
+    "name": "生益科技",
+    "sector": "半导体",
+    "code": "600183",
+    "setcode": "1"
+  },
+  {
+    "name": "宏发股份",
+    "sector": "半导体",
+    "code": "600885",
+    "setcode": "1"
+  },
+  {
+    "name": "有研新材",
+    "sector": "半导体",
+    "code": "600206",
+    "setcode": "1"
+  },
+  {
+    "name": "壹石通",
+    "sector": "新能源",
+    "code": "688733",
+    "setcode": "1"
+  },
+  {
+    "name": "星源材质",
+    "sector": "新能源",
+    "code": "300568",
+    "setcode": "0"
+  },
+  {
+    "name": "德方纳米",
+    "sector": "新能源",
+    "code": "300769",
+    "setcode": "0"
+  },
+  {
+    "name": "容百科技",
+    "sector": "新能源",
+    "code": "688005",
+    "setcode": "1"
+  },
+  {
+    "name": "新宙邦",
+    "sector": "新能源",
+    "code": "300037",
+    "setcode": "0"
+  },
+  {
+    "name": "科达利",
+    "sector": "新能源",
+    "code": "002850",
+    "setcode": "0"
+  },
+  {
+    "name": "赢合科技",
+    "sector": "新能源",
+    "code": "300457",
+    "setcode": "0"
+  },
+  {
+    "name": "亚玛顿",
+    "sector": "新能源",
+    "code": "002623",
+    "setcode": "0"
+  },
+  {
+    "name": "海优新材",
+    "sector": "新能源",
+    "code": "688680",
+    "setcode": "1"
+  },
+  {
+    "name": "金雷股份",
+    "sector": "新能源",
+    "code": "300443",
+    "setcode": "0"
+  },
+  {
+    "name": "德业股份",
+    "sector": "新能源",
+    "code": "605117",
+    "setcode": "1"
+  },
+  {
+    "name": "中简科技",
+    "sector": "新能源",
+    "code": "300777",
+    "setcode": "0"
+  },
+  {
+    "name": "健帆生物",
+    "sector": "医疗",
+    "code": "300529",
+    "setcode": "0"
+  },
+  {
+    "name": "欧普康视",
+    "sector": "医疗",
+    "code": "300595",
+    "setcode": "0"
+  },
+  {
+    "name": "爱博医疗",
+    "sector": "医疗",
+    "code": "688050",
+    "setcode": "1"
+  },
+  {
+    "name": "惠泰医疗",
+    "sector": "医疗",
+    "code": "688617",
+    "setcode": "1"
+  },
+  {
+    "name": "南微医学",
+    "sector": "医疗",
+    "code": "688029",
+    "setcode": "1"
+  },
+  {
+    "name": "百普赛斯",
+    "sector": "医疗",
+    "code": "301080",
+    "setcode": "0"
+  },
+  {
+    "name": "义翘神州",
+    "sector": "医疗",
+    "code": "301047",
+    "setcode": "0"
+  },
+  {
+    "name": "华大智造",
+    "sector": "医疗",
+    "code": "688114",
+    "setcode": "1"
+  },
+  {
+    "name": "国瓷材料",
+    "sector": "化工",
+    "code": "300285",
+    "setcode": "0"
+  },
+  {
+    "name": "联瑞新材",
+    "sector": "化工",
+    "code": "688300",
+    "setcode": "1"
+  },
+  {
+    "name": "晨光生物",
+    "sector": "化工",
+    "code": "300138",
+    "setcode": "0"
+  },
+  {
+    "name": "确成股份",
+    "sector": "化工",
+    "code": "605183",
+    "setcode": "1"
+  },
+  {
+    "name": "阳谷华泰",
+    "sector": "化工",
+    "code": "300121",
+    "setcode": "0"
+  },
+  {
+    "name": "浙江龙盛",
+    "sector": "化工",
+    "code": "600352",
+    "setcode": "1"
+  },
+  {
+    "name": "利安隆",
+    "sector": "化工",
+    "code": "300596",
+    "setcode": "0"
+  },
+  {
+    "name": "新和成",
+    "sector": "化工",
+    "code": "002001",
+    "setcode": "0"
+  },
+  {
+    "name": "仕佳光子",
+    "sector": "光通信",
+    "code": "688313",
+    "setcode": "1"
+  },
+  {
+    "name": "腾景科技",
+    "sector": "光通信",
+    "code": "688195",
+    "setcode": "1"
+  },
+  {
+    "name": "天孚通信",
+    "sector": "光通信",
+    "code": "300394",
+    "setcode": "0"
+  },
+  {
+    "name": "中瓷电子",
+    "sector": "光通信",
+    "code": "003031",
+    "setcode": "0"
+  },
+  {
+    "name": "华工科技",
+    "sector": "光通信",
+    "code": "000988",
+    "setcode": "0"
+  },
+  {
+    "name": "锐科激光",
+    "sector": "光通信",
+    "code": "300747",
+    "setcode": "0"
+  },
+  {
+    "name": "炬光科技",
+    "sector": "光通信",
+    "code": "688167",
+    "setcode": "1"
+  },
+  {
+    "name": "英集芯",
+    "sector": "光通信",
+    "code": "688209",
+    "setcode": "1"
+  }
+]
