@@ -1,13 +1,9 @@
 {
-  "timestamp": "2026-07-13T02:22:06.376629",
+  "timestamp": "2026-07-13T05:51:54.764301",
   "steps_dispatched": [
     "T0",
-    "T1",
-    "T3",
-    "T4",
-    "T5",
-    "NIGHT"
+    "T1"
   ],
-  "success_count": 6,
+  "success_count": 2,
   "failed_count": 0
 }
