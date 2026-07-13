@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-07-13T16:29:49.070283",
+  "date": "20260713",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.822
+    },
+    {
+      "code": "000036",
+      "name": "华联控股",
+      "score": 0.586
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 2,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
