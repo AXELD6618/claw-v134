@@ -1,0 +1,373 @@
+{
+  "timestamp": "2026-07-13T09:10:33.926354",
+  "champion_pool_size": 60,
+  "expansion_count": 11,
+  "gap_code_list": [
+    "600879",
+    "603698",
+    "600343",
+    "600391",
+    "600118",
+    "300053",
+    "300045",
+    "688562",
+    "002115",
+    "000901",
+    "002465"
+  ],
+  "gaps_detail": {
+    "600879": {
+      "code": "600879",
+      "name": "航天电子",
+      "sector": "航天军工",
+      "role": "火箭电子系统",
+      "zt_count_ytd": 5,
+      "themes": [
+        "航天军工",
+        "商业航天"
+      ],
+      "theme_importances": [
+        95,
+        98
+      ]
+    },
+    "603698": {
+      "code": "603698",
+      "name": "航天工程",
+      "sector": "航天军工",
+      "role": "火箭制造+发射服务",
+      "zt_count_ytd": 4,
+      "themes": [
+        "航天军工",
+        "商业航天"
+      ],
+      "theme_importances": [
+        95,
+        98
+      ]
+    },
+    "600343": {
+      "code": "600343",
+      "name": "航天动力",
+      "sector": "航天军工",
+      "role": "火箭发动机",
+      "zt_count_ytd": 3,
+      "themes": [
+        "航天军工"
+      ],
+      "theme_importances": [
+        95
+      ]
+    },
+    "600391": {
+      "code": "600391",
+      "name": "航发科技",
+      "sector": "航天军工",
+      "role": "航空发动机",
+      "zt_count_ytd": 3,
+      "themes": [
+        "航天军工"
+      ],
+      "theme_importances": [
+        95
+      ]
+    },
+    "600118": {
+      "code": "600118",
+      "name": "中国卫星",
+      "sector": "航天军工",
+      "role": "卫星制造核心",
+      "zt_count_ytd": 15,
+      "themes": [
+        "航天军工",
+        "航天军工"
+      ],
+      "theme_importances": [
+        95,
+        95
+      ]
+    },
+    "300053": {
+      "code": "300053",
+      "name": "航宇微",
+      "sector": "航天军工",
+      "role": "卫星芯片",
+      "zt_count_ytd": 4,
+      "themes": [
+        "航天军工",
+        "卫星通信"
+      ],
+      "theme_importances": [
+        95,
+        92
+      ]
+    },
+    "300045": {
+      "code": "300045",
+      "name": "华力创通",
+      "sector": "航天军工",
+      "role": "卫星导航仿真",
+      "zt_count_ytd": 3,
+      "themes": [
+        "航天军工",
+        "卫星通信"
+      ],
+      "theme_importances": [
+        95,
+        92
+      ]
+    },
+    "688562": {
+      "code": "688562",
+      "name": "航天软件",
+      "sector": "航天军工",
+      "role": "航天软件系统",
+      "zt_count_ytd": 2,
+      "themes": [
+        "航天军工",
+        "商业航天"
+      ],
+      "theme_importances": [
+        95,
+        98
+      ]
+    },
+    "002115": {
+      "code": "002115",
+      "name": "三维通信",
+      "sector": "航天军工",
+      "role": "卫星通信/地面设备",
+      "zt_count_ytd": 14,
+      "themes": [
+        "航天军工",
+        "商业航天",
+        "卫星通信"
+      ],
+      "theme_importances": [
+        95,
+        98,
+        92
+      ]
+    },
+    "000901": {
+      "code": "000901",
+      "name": "航天科技",
+      "sector": "航天军工",
+      "role": "航天电子+惯性导航",
+      "zt_count_ytd": 3,
+      "themes": [
+        "航天军工"
+      ],
+      "theme_importances": [
+        95
+      ]
+    },
+    "002465": {
+      "code": "002465",
+      "name": "海格通信",
+      "sector": "航天军工",
+      "role": "军用通信/北斗",
+      "zt_count_ytd": 2,
+      "themes": [
+        "航天军工",
+        "卫星通信"
+      ],
+      "theme_importances": [
+        95,
+        92
+      ]
+    }
+  },
+  "theme_coverage": {
+    "航天军工": {
+      "total": 12,
+      "covered": 0,
+      "gaps": 12,
+      "importance": 95
+    },
+    "商业航天": {
+      "total": 4,
+      "covered": 0,
+      "gaps": 4,
+      "importance": 98
+    },
+    "卫星通信": {
+      "total": 4,
+      "covered": 0,
+      "gaps": 4,
+      "importance": 92
+    },
+    "人工智能": {
+      "total": 0,
+      "covered": 0,
+      "gaps": 0,
+      "importance": 88
+    },
+    "光通信": {
+      "total": 0,
+      "covered": 0,
+      "gaps": 0,
+      "importance": 85
+    },
+    "半导体": {
+      "total": 0,
+      "covered": 0,
+      "gaps": 0,
+      "importance": 82
+    },
+    "新能源": {
+      "total": 0,
+      "covered": 0,
+      "gaps": 0,
+      "importance": 78
+    },
+    "机器人": {
+      "total": 0,
+      "covered": 0,
+      "gaps": 0,
+      "importance": 85
+    }
+  },
+  "expanded_stocks": [
+    {
+      "code": "600879",
+      "name": "航天电子",
+      "sector": "航天军工",
+      "role": "火箭电子系统",
+      "zt_count_ytd": 5,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "603698",
+      "name": "航天工程",
+      "sector": "航天军工",
+      "role": "火箭制造+发射服务",
+      "zt_count_ytd": 4,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "600343",
+      "name": "航天动力",
+      "sector": "航天军工",
+      "role": "火箭发动机",
+      "zt_count_ytd": 3,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "600391",
+      "name": "航发科技",
+      "sector": "航天军工",
+      "role": "航空发动机",
+      "zt_count_ytd": 3,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "600118",
+      "name": "中国卫星",
+      "sector": "航天军工",
+      "role": "卫星制造核心",
+      "zt_count_ytd": 15,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "300053",
+      "name": "航宇微",
+      "sector": "航天军工",
+      "role": "卫星芯片",
+      "zt_count_ytd": 4,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "300045",
+      "name": "华力创通",
+      "sector": "航天军工",
+      "role": "卫星导航仿真",
+      "zt_count_ytd": 3,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "688562",
+      "name": "航天软件",
+      "sector": "航天军工",
+      "role": "航天软件系统",
+      "zt_count_ytd": 2,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "002115",
+      "name": "三维通信",
+      "sector": "航天军工",
+      "role": "卫星通信/地面设备",
+      "zt_count_ytd": 14,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "000901",
+      "name": "航天科技",
+      "sector": "航天军工",
+      "role": "航天电子+惯性导航",
+      "zt_count_ytd": 3,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    },
+    {
+      "code": "002465",
+      "name": "海格通信",
+      "sector": "航天军工",
+      "role": "军用通信/北斗",
+      "zt_count_ytd": 2,
+      "theme": "航天军工",
+      "theme_importance": 95,
+      "reason": "主题热点扩展",
+      "added_by": "V56"
+    }
+  ],
+  "key_miss_diagnosis": {
+    "002115": {
+      "name": "三维通信",
+      "miss_reason": "冠军池6赛道全缺航天军工",
+      "performance_7_08_to_7_10": "+12.08% (T+2一字涨停)",
+      "capital_flow_signal": "7/09主力负/主买正=隐含吸筹",
+      "concept_tags": [
+        "商业航天",
+        "卫星导航",
+        "卫星通信",
+        "6G概念",
+        "军工",
+        "AI"
+      ],
+      "zt_days_ytd": 14,
+      "current_price": 10.95,
+      "current_status": "一字涨停封板(7/10-7/13连续)"
+    }
+  }
+}
