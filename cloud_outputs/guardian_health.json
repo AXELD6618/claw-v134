@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-11T01:07:04.758521",
+  "timestamp": "2026-07-13T02:21:41.123140",
   "status": "DEGRADED",
   "checks": {
     "T0": "stale",
@@ -54,5 +54,5 @@
   "total_steps": 7,
   "ok_today_count": 0,
   "stale_count": 7,
-  "is_trading_day": false
+  "is_trading_day": true
 }
