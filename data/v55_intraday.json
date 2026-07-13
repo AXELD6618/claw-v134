@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-07-13T08:39:00",
+  "phase": "PRE_MARKET",
+  "holdings": [
+    {
+      "code": "600118", "name": "中国卫星", "setcode": "1",
+      "cost": 83.469, "shares": 2000,
+      "quotes": {
+        "Price": 90.02, "ZDF": 9.99, "HSL": 5.29,
+        "InOut": -1199358590, "Outside": 250175, "Inside": 375426,
+        "Volume": 625600, "Amount": 5310185980,
+        "LB": 1.24, "ZTPrice": 90.02, "PrevClose": 81.84
+      },
+      "zjlx_today": {
+        "main_net": 11.62, "main_net_pct": 21.9,
+        "active_buy_net": -12.0, "active_buy_pct": -22.6
+      },
+      "key_levels": { "limit_up": 99.02, "prev_close": 90.02, "support": 84.0, "stop_loss": 81.84 }
+    },
+    {
+      "code": "920249", "name": "利尔达", "setcode": "2",
+      "cost": 10.807, "shares": 145,
+      "quotes": {
+        "Price": 9.99, "ZDF": -3.57, "HSL": 9.18,
+        "InOut": 0, "Outside": 42230, "Inside": 72189,
+        "Volume": 114419, "Amount": 115847920,
+        "LB": 0.73, "PrevClose": 10.36
+      },
+      "key_levels": { "limit_up": 13.46, "prev_close": 10.36, "support": 9.50, "stop_loss": 9.00 }
+    },
+    {
+      "code": "300287", "name": "飞利信", "setcode": "0",
+      "cost": 3.793, "shares": 1700,
+      "quotes": {
+        "Price": 3.88, "ZDF": 2.92, "HSL": 7.62,
+        "InOut": 57935248, "Outside": 613468, "Inside": 390871,
+        "Volume": 1004339, "Amount": 386183520,
+        "LB": 1.23, "PrevClose": 3.77
+      },
+      "key_levels": { "limit_up": 4.52, "prev_close": 3.77, "support": 3.70, "stop_loss": 3.50 }
+    },
+    {
+      "code": "300017", "name": "网宿科技", "setcode": "0",
+      "cost": 12.523, "shares": 500,
+      "quotes": {
+        "Price": 15.16, "ZDF": -1.11, "HSL": 13.15,
+        "InOut": 85097216, "Outside": 1561403, "Inside": 1518071,
+        "Volume": 3079473, "Amount": 4759350780,
+        "LB": 1.74, "PrevClose": 15.33
+      },
+      "key_levels": { "limit_up": 18.40, "prev_close": 15.33, "support": 14.90, "stop_loss": 14.00 }
+    },
+    {
+      "code": "600255", "name": "鑫科材料", "setcode": "1",
+      "cost": 3.055, "shares": 3300,
+      "quotes": {
+        "Price": 3.03, "ZDF": 0.66, "HSL": 5.28,
+        "InOut": 12989712, "Outside": 491655, "Inside": 461835,
+        "Volume": 953490, "Amount": 291118592,
+        "LB": 0.88, "PrevClose": 3.01
+      },
+      "key_levels": { "limit_up": 3.31, "prev_close": 3.01, "support": 2.97, "stop_loss": 2.80 }
+    },
+    {
+      "code": "000958", "name": "电投产融", "setcode": "0",
+      "cost": 5.370, "shares": 4200,
+      "quotes": {
+        "Price": 5.34, "ZDF": 0.38, "HSL": 0.35,
+        "InOut": 3094368, "Outside": 98048, "Inside": 89808,
+        "Volume": 187856, "Amount": 100466480,
+        "LB": 0.88, "PrevClose": 5.32
+      },
+      "key_levels": { "limit_up": 5.85, "prev_close": 5.32, "support": 5.27, "stop_loss": 5.00 }
+    }
+  ]
+}
