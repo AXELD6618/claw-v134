@@ -2,12 +2,16 @@
 """
 V13.5.55 Position Monitor — 持仓盘中实时监控人机协同引擎
 ====================================================================
+V57集成版: 洗盘vs出货智能识别 (2026-07-13)
+
 功能:
   1. 接收TDX实时行情数据(JSON) → 计算盈亏/量比/主买方向
   2. V54简化版对倒检测(主力/主买背离) → 实时排雷
-  3. 生成HOLD/SELL/WATCH信号 + 具体价格位
-  4. 格式化HTML推送(PushPlus兼容)
-  5. 保存监控日志(JSON)
+  3. V57洗盘vs出货识别 → 6维检测(V型/InOut/量价/多级底/内外盘/时间窗)
+  4. V55+V57综合信号 — V57识别洗盘自动覆盖V55错判
+  5. 生成HOLD/SELL/WATCH信号 + 具体价格位
+  6. 格式化HTML推送(PushPlus兼容,含V57覆盖详情)
+  7. 保存监控日志(JSON)
 
 使用方式:
   python V13_5_55_PositionMonitor.py --data-file=data/v55_intraday.json --push
@@ -34,6 +38,15 @@ import os, sys, json, argparse, subprocess
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+
+# V57 洗盘vs出货智能识别引擎
+try:
+    from V13_5_57_ShakeoutDetector import ShakeoutDetector, ShakeoutResult, MinBar, InOutSnapshot
+    V57_AVAILABLE = True
+except ImportError:
+    V57_AVAILABLE = False
+    ShakeoutDetector, ShakeoutResult, MinBar, InOutSnapshot = None, None, None, None
+    # 静默，首次运行时可能还未创建V57文件
 
 # ═══════════════════════════════════════════════
 # 持仓配置
@@ -151,8 +164,9 @@ def detect_wash_trade_realtime(quotes: Dict, zjlx_today: Optional[Dict] = None) 
 # 信号生成
 # ═══════════════════════════════════════════════
 
-def generate_signal(holding: Dict, wash_result: Dict, phase: str) -> Dict:
-    """生成交易信号"""
+def generate_signal(holding: Dict, wash_result: Dict, phase: str,
+                    v57_combined: Optional[Dict] = None) -> Dict:
+    """生成交易信号（支持V57洗盘识别覆盖）"""
     quotes = holding.get("quotes", {})
     zjlx = holding.get("zjlx_today")
     cost = holding["cost"]
@@ -229,6 +243,23 @@ def generate_signal(holding: Dict, wash_result: Dict, phase: str) -> Dict:
     if hsl > 10:
         details.append(f"🔥 高换手{hsl:.1f}%")
     
+    # V57 洗盘检测覆盖 (最高优先级)
+    v57_final_signal = signal  # 记录V55原始信号
+    if v57_combined and v57_combined.get("v57_pattern") not in (None, "UNCERTAIN"):
+        combined = v57_combined
+        if combined.get("override"):
+            original_signal = signal
+            signal = combined["final_signal"]
+            action = combined.get("override_reason", action)
+            details.insert(0, f"🔄 V57覆盖: {combined['override_reason']}")
+            if signal == "HOLD" and original_signal == "SELL":
+                urgency = "HIGH"  # 洗盘覆盖卖出: 高关注
+            details.append(f"V57判定: {combined['v57_pattern']}(得分{combined['v57_score']})")
+        else:
+            details.append(f"V57: {combined['v57_pattern']}(得分{combined['v57_score']}) — 维持V55信号")
+    
+    v57_original_signal = v57_final_signal if v57_combined else None
+    
     return {
         "code": holding["code"],
         "name": holding["name"],
@@ -243,6 +274,7 @@ def generate_signal(holding: Dict, wash_result: Dict, phase: str) -> Dict:
         "action": action,
         "urgency": urgency,
         "wash_detection": wash_result,
+        "v57_combined": v57_combined if v57_combined else None,
         "details": details,
         "phase": phase,
         "timestamp": datetime.now().isoformat(),
@@ -311,6 +343,16 @@ def format_push_html(signals: List[Dict], phase: str, portfolio_pnl: float, port
         else:
             mb_display = "中性"
         
+        # V57洗盘状态
+        v57_info = ""
+        if s.get("v57_combined") and s["v57_combined"].get("v57_pattern"):
+            v57p = s["v57_combined"]["v57_pattern"]
+            v57s = s["v57_combined"]["v57_score"]
+            if v57p in ("SHAKEOUT", "POSSIBLE_SHAKEOUT"):
+                v57_info = f" <span style='background:#e74c3c;color:white;padding:1px 4px;border-radius:2px;font-size:10px'>V57洗盘{v57s}分</span>"
+            elif v57p == "DISTRIBUTION":
+                v57_info = f" <span style='background:#27ae60;color:white;padding:1px 4px;border-radius:2px;font-size:10px'>V57出货{v57s}分</span>"
+        
         # 涨幅颜色 (A股: 红涨绿跌)
         zdf = s["zdf"]
         zdf_color = "#e74c3c" if zdf > 0 else ("#27ae60" if zdf < 0 else "#333")
@@ -329,7 +371,7 @@ def format_push_html(signals: List[Dict], phase: str, portfolio_pnl: float, port
             f"<td style='color:{zdf_color};font-weight:bold'>{zdf:+.2f}%</td>"
             f"<td style='color:{pnl_color};font-weight:bold'>{pnl:+.2f}%</td>"
             f"<td>{mb_display}</td>"
-            f"<td style='font-size:12px'>{s['action']}</td>"
+            f"<td style='font-size:12px'>{s['action']}{v57_info}</td>"
             f"</tr>"
         )
     
@@ -346,9 +388,26 @@ def format_push_html(signals: List[Dict], phase: str, portfolio_pnl: float, port
             lines.append(f"<br/><span style='font-size:12px;color:#666'>{' | '.join(s['details'])}</span>")
             lines.append("</div>")
     
+    # V57覆盖详情
+    v57_overrides = [s for s in sorted_signals
+                     if s.get("v57_combined") and s["v57_combined"].get("override")]
+    if v57_overrides:
+        lines.append("<hr/>")
+        lines.append("<h3>🔄 V57洗盘识别覆盖</h3>")
+        for s in v57_overrides:
+            c = s["v57_combined"]
+            lines.append(f"<div style='background:#e8f5e9;padding:8px;margin:4px 0;border-radius:4px;border-left:3px solid #4caf50'>")
+            lines.append(f"<b>{s['code']} {s['name']}</b> — V57判定: <b>{c['v57_pattern']}</b>(得分{c['v57_score']})")
+            lines.append(f"<br/><span style='font-size:12px'>V55原始信号: {c.get('v55_signal','?')} → V57覆盖为: <b>{c['final_signal']}</b>")
+            lines.append(f"<br/><span style='font-size:12px;color:#666'>理由: {c['override_reason']}</span>")
+            if c.get('v57_details'):
+                for d in c['v57_details'][:3]:
+                    lines.append(f"<br/><span style='font-size:11px;color:#888'>  · {d}</span>")
+            lines.append("</div>")
+    
     # 底部
     lines.append("<hr/>")
-    lines.append(f"<p style='color:#888;font-size:11px'>毕方灵犀·天眼 V13.5.55 持仓监控 | {now} | 人机协同: 系统提供信号, 您决策执行</p>")
+    lines.append(f"<p style='color:#888;font-size:11px'>毕方灵犀·天眼 V13.5.55+V57 持仓监控 | {now} | 人机协同: V57洗盘识别+V55对倒检测, 系统提供信号, 您决策执行</p>")
     
     return "\n".join(lines)
 
@@ -457,20 +516,87 @@ def run_monitor(data_file: str, do_push: bool = True) -> Dict:
     
     print(f"[V55] Running monitor: phase={phase}, holdings={len(holdings_data)}")
     
+    # 初始化V57检测器
+    v57_detector = None
+    if V57_AVAILABLE:
+        v57_detector = ShakeoutDetector()
+        print(f"[V55] V57 ShakeoutDetector initialized — 洗盘vs出货识别已激活")
+    else:
+        print(f"[V55] V57 ShakeoutDetector not available — 仅使用V55对倒检测")
+    
     # 分析每只持仓
     signals = []
     total_cost = 0
     total_value = 0
+    v57_diagnoses = 0  # V57成功诊断次数
     
     for h in holdings_data:
         quotes = h.get("quotes", {})
         wash_result = detect_wash_trade_realtime(quotes, h.get("zjlx_today"))
-        signal = generate_signal(h, wash_result, phase)
+        
+        # V57 洗盘检测
+        v57_combined = None
+        if v57_detector:
+            bars_data = h.get("bars_5min")
+            inout_data = h.get("inout_snapshots")
+            
+            if bars_data and inout_data:
+                try:
+                    # 解析5分钟K线
+                    bars = [MinBar(**b) for b in bars_data]
+                    snapshots = [InOutSnapshot(**s) for s in inout_data]
+                    
+                    # 运行V57诊断
+                    prev_inout = h.get("prev_day_inout", 0) or 0
+                    cur_price = quotes.get("Price", 0) or 0
+                    open_price = quotes.get("Open", cur_price) or cur_price
+                    prev_close = quotes.get("PreClose", cur_price) or cur_price
+                    
+                    v57_result = v57_detector.diagnose(
+                        bars, snapshots,
+                        h["code"], h["name"],
+                        prev_day_inout=prev_inout / 1e8 if abs(prev_inout) > 1e5 else prev_inout,
+                        current_price=cur_price,
+                        open_price=open_price,
+                        prev_close=prev_close
+                    )
+                    
+                    # 计算V55基础信号(模拟generate_signal的无V57版本)
+                    cost_h = h["cost"]
+                    price_h = quotes.get("Price", 0)
+                    pnl_pct_h = ((price_h - cost_h) / cost_h * 100) if cost_h > 0 else 0
+                    zdf_h = quotes.get("ZDF", 0)
+                    if wash_result["signal"] == "WASH_TRADE":
+                        v55_base = "SELL" if pnl_pct_h > 0 else "WATCH"
+                    elif wash_result["signal"] == "GENUINE":
+                        v55_base = "STRONG_HOLD" if zdf_h > 5 else ("WATCH" if zdf_h < -3 else "HOLD")
+                    else:
+                        v55_base = "HOLD"
+                    
+                    # 综合V55+V57
+                    wash_info = {
+                        "is_wash": wash_result["signal"] == "WASH_TRADE",
+                        "signal": wash_result["signal"]
+                    }
+                    v57_combined = v57_detector.combine_with_v55(
+                        v55_base, wash_info, v57_result
+                    )
+                    v57_diagnoses += 1
+                    
+                    if v57_combined.get("override"):
+                        print(f"  🔄 V57覆盖 {h['code']} {h['name']}: {v57_combined['override_reason']}")
+                except Exception as e:
+                    print(f"  ⚠️ V57诊断失败 {h['code']}: {e}")
+        
+        signal = generate_signal(h, wash_result, phase, v57_combined)
         signals.append(signal)
         
         total_cost += h["cost"] * h["shares"]
         if quotes.get("Price", 0) > 0:
             total_value += quotes["Price"] * h["shares"]
+    
+    if v57_detector:
+        print(f"[V55] V57诊断: {v57_diagnoses}/{len(holdings_data)}只持仓完成洗盘检测")
     
     portfolio_pnl = total_value - total_cost
     portfolio_pnl_pct = (portfolio_pnl / total_cost * 100) if total_cost > 0 else 0
