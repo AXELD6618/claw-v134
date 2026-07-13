@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V13.5.55 持仓盘中实时监控人机协同系统</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; padding: 20px; }
+.header { text-align: center; padding: 24px 0; border-bottom: 1px solid #30363d; margin-bottom: 24px; }
+.header h1 { font-size: 22px; color: #58a6ff; margin-bottom: 8px; }
+.header p { font-size: 13px; color: #8b949e; }
+.section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+.section h2 { font-size: 16px; color: #58a6ff; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #30363d; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: #21262d; color: #8b949e; padding: 8px 10px; text-align: left; font-weight: 500; border: 1px solid #30363d; }
+td { padding: 8px 10px; border: 1px solid #30363d; }
+.signal-SELL { background: #3d1f1f; color: #f85149; font-weight: bold; }
+.signal-HOLD { background: #1a2f1a; color: #3fb950; }
+.signal-WATCH { background: #2d2600; color: #d29922; }
+.signal-STRONG_HOLD { background: #0d2818; color: #3fb950; font-weight: bold; }
+.urgency-CRITICAL { background: #4a1717; color: #f85149; font-weight: bold; text-align: center; }
+.urgency-HIGH { background: #3d2a00; color: #d29922; font-weight: bold; text-align: center; }
+.urgency-MEDIUM { background: #21262d; color: #d29922; text-align: center; }
+.urgency-LOW { background: #161b22; color: #8b949e; text-align: center; }
+.positive { color: #f85149; }
+.negative { color: #3fb950; }
+.timeline { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.timeline-item { flex: 1; min-width: 140px; background: #21262d; border: 1px solid #30363d; border-radius: 8px; padding: 12px; text-align: center; }
+.timeline-item .time { font-size: 16px; font-weight: bold; color: #58a6ff; }
+.timeline-item .name { font-size: 12px; color: #8b949e; margin-top: 4px; }
+.timeline-item .desc { font-size: 11px; color: #8b949e; margin-top: 6px; }
+.timeline-item.critical { border-color: #f85149; }
+.timeline-item.warning { border-color: #d29922; }
+.highlight { background: #1a1f2d; border-left: 3px solid #58a6ff; padding: 12px 16px; margin: 12px 0; border-radius: 4px; }
+.highlight strong { color: #58a6ff; }
+.code-block { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 12px; font-family: 'SF Mono', monospace; font-size: 12px; color: #8b949e; overflow-x: auto; }
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 12px 0; }
+.stat-card { background: #21262d; border: 1px solid #30363d; border-radius: 8px; padding: 16px; text-align: center; }
+.stat-card .value { font-size: 24px; font-weight: bold; color: #58a6ff; }
+.stat-card .label { font-size: 12px; color: #8b949e; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>V13.5.55 持仓盘中实时监控人机协同系统</h1>
+<p>2026-07-13 08:02 构建 | 5个盘中自动化 + TDX实时InOut对倒检测 + PushPlus推送</p>
+</div>
+
+<div class="section">
+<h2>系统概览</h2>
+<div class="stat-grid">
+<div class="stat-card"><div class="value">6</div><div class="label">持仓监控</div></div>
+<div class="stat-card"><div class="value">5</div><div class="label">盘中自动化</div></div>
+<div class="stat-card"><div class="value">15</div><div class="label">总ACTIVE任务</div></div>
+<div class="stat-card"><div class="value">+6.66%</div><div class="label">组合盈亏(7/10)</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>5个盘中监控时间线 (周一至周五)</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="time">09:25</div>
+<div class="name">开盘竞价</div>
+<div class="desc">场景ABCD判定<br>确定开盘策略</div>
+</div>
+<div class="timeline-item warning">
+<div class="time">09:45</div>
+<div class="name">开盘15分钟</div>
+<div class="desc"><strong style="color:#f85149">最关键!</strong><br>InOut方向决策<br>HOLD vs SELL</div>
+</div>
+<div class="timeline-item">
+<div class="time">11:20</div>
+<div class="name">上午收盘</div>
+<div class="desc">快报推送<br>涨停封住检查</div>
+</div>
+<div class="timeline-item critical">
+<div class="time">13:30</div>
+<div class="name">下午防脉冲</div>
+<div class="desc">7/10式13:45<br>脉冲拉升出货<br>5分钟K线监控</div>
+</div>
+<div class="timeline-item warning">
+<div class="time">14:55</div>
+<div class="name">尾盘决策</div>
+<div class="desc">HOLD过夜/清仓<br>最终操作清单</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>7/10收盘测试验证结果 (TDX真实数据)</h2>
+<table>
+<tr><th>紧急度</th><th>信号</th><th>代码</th><th>名称</th><th>现价</th><th>涨幅</th><th>盈亏%</th><th>主买方向</th><th>操作建议</th></tr>
+<tr>
+<td class="urgency-HIGH">HIGH</td>
+<td class="signal-SELL">SELL</td>
+<td>600118</td><td>中国卫星</td>
+<td>90.02</td><td class="positive">+9.99%</td><td class="positive">+7.8%</td>
+<td style="color:#f85149">负(-12亿)</td>
+<td>分批止盈(先卖50%)</td>
+</tr>
+<tr>
+<td class="urgency-MEDIUM">MEDIUM</td>
+<td class="signal-WATCH">WATCH</td>
+<td>920249</td><td>利尔达</td>
+<td>9.99</td><td class="negative">-3.57%</td><td class="negative">-7.6%</td>
+<td style="color:#f85149">负</td>
+<td>观察支撑(流出但未破位)</td>
+</tr>
+<tr>
+<td class="urgency-LOW">LOW</td>
+<td class="signal-HOLD">HOLD</td>
+<td>300287</td><td>飞利信</td>
+<td>3.88</td><td class="positive">+2.92%</td><td class="positive">+2.3%</td>
+<td style="color:#3fb950">正(+5794万)</td>
+<td>持有</td>
+</tr>
+<tr>
+<td class="urgency-LOW">LOW</td>
+<td class="signal-HOLD">HOLD</td>
+<td>300017</td><td>网宿科技</td>
+<td>15.16</td><td class="negative">-1.11%</td><td class="positive">+21.1%</td>
+<td style="color:#3fb950">正(+8510万)</td>
+<td>持有</td>
+</tr>
+<tr>
+<td class="urgency-LOW">LOW</td>
+<td class="signal-HOLD">HOLD</td>
+<td>600255</td><td>鑫科材料</td>
+<td>3.03</td><td class="positive">+0.66%</td><td class="negative">-0.8%</td>
+<td style="color:#3fb950">正(+1299万)</td>
+<td>持有</td>
+</tr>
+<tr>
+<td class="urgency-LOW">LOW</td>
+<td class="signal-HOLD">HOLD</td>
+<td>000958</td><td>电投产融</td>
+<td>5.34</td><td class="positive">+0.38%</td><td class="negative">-0.6%</td>
+<td style="color:#3fb950">正(+309万)</td>
+<td>持有</td>
+</tr>
+</table>
+</div>
+
+<div class="section">
+<h2>核心决策逻辑 — InOut字段(主买净额)</h2>
+<div class="highlight">
+<strong>InOut > 0 (主买为正)</strong> → GENUINE_INFLOW → <span style="color:#3fb950">HOLD</span> (真实买入,可能续涨/连板)<br><br>
+<strong>InOut < 0 + 涨幅 > 3%</strong> → WASH_TRADE → <span style="color:#f85149">SELL</span> (对倒出货,左手倒右手)<br><br>
+<strong>涨停封住</strong> → <span style="color:#3fb950">HOLD</span> (等连板,不轻易出清,避免蜀道装备式错误)<br><br>
+<strong>跌破止损线</strong> → <span style="color:#f85149">清仓</span> (纪律止损)
+</div>
+<div class="highlight">
+<strong>600118中国卫星 7/10案例:</strong><br>
+涨停+10% BUT InOut=-12亿(主买净额为负) → V54对倒检测: 主力+21.9%但主买-22.6% → 背离44.5% → <span style="color:#f85149">SELL信号</span><br>
+<span style="color:#8b949e">这正是系统要捕捉的"利好出货"模式 — 涨停是假象,主力在出货</span>
+</div>
+</div>
+
+<div class="section">
+<h2>V55引擎技术架构</h2>
+<div class="code-block">
+V13_5_55_PositionMonitor.py
+├── detect_wash_trade_realtime()   # V54简化版实时对倒检测
+│   ├── InOut字段方向判断 (POSITIVE/NEGATIVE/NEUTRAL)
+│   ├── zjlx主力/主买背离检测 (背离度计算)
+│   └── 外盘/内盘比率验证
+├── generate_signal()              # 信号生成器
+│   ├── STRONG_HOLD: GENUINE + 涨幅>5% + 主买正
+│   ├── HOLD: GENUINE + 正常波动
+│   ├── WATCH: NEUTRAL 或 接近支撑位
+│   ├── SELL: WASH_TRADE + 盈利>5% → 分批止盈
+│   └── STRONG_SELL: 跌破止损线
+├── format_push_html()             # HTML推送格式(PushPlus兼容)
+├── format_push_plain()            # 纯文本降级格式
+├── push_notification()            # PushPlus推送(HTML优先)
+└── run_monitor()                  # 主入口: 加载数据→分析→推送→存档
+</div>
+</div>
+
+<div class="section">
+<h2>人机协同模式</h2>
+<table>
+<tr><th>环节</th><th>系统(AI)</th><th>用户(亚瑟)</th></tr>
+<tr><td>数据获取</td><td>TDX MCP实时获取6持仓行情+资金流</td><td>-</td></tr>
+<tr><td>对倒检测</td><td>V54简化版InOut+主力/主买背离分析</td><td>-</td></tr>
+<tr><td>信号生成</td><td>HOLD/SELL/WATCH+价格位+仓位比例</td><td>-</td></tr>
+<tr><td>推送通知</td><td>WorkBuddy通知 + PushPlus微信推送</td><td>接收通知</td></tr>
+<tr><td style="color:#d29922;font-weight:bold">决策执行</td><td>-</td><td style="color:#d29922;font-weight:bold">用户决策并执行真实交易</td></tr>
+<tr><td>结果反馈</td><td>-</td><td>用户告知执行结果→系统学习</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>蜀道装备教训修正</h2>
+<div class="highlight">
+<strong>错误模式(蜀道装备):</strong> 单一信号 → 全仓出清 → 错失后续连涨收益<br><br>
+<strong>修正模式(V55):</strong> 多时间点监控 → 分批操作 → 给股票自证机会<br>
+- 09:45: InOut<0 → 先卖50%(不全仓)<br>
+- 10:30: V54=GENUINE → 持有剩余50% / V54=WASH → 清仓剩余<br>
+- 14:55: 最终判决 → HOLD过夜或清仓<br><br>
+<strong>核心原则:</strong> 宁可少赚,不可错杀; 宁可少亏,不可死扛
+</div>
+</div>
+
+</body>
+</html>
