@@ -54,11 +54,10 @@ except ImportError:
 
 PORTFOLIO = [
     {"code": "600118", "name": "中国卫星", "setcode": "1", "cost": 83.469, "shares": 2000, "priority": "CRITICAL"},
-    {"code": "920249", "name": "利尔达",   "setcode": "2", "cost": 10.807, "shares": 145,  "priority": "LOW"},
-    {"code": "300287", "name": "飞利信",   "setcode": "0", "cost": 3.793,  "shares": 1700, "priority": "MEDIUM"},
+    {"code": "920249", "name": "利尔达",   "setcode": "2", "cost": 10.605, "shares": 297,  "priority": "MEDIUM"},
+    {"code": "300287", "name": "飞利信",   "setcode": "0", "cost": 3.793,  "shares": 1700, "priority": "HIGH"},
     {"code": "300017", "name": "网宿科技", "setcode": "0", "cost": 12.523, "shares": 500,  "priority": "MEDIUM"},
-    {"code": "600255", "name": "鑫科材料", "setcode": "1", "cost": 3.055,  "shares": 3300, "priority": "MEDIUM"},
-    {"code": "000958", "name": "电投产融", "setcode": "0", "cost": 5.370,  "shares": 4200, "priority": "MEDIUM"},
+    {"code": "002115", "name": "三维通信", "setcode": "0", "cost": 11.682, "shares": 2700, "priority": "HIGH"},
 ]
 
 PHASE_NAMES = {
