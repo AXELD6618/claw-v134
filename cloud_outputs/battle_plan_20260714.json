@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-14T15:21:57.912185",
+  "date": "20260714",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000055",
+      "name": "方大集团",
+      "score": 0.816
+    },
+    {
+      "code": "000049",
+      "name": "德赛电池",
+      "score": 0.792
+    },
+    {
+      "code": "000155",
+      "name": "川能动力",
+      "score": 0.676
+    },
+    {
+      "code": "000100",
+      "name": "TCL科技",
+      "score": 0.634
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.618
+    },
+    {
+      "code": "000060",
+      "name": "中金岭南",
+      "score": 0.594
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.59
+    },
+    {
+      "code": "000407",
+      "name": "胜利股份",
+      "score": 0.58
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.524
+    },
+    {
+      "code": "000159",
+      "name": "国际实业",
+      "score": 0.524
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 20,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
