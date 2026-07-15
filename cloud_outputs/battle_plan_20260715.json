@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-15T15:24:39.495094",
+  "date": "20260715",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000403",
+      "name": "派林生物",
+      "score": 0.73
+    },
+    {
+      "code": "000036",
+      "name": "华联控股",
+      "score": 0.666
+    },
+    {
+      "code": "000089",
+      "name": "深圳机场",
+      "score": 0.636
+    },
+    {
+      "code": "000042",
+      "name": "中洲控股",
+      "score": 0.586
+    },
+    {
+      "code": "000156",
+      "name": "华数传媒",
+      "score": 0.524
+    },
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.5
+    },
+    {
+      "code": "000157",
+      "name": "中联重科",
+      "score": 0.5
+    },
+    {
+      "code": "000069",
+      "name": "华侨城Ａ",
+      "score": 0.494
+    },
+    {
+      "code": "000411",
+      "name": "英特集团",
+      "score": 0.494
+    },
+    {
+      "code": "000029",
+      "name": "深深房Ａ",
+      "score": 0.494
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 17,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
