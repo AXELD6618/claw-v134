@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-16T15:37:18.284467",
+  "date": "20260716",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.666
+    },
+    {
+      "code": "000030",
+      "name": "富奥股份",
+      "score": 0.636
+    },
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.622
+    },
+    {
+      "code": "000090",
+      "name": "天健集团",
+      "score": 0.61
+    },
+    {
+      "code": "000028",
+      "name": "国药一致",
+      "score": 0.606
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.586
+    },
+    {
+      "code": "000042",
+      "name": "中洲控股",
+      "score": 0.554
+    },
+    {
+      "code": "000403",
+      "name": "派林生物",
+      "score": 0.554
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.55
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.5
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 11,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
