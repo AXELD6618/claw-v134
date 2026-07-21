@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-21T14:20:02.376530",
+  "date": "20260721",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.734
+    },
+    {
+      "code": "000100",
+      "name": "TCL科技",
+      "score": 0.714
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.69
+    },
+    {
+      "code": "000060",
+      "name": "中金岭南",
+      "score": 0.586
+    },
+    {
+      "code": "000062",
+      "name": "深圳华强",
+      "score": 0.586
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.546
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.546
+    },
+    {
+      "code": "000012",
+      "name": "南  玻Ａ",
+      "score": 0.544
+    },
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.54
+    },
+    {
+      "code": "000063",
+      "name": "中兴通讯",
+      "score": 0.514
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 20,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
