@@ -294,8 +294,23 @@
       "timestamp": "2026-07-20T09:43:45.003649",
       "signals": 7,
       "level": 1
+    },
+    {
+      "timestamp": "2026-07-21T09:12:50.465591",
+      "signals": 20,
+      "level": 1
+    },
+    {
+      "timestamp": "2026-07-21T09:13:05.689422",
+      "signals": 20,
+      "level": 1
+    },
+    {
+      "timestamp": "2026-07-21T09:13:25.810711",
+      "signals": 20,
+      "level": 1
     }
   ],
-  "total_signals": 565,
+  "total_signals": 625,
   "degradation_level": 0
 }
