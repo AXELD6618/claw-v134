@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-07-22T14:20:44.506035",
+  "date": "20260722",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.822
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.78
+    },
+    {
+      "code": "000063",
+      "name": "中兴通讯",
+      "score": 0.734
+    },
+    {
+      "code": "000408",
+      "name": "藏格矿业",
+      "score": 0.674
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.626
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.524
+    },
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "score": 0.522
+    },
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.472
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 8,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
