@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-23T14:29:38.122764",
+  "date": "20260723",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000422",
+      "name": "湖北宜化",
+      "score": 0.788
+    },
+    {
+      "code": "000400",
+      "name": "许继电气",
+      "score": 0.742
+    },
+    {
+      "code": "000068",
+      "name": "华控赛格",
+      "score": 0.674
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "score": 0.618
+    },
+    {
+      "code": "000151",
+      "name": "中成股份",
+      "score": 0.574
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.57
+    },
+    {
+      "code": "000407",
+      "name": "胜利股份",
+      "score": 0.554
+    },
+    {
+      "code": "000420",
+      "name": "吉林化纤",
+      "score": 0.524
+    },
+    {
+      "code": "000035",
+      "name": "中国天楹",
+      "score": 0.516
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.516
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 20,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
