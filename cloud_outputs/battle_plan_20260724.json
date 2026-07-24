@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-07-24T15:12:30.471491",
+  "date": "20260724",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.7
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.622
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.586
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.52
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.474
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 5,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
