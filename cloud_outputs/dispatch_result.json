@@ -1,10 +1,8 @@
 {
-  "timestamp": "2026-07-24T07:57:54.841468",
+  "timestamp": "2026-07-24T10:20:27.396753",
   "steps_dispatched": [
-    "T0",
-    "T3",
-    "T5"
+    "T0"
   ],
-  "success_count": 3,
+  "success_count": 1,
   "failed_count": 0
 }
