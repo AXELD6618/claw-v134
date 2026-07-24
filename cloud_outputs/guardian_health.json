@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-24T02:28:14.350686",
+  "timestamp": "2026-07-24T04:13:21.381030",
   "status": "DEGRADED",
   "checks": {
     "T0": "stale",
@@ -47,8 +47,11 @@
       "last_run": "2026-07-23T15:53:05.863713"
     }
   ],
-  "self_healing_dispatched": [],
-  "disk_free_gb": 87.1,
+  "self_healing_dispatched": [
+    "T0",
+    "T1"
+  ],
+  "disk_free_gb": 86.8,
   "network": "OK",
   "completion_pct": 0,
   "total_steps": 7,
