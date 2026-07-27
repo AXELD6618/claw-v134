@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-27T13:21:40.802039",
+  "timestamp": "2026-07-27T15:58:15.533507",
   "status": "OK",
   "checks": {
     "T0": "stale",
@@ -8,18 +8,13 @@
     "T4": "ok_today",
     "T5": "ok_today",
     "NIGHT": "ok_today",
-    "BATTLE": "stale"
+    "BATTLE": "ok_today"
   },
   "stale_steps": [
     {
       "step": "T0",
       "reason": "not_from_today",
       "last_run": "2026-07-23T05:40:02.600049"
-    },
-    {
-      "step": "BATTLE",
-      "reason": "not_from_today",
-      "last_run": "2026-07-24T15:23:32.661106"
     }
   ],
   "self_healing_dispatched": [
@@ -27,9 +22,9 @@
   ],
   "disk_free_gb": 87.1,
   "network": "OK",
-  "completion_pct": 71,
+  "completion_pct": 86,
   "total_steps": 7,
-  "ok_today_count": 5,
-  "stale_count": 2,
+  "ok_today_count": 6,
+  "stale_count": 1,
   "is_trading_day": true
 }
