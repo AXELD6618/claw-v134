@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-27T15:23:11.159610",
+  "date": "20260727",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.71
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.69
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.654
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.586
+    },
+    {
+      "code": "000049",
+      "name": "德赛电池",
+      "score": 0.58
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.574
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.566
+    },
+    {
+      "code": "000155",
+      "name": "川能动力",
+      "score": 0.566
+    },
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.554
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.534
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 19,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
