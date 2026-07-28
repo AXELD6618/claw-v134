@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-07-28T14:40:20.542107",
+  "date": "20260728",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000155",
+      "name": "川能动力",
+      "score": 0.586
+    },
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.56
+    },
+    {
+      "code": "000045",
+      "name": "深纺织Ａ",
+      "score": 0.55
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.53
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.482
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 5,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
