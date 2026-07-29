@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-29T15:48:24.637931",
+  "date": "20260729",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000029",
+      "name": "深深房Ａ",
+      "score": 0.786
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "score": 0.706
+    },
+    {
+      "code": "000415",
+      "name": "渤海租赁",
+      "score": 0.706
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.662
+    },
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.626
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.58
+    },
+    {
+      "code": "000050",
+      "name": "深天马Ａ",
+      "score": 0.58
+    },
+    {
+      "code": "000058",
+      "name": "深 赛 格",
+      "score": 0.58
+    },
+    {
+      "code": "000035",
+      "name": "中国天楹",
+      "score": 0.574
+    },
+    {
+      "code": "000009",
+      "name": "中国宝安",
+      "score": 0.554
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 20,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
