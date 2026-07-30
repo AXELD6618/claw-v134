@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-07-30T15:50:28.255346",
+  "date": "20260730",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.526
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.516
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.51
+    },
+    {
+      "code": "000058",
+      "name": "深 赛 格",
+      "score": 0.5
+    },
+    {
+      "code": "000009",
+      "name": "中国宝安",
+      "score": 0.48
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.47
+    },
+    {
+      "code": "000088",
+      "name": "盐 田 港",
+      "score": 0.46
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 7,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
