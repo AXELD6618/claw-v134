@@ -1,14 +1,9 @@
 {
-  "timestamp": "2026-07-31T12:25:24.608570",
+  "timestamp": "2026-07-31T14:57:05.416836",
   "steps_to_dispatch": [
-    "NIGHT"
+    "BATTLE"
   ],
   "reason": [
-    {
-      "step": "NIGHT",
-      "reason": "not_from_today",
-      "last_run": "2026-07-30T13:22:08.051166"
-    },
     {
       "step": "BATTLE",
       "reason": "not_from_today",
