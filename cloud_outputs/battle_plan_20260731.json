@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-07-31T16:00:36.895042",
+  "date": "20260731",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.798
+    },
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.766
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.616
+    },
+    {
+      "code": "000009",
+      "name": "中国宝安",
+      "score": 0.612
+    },
+    {
+      "code": "000409",
+      "name": "云鼎科技",
+      "score": 0.58
+    },
+    {
+      "code": "000062",
+      "name": "深圳华强",
+      "score": 0.576
+    },
+    {
+      "code": "000415",
+      "name": "渤海租赁",
+      "score": 0.556
+    },
+    {
+      "code": "000029",
+      "name": "深深房Ａ",
+      "score": 0.554
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.532
+    },
+    {
+      "code": "000156",
+      "name": "华数传媒",
+      "score": 0.52
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 18,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
