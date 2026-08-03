@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-03T16:21:10.725138",
+  "date": "20260803",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000159",
+      "name": "国际实业",
+      "score": 0.936
+    },
+    {
+      "code": "000058",
+      "name": "深 赛 格",
+      "score": 0.786
+    },
+    {
+      "code": "000068",
+      "name": "华控赛格",
+      "score": 0.674
+    },
+    {
+      "code": "000151",
+      "name": "中成股份",
+      "score": 0.646
+    },
+    {
+      "code": "000400",
+      "name": "许继电气",
+      "score": 0.592
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.586
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.586
+    },
+    {
+      "code": "000407",
+      "name": "胜利股份",
+      "score": 0.58
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.534
+    },
+    {
+      "code": "000036",
+      "name": "华联控股",
+      "score": 0.524
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 20,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
