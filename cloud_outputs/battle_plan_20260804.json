@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-08-04T16:10:06.175304",
+  "date": "20260804",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.722
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.69
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.654
+    },
+    {
+      "code": "000029",
+      "name": "深深房Ａ",
+      "score": 0.618
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.596
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.592
+    },
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.562
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.536
+    },
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "score": 0.48
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 9,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
