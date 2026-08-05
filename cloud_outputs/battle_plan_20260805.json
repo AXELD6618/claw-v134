@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-05T16:00:11.627197",
+  "date": "20260805",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.802
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.746
+    },
+    {
+      "code": "000060",
+      "name": "中金岭南",
+      "score": 0.734
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.726
+    },
+    {
+      "code": "000408",
+      "name": "藏格矿业",
+      "score": 0.674
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.654
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.622
+    },
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.61
+    },
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.53
+    },
+    {
+      "code": "000035",
+      "name": "中国天楹",
+      "score": 0.494
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 14,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
