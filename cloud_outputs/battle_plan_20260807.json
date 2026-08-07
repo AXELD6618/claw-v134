@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-08-07T14:50:47.152059",
+  "date": "20260807",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000009",
+      "name": "中国宝安",
+      "score": 0.64
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.566
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.566
+    },
+    {
+      "code": "000060",
+      "name": "中金岭南",
+      "score": 0.536
+    },
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.51
+    },
+    {
+      "code": "000036",
+      "name": "华联控股",
+      "score": 0.474
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.454
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 7,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
