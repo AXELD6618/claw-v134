@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-10T14:54:40.411456",
+  "date": "20260810",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.734
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "score": 0.706
+    },
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.692
+    },
+    {
+      "code": "000338",
+      "name": "潍柴动力",
+      "score": 0.618
+    },
+    {
+      "code": "000422",
+      "name": "湖北宜化",
+      "score": 0.616
+    },
+    {
+      "code": "000090",
+      "name": "天健集团",
+      "score": 0.61
+    },
+    {
+      "code": "000404",
+      "name": "长虹华意",
+      "score": 0.61
+    },
+    {
+      "code": "000410",
+      "name": "沈阳机床",
+      "score": 0.61
+    },
+    {
+      "code": "000055",
+      "name": "方大集团",
+      "score": 0.58
+    },
+    {
+      "code": "000419",
+      "name": "通程控股",
+      "score": 0.58
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 17,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
