@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-08-11T14:54:35.679687",
+  "date": "20260811",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.732
+    },
+    {
+      "code": "000410",
+      "name": "沈阳机床",
+      "score": 0.722
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "score": 0.648
+    },
+    {
+      "code": "000042",
+      "name": "中洲控股",
+      "score": 0.63
+    },
+    {
+      "code": "000028",
+      "name": "国药一致",
+      "score": 0.546
+    },
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.536
+    },
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.53
+    },
+    {
+      "code": "000100",
+      "name": "TCL科技",
+      "score": 0.53
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.468
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 9,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
