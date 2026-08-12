@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-12T14:52:55.735267",
+  "date": "20260812",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000096",
+      "name": "广聚能源",
+      "score": 0.902
+    },
+    {
+      "code": "000042",
+      "name": "中洲控股",
+      "score": 0.686
+    },
+    {
+      "code": "000402",
+      "name": "金 融 街",
+      "score": 0.666
+    },
+    {
+      "code": "000063",
+      "name": "中兴通讯",
+      "score": 0.646
+    },
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.626
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.596
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.574
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.556
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.524
+    },
+    {
+      "code": "000031",
+      "name": "大悦城",
+      "score": 0.524
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 12,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
