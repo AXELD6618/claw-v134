@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-08-13T14:53:37.966411",
+  "date": "20260813",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "score": 0.634
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.572
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.566
+    },
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.546
+    },
+    {
+      "code": "000404",
+      "name": "长虹华意",
+      "score": 0.528
+    },
+    {
+      "code": "000410",
+      "name": "沈阳机床",
+      "score": 0.492
+    },
+    {
+      "code": "000403",
+      "name": "派林生物",
+      "score": 0.464
+    },
+    {
+      "code": "000100",
+      "name": "TCL科技",
+      "score": 0.454
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.45
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 9,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
