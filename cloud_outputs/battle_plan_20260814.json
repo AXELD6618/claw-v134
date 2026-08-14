@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-08-14T14:46:56.229328",
+  "date": "20260814",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.77
+    },
+    {
+      "code": "000403",
+      "name": "派林生物",
+      "score": 0.492
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.462
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 3,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
