@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-17T14:23:23.643442",
+  "date": "20260817",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.858
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.746
+    },
+    {
+      "code": "000049",
+      "name": "德赛电池",
+      "score": 0.702
+    },
+    {
+      "code": "000068",
+      "name": "华控赛格",
+      "score": 0.63
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.61
+    },
+    {
+      "code": "000061",
+      "name": "农 产 品",
+      "score": 0.554
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.516
+    },
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.494
+    },
+    {
+      "code": "000036",
+      "name": "华联控股",
+      "score": 0.492
+    },
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.474
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 11,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
