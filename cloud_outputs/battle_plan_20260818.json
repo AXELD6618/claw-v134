@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-18T14:06:49.310301",
+  "date": "20260818",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.848
+    },
+    {
+      "code": "000061",
+      "name": "农 产 品",
+      "score": 0.742
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.65
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "score": 0.594
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.526
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.51
+    },
+    {
+      "code": "000049",
+      "name": "德赛电池",
+      "score": 0.498
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.492
+    },
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "score": 0.462
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.46
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 10,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
