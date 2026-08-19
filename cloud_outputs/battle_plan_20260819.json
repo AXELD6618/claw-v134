@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-08-19T14:07:27.763123",
+  "date": "20260819",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.762
+    },
+    {
+      "code": "000407",
+      "name": "胜利股份",
+      "score": 0.752
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.72
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.626
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.582
+    },
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.566
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.556
+    },
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.472
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 8,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
