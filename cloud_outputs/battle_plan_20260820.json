@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-20T14:19:31.961566",
+  "date": "20260820",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000421",
+      "name": "南京公用",
+      "score": 0.932
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.626
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.602
+    },
+    {
+      "code": "000031",
+      "name": "大悦城",
+      "score": 0.574
+    },
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.552
+    },
+    {
+      "code": "000403",
+      "name": "派林生物",
+      "score": 0.524
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.506
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.498
+    },
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.496
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.494
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 12,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
