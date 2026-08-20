@@ -639,8 +639,23 @@
       "timestamp": "2026-08-19T07:22:33.360701",
       "signals": 8,
       "level": 1
+    },
+    {
+      "timestamp": "2026-08-20T07:24:28.928152",
+      "signals": 12,
+      "level": 1
+    },
+    {
+      "timestamp": "2026-08-20T07:24:44.561614",
+      "signals": 12,
+      "level": 1
+    },
+    {
+      "timestamp": "2026-08-20T07:25:03.932820",
+      "signals": 12,
+      "level": 1
     }
   ],
-  "total_signals": 1384,
+  "total_signals": 1420,
   "degradation_level": 0
 }
