@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-08-21T14:31:20.933042",
+  "date": "20260821",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.72
+    },
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.682
+    },
+    {
+      "code": "000008",
+      "name": "神州高铁",
+      "score": 0.586
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.57
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.552
+    },
+    {
+      "code": "000155",
+      "name": "川能动力",
+      "score": 0.53
+    },
+    {
+      "code": "000421",
+      "name": "南京公用",
+      "score": 0.498
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 7,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
