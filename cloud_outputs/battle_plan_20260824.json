@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-08-24T14:37:47.754294",
+  "date": "20260824",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.726
+    },
+    {
+      "code": "000065",
+      "name": "北方国际",
+      "score": 0.626
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.5
+    },
+    {
+      "code": "000045",
+      "name": "深纺织Ａ",
+      "score": 0.5
+    },
+    {
+      "code": "000089",
+      "name": "深圳机场",
+      "score": 0.46
+    },
+    {
+      "code": "000042",
+      "name": "中洲控股",
+      "score": 0.456
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 6,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
