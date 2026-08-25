@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-25T14:41:19.661054",
+  "date": "20260825",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000061",
+      "name": "农 产 品",
+      "score": 0.71
+    },
+    {
+      "code": "000403",
+      "name": "派林生物",
+      "score": 0.698
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.65
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.65
+    },
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.63
+    },
+    {
+      "code": "000153",
+      "name": "丰原药业",
+      "score": 0.59
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.574
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.57
+    },
+    {
+      "code": "000065",
+      "name": "北方国际",
+      "score": 0.568
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.53
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 18,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
