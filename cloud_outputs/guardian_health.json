@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-26T16:44:11.368245",
+  "timestamp": "2026-08-26T18:26:57.560255",
   "status": "OK",
   "checks": {
     "T0": "ok_today",
@@ -12,7 +12,7 @@
   },
   "stale_steps": [],
   "self_healing_dispatched": [],
-  "disk_free_gb": 86.3,
+  "disk_free_gb": 86.1,
   "network": "OK",
   "completion_pct": 100,
   "total_steps": 7,
