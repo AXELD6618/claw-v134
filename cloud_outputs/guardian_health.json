@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-28T04:21:26.632504",
-  "status": "DEGRADED",
+  "timestamp": "2026-08-28T12:30:40.995147",
+  "status": "CRITICAL",
   "checks": {
     "T0": "stale",
     "T1": "stale",
@@ -49,9 +49,13 @@
   ],
   "self_healing_dispatched": [
     "T0",
-    "T1"
+    "T1",
+    "T3",
+    "T4",
+    "T5",
+    "NIGHT"
   ],
-  "disk_free_gb": 86.3,
+  "disk_free_gb": 86.0,
   "network": "OK",
   "completion_pct": 0,
   "total_steps": 7,
