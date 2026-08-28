@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-28T23:22:40.402849",
+  "date": "20260828",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.762
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.654
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.64
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.632
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.602
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.592
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.57
+    },
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.556
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.554
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.534
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 16,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
