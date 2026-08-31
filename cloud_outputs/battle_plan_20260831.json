@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-08-31T19:49:29.330858",
+  "date": "20260831",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.836
+    },
+    {
+      "code": "000402",
+      "name": "金 融 街",
+      "score": 0.752
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.556
+    },
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.554
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.492
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.488
+    },
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.482
+    },
+    {
+      "code": "000062",
+      "name": "深圳华强",
+      "score": 0.474
+    },
+    {
+      "code": "000156",
+      "name": "华数传媒",
+      "score": 0.464
+    },
+    {
+      "code": "000029",
+      "name": "深深房Ａ",
+      "score": 0.456
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 12,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
