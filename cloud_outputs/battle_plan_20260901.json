@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-09-01T17:34:05.822505",
+  "date": "20260901",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000409",
+      "name": "云鼎科技",
+      "score": 0.842
+    },
+    {
+      "code": "000061",
+      "name": "农 产 品",
+      "score": 0.766
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.758
+    },
+    {
+      "code": "000059",
+      "name": "华锦股份",
+      "score": 0.706
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.676
+    },
+    {
+      "code": "000411",
+      "name": "英特集团",
+      "score": 0.636
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.626
+    },
+    {
+      "code": "000031",
+      "name": "大悦城",
+      "score": 0.61
+    },
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.602
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.574
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 13,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
