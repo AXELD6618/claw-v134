@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-01T06:01:33.509025",
+  "timestamp": "2026-09-01T06:02:29.496881",
   "status": "DEGRADED",
   "checks": {
     "T0": "stale",
@@ -51,7 +51,7 @@
     "T0",
     "T1"
   ],
-  "disk_free_gb": 85.1,
+  "disk_free_gb": 85.4,
   "network": "OK",
   "completion_pct": 0,
   "total_steps": 7,
