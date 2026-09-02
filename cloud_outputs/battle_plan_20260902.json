@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-09-02T17:35:01.058786",
+  "date": "20260902",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.548
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.528
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.45
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 3,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
