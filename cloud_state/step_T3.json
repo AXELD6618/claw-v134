@@ -1,1 +1,1 @@
-{"step": "T3", "timestamp": "2026-09-02T10:56:42.468266", "data": {"candidates": 2, "avg_pct": -7.23, "top5": [{"code": "000011", "name": "深物业A", "score": 6, "pct": -5.13}, {"code": "000019", "name": "深粮控股", "score": 6, "pct": -9.34}]}}
+{"step": "T3", "timestamp": "2026-09-03T10:55:48.468099", "data": {"candidates": 3, "avg_pct": 4.54, "top5": [{"code": "000070", "name": "特发信息", "score": 7, "pct": 4.76}, {"code": "000417", "name": "合百集团", "score": 7, "pct": 2.21}, {"code": "000301", "name": "东方盛虹", "score": 5, "pct": 6.66}]}}
