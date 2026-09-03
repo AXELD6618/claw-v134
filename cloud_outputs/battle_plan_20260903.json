@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-09-03T17:29:42.004302",
+  "date": "20260903",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.678
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.67
+    },
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.65
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 3,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
