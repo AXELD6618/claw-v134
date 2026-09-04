@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-09-04T17:21:11.801008",
+  "date": "20260904",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000420",
+      "name": "吉林化纤",
+      "score": 0.738
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.712
+    },
+    {
+      "code": "000400",
+      "name": "许继电气",
+      "score": 0.682
+    },
+    {
+      "code": "000058",
+      "name": "深 赛 格",
+      "score": 0.666
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "score": 0.65
+    },
+    {
+      "code": "000031",
+      "name": "大悦城",
+      "score": 0.554
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.546
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.514
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.5
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 9,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
