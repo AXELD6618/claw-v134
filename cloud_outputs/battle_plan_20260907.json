@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-09-07T18:34:57.919005",
+  "date": "20260907",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.768
+    },
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.696
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.626
+    },
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "score": 0.622
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.564
+    },
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.528
+    },
+    {
+      "code": "000035",
+      "name": "中国天楹",
+      "score": 0.464
+    },
+    {
+      "code": "000068",
+      "name": "华控赛格",
+      "score": 0.464
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 8,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
