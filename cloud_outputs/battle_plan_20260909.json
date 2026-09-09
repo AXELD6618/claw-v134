@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-09-09T16:36:11.844028",
+  "date": "20260909",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.806
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.57
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.54
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.53
+    },
+    {
+      "code": "000088",
+      "name": "盐 田 港",
+      "score": 0.496
+    },
+    {
+      "code": "000061",
+      "name": "农 产 品",
+      "score": 0.474
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 6,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
