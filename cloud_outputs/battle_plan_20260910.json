@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-09-10T16:10:11.845791",
+  "date": "20260910",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.726
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "score": 0.704
+    },
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.506
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.496
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.496
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 5,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
