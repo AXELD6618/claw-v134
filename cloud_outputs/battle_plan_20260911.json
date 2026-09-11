@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-09-11T16:06:00.139541",
+  "date": "20260911",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.766
+    },
+    {
+      "code": "000151",
+      "name": "中成股份",
+      "score": 0.742
+    },
+    {
+      "code": "000012",
+      "name": "南  玻Ａ",
+      "score": 0.556
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.552
+    },
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.528
+    },
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.472
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 6,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
