@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-09-14T19:00:14.478190",
+  "date": "20260914",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.626
+    },
+    {
+      "code": "000068",
+      "name": "华控赛格",
+      "score": 0.55
+    },
+    {
+      "code": "000030",
+      "name": "富奥股份",
+      "score": 0.52
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 3,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
