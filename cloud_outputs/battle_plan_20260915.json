@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-09-15T17:54:48.222481",
+  "date": "20260915",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000037",
+      "name": "深南电A",
+      "score": 0.762
+    },
+    {
+      "code": "000409",
+      "name": "云鼎科技",
+      "score": 0.626
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.53
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.454
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 4,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
