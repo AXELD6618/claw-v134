@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-09-17T17:16:06.310680",
+  "date": "20260917",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.71
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.67
+    },
+    {
+      "code": "000055",
+      "name": "方大集团",
+      "score": 0.602
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.534
+    },
+    {
+      "code": "000410",
+      "name": "沈阳机床",
+      "score": 0.464
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 5,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
