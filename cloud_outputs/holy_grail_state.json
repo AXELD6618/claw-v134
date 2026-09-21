@@ -984,8 +984,23 @@
       "timestamp": "2026-09-18T11:41:50.971635",
       "signals": 17,
       "level": 1
+    },
+    {
+      "timestamp": "2026-09-21T13:14:05.439475",
+      "signals": 20,
+      "level": 1
+    },
+    {
+      "timestamp": "2026-09-21T13:14:26.405330",
+      "signals": 20,
+      "level": 1
+    },
+    {
+      "timestamp": "2026-09-21T13:14:51.464885",
+      "signals": 20,
+      "level": 1
     }
   ],
-  "total_signals": 2023,
+  "total_signals": 2083,
   "degradation_level": 0
 }
