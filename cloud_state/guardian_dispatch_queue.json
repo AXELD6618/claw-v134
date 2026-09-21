@@ -1,20 +1,11 @@
 {
-  "timestamp": "2026-09-21T05:55:37.454206",
+  "timestamp": "2026-09-21T08:46:54.576560",
   "steps_to_dispatch": [
-    "T0",
-    "T1"
+    "T3",
+    "T4",
+    "T5"
   ],
   "reason": [
-    {
-      "step": "T0",
-      "reason": "not_from_today",
-      "last_run": "2026-09-18T07:35:07.583936"
-    },
-    {
-      "step": "T1",
-      "reason": "not_from_today",
-      "last_run": "2026-09-18T08:23:55.961155"
-    },
     {
       "step": "T3",
       "reason": "not_from_today",
