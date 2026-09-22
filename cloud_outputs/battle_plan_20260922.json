@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-09-22T17:54:47.795575",
+  "date": "20260922",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "score": 0.902
+    },
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.826
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.758
+    },
+    {
+      "code": "000029",
+      "name": "深深房Ａ",
+      "score": 0.726
+    },
+    {
+      "code": "000402",
+      "name": "金 融 街",
+      "score": 0.598
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.59
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.556
+    },
+    {
+      "code": "000156",
+      "name": "华数传媒",
+      "score": 0.556
+    },
+    {
+      "code": "000031",
+      "name": "大悦城",
+      "score": 0.53
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.496
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 12,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
