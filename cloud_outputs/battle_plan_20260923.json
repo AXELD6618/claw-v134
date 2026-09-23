@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-09-23T18:13:53.663839",
+  "date": "20260923",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.608
+    },
+    {
+      "code": "000401",
+      "name": "金隅冀东",
+      "score": 0.586
+    },
+    {
+      "code": "000036",
+      "name": "华联控股",
+      "score": 0.562
+    },
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "score": 0.498
+    },
+    {
+      "code": "000042",
+      "name": "中洲控股",
+      "score": 0.496
+    },
+    {
+      "code": "000055",
+      "name": "方大集团",
+      "score": 0.454
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 6,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
