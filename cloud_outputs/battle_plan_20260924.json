@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-09-24T18:08:50.420516",
+  "date": "20260924",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000411",
+      "name": "英特集团",
+      "score": 0.806
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.678
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.622
+    },
+    {
+      "code": "000151",
+      "name": "中成股份",
+      "score": 0.506
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 4,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
