@@ -1,25 +1,9 @@
 {
-  "timestamp": "2026-09-25T11:14:22.433327",
+  "timestamp": "2026-09-25T15:34:05.879793",
   "steps_to_dispatch": [
-    "T4",
-    "T5"
+    "BATTLE"
   ],
   "reason": [
-    {
-      "step": "T4",
-      "reason": "not_from_today",
-      "last_run": "2026-09-24T11:40:14.512445"
-    },
-    {
-      "step": "T5",
-      "reason": "not_from_today",
-      "last_run": "2026-09-24T12:07:44.539414"
-    },
-    {
-      "step": "NIGHT",
-      "reason": "not_from_today",
-      "last_run": "2026-09-24T16:01:13.654149"
-    },
     {
       "step": "BATTLE",
       "reason": "not_from_today",
