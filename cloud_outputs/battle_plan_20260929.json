@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-09-29T19:05:56.240706",
+  "date": "20260929",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.732
+    },
+    {
+      "code": "000031",
+      "name": "大悦城",
+      "score": 0.698
+    },
+    {
+      "code": "000069",
+      "name": "华侨城Ａ",
+      "score": 0.674
+    },
+    {
+      "code": "000006",
+      "name": "深振业Ａ",
+      "score": 0.636
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.626
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.616
+    },
+    {
+      "code": "000402",
+      "name": "金 融 街",
+      "score": 0.59
+    },
+    {
+      "code": "000034",
+      "name": "神州数码",
+      "score": 0.586
+    },
+    {
+      "code": "000025",
+      "name": "特  力Ａ",
+      "score": 0.52
+    },
+    {
+      "code": "000058",
+      "name": "深 赛 格",
+      "score": 0.52
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 14,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
