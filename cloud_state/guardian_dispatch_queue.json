@@ -1,13 +1,47 @@
 {
-  "timestamp": "2026-10-01T18:29:51.440729",
+  "timestamp": "2026-10-02T06:42:56.771878",
   "steps_to_dispatch": [
-    "BATTLE"
+    "T0",
+    "T1",
+    "T3",
+    "T4",
+    "T5"
   ],
   "reason": [
     {
+      "step": "T0",
+      "reason": "not_from_today",
+      "last_run": "2026-10-01T09:20:27.126081"
+    },
+    {
+      "step": "T1",
+      "reason": "not_from_today",
+      "last_run": "2026-10-01T10:20:13.179263"
+    },
+    {
+      "step": "T3",
+      "reason": "not_from_today",
+      "last_run": "2026-10-01T12:46:32.390929"
+    },
+    {
+      "step": "T4",
+      "reason": "not_from_today",
+      "last_run": "2026-10-01T13:06:25.012053"
+    },
+    {
+      "step": "T5",
+      "reason": "not_from_today",
+      "last_run": "2026-10-01T13:48:20.308519"
+    },
+    {
+      "step": "NIGHT",
+      "reason": "not_from_today",
+      "last_run": "2026-10-01T17:36:47.833186"
+    },
+    {
       "step": "BATTLE",
       "reason": "not_from_today",
-      "last_run": "2026-09-30T18:48:39.664579"
+      "last_run": "2026-10-01T19:14:55.953357"
     }
   ]
 }
