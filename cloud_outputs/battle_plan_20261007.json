@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-10-07T19:42:33.535841",
+  "date": "20261007",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.702
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.66
+    },
+    {
+      "code": "000002",
+      "name": "万  科Ａ",
+      "score": 0.642
+    },
+    {
+      "code": "000036",
+      "name": "华联控股",
+      "score": 0.626
+    },
+    {
+      "code": "000068",
+      "name": "华控赛格",
+      "score": 0.602
+    },
+    {
+      "code": "000090",
+      "name": "天健集团",
+      "score": 0.532
+    },
+    {
+      "code": "000402",
+      "name": "金 融 街",
+      "score": 0.532
+    },
+    {
+      "code": "000042",
+      "name": "中洲控股",
+      "score": 0.53
+    },
+    {
+      "code": "000061",
+      "name": "农 产 品",
+      "score": 0.524
+    },
+    {
+      "code": "000403",
+      "name": "派林生物",
+      "score": 0.524
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 16,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
