@@ -1,36 +1,16 @@
 {
-  "timestamp": "2026-10-07T09:02:59.573497",
-  "status": "DEGRADED",
+  "timestamp": "2026-10-07T14:13:17.405112",
+  "status": "OK",
   "checks": {
     "T0": "ok_today",
-    "T1": "stale",
-    "T3": "stale",
-    "T4": "stale",
-    "T5": "stale",
+    "T1": "ok_today",
+    "T3": "ok_today",
+    "T4": "ok_today",
+    "T5": "ok_today",
     "NIGHT": "stale",
     "BATTLE": "stale"
   },
   "stale_steps": [
-    {
-      "step": "T1",
-      "reason": "not_from_today",
-      "last_run": "2026-10-06T10:36:17.366171"
-    },
-    {
-      "step": "T3",
-      "reason": "not_from_today",
-      "last_run": "2026-10-06T13:03:24.786366"
-    },
-    {
-      "step": "T4",
-      "reason": "not_from_today",
-      "last_run": "2026-10-06T13:14:56.847822"
-    },
-    {
-      "step": "T5",
-      "reason": "not_from_today",
-      "last_run": "2026-10-06T13:33:28.015078"
-    },
     {
       "step": "NIGHT",
       "reason": "not_from_today",
@@ -43,16 +23,14 @@
     }
   ],
   "self_healing_dispatched": [
-    "T1",
-    "T3",
-    "T4",
-    "T5"
+    "NIGHT",
+    "BATTLE"
   ],
-  "disk_free_gb": 86.0,
+  "disk_free_gb": 85.5,
   "network": "OK",
-  "completion_pct": 14,
+  "completion_pct": 71,
   "total_steps": 7,
-  "ok_today_count": 1,
-  "stale_count": 6,
+  "ok_today_count": 5,
+  "stale_count": 2,
   "is_trading_day": true
 }
