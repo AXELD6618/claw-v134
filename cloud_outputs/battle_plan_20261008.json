@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-10-08T19:39:03.453183",
+  "date": "20261008",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000301",
+      "name": "东方盛虹",
+      "score": 0.662
+    },
+    {
+      "code": "000158",
+      "name": "常山北明",
+      "score": 0.642
+    },
+    {
+      "code": "000014",
+      "name": "沙河股份",
+      "score": 0.59
+    },
+    {
+      "code": "000096",
+      "name": "广聚能源",
+      "score": 0.576
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.556
+    },
+    {
+      "code": "000035",
+      "name": "中国天楹",
+      "score": 0.55
+    },
+    {
+      "code": "000058",
+      "name": "深 赛 格",
+      "score": 0.53
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.52
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.46
+    },
+    {
+      "code": "000088",
+      "name": "盐 田 港",
+      "score": 0.46
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 10,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
