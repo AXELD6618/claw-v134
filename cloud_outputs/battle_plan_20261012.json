@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-10-12T21:57:53.711538",
+  "date": "20261012",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000420",
+      "name": "吉林化纤",
+      "score": 0.666
+    },
+    {
+      "code": "000415",
+      "name": "渤海租赁",
+      "score": 0.612
+    },
+    {
+      "code": "000099",
+      "name": "中信海直",
+      "score": 0.576
+    },
+    {
+      "code": "000007",
+      "name": "全新好",
+      "score": 0.566
+    },
+    {
+      "code": "000028",
+      "name": "国药一致",
+      "score": 0.46
+    },
+    {
+      "code": "000156",
+      "name": "华数传媒",
+      "score": 0.46
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 6,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
