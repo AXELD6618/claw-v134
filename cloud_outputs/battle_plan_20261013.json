@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-10-13T20:03:23.250458",
+  "date": "20261013",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.696
+    },
+    {
+      "code": "000019",
+      "name": "深粮控股",
+      "score": 0.566
+    },
+    {
+      "code": "000099",
+      "name": "中信海直",
+      "score": 0.556
+    },
+    {
+      "code": "000402",
+      "name": "金 融 街",
+      "score": 0.53
+    },
+    {
+      "code": "000417",
+      "name": "合百集团",
+      "score": 0.53
+    },
+    {
+      "code": "000017",
+      "name": "深中华A",
+      "score": 0.514
+    },
+    {
+      "code": "000070",
+      "name": "特发信息",
+      "score": 0.474
+    },
+    {
+      "code": "000026",
+      "name": "飞亚达",
+      "score": 0.474
+    },
+    {
+      "code": "000409",
+      "name": "云鼎科技",
+      "score": 0.464
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 9,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
