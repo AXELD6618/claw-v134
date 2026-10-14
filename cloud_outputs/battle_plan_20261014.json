@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-10-14T18:17:22.813706",
+  "date": "20261014",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000099",
+      "name": "中信海直",
+      "score": 0.642
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.572
+    },
+    {
+      "code": "000039",
+      "name": "中集集团",
+      "score": 0.5
+    },
+    {
+      "code": "000156",
+      "name": "华数传媒",
+      "score": 0.5
+    },
+    {
+      "code": "000028",
+      "name": "国药一致",
+      "score": 0.48
+    },
+    {
+      "code": "000048",
+      "name": "京基智农",
+      "score": 0.474
+    },
+    {
+      "code": "000404",
+      "name": "长虹华意",
+      "score": 0.46
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 7,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
