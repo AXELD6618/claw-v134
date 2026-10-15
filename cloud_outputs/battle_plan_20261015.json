@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-10-15T17:59:28.778474",
+  "date": "20261015",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000400",
+      "name": "许继电气",
+      "score": 0.582
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.45
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 2,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
