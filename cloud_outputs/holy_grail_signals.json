@@ -1,38 +1,37 @@
 {
-  "timestamp": "2026-10-14T12:17:13.761389",
-  "date": "20261014",
+  "timestamp": "2026-10-15T11:59:04.661604",
+  "date": "20261015",
   "degradation_level": 1,
-  "total_signals": 7,
+  "total_signals": 2,
   "signals": [
     {
-      "code": "000099",
-      "full_code": "sz000099",
-      "name": "中信海直",
-      "price": 13.58,
-      "pct_chg": 2.03,
-      "change": 0.27,
-      "volume": 233572.0,
-      "amount": 318595061.66,
-      "amplitude": 7.96,
-      "turnover": 3.01,
-      "pe": 42.03,
-      "volume_ratio": 2.57,
-      "high": 14.16,
-      "low": 13.1,
-      "open": 13.3,
-      "prev_close": 13.31,
-      "total_mv": 10534958460.0,
-      "float_mv": 10534958460.0,
-      "pb": 1.9,
-      "cloud_score": 7,
+      "code": "000400",
+      "full_code": "sz000400",
+      "name": "许继电气",
+      "price": 21.88,
+      "pct_chg": 2.87,
+      "change": 0.61,
+      "volume": 246970.0,
+      "amount": 535078219.74,
+      "amplitude": 5.31,
+      "turnover": 2.43,
+      "pe": 26.79,
+      "volume_ratio": 2.01,
+      "high": 22.0,
+      "low": 20.87,
+      "open": 21.02,
+      "prev_close": 21.27,
+      "total_mv": 22286054269.0,
+      "float_mv": 22209635525.0,
+      "pb": 1.83,
+      "cloud_score": 5,
       "cloud_signals": [
         "MOMENTUM_WEAK",
-        "TURNOVER_OK",
         "VOL_BOOM",
-        "CAP_SWEET",
+        "CAP_OK",
         "AMPLITUDE_ACTIVE"
       ],
-      "hg_score": 0.642,
+      "hg_score": 0.582,
       "hg_factors": {
         "f1_momentum": {
           "score": 0.5,
@@ -45,8 +44,8 @@
           "weight": 0.18
         },
         "f3_turnover": {
-          "score": 0.5,
-          "label": "TURNOVER_OK",
+          "score": 0.2,
+          "label": "TURNOVER_LOW",
           "weight": 0.12
         },
         "f4_sector_strength": {
@@ -55,8 +54,8 @@
           "weight": 0.1
         },
         "f5_market_cap": {
-          "score": 1.0,
-          "label": "CAP_SWEET",
+          "score": 0.7,
+          "label": "CAP_OK",
           "weight": 0.08
         },
         "f6_amplitude": {
@@ -77,7 +76,7 @@
       },
       "hg_signals": [
         "VOL_SURGE_GOOD",
-        "CAP_SWEET",
+        "CAP_OK",
         "AMP_ACTIVE",
         "VR_HIGH"
       ]
@@ -86,331 +85,34 @@
       "code": "000032",
       "full_code": "sz000032",
       "name": "深桑达Ａ",
-      "price": 12.62,
-      "pct_chg": 2.85,
-      "change": 0.35,
-      "volume": 583111.0,
-      "amount": 744774386.74,
-      "amplitude": 10.02,
-      "turnover": 4.8,
-      "pe": -36.79,
-      "volume_ratio": 2.22,
-      "high": 13.38,
-      "low": 12.15,
-      "open": 12.24,
-      "prev_close": 12.27,
-      "total_mv": 15335562905.0,
-      "float_mv": 15335562905.0,
-      "pb": 2.12,
-      "cloud_score": 7,
+      "price": 12.69,
+      "pct_chg": 0.55,
+      "change": 0.07,
+      "volume": 500469.0,
+      "amount": 639720576.93,
+      "amplitude": 6.18,
+      "turnover": 4.12,
+      "pe": -37.0,
+      "volume_ratio": 1.49,
+      "high": 13.13,
+      "low": 12.35,
+      "open": 12.35,
+      "prev_close": 12.62,
+      "total_mv": 15420625457.0,
+      "float_mv": 15420625457.0,
+      "pb": 2.13,
+      "cloud_score": 5,
       "cloud_signals": [
-        "MOMENTUM_WEAK",
         "TURNOVER_OK",
-        "VOL_BOOM",
+        "VOL_EXPAND",
         "CAP_SWEET",
         "AMPLITUDE_ACTIVE"
       ],
-      "hg_score": 0.572,
+      "hg_score": 0.45,
       "hg_factors": {
         "f1_momentum": {
-          "score": 0.5,
-          "label": "WEAK_MOMENTUM",
-          "weight": 0.2
-        },
-        "f2_volume_surge": {
-          "score": 0.7,
-          "label": "VOL_SURGE_GOOD",
-          "weight": 0.18
-        },
-        "f3_turnover": {
-          "score": 0.5,
-          "label": "TURNOVER_OK",
-          "weight": 0.12
-        },
-        "f4_sector_strength": {
-          "score": 0.6,
-          "label": "SECTOR_PROXY_OK",
-          "weight": 0.1
-        },
-        "f5_market_cap": {
-          "score": 1.0,
-          "label": "CAP_SWEET",
-          "weight": 0.08
-        },
-        "f6_amplitude": {
-          "score": 0.3,
-          "label": "AMP_LOW",
-          "weight": 0.1
-        },
-        "f7_limit_proximity": {
-          "score": 0.3,
-          "label": "FAR_FROM_LIMIT",
-          "weight": 0.12
-        },
-        "f8_volume_ratio": {
-          "score": 0.8,
-          "label": "VR_HIGH",
-          "weight": 0.1
-        }
-      },
-      "hg_signals": [
-        "VOL_SURGE_GOOD",
-        "CAP_SWEET",
-        "VR_HIGH"
-      ]
-    },
-    {
-      "code": "000039",
-      "full_code": "sz000039",
-      "name": "中集集团",
-      "price": 8.4,
-      "pct_chg": 1.82,
-      "change": 0.15,
-      "volume": 332649.0,
-      "amount": 279394736.51,
-      "amplitude": 3.52,
-      "turnover": 1.45,
-      "pe": 30.63,
-      "volume_ratio": 1.52,
-      "high": 8.55,
-      "low": 8.26,
-      "open": 8.27,
-      "prev_close": 8.25,
-      "total_mv": 45297171234.0,
-      "float_mv": 19331819984.0,
-      "pb": 0.99,
-      "cloud_score": 4,
-      "cloud_signals": [
-        "MOMENTUM_WEAK",
-        "VOL_EXPAND",
-        "CAP_SWEET"
-      ],
-      "hg_score": 0.5,
-      "hg_factors": {
-        "f1_momentum": {
-          "score": 0.5,
-          "label": "WEAK_MOMENTUM",
-          "weight": 0.2
-        },
-        "f2_volume_surge": {
-          "score": 0.5,
-          "label": "VOL_SURGE_OK",
-          "weight": 0.18
-        },
-        "f3_turnover": {
           "score": 0.2,
-          "label": "TURNOVER_LOW",
-          "weight": 0.12
-        },
-        "f4_sector_strength": {
-          "score": 0.4,
-          "label": "SECTOR_PROXY_WEAK",
-          "weight": 0.1
-        },
-        "f5_market_cap": {
-          "score": 1.0,
-          "label": "CAP_SWEET",
-          "weight": 0.08
-        },
-        "f6_amplitude": {
-          "score": 0.7,
-          "label": "AMP_MODERATE",
-          "weight": 0.1
-        },
-        "f7_limit_proximity": {
-          "score": 0.3,
-          "label": "FAR_FROM_LIMIT",
-          "weight": 0.12
-        },
-        "f8_volume_ratio": {
-          "score": 0.6,
-          "label": "VR_ELEVATED",
-          "weight": 0.1
-        }
-      },
-      "hg_signals": [
-        "CAP_SWEET",
-        "AMP_MODERATE"
-      ]
-    },
-    {
-      "code": "000156",
-      "full_code": "sz000156",
-      "name": "华数传媒",
-      "price": 7.44,
-      "pct_chg": 1.5,
-      "change": 0.11,
-      "volume": 232141.0,
-      "amount": 172635330.84,
-      "amplitude": 4.37,
-      "turnover": 1.37,
-      "pe": 32.8,
-      "volume_ratio": 1.58,
-      "high": 7.54,
-      "low": 7.22,
-      "open": 7.3,
-      "prev_close": 7.33,
-      "total_mv": 13785817368.0,
-      "float_mv": 12647076525.0,
-      "pb": 0.94,
-      "cloud_score": 4,
-      "cloud_signals": [
-        "MOMENTUM_WEAK",
-        "VOL_EXPAND",
-        "CAP_SWEET"
-      ],
-      "hg_score": 0.5,
-      "hg_factors": {
-        "f1_momentum": {
-          "score": 0.5,
-          "label": "WEAK_MOMENTUM",
-          "weight": 0.2
-        },
-        "f2_volume_surge": {
-          "score": 0.5,
-          "label": "VOL_SURGE_OK",
-          "weight": 0.18
-        },
-        "f3_turnover": {
-          "score": 0.2,
-          "label": "TURNOVER_LOW",
-          "weight": 0.12
-        },
-        "f4_sector_strength": {
-          "score": 0.4,
-          "label": "SECTOR_PROXY_WEAK",
-          "weight": 0.1
-        },
-        "f5_market_cap": {
-          "score": 1.0,
-          "label": "CAP_SWEET",
-          "weight": 0.08
-        },
-        "f6_amplitude": {
-          "score": 0.7,
-          "label": "AMP_MODERATE",
-          "weight": 0.1
-        },
-        "f7_limit_proximity": {
-          "score": 0.3,
-          "label": "FAR_FROM_LIMIT",
-          "weight": 0.12
-        },
-        "f8_volume_ratio": {
-          "score": 0.6,
-          "label": "VR_ELEVATED",
-          "weight": 0.1
-        }
-      },
-      "hg_signals": [
-        "CAP_SWEET",
-        "AMP_MODERATE"
-      ]
-    },
-    {
-      "code": "000028",
-      "full_code": "sz000028",
-      "name": "国药一致",
-      "price": 20.55,
-      "pct_chg": 2.04,
-      "change": 0.41,
-      "volume": 41697.0,
-      "amount": 85466550.13,
-      "amplitude": 2.58,
-      "turnover": 0.79,
-      "pe": 10.38,
-      "volume_ratio": 1.51,
-      "high": 20.62,
-      "low": 20.1,
-      "open": 20.16,
-      "prev_close": 20.14,
-      "total_mv": 12581153551.0,
-      "float_mv": 10806404135.0,
-      "pb": 0.67,
-      "cloud_score": 4,
-      "cloud_signals": [
-        "MOMENTUM_WEAK",
-        "VOL_EXPAND",
-        "CAP_SWEET"
-      ],
-      "hg_score": 0.48,
-      "hg_factors": {
-        "f1_momentum": {
-          "score": 0.5,
-          "label": "WEAK_MOMENTUM",
-          "weight": 0.2
-        },
-        "f2_volume_surge": {
-          "score": 0.5,
-          "label": "VOL_SURGE_OK",
-          "weight": 0.18
-        },
-        "f3_turnover": {
-          "score": 0.2,
-          "label": "TURNOVER_LOW",
-          "weight": 0.12
-        },
-        "f4_sector_strength": {
-          "score": 0.6,
-          "label": "SECTOR_PROXY_OK",
-          "weight": 0.1
-        },
-        "f5_market_cap": {
-          "score": 1.0,
-          "label": "CAP_SWEET",
-          "weight": 0.08
-        },
-        "f6_amplitude": {
-          "score": 0.3,
-          "label": "AMP_LOW",
-          "weight": 0.1
-        },
-        "f7_limit_proximity": {
-          "score": 0.3,
-          "label": "FAR_FROM_LIMIT",
-          "weight": 0.12
-        },
-        "f8_volume_ratio": {
-          "score": 0.6,
-          "label": "VR_ELEVATED",
-          "weight": 0.1
-        }
-      },
-      "hg_signals": [
-        "CAP_SWEET"
-      ]
-    },
-    {
-      "code": "000048",
-      "full_code": "sz000048",
-      "name": "京基智农",
-      "price": 18.4,
-      "pct_chg": 1.04,
-      "change": 0.19,
-      "volume": 143922.0,
-      "amount": 262863107.62,
-      "amplitude": 6.81,
-      "turnover": 2.72,
-      "pe": -9.97,
-      "volume_ratio": 1.12,
-      "high": 18.75,
-      "low": 17.51,
-      "open": 18.06,
-      "prev_close": 18.21,
-      "total_mv": 9755730600.0,
-      "float_mv": 9739170600.0,
-      "pb": 2.8,
-      "cloud_score": 4,
-      "cloud_signals": [
-        "MOMENTUM_WEAK",
-        "CAP_SWEET",
-        "AMPLITUDE_ACTIVE"
-      ],
-      "hg_score": 0.474,
-      "hg_factors": {
-        "f1_momentum": {
-          "score": 0.5,
-          "label": "WEAK_MOMENTUM",
+          "label": "FLAT",
           "weight": 0.2
         },
         "f2_volume_surge": {
@@ -419,8 +121,8 @@
           "weight": 0.18
         },
         "f3_turnover": {
-          "score": 0.2,
-          "label": "TURNOVER_LOW",
+          "score": 0.5,
+          "label": "TURNOVER_OK",
           "weight": 0.12
         },
         "f4_sector_strength": {
@@ -453,80 +155,7 @@
         "CAP_SWEET",
         "AMP_ACTIVE"
       ]
-    },
-    {
-      "code": "000404",
-      "full_code": "sz000404",
-      "name": "长虹华意",
-      "price": 6.94,
-      "pct_chg": 1.02,
-      "change": 0.07,
-      "volume": 77638.0,
-      "amount": 53838628.25,
-      "amplitude": 1.75,
-      "turnover": 1.12,
-      "pe": 9.64,
-      "volume_ratio": 1.59,
-      "high": 6.97,
-      "low": 6.85,
-      "open": 6.87,
-      "prev_close": 6.87,
-      "total_mv": 4830212094.0,
-      "float_mv": 4809315622.0,
-      "pb": 1.13,
-      "cloud_score": 4,
-      "cloud_signals": [
-        "MOMENTUM_WEAK",
-        "VOL_EXPAND",
-        "CAP_SWEET"
-      ],
-      "hg_score": 0.46,
-      "hg_factors": {
-        "f1_momentum": {
-          "score": 0.5,
-          "label": "WEAK_MOMENTUM",
-          "weight": 0.2
-        },
-        "f2_volume_surge": {
-          "score": 0.5,
-          "label": "VOL_SURGE_OK",
-          "weight": 0.18
-        },
-        "f3_turnover": {
-          "score": 0.2,
-          "label": "TURNOVER_LOW",
-          "weight": 0.12
-        },
-        "f4_sector_strength": {
-          "score": 0.4,
-          "label": "SECTOR_PROXY_WEAK",
-          "weight": 0.1
-        },
-        "f5_market_cap": {
-          "score": 1.0,
-          "label": "CAP_SWEET",
-          "weight": 0.08
-        },
-        "f6_amplitude": {
-          "score": 0.3,
-          "label": "AMP_LOW",
-          "weight": 0.1
-        },
-        "f7_limit_proximity": {
-          "score": 0.3,
-          "label": "FAR_FROM_LIMIT",
-          "weight": 0.12
-        },
-        "f8_volume_ratio": {
-          "score": 0.6,
-          "label": "VR_ELEVATED",
-          "weight": 0.1
-        }
-      },
-      "hg_signals": [
-        "CAP_SWEET"
-      ]
     }
   ],
-  "checksum": "9092b45867f051cf7788d30827f0c234"
+  "checksum": "aa87c46a96c37838c4e37f0a7f008de8"
 }
