@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-10-16T17:47:34.316743",
+  "date": "20261016",
+  "tomorrow_outlook": {},
+  "watchlist": [
+    {
+      "code": "000090",
+      "name": "天健集团",
+      "score": 0.842
+    },
+    {
+      "code": "000011",
+      "name": "深物业A",
+      "score": 0.77
+    },
+    {
+      "code": "000030",
+      "name": "富奥股份",
+      "score": 0.686
+    },
+    {
+      "code": "000099",
+      "name": "中信海直",
+      "score": 0.622
+    },
+    {
+      "code": "000401",
+      "name": "金隅冀东",
+      "score": 0.58
+    },
+    {
+      "code": "000020",
+      "name": "深华发Ａ",
+      "score": 0.57
+    },
+    {
+      "code": "000058",
+      "name": "深 赛 格",
+      "score": 0.554
+    },
+    {
+      "code": "000032",
+      "name": "深桑达Ａ",
+      "score": 0.53
+    },
+    {
+      "code": "000096",
+      "name": "广聚能源",
+      "score": 0.52
+    },
+    {
+      "code": "000031",
+      "name": "大悦城",
+      "score": 0.494
+    }
+  ],
+  "war_chest_allocation": {},
+  "holy_grail_count": 14,
+  "T0_status": "completed",
+  "T1_status": "completed",
+  "T3_status": "completed",
+  "T4_status": "completed",
+  "T5_status": "completed",
+  "NIGHT_status": "completed"
+}
