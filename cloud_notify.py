@@ -265,6 +265,21 @@ def format_t4_notification_plain(data: Dict) -> str:
 
 def format_t5_notification_plain(data: Dict) -> str:
     """T5 圣杯选股结果推送（纯文本）。"""
+    # 诚实重建铁律：无验证edge时，推送"在线+空仓"提示，绝不列买入信号
+    if data.get("honest_empty") or data.get("edge_status") in ("NO_VALIDATED_EDGE", "CORE_MODEL_MISSING"):
+        run_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        cs = data.get("edge_status", data.get("core_status", "NO_VALIDATED_EDGE"))
+        return "\n".join([
+            f"{ICON} ⚡ 圣杯选股结果 ⚡",
+            "=" * 40,
+            f"时间：{run_time}",
+            "",
+            "⚠️ 诚实重建提示",
+            "-" * 40,
+            f"当前系统无任何因子经样本外(OOS)验证 PROMOTE（core_status={cs}）。",
+            "按铁律不推送任何『买入信号』——本推送仅确认系统在线 + 今日空仓。",
+            "真实可部署edge仍在累积（Live监督样本+OOS门控），未达阈值前不发车。",
+        ])
     signals = data.get("signals", data.get("list", []))
     run_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
@@ -444,6 +459,18 @@ def format_t4_notification_html(data: Dict) -> str:
 def format_t5_notification_html(data: Dict) -> str:
     """T5 圣杯选股结果推送（HTML）。"""
     try:
+        # 诚实重建铁律：无验证edge时，推送"在线+空仓"提示，绝不列买入信号
+        if data.get("honest_empty") or data.get("edge_status") in ("NO_VALIDATED_EDGE", "CORE_MODEL_MISSING"):
+            run_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            cs = data.get("edge_status", data.get("core_status", "NO_VALIDATED_EDGE"))
+            return (
+                f"<h2>{ICON} ⚡ 圣杯选股结果 ⚡</h2>"
+                f"<p><b>时间：</b>{run_time}</p><hr/>"
+                f"<p style='color:#e67e22'>⚠️ <b>诚实重建提示</b></p>"
+                f"<p>当前系统无任何因子经样本外(OOS)验证 PROMOTE（core_status={cs}）。</p>"
+                f"<p>按铁律不推送任何『买入信号』——本推送仅确认系统在线 + 今日空仓。</p>"
+                f"<p style='color:#888;font-size:11px'>真实可部署edge仍在累积（Live监督样本+OOS门控），未达阈值前不发车。</p>"
+            )
         signals = data.get("signals", data.get("list", []))
         run_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
