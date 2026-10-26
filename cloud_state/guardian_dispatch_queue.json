@@ -1,9 +1,10 @@
 {
-  "timestamp": "2026-10-26T08:25:39.963731",
+  "timestamp": "2026-10-26T12:18:56.121016",
   "steps_to_dispatch": [
     "T3",
     "T4",
-    "T5"
+    "T5",
+    "NIGHT"
   ],
   "reason": [
     {
