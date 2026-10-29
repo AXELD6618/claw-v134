@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-29T13:57:00.502374",
+  "timestamp": "2026-10-29T14:15:03.761469",
   "status": "OK",
   "checks": {
     "T0": "ok_today",
@@ -23,9 +23,10 @@
     }
   ],
   "self_healing_dispatched": [
-    "NIGHT"
+    "NIGHT",
+    "BATTLE"
   ],
-  "disk_free_gb": 85.1,
+  "disk_free_gb": 85.5,
   "network": "OK",
   "completion_pct": 71,
   "total_steps": 7,

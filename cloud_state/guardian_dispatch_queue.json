@@ -1,7 +1,8 @@
 {
-  "timestamp": "2026-10-29T13:57:01.822830",
+  "timestamp": "2026-10-29T14:15:05.100361",
   "steps_to_dispatch": [
-    "NIGHT"
+    "NIGHT",
+    "BATTLE"
   ],
   "reason": [
     {
