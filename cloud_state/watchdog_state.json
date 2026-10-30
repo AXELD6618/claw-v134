@@ -27,7 +27,7 @@
     "T5": {
       "consecutive_failures": 0,
       "last_failure": "2026-10-16T11:49:38.798628",
-      "last_success": "2026-10-29T13:35:11.348513",
+      "last_success": "2026-10-30T13:24:37.258365",
       "last_error": "object of type 'int' has no len()",
       "last_status": "ok"
     },
