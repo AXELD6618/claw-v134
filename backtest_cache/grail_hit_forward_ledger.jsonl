@@ -1,0 +1,3 @@
+{"symbol": "301327", "T_date": 20261106, "category": "MAJOR_ASSET", "expected_lift": 0.0, "verdict_ref": "PROMOTE_GRAIL", "emitted_at": "2026-11-08T19:59:54", "status": "EMITTED", "label_status": "PENDING"}
+{"symbol": "002129", "T_date": 20261030, "category": "MAJOR_ASSET", "expected_lift": 0.0, "verdict_ref": "PROMOTE_GRAIL", "emitted_at": "2026-11-08T19:59:54", "status": "EMITTED", "label_status": "PENDING"}
+{"symbol": "001306", "T_date": 20261106, "category": "REFINANCE", "expected_lift": 0.0, "verdict_ref": "PROMOTE_GRAIL", "emitted_at": "2026-11-08T19:59:54", "status": "EMITTED", "label_status": "PENDING"}

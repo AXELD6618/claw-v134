@@ -35,6 +35,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cloud_outputs/ cloud_state/ cloud_cache/ 2>/dev/null || true
+          git add cloud_outputs/ cloud_state/ cloud_cache/ backtest_cache/grail_hit_forward_ledger.jsonl 2>/dev/null || true
           git commit -m "Auto: T5 Holy Grail Signals [skip ci]" 2>/dev/null || echo "No changes to commit"
           git push 2>/dev/null || echo "Push skipped"
