@@ -193,8 +193,19 @@ def label_record(rec, max_lookforward=3):
     return rec
 
 
-def label_all(path=LEDGER_PATH, max_lookforward=3):
-    """标注台账中所有尚未标注(LABELED/终态)的记录; 原地写回 path(append-only 精神: 仅补 label 字段)。"""
+def label_all(path=LEDGER_PATH, max_lookforward=3, auto_refresh=True):
+    """标注台账中所有尚未标注(LABELED/终态)的记录; 原地写回 path(append-only 精神: 仅补 label 字段)。
+
+    auto_refresh=True 时, 标注前先对台账标的做本地日线缓存自愈合(从 gtimg 增量追加最新交易日),
+    使前向闭环不依赖外部批次刷新节奏(label_record 只读本地缓存, 不直连行情源);
+    gtimg 不可达时优雅跳过, 不影响标注主流程。
+    """
+    if auto_refresh:
+        try:
+            ok, up, bad, refreshed = refresh_ledger_daily(path=path)
+            print(f"[refresh] 台账日线自愈合: 追加 {ok} 只, 已最新 {up} 只, 无新/失败 {bad} 只; 更新: {refreshed}")
+        except Exception as e:
+            print(f"[refresh] 自愈合异常(跳过, 不影响标注主流程): {e}")
     recs = _load_ledger(path)
     out = []
     changed = False
@@ -211,6 +222,78 @@ def label_all(path=LEDGER_PATH, max_lookforward=3):
         for rec in out:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     return out, changed
+
+
+# --------------------------------------------------------------------------- #
+# 台账标的日线缓存自愈合(前向闭环数据依赖修复)
+# --------------------------------------------------------------------------- #
+def refresh_ledger_daily(n=40, path=LEDGER_PATH):
+    """前向闭环数据自愈合: 对台账所有唯一代码, 从 gtimg 增量追加「严格晚于本地末日」的日线行到本地缓存。
+
+    背景: label_record 只读本地缓存(backtest_cache/daily, 不直连行情源); 本地缓存靠外部批次刷新,
+    但台账标的(尤其 T_date 最近的)在 T+1..T+3 交易日发生时尚无外部刷新 → 标注卡 PENDING、前向闭环停滞。
+    本函数在每次 label_all 前自愈合这些标的的本地缓存, 使闭环不依赖外部批次节奏。
+
+    纪律(不改变任何评估闸门/目标):
+      - gateless: 不做 refresh_daily_gtimg 的 0.5% 重叠校验门禁(该阈值会误杀 ~80% 代码);
+      - 仅追加严格晚于本地末日的行, 绝不改写已有行; 已有日期去重;
+      - 依赖 {code}.csv 已存在(不存在则跳过, 不污染);
+      - gtimg 不可达/无新数据时优雅跳过(bad++), 不影响标注主流程;
+      - 写后回读校验末日确实推进(防生产者自证)。
+
+    返回 (ok, up_to_date, bad, refreshed_codes)。
+    """
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT))
+    try:
+        import refresh_daily_gtimg as G
+    except Exception:
+        return (0, 0, 0, [])
+    recs = _load_ledger(path)
+    codes = sorted({str(r.get("symbol")).zfill(6) for r in recs if r.get("symbol")})
+    ok = up = bad = 0
+    refreshed = []
+    for code in codes:
+        p = DAILY / f"{code}.csv"
+        if not p.exists():
+            continue
+        local = G.read_tail(p, 6)
+        if not local:
+            continue
+        last_date = local[-1][0]
+        kl = G.fetch_kline(code, n=n)
+        if not kl:
+            bad += 1
+            continue
+        new = [r for r in kl if r[0] > last_date]
+        if not new:
+            up += 1
+            continue
+        # 末尾缺换行保护(同 refresh_daily_gtimg, 避免与前一行末字节粘连)
+        lead = ""
+        try:
+            with open(p, "rb") as fb:
+                fb.seek(0, 2)
+                sz = fb.tell()
+                if sz > 0:
+                    fb.seek(sz - 1)
+                    if fb.read(1) not in (b"\n", b"\r"):
+                        lead = "\n"
+        except Exception:
+            lead = ""
+        with open(p, "a", encoding="utf-8", newline="\n") as f:
+            if lead:
+                f.write(lead)
+            for d, o, c, h, l, v in new:
+                f.write(f"{d},{o:.6f},{c:.6f},{h:.6f},{l:.6f},{v:.2f}\n")
+        # 写后回读校验: 末日确实推进才计入 ok(防生产者自证)
+        chk = G.read_tail(p, 2)
+        if chk and chk[-1][0] > last_date:
+            ok += 1
+            refreshed.append(code)
+        else:
+            bad += 1
+    return (ok, up, bad, refreshed)
 
 
 # --------------------------------------------------------------------------- #
@@ -502,6 +585,8 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--emit", nargs=4, metavar=("SYM", "T", "CAT", "LIFT"), help="记录一次实推发射")
     ap.add_argument("--label-all", action="store_true")
+    ap.add_argument("--refresh-daily", action="store_true",
+                   help="仅自愈合台账标的本地日线缓存(gtimg 增量追加), 不标注")
     ap.add_argument("--evaluate", action="store_true")
     ap.add_argument("--simulate", type=int, help="历史回放验证 pivot 日期 YYYYMMDD")
     ap.add_argument("--simulate-resume", action="store_true",
@@ -518,6 +603,9 @@ if __name__ == "__main__":
     if a.label_all:
         _, ch = label_all()
         print("label_all done, changed:", ch)
+    if a.refresh_daily:
+        ok, up, bad, refreshed = refresh_ledger_daily()
+        print(f"[refresh] 追加 {ok} 只, 已最新 {up} 只, 无新/失败 {bad} 只; 更新: {refreshed}")
     if a.simulate:
         r = simulate_forward(a.simulate)
         print(json.dumps(r, ensure_ascii=False, indent=2, default=str))
