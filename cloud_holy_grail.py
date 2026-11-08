@@ -35,6 +35,11 @@ CACHE_DIR = CLOUD_ROOT / "cloud_cache"
 # 当 n_factors==0 (NO_VALIDATED_EDGE) 时引擎回退到 UNVALIDATED 手写基线。
 CORE_MODEL_FILE = CLOUD_ROOT / "core_factor_model.json"
 
+# SUPPLEMENTARY grail-hit 验证边产物（与 core_factor_model 严格分离）：
+# 仅记录经圣杯全口径闸门 (adjudicate_grail) PROMOTE_GRAIL 的 CAT_PROXIMITY 增强，
+# 作为"T日可买 + 邻近有效催化"的 grail_hit 重排序/候选层，绝不进入 buy_score / core_factor_model。
+SUPPLEMENTARY_MODEL_FILE = CLOUD_ROOT / "grail_hit_supplementary_model.json"
+
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -143,6 +148,24 @@ class HolyGrailEngine:
             + (f"; 未映射 {unmapped}" if unmapped else ""),
         )
 
+    def _init_supplementary(self) -> Tuple[str, Optional[Dict]]:
+        """加载 grail_hit SUPPLEMENTARY 验证边（CAT_PROXIMITY, adjudicate_grail PROMOTE_GRAIL）。
+
+        与 core_factor_model 严格分离：本文件只记录"经圣杯全口径闸门验证的 SUPPLEMENTARY
+        重排序/候选层"，绝不进入 buy_score / core_factor_model（n_factors 仍=0）。
+        仅当 verdict=="PROMOTE_GRAIL" 且 feature=="CAT_PROXIMITY"（与 oos_eval_harness.adjudicate_grail
+        同门、闸门一字未改）时，引擎才产出 SUPPLEMENTARY grail-hit 候选；否则返回 ("NONE", ...) 走既有诚实空仓逻辑。
+        """
+        if not SUPPLEMENTARY_MODEL_FILE.exists():
+            return ("NONE", None)
+        try:
+            model = json.loads(SUPPLEMENTARY_MODEL_FILE.read_text(encoding="utf-8"))
+        except Exception as e:
+            return ("MODEL_ERROR", {"error": str(e)})
+        if model.get("verdict") != "PROMOTE_GRAIL" or model.get("feature") != "CAT_PROXIMITY":
+            return ("NONE", model)  # 未通过圣杯全口径闸门 -> 不产出 SUPPLEMENTARY 信号
+        return ("VALIDATED_SUPPLEMENTARY_GRAIL", model)
+
     # Market cap sweet spot: small/mid cap A-shares (in RMB)
     CAP_SWEET_MIN = 5e8     # 5亿 (exclude micro-cap junk)
     CAP_SWEET_MAX = 2e10    # 200亿
@@ -155,6 +178,13 @@ class HolyGrailEngine:
         # Core 因子诚实重建：load core_factor_model.json（若 PROMOTE 全可映射到 _score_ 方法则用
         # 其数据驱动权重；否则回退到手写 FACTOR_WEIGHTS 作为 UNVALIDATED 研究基线）。
         self.active_weights, self.core_status, self.core_note = self._init_core_weights()
+        # SUPPLEMENTARY grail-hit 验证边（与 core 严格分离）
+        self.supplementary_status, self.supplementary_model = self._init_supplementary()
+        # 龙头/追高 讲座缺口修复(SUPPLEMENTARY 候选质量改进, 非 buy_score/core):
+        # 剔除弱势名(close<MA20 或 20日收益<0)。OOS 验证(grail_leader_strength): 弱势组
+        # grail_full 2.00% vs 强势 7.34%(lift 3.67×, z~2); 剔除后 resume PCV 0.53→0.77(过稳门)。
+        # 默认开; 闸门/GOALS/n_factors 全未动。
+        self.grail_strong_only = True
 
     def _load_state(self) -> Dict:
         if STATE_FILE.exists():
@@ -192,6 +222,15 @@ class HolyGrailEngine:
         dated = OUTPUT_DIR / f"holy_grail_{self.today}.json"
         with open(dated, "w") as f:
             json.dump(output, f, ensure_ascii=False, indent=2)
+
+        # 镜像到本地推送器读取路径 (data/pipeline/holy_grail_signals.json)，供 V13_4_HolyGrailPusher 消费
+        try:
+            pipeline_dir = CLOUD_ROOT / "data" / "pipeline"
+            pipeline_dir.mkdir(parents=True, exist_ok=True)
+            with open(pipeline_dir / "holy_grail_signals.json", "w") as f:
+                json.dump(output, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            print(f"[HG] ⚠️ pipeline 镜像失败(非致命): {e}")
 
     def load_candidates(self) -> List[Dict]:
         """Load candidate pool from previous pipeline steps."""
@@ -338,6 +377,18 @@ class HolyGrailEngine:
         else:
             return 0.2, "VR_LOW"
 
+    def _score_monitor_oversold_rebound(self, stock: Dict) -> Tuple[float, str]:
+        """深跌放量反弹型(OOS PROMOTE, 2026-10-28 注入, oos_factor_id=oversold_sig)。
+
+        事件型二元特征：stock 携带 oversold_signal=True 表示 T日深跌放量(收盘跌幅<=-4%
+        且 量比>=1.5)，由 discovery 层 p1_discovery.oversold 监测列表盖章传入候选池。
+        OOS 证明该事件 T+5 期望收益为正 edge(PF_t5=1.3826>随机真及格线1.259)、命中倍数>=1.15、
+        PF_vs_bottom>=1.30、t>=2.0、DSR>=0.95、WhiteRC p<0.10、二元方向正。
+        若候选未携带该特征(上游未盖章) → 0.0（不在本因子打分，避免误用其它字段）。"""
+        if stock.get("oversold_signal"):
+            return 1.0, "OVERSOLD_REBOUND"
+        return 0.0, "NO_OVERSOLD_SIG"
+
     def score_stock(self, stock: Dict) -> Dict:
         """Apply active factors and compute weighted score."""
         scores = {}
@@ -429,6 +480,165 @@ class HolyGrailEngine:
             "message": "No data available at this time. System will retry next cycle.",
         }]
 
+    def _mf_hold_at(self, code, t_date, tau=0.30):
+        """MF_HOLD_τ 主力持仓量代理 @ T_date (DISPLAY 解释层, 见 research/chip_position.py)。
+
+        用户 lecture 测算手法: "获利 τ% 仍不肯卖的筹码≈主力仓位"。本函数取 T_date 当日
+        MF_HOLD_τ 值(成本≤close/(1+τ) 的滚动成本占比)，并映射控盘等级。
+        失败一律返回 (None, None)，绝不阻断信号产出。
+        """
+        try:
+            from research import chip_position as CP
+            d = CP.load_daily(str(code).zfill(6))
+            if d is None:
+                return None, None
+            series = CP.mf_hold_series(d["close"], d["low"], d["high"], d["vol"],
+                                       window=250, tau=tau)
+            tdate = int(t_date)
+            idx = None
+            for i, dt in enumerate(d["date"]):
+                if int(str(dt).replace("-", "").replace("/", "")) == tdate:
+                    idx = i
+                    break
+            if idx is None or idx >= len(series) or series[idx] is None:
+                return None, None
+            val = float(series[idx])
+            if val < 0.30:
+                ctrl = "弱控盘"
+            elif val < 0.50:
+                ctrl = "中控盘"
+            elif val < 0.70:
+                ctrl = "高控盘"
+            else:
+                ctrl = "极高控盘"
+            return val, ctrl
+        except Exception:
+            return None, None
+
+    def _trend_strength_at(self, code, t_date):
+        """趋势强度 @ T_date（DISPLAY 解释层，呼应"最大的风险是做弱势/只做龙头"讲座）。
+
+        返回 dict: {ret20, ma_ratio, is_weak, label} 或 None。
+        label: 强势平台(close≥MA20 且 20日收益≥0) / 弱势(close<MA20 或 20日收益<0) / 中性。
+        失败静默返回 None，绝不阻断信号产出。
+        """
+        try:
+            import numpy as np
+            from research import chip_position as CP
+            d = CP.load_daily(str(code).zfill(6))
+            if d is None:
+                return None
+            dates = d["date"]; close = d["close"]
+            idx = None
+            for i, dt in enumerate(dates):
+                if int(str(dt).replace("-", "").replace("/", "")) == int(t_date):
+                    idx = i
+                    break
+            if idx is None or idx < 20:
+                return None
+            ma20 = float(np.mean(close[idx - 19: idx + 1]))
+            price = float(close[idx]); ret20 = price / close[idx - 20] - 1.0
+            ma_ratio = price / ma20 - 1.0
+            is_weak = (price < ma20) or (ret20 < 0)
+            if (price > ma20) and (ret20 > 0):
+                label = "强势平台"
+            elif is_weak:
+                label = "弱势"
+            else:
+                label = "中性"
+            return {"ret20": round(float(ret20), 4), "ma_ratio": round(float(ma_ratio), 4),
+                    "is_weak": bool(is_weak), "label": label}
+        except Exception:
+            return None
+
+    def run_grail_hit_supplementary(self) -> Dict:
+        """SUPPLEMENTARY grail-hit 候选生成（CAT_PROXIMITY, 经 adjudicate_grail 验证）。
+
+        调用 research.grail_hit_selector.select_candidates()（消费 backtest_cache/daily +
+        catalyst_notices.jsonl）。产出"T日可买(非涨停/非跌停) + 邻近有效品类催化"的 grail_hit
+        候选（即核心目标买点 + 验证增益），标注 signal_type=GRAIL_HIT_SUPPLEMENTARY。
+        数据/依赖缺失时 available=False -> 调用方回退到既有诚实空仓逻辑（绝不伪造）。
+        """
+        try:
+            from research import grail_hit_selector as GHS
+            # 2026-11-08 阶段四：live 显式开启近期落地披露窗口(resume 子集, ±RECENT_DAYS日),
+            # 使"公开数据可达的滞后 drift"候选真正流入实盘(此前默认 recent_days=0 → 前沿恒 0 候选)。
+            # resume 子集 lift 未验证(expected_lift=None)，仍严格 SUPPLEMENTARY 解释层，不进 core/闸门。
+            res = GHS.select_candidates(K=10, recent_days=GHS.RECENT_DAYS)
+        except Exception as e:
+            print(f"[HG:SUP] grail_hit_selector 不可用(缺数据/依赖): {e}")
+            return {"signals": [], "available": False, "reason": f"unavailable: {e}"}
+        cands = res.get("top", [])
+        conf_map = (self.supplementary_model or {}).get("validated_confidence_map", {})
+        sigs = []
+        for c in cands:
+            cat = c.get("category")
+            conf = conf_map.get(cat, 0.70)
+            s = {
+                "code": c.get("symbol"),
+                "name": c.get("symbol"),
+                "hg_score": round(conf, 4),
+                "v132_score": conf,
+                "tier": "G1",
+                "pct_chg": round((c.get("ret_T") or 0) * 100, 2),
+                "change_pct": round((c.get("ret_T") or 0) * 100, 2),
+                "signal_type": "GRAIL_HIT_SUPPLEMENTARY",
+                "supplementary": True,
+                "verdict_ref": "PROMOTE_GRAIL",
+                "category": cat,
+                "expected_lift": c.get("expected_lift"),
+                "cat_timing": c.get("cat_timing"),
+                "days_to_D": c.get("days_to_D"),
+                "boost_tier": c.get("boost_tier"),
+                "near_high": c.get("near_high"),
+                "T_date": c.get("T_date"),
+            }
+            # === MF_HOLD 主力持仓量代理 · 推送卡"持仓量/分布风险"展示字段(DISPLAY 解释层) ===
+            # 用户 lecture: 获利τ%不抛筹码≈主力仓位。OOS 已判 DISPLAY(对圣杯2日续涨逆向,
+            # 仅分布风险视角), 绝不进 buy_score / core_factor_model。失败静默跳过, 不阻断信号。
+            mf_val, mf_ctrl = self._mf_hold_at(c.get("symbol"), c.get("T_date"))
+            if mf_val is not None:
+                s["mf_hold_30"] = round(mf_val, 4)
+                s["mf_hold_ctrl"] = mf_ctrl
+                s["mf_hold_interp"] = (
+                    f"分布风险视角[解释层·非买点]：获利≥30%仍持仓筹码占比{mf_val*100:.0f}%，"
+                    f"主力{mf_ctrl}；OOS 显示该指标与圣杯T+1→T+3续涨呈逆向，仅作持仓结构/派发风险参考"
+                )
+            # === 趋势强度/非弱势 展示字段(DISPLAY 解释层, 呼应"最大的风险是做弱势/只做龙头") ===
+            # OOS 验证: resume 子集 弱势名(close<MA20 或 20日收益<0) 显著拖累边缘
+            # (grail_full 2.00% vs 强势 7.34%, lift 3.67×, z~2); 剔除弱势后 PCV 0.53→0.77(过稳门)。
+            ts = self._trend_strength_at(c.get("symbol"), c.get("T_date"))
+            if ts is not None:
+                s["trend_strength"] = ts
+                s["trend_label"] = ts["label"]
+                s["is_weak"] = ts["is_weak"]
+            # === 龙头/追高 讲座缺口修复: 剔除弱势(最大的风险是做弱势) ===
+            # SUPPLEMENTARY 候选质量改进, 非 buy_score/core; 闸门/GOALS/n_factors 全未动。
+            # 仅影响 SUPPLEMENTARY 候选的入选与前向台账累积口径, 使 live 累积测量的是干净边缘。
+            if getattr(self, "grail_strong_only", True) and ts is not None and ts.get("is_weak"):
+                continue
+            sigs.append(s)
+        # === 前向 OOS 累积闭环(运行时自提升链路) ===
+        # 本函数为"真实 live 发射点": 把每个实推候选 append 到前向台账(force=True=权威发射),
+        # 待 T+3 收盘后由 nightly/次日核验步骤 label_all 标注, n>=200 后 evaluate 复核晋升。
+        # 回放/validate 路径不调用本函数, 故不会污染真实台账。失败绝不影响信号产出。
+        if sigs:
+            try:
+                from research import grail_hit_forward_oos as FWD
+                for s in sigs:
+                    FWD.emit(s["code"], s["T_date"], s["category"],
+                             s.get("expected_lift") or 0.0,
+                             verdict_ref="PROMOTE_GRAIL", force=True)
+            except Exception as e:
+                print(f"[HG:SUP] 前向台账 emit 失败(不影响信号): {e}")
+        return {
+            "signals": sigs,
+            "available": True,
+            "n_scanned": res.get("n_total_scanned"),
+            "n_candidates": res.get("n_candidates"),
+            "reason": "OK" if sigs else "no candidate today (sparse signal)",
+        }
+
     def execute(self) -> Dict:
         """Execute holy grail pipeline with 4-level degradation."""
         t0 = time.time()
@@ -436,6 +646,48 @@ class HolyGrailEngine:
         print(f"  V13.4 CLOUD HOLY GRAIL — {self.now}")
         print("=" * 60)
         print(f"  [CORE] status={self.core_status} | active_factors={len(self.active_weights)} | {self.core_note}")
+        print(f"  [SUP ] status={self.supplementary_status} | "
+              f"{('CAT_PROXIMITY PROMOTE_GRAIL' if self.supplementary_status=='VALIDATED_SUPPLEMENTARY_GRAIL' else '无验证 SUPPLEMENTARY 边')}")
+
+        # === SUPPLEMENTARY grail-hit 验证边（CAT_PROXIMITY, adjudicate_grail PROMOTE_GRAIL）===
+        # 与 core buy_score 严格分离：仅当存在经圣杯全口径闸门验证的 SUPPLEMENTARY 边时，
+        # 产出"T日可买 + 邻近有效催化"的 grail_hit 候选（核心目标买点 + 验证增益），绝不伪造。
+        if self.supplementary_status == "VALIDATED_SUPPLEMENTARY_GRAIL":
+            sup = self.run_grail_hit_supplementary()
+            sup_sigs = sup.get("signals", [])
+            if sup_sigs:
+                self._save_signals(sup_sigs, 1)
+                elapsed = time.time() - t0
+                print(f"\n[HG] ✅ SUPPLEMENTARY_GRAIL 候选 {len(sup_sigs)} 只 "
+                      f"(扫描{sup.get('n_scanned')} / 候选{sup.get('n_candidates')})")
+                return {
+                    "level": 1, "signals": sup_sigs, "signal_count": len(sup_sigs),
+                    "valid": True, "edge_status": self.supplementary_status,
+                    "supplementary": True, "honest_empty": False,
+                    "edge_note": "SUPPLEMENTARY grail-hit (CAT_PROXIMITY, adjudicate_grail PROMOTE_GRAIL) — 验证增益重排序层, 非核心买点模型",
+                    "core_status": self.supplementary_status,
+                    "core_note": "CAT_PROXIMITY 经 adjudicate_grail 验证(PROMOTE_GRAIL): lift 3.31 / 事件二项z 9.66 / PCV 0.80 / n 1091",
+                    "active_factors": list(self.active_weights.keys()),
+                    "elapsed": elapsed, "file": str(SIGNALS_FILE),
+                    "supplementary_model": self.supplementary_model,
+                }
+            elif sup.get("available"):
+                # SUPPLEMENTARY 边激活但今日无候选（稀疏信号）-> 诚实空仓, 标注清楚
+                self._save_signals([], 1)
+                elapsed = time.time() - t0
+                print(f"\n[HG] ⚠️ SUPPLEMENTARY_GRAIL 激活但今日无候选(稀疏信号) -> 空仓")
+                return {
+                    "level": 1, "signals": [], "signal_count": 0,
+                    "valid": True, "edge_status": self.supplementary_status,
+                    "supplementary": True, "honest_empty": True,
+                    "supplementary_no_signal": True,
+                    "edge_note": "SUPPLEMENTARY grail-hit 边已验证激活, 但今日无 T日可买+邻近有效催化候选 -> 诚实空仓",
+                    "core_status": self.supplementary_status,
+                    "core_note": sup.get("reason", ""),
+                    "active_factors": list(self.active_weights.keys()),
+                    "elapsed": elapsed, "file": str(SIGNALS_FILE),
+                }
+            # else: import/run 失败(数据缺失) -> 落到下方既有 HONEST_EMPTY 逻辑
 
         # === 诚实重建铁律（Task #94 / 用户指令）===
         # 无经 OOS 验证的可部署因子时，绝不把 UNVALIDATED 手写基线挑出的标的伪装成"买入信号"推送。
