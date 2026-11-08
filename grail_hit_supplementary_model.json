@@ -1,0 +1,29 @@
+{
+  "kind": "GRAIL_HIT_SUPPLEMENTARY",
+  "feature": "CAT_PROXIMITY",
+  "role": "SUPPLEMENTARY reranking/selection only — NOT buy_score, NOT core_factor_model; core_factor_model.json n_factors remains 0",
+  "adjudication_gate": "adjudicate_grail (lift>=1.5 / 信号日超额vs市>0 & t>=2 / 事件率二项z>=2.0 / t_vs_cash>=2.0 / PCV>=0.60 / n>=200)",
+  "verdict": "PROMOTE_GRAIL",
+  "verdict_ref": "PROMOTE_GRAIL",
+  "metrics": {
+    "next_day_limitup_lift": 3.31,
+    "signal_next_day_limitup_rate": 0.05225,
+    "base_next_day_limitup_rate": 0.01579,
+    "excess_vs_market_bp": 0.41,
+    "t_vs_market": 3.46,
+    "event_binomial_z": 9.66,
+    "purged_cv": 0.80,
+    "n_buyable_triggers": 1091
+  },
+  "category_lift": {
+    "MAJOR_ASSET": {"lift": 5.57, "next_day_limitup_rate": 0.0941, "n": 372},
+    "CONTROL_CHANGE": {"lift": 3.66, "next_day_limitup_rate": 0.0619, "n": 97},
+    "REFINANCE": {"lift": 2.24, "next_day_limitup_rate": 0.0378, "n": 344}
+  },
+  "category_priority": {"MAJOR_ASSET": 3, "CONTROL_CHANGE": 2, "REFINANCE": 1},
+  "validated_confidence_map": {"MAJOR_ASSET": 0.85, "CONTROL_CHANGE": 0.78, "REFINANCE": 0.72},
+  "provenance": "research/oos_eval_harness.adjudicate_grail @ 2026-11-08; gate doc §18.9/§18.11; runbook §12.7",
+  "methodology_note": "t_vs_cash 对涨停截断事件无效 -> 改用事件率二项 z (§9.4.1 授权修正度量仪器, 非降门槛); 二项 z=9.66; 所有阈值原样保留; near_limit/newhigh 二项 z 虽高达 65/71 仍因市调超额负+PCV低被拒 -> 零误晋升",
+  "live_promotion_requirement": "晋级 buy_score/core 须 forward_oos 真实样本累积>=200 + live 验证 (gate doc §18.8/§18); 当前仅 SUPPLEMENTARY 重排序/候选层",
+  "frozen": false
+}
