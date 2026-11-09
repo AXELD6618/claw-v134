@@ -639,6 +639,36 @@ class HolyGrailEngine:
             "reason": "OK" if sigs else "no candidate today (sparse signal)",
         }
 
+    # ── 市场宽度闸门(八条心法·规则1/5: 主升浪重仓 / 退潮立刻空仓) ───────────────
+    # 执行级保护叠加层(非模型特征, 不进 core_factor_model / n_factors); 仅当宽度证据
+    # *明确*显示退潮(涨停家数低于主升波阈值)时强制诚实空仓、抑制发射。
+    # 设计铁律: (a) 数据源不可达/空 -> fail-open(不抑制, 避免数据缺失误杀有效信号);
+    #           (b) 绝不降低任何评估门槛(lift/t_z/PCV/n 一字未改) — 只降误发射、提准确率。
+    # 依据: grail_hit 本质是"T+1 涨停事件"长偏多策略, 该事件强 regime 依赖; 普跌/退潮日
+    #       涨停概率坍塌, 盲目发射会系统性亏损。锚定老乐心法"每天涨停超过50家"为主升波阈值。
+    _REGIME_LIMIT_UP_MIN = 50
+
+    def _market_regime_ok(self):
+        """返回 (ok, reason)。ok=False => 退潮, 应强制空仓(抑制发射)。
+
+        信号源: cloud_data_fetcher.fetch_limit_up_pool(today) 涨停家数(专用涨停池, 非 top500 样本)。
+        退潮判定: 涨停家数 < _REGIME_LIMIT_UP_MIN。源缺失/空 -> (True, 'no_data_fail_open')。
+        """
+        try:
+            from cloud_data_fetcher import fetch_limit_up_pool
+            import datetime as _dt
+            today = _dt.date.today().strftime("%Y%m%d")
+            pool = fetch_limit_up_pool(date=today) or {}
+            ups = pool.get("limit_up") or []
+            if not ups:
+                return True, "no_data_fail_open"  # 源缺失 -> 不抑制(诚实交给既有逻辑)
+            n_up = len(ups)
+            if n_up < self._REGIME_LIMIT_UP_MIN:
+                return False, f"limit_up={n_up} < {self._REGIME_LIMIT_UP_MIN}(退潮/无主升波)"
+            return True, f"limit_up={n_up} >= {self._REGIME_LIMIT_UP_MIN}(主升波健康)"
+        except Exception as e:
+            return True, f"exception_fail_open:{e}"
+
     def execute(self) -> Dict:
         """Execute holy grail pipeline with 4-level degradation."""
         t0 = time.time()
@@ -653,6 +683,23 @@ class HolyGrailEngine:
         # 与 core buy_score 严格分离：仅当存在经圣杯全口径闸门验证的 SUPPLEMENTARY 边时，
         # 产出"T日可买 + 邻近有效催化"的 grail_hit 候选（核心目标买点 + 验证增益），绝不伪造。
         if self.supplementary_status == "VALIDATED_SUPPLEMENTARY_GRAIL":
+            # === 市场宽度闸门(规则1/5: 退潮立刻空仓) — 发射前强制校验 ===
+            regime_ok, regime_reason = self._market_regime_ok()
+            if not regime_ok:
+                self._save_signals([], 1)
+                elapsed = time.time() - t0
+                print(f"\n[HG] ⚠️ REGIME_RETREAT -> 诚实空仓(抑制发射): {regime_reason}")
+                return {
+                    "level": 1, "signals": [], "signal_count": 0,
+                    "valid": True, "edge_status": self.supplementary_status,
+                    "supplementary": True, "honest_empty": True, "regime_empty": True,
+                    "edge_note": f"市场退潮闸门触发(规则1/5): {regime_reason} -> 强制空仓, "
+                                 f"不发射 grail_hit 候选(绝不降低评估门槛 lift/t_z/PCV/n)",
+                    "core_status": self.supplementary_status,
+                    "core_note": regime_reason,
+                    "active_factors": list(self.active_weights.keys()),
+                    "elapsed": elapsed, "file": str(SIGNALS_FILE),
+                }
             sup = self.run_grail_hit_supplementary()
             sup_sigs = sup.get("signals", [])
             if sup_sigs:
