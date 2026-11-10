@@ -64,14 +64,18 @@ EM_INDEX_CODES = "1.000001,0.399001,0.399006,0.000300,0.000016,0.000688"
 # ═══════════════════════════════════════════════
 
 def _save_cache(name: str, data: Any):
-    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # 日级粒度时间戳: 每天仅一个历史文件。原 HHMMSS 粒度会在每次调用(如 autonomous_loop
+    # 每15分钟/交易时段持续抓快照)高频写入并删除旧文件 -> 长程运行累计删除触发环境批量删除
+    # 守卫(threshold=50)导致循环被终止；同时也会在数月内堆积成千上万快照文件。
+    # 改为日级后: 当日重复调用只覆盖同一历史文件 + 始终覆盖 _latest, 删除频率降至 ~10天/次。
+    ts = datetime.now().strftime("%Y%m%d")
     path = CACHE_DIR / f"{name}_{ts}.json"
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, default=str)
     latest = CACHE_DIR / f"{name}_latest.json"
     with open(latest, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, default=str)
-    # Keep only last 10 cache files per name
+    # 仅保留最近 10 天历史文件(日级粒度下删除频率极低, 不会触发环境批量删除守卫)
     caches = sorted(CACHE_DIR.glob(f"{name}_*.json"), reverse=True)
     for old in caches[10:]:
         old.unlink(missing_ok=True)
