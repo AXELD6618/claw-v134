@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-18T03:45:56.498901",
+  "timestamp": "2026-11-18T08:13:29.955710",
   "status": "DEGRADED",
   "checks": {
     "T0": "stale",
@@ -49,9 +49,12 @@
   ],
   "self_healing_dispatched": [
     "T0",
-    "T1"
+    "T1",
+    "T3",
+    "T4",
+    "T5"
   ],
-  "disk_free_gb": 87.1,
+  "disk_free_gb": 86.7,
   "network": "OK",
   "completion_pct": 0,
   "total_steps": 7,
